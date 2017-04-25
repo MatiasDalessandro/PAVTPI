@@ -137,14 +137,15 @@
     End Sub
 
     Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
-        txt_nombre_articulo.Enabled = False
         txt_precio.Enabled = False
+        txt_nombre_articulo.Enabled = False
         txt_nombre_articulo.Text = ""
         txt_precio.Text = ""
         txt_id_articulo.Text = ""
         Me.cargar_grilla()
         btn_eliminar.Enabled = False
         btn_guardar.Enabled = False
+        Me.txt_id_articulo.Enabled = True
     End Sub
 
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click

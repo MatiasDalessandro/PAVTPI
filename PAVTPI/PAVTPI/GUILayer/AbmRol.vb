@@ -52,6 +52,7 @@
         btn_eliminar.Enabled = False
         btn_guardar.Enabled = False
         Me.txt_id_rol.Text = ""
+        Me.txt_id_rol.Enabled = True
 
     End Sub
 
