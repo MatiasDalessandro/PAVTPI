@@ -157,8 +157,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="GUILayer\AbmArticulo.resx">
+      <DependentUpon>AbmArticulo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\AbmDependencia.resx">
       <DependentUpon>AbmDependencia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\AbmRol.resx">
+      <DependentUpon>AbmRol.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
