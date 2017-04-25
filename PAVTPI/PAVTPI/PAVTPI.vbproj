@@ -72,70 +72,71 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbmArticulo.Designer.vb">
+    <Compile Include="DATALayer\DBHelper\DBHelper.vb" />
+    <Compile Include="GUILayer\AbmArticulo.Designer.vb">
       <DependentUpon>AbmArticulo.vb</DependentUpon>
     </Compile>
-    <Compile Include="AbmArticulo.vb">
+    <Compile Include="GUILayer\AbmArticulo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmBarrio.Designer.vb">
+    <Compile Include="GUILayer\AbmBarrio.Designer.vb">
       <DependentUpon>AbmBarrio.vb</DependentUpon>
     </Compile>
-    <Compile Include="AbmBarrio.vb">
+    <Compile Include="GUILayer\AbmBarrio.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmCombo.Designer.vb">
+    <Compile Include="GUILayer\AbmCombo.Designer.vb">
       <DependentUpon>AbmCombo.vb</DependentUpon>
     </Compile>
-    <Compile Include="AbmCombo.vb">
+    <Compile Include="GUILayer\AbmCombo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmDependencia.Designer.vb">
+    <Compile Include="GUILayer\AbmDependencia.Designer.vb">
       <DependentUpon>AbmDependencia.vb</DependentUpon>
     </Compile>
-    <Compile Include="AbmDependencia.vb">
+    <Compile Include="GUILayer\AbmDependencia.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmEmpleado.Designer.vb">
+    <Compile Include="GUILayer\AbmEmpleado.Designer.vb">
       <DependentUpon>AbmEmpleado.vb</DependentUpon>
     </Compile>
-    <Compile Include="AbmEmpleado.vb">
+    <Compile Include="GUILayer\AbmEmpleado.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmLocalidad.Designer.vb">
+    <Compile Include="GUILayer\AbmLocalidad.Designer.vb">
       <DependentUpon>AbmLocalidad.vb</DependentUpon>
     </Compile>
-    <Compile Include="AbmLocalidad.vb">
+    <Compile Include="GUILayer\AbmLocalidad.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmPersonaAutorizada.Designer.vb">
+    <Compile Include="GUILayer\AbmPersonaAutorizada.Designer.vb">
       <DependentUpon>AbmPersonaAutorizada.vb</DependentUpon>
     </Compile>
-    <Compile Include="AbmPersonaAutorizada.vb">
+    <Compile Include="GUILayer\AbmPersonaAutorizada.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmProvincia.Designer.vb">
+    <Compile Include="GUILayer\AbmProvincia.Designer.vb">
       <DependentUpon>AbmProvincia.vb</DependentUpon>
     </Compile>
-    <Compile Include="AbmProvincia.vb">
+    <Compile Include="GUILayer\AbmProvincia.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmRol.Designer.vb">
+    <Compile Include="GUILayer\AbmRol.Designer.vb">
       <DependentUpon>AbmRol.vb</DependentUpon>
     </Compile>
-    <Compile Include="AbmRol.vb">
+    <Compile Include="GUILayer\AbmRol.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmTipoDocumento.Designer.vb">
+    <Compile Include="GUILayer\AbmTipoDocumento.Designer.vb">
       <DependentUpon>AbmTipoDocumento.vb</DependentUpon>
     </Compile>
-    <Compile Include="AbmTipoDocumento.vb">
+    <Compile Include="GUILayer\AbmTipoDocumento.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.vb">
+    <Compile Include="GUILayer\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
+    <Compile Include="GUILayer\Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -156,10 +157,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AbmDependencia.resx">
+    <EmbeddedResource Include="GUILayer\AbmDependencia.resx">
       <DependentUpon>AbmDependencia.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="GUILayer\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -180,6 +181,11 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bussines Layer\Entities\" />
+    <Folder Include="Bussines Layer\Services\" />
+    <Folder Include="DATALayer\DAOs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
