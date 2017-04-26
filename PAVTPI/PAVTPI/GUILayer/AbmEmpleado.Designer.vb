@@ -47,6 +47,8 @@ Partial Class AbmEmpleado
         Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.txtCelular = New System.Windows.Forms.TextBox()
         Me.txtDomicilio = New System.Windows.Forms.TextBox()
+        Me.lblFechaEgreso = New System.Windows.Forms.Label()
+        Me.mskFechaEgreso = New System.Windows.Forms.MaskedTextBox()
         CType(Me.dgvEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -215,7 +217,7 @@ Partial Class AbmEmpleado
         'lblDomicilio
         '
         Me.lblDomicilio.AutoSize = True
-        Me.lblDomicilio.Location = New System.Drawing.Point(80, 185)
+        Me.lblDomicilio.Location = New System.Drawing.Point(80, 212)
         Me.lblDomicilio.Name = "lblDomicilio"
         Me.lblDomicilio.Size = New System.Drawing.Size(49, 13)
         Me.lblDomicilio.TabIndex = 21
@@ -224,7 +226,7 @@ Partial Class AbmEmpleado
         'lblEmail
         '
         Me.lblEmail.AutoSize = True
-        Me.lblEmail.Location = New System.Drawing.Point(97, 215)
+        Me.lblEmail.Location = New System.Drawing.Point(97, 242)
         Me.lblEmail.Name = "lblEmail"
         Me.lblEmail.Size = New System.Drawing.Size(32, 13)
         Me.lblEmail.TabIndex = 21
@@ -233,7 +235,7 @@ Partial Class AbmEmpleado
         'lblCelular
         '
         Me.lblCelular.AutoSize = True
-        Me.lblCelular.Location = New System.Drawing.Point(90, 243)
+        Me.lblCelular.Location = New System.Drawing.Point(90, 270)
         Me.lblCelular.Name = "lblCelular"
         Me.lblCelular.Size = New System.Drawing.Size(39, 13)
         Me.lblCelular.TabIndex = 21
@@ -242,7 +244,7 @@ Partial Class AbmEmpleado
         'txtEmail
         '
         Me.txtEmail.Enabled = False
-        Me.txtEmail.Location = New System.Drawing.Point(135, 212)
+        Me.txtEmail.Location = New System.Drawing.Point(135, 239)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(156, 20)
         Me.txtEmail.TabIndex = 6
@@ -250,7 +252,7 @@ Partial Class AbmEmpleado
         'txtCelular
         '
         Me.txtCelular.Enabled = False
-        Me.txtCelular.Location = New System.Drawing.Point(135, 240)
+        Me.txtCelular.Location = New System.Drawing.Point(135, 267)
         Me.txtCelular.Name = "txtCelular"
         Me.txtCelular.Size = New System.Drawing.Size(156, 20)
         Me.txtCelular.TabIndex = 7
@@ -258,10 +260,28 @@ Partial Class AbmEmpleado
         'txtDomicilio
         '
         Me.txtDomicilio.Enabled = False
-        Me.txtDomicilio.Location = New System.Drawing.Point(135, 182)
+        Me.txtDomicilio.Location = New System.Drawing.Point(135, 209)
         Me.txtDomicilio.Name = "txtDomicilio"
         Me.txtDomicilio.Size = New System.Drawing.Size(156, 20)
         Me.txtDomicilio.TabIndex = 5
+        '
+        'lblFechaEgreso
+        '
+        Me.lblFechaEgreso.AutoSize = True
+        Me.lblFechaEgreso.Location = New System.Drawing.Point(39, 181)
+        Me.lblFechaEgreso.Name = "lblFechaEgreso"
+        Me.lblFechaEgreso.Size = New System.Drawing.Size(88, 13)
+        Me.lblFechaEgreso.TabIndex = 21
+        Me.lblFechaEgreso.Text = "Fecha de Egreso"
+        '
+        'mskFechaEgreso
+        '
+        Me.mskFechaEgreso.Location = New System.Drawing.Point(135, 178)
+        Me.mskFechaEgreso.Mask = "00/00/0000"
+        Me.mskFechaEgreso.Name = "mskFechaEgreso"
+        Me.mskFechaEgreso.Size = New System.Drawing.Size(100, 20)
+        Me.mskFechaEgreso.TabIndex = 4
+        Me.mskFechaEgreso.ValidatingType = GetType(Date)
         '
         'AbmEmpleado
         '
@@ -269,6 +289,7 @@ Partial Class AbmEmpleado
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(803, 345)
         Me.Controls.Add(Me.cmbTipoDoc)
+        Me.Controls.Add(Me.mskFechaEgreso)
         Me.Controls.Add(Me.mskFechaIngreso)
         Me.Controls.Add(Me.mskNroDoc)
         Me.Controls.Add(Me.dgvEmpleado)
@@ -285,6 +306,7 @@ Partial Class AbmEmpleado
         Me.Controls.Add(Me.lblCelular)
         Me.Controls.Add(Me.lblEmail)
         Me.Controls.Add(Me.lblDomicilio)
+        Me.Controls.Add(Me.lblFechaEgreso)
         Me.Controls.Add(Me.lblFechaIngreso)
         Me.Controls.Add(Me.lblTipoDoc)
         Me.Controls.Add(Me.lblNroDoc)
@@ -323,4 +345,6 @@ Partial Class AbmEmpleado
     Friend WithEvents cNombre As DataGridViewTextBoxColumn
     Friend WithEvents cNroDoc As DataGridViewTextBoxColumn
     Friend WithEvents txtDomicilio As TextBox
+    Friend WithEvents lblFechaEgreso As Label
+    Friend WithEvents mskFechaEgreso As MaskedTextBox
 End Class

@@ -28,7 +28,10 @@
 
         Dim sql As String = ""
 
-        sql = "SELECT * FROM Persona"
+        sql &= "SELECT        Persona.Nombre, Persona.Apellido, Persona.NroDocumento, Persona.IdTipoDocumento, Persona.FechaIngreso, Persona.FechaEgreso, "
+        sql &= "                 Persona.Celular, Persona.Email, Persona.Domicilio, TipoDocumento.Nombre, TipoDocumento.IdTipoDocumento "
+        sql &= " From            Persona INNER JOIN "
+        sql &= " TipoDocumento ON Persona.IdTipoDocumento = TipoDocumento.IdTipoDocumento "
 
         cmd.CommandText = sql
         tabla.Load(cmd.ExecuteReader())
@@ -62,7 +65,7 @@
     End Sub
     Private Sub insertar()
         Dim sql As String = ""
-        sql = " INSERT INTO Persona (Nombre,Apellido,NroDocumento,IdTipoDocumento,FechaIngreso,FechaEgreso,Celular,Email,Domicilio) values ( '" & txtNombre.Text & "', '" & txtApellido.Text & "' , " & mskNroDoc.Text & " , '" & cmbTipoDoc.Text & "' , '" & mskFechaIngreso.Text & "' , " & " null " & " , '" & txtCelular.Text & "' , '" & txtEmail.Text & "' , '" & txtDomicilio.Text & "')"
+        sql = " INSERT INTO Persona (Nombre,Apellido,NroDocumento,IdTipoDocumento,FechaIngreso,FechaEgreso,Celular,Email,Domicilio) values ( '" & txtNombre.Text & "', '" & txtApellido.Text & "' , " & mskNroDoc.Text & " , '" & cmbTipoDoc.Text & "' , '" & mskFechaIngreso.Text & "' ,   null   , " & txtCelular.Text & " , '" & txtEmail.Text & "' , '" & txtDomicilio.Text & "')"
         ejecutosql(sql)
         MsgBox("Se grabo correctamente")
         Me.cargar_grilla()
@@ -75,11 +78,11 @@
         sql &= " , Apellido = '" & txtApellido.Text & "'"
         sql &= " , IdTipoDocumento = '" & cmbTipoDoc.Text & "'"
         sql &= " , FechaIngreso = '" & mskFechaIngreso.Text & "'"
-        sql &= " , FechaEgreso = " & "null"
-        sql &= " , Celular = '" & txtCelular.Text & "'"
+        sql &= " , FechaEgreso = null "
+        sql &= " , Celular = " & txtCelular.Text
         sql &= " , Email = '" & txtEmail.Text & "'"
         sql &= " , Domicilio = '" & txtDomicilio.Text & "'"
-        sql &= " WHERE IdArticulo_Combo = " & mskNroDoc.Text
+        sql &= " WHERE NroDocumento = " & mskNroDoc.Text
 
         ejecutosql(sql)
         Me.cargar_grilla()
