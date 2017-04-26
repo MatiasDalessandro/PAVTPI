@@ -72,6 +72,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\back 2\AbmDependencia.Designer.vb">
+      <Link>GUILayer\AbmDependencia.Designer.vb</Link>
+      <DependentUpon>AbmDependencia.vb</DependentUpon>
+    </Compile>
     <Compile Include="DATALayer\DBHelper\DBHelper.vb" />
     <Compile Include="GUILayer\AbmArticulo.Designer.vb">
       <DependentUpon>AbmArticulo.vb</DependentUpon>
@@ -91,13 +95,12 @@
     <Compile Include="GUILayer\AbmCombo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="..\..\..\Back\AbmDependencia.Designer.vb">
-      <DependentUpon>AbmDependencia.vb</DependentUpon>
-      <Link>GUILayer\AbmDependencia.Designer.vb</Link>
-    </Compile>
-    <Compile Include="..\..\..\Back\AbmDependencia.vb">
+    <Compile Include="..\..\..\back 2\AbmDependencia.vb">
       <SubType>Form</SubType>
       <Link>GUILayer\AbmDependencia.vb</Link>
+    </Compile>
+    <Compile Include="GUILayer\AbmDependencia.Designer.vb">
+      <DependentUpon>AbmDependencia.vb</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\AbmEmpleado.Designer.vb">
       <DependentUpon>AbmEmpleado.vb</DependentUpon>
@@ -159,12 +162,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="..\..\..\back 2\AbmDependencia.resx">
+      <Link>GUILayer\AbmDependencia.resx</Link>
+      <DependentUpon>AbmDependencia.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\AbmArticulo.resx">
       <DependentUpon>AbmArticulo.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\..\..\Back\AbmDependencia.resx">
-      <DependentUpon>AbmDependencia.vb</DependentUpon>
-      <Link>GUILayer\AbmDependencia.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\AbmEmpleado.resx">
       <DependentUpon>AbmEmpleado.vb</DependentUpon>

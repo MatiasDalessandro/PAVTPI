@@ -9,7 +9,9 @@
     Private Sub AbmDependencia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargarGrilla()
         cargar_combo()
-
+        txt_descripcion.Enabled = False
+        txt_nombre.Enabled = False
+        cmb_estado.Enabled = False
     End Sub
     Private Function ejecuto_sql(ByVal consulta As String)
         Dim conexion As New OleDb.OleDbConnection
@@ -80,20 +82,19 @@
         Next
         Me.txt_nombre.Enabled = True
         Me.txt_descripcion.Enabled = True
-        Me.txt_nro.ReadOnly = False
-        Dim valor As Integer = dgv_datos_dependencia.Rows.Count
-        Dim nro As Integer = dgv_datos_dependencia.Rows(valor - 1).Cells(5).Value
-        Me.txt_nro.Text = valor
+        Me.cmb_estado.Enabled = True
+        Me.txt_nro.Text = generar_nro_cta()
+        Me.txt_nro.ReadOnly = True
         Me.condicion_grabacion = estado_grabacion.insertar
         Me.txt_nombre.Focus()
-
-
-
     End Sub
-    Private Sub validar_dependencias()
-        Dim tabla As DataTable
-        Dim sql As String = 
-    End Sub
+    Private Function generar_nro_cta()
+        Dim sql = "Select NroCuentaCorriente FROM Dependencia"
+        Dim nro As Integer = 0
+        Dim tabla As DataTable = ejecuto_sql(sql)
+        nro = tabla.Rows(tabla.Rows.Count - 1)(0)
+        Return nro + 1
+    End Function
     Private Sub grabar_borrar(sql As String)
         Dim conexion As New OleDb.OleDbConnection
         Dim cmd As New OleDb.OleDbCommand
