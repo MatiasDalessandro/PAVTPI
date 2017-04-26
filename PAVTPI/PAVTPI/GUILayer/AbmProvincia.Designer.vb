@@ -22,6 +22,7 @@ Partial Class AbmProvincia
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AbmProvincia))
         Me.txt_idProvincia = New System.Windows.Forms.TextBox()
         Me.txt_nomProvincia = New System.Windows.Forms.TextBox()
         Me.btn_nuevo = New System.Windows.Forms.Button()
@@ -94,6 +95,7 @@ Partial Class AbmProvincia
         '
         'btn_buscar
         '
+        Me.btn_buscar.Image = CType(resources.GetObject("btn_buscar.Image"), System.Drawing.Image)
         Me.btn_buscar.ImageAlign = System.Drawing.ContentAlignment.TopLeft
         Me.btn_buscar.Location = New System.Drawing.Point(223, 12)
         Me.btn_buscar.Name = "btn_buscar"
@@ -104,6 +106,7 @@ Partial Class AbmProvincia
         '
         'btn_editar
         '
+        Me.btn_editar.Image = CType(resources.GetObject("btn_editar.Image"), System.Drawing.Image)
         Me.btn_editar.ImageAlign = System.Drawing.ContentAlignment.TopLeft
         Me.btn_editar.Location = New System.Drawing.Point(189, 12)
         Me.btn_editar.Name = "btn_editar"
