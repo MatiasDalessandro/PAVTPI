@@ -52,7 +52,7 @@
     End Sub
     Private Sub insertar()
         Dim sql As String = ""
-        sql = " INSERT INTO Persona (Nombre,Apellido,NroDocumento,IdTipoDocumento,FechaIngreso,,Celular,Email,Domicilio) values ( " & txtNombre.Text & ", '" & txtApellido.Text & "' , " & mskNroDoc.Text & "' , " & cmbTipoDoc.Text & "' , " & mskFechaIngreso.Text & "' , " &  & "' , " & txtCelular.Text & "' , " & txtEmail.Text & "' , " & txtDomi.Text & ")"
+        sql = " INSERT INTO Persona (Nombre,Apellido,NroDocumento,IdTipoDocumento,FechaIngreso,FechaEgreso,Celular,Email,Domicilio) values ( " & txtNombre.Text & ", '" & txtApellido.Text & "' , " & mskNroDoc.Text & "' , " & cmbTipoDoc.Text & "' , " & mskFechaIngreso.Text & "' , " & " null " & "' , " & txtCelular.Text & "' , " & txtEmail.Text & "' , " & txtDomi.Text & ")"
         ejecutosql(sql)
         MsgBox("Se grabo correctamente")
         Me.cargar_grilla()
