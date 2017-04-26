@@ -1,9 +1,19 @@
 ﻿Public Class AbmEmpleado
 
     Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=MATI-PC\GDAPAV;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+    Dim estado_Grabacion As condicionGrabacion = condicionGrabacion.insertar
+    Enum estadoGrabacion
+        aprobado
+        rechazado
+    End Enum
+    Enum condicionGrabacion
+        insertar
+        modificar
+    End Enum
 
     Private Sub AbmEmpleado_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla()
+        cargar_combo(cmbTipoDoc, Me.leo_tabla("TipoDocumento"), "IdTipoDocumento", "Nombre")
     End Sub
 
     Private Sub cargar_grilla()
@@ -36,23 +46,23 @@
         Next
     End Sub
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
-        'Dim sql As String = ""
-        'If validar_datos() = estado_grabacion.aprobado Then
-        '    If estadoGrabacion = condicionGrabacion.insertar Then
-        '        If validar_articulo() = estado_grabacion.aprobado Then
-        '            insertar()
-        '        Else
-        '            MsgBox("El numero de documento que intenta cargar ya existe")
-        '        End If
-        '    Else
-        '        modificar()
-        '    End If
-        'Else
-        'End If
+        Dim sql As String = ""
+        If validarDatos() = estadoGrabacion.aprobado Then
+            If estado_Grabacion = condicionGrabacion.insertar Then
+                If validarPersona() = estadoGrabacion.aprobado Then
+                    insertar()
+                Else
+                    MsgBox("El numero de documento que intenta cargar ya existe")
+                End If
+            Else
+                modificar()
+            End If
+        Else
+        End If
     End Sub
     Private Sub insertar()
         Dim sql As String = ""
-        sql = " INSERT INTO Persona (Nombre,Apellido,NroDocumento,IdTipoDocumento,FechaIngreso,FechaEgreso,Celular,Email,Domicilio) values ( " & txtNombre.Text & ", '" & txtApellido.Text & "' , " & mskNroDoc.Text & "' , " & cmbTipoDoc.Text & "' , " & mskFechaIngreso.Text & "' , " & " null " & "' , " & txtCelular.Text & "' , " & txtEmail.Text & "' , " & txtDomi.Text & ")"
+        sql = " INSERT INTO Persona (Nombre,Apellido,NroDocumento,IdTipoDocumento,FechaIngreso,FechaEgreso,Celular,Email,Domicilio) values ( '" & txtNombre.Text & "', '" & txtApellido.Text & "' , " & mskNroDoc.Text & " , '" & cmbTipoDoc.Text & "' , '" & mskFechaIngreso.Text & "' , " & " null " & " , '" & txtCelular.Text & "' , '" & txtEmail.Text & "' , '" & txtDomicilio.Text & "')"
         ejecutosql(sql)
         MsgBox("Se grabo correctamente")
         Me.cargar_grilla()
@@ -62,13 +72,13 @@
 
         sql &= " UPDATE Persona SET NroDocumento = " & mskNroDoc.Text
         sql &= " , Nombre = '" & txtNombre.Text & "'"
-        sql &= " , Apellido = " & txtApellido.Text & "'"
-        sql &= " , IdTipoDocumento = " & cmbTipoDoc.Text & "'"
-        sql &= " , FechaIngreso = " & mskFechaIngreso.Text & "'"
-        sql &= " , "
-        sql &= " , Celular = " & txtCelular.Text & "'"
-        sql &= " , Email = " & txtEmail.Text & "'"
-        sql &= " , Domicilio = " & txtDomicilio.Text & "'"
+        sql &= " , Apellido = '" & txtApellido.Text & "'"
+        sql &= " , IdTipoDocumento = '" & cmbTipoDoc.Text & "'"
+        sql &= " , FechaIngreso = '" & mskFechaIngreso.Text & "'"
+        sql &= " , FechaEgreso = " & "null"
+        sql &= " , Celular = '" & txtCelular.Text & "'"
+        sql &= " , Email = '" & txtEmail.Text & "'"
+        sql &= " , Domicilio = '" & txtDomicilio.Text & "'"
         sql &= " WHERE IdArticulo_Combo = " & mskNroDoc.Text
 
         ejecutosql(sql)
@@ -90,5 +100,117 @@
         conexion.Close()
         Return tabla
     End Function
+    Private Function validarDatos() As estadoGrabacion
+        For Each obj As Control In Me.Controls
+            If obj.GetType.Name = "TextBox" Then
+                If obj.Text = "" Then
+                    MsgBox("El " & obj.Name & " no está ingresado")
+                    obj.Focus()
+                    Return estadoGrabacion.rechazado
+                End If
+            End If
+        Next
+    End Function
+    Private Function validarPersona() As estadoGrabacion
+        Dim sql As String = ""
+        Dim tabla As New DataTable
 
+        sql &= " SELECT * FROM Persona WHERE NroDocumento = " & Me.mskNroDoc.Text
+
+        tabla = ejecutosql(sql)
+
+        If tabla.Rows.Count = 0 Then
+            Return estadoGrabacion.aprobado
+        Else
+            Return estadoGrabacion.rechazado
+        End If
+    End Function
+    Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
+        txtApellido.Enabled = False
+        txtNombre.Enabled = False
+        mskNroDoc.Enabled = True
+        cmbTipoDoc.Enabled = False
+        mskFechaIngreso.Enabled = False
+        txtDomicilio.Enabled = False
+        txtEmail.Enabled = False
+        txtCelular.Enabled = False
+    End Sub
+    Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
+        txtApellido.Enabled = True
+        txtNombre.Enabled = True
+        mskNroDoc.Enabled = True
+        cmbTipoDoc.Enabled = True
+        mskFechaIngreso.Enabled = True
+        txtDomicilio.Enabled = True
+        txtEmail.Enabled = True
+        txtCelular.Enabled = True
+        btn_guardar.Enabled = True
+    End Sub
+    Private Function btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+
+        sql = "SELECT * FROM Persona WHERE NroDocumento = " & mskNroDoc.Text
+        tabla = ejecutosql(sql)
+        Me.dgvEmpleado.Rows.Clear()
+
+        Dim c As Integer = 0
+
+        For c = 0 To tabla.Rows.Count - 1
+            Me.dgvEmpleado.Rows.Add()
+            Me.dgvEmpleado.Rows(c).Cells("c_id_articulo").Value = tabla.Rows(c)(0)
+            Me.dgvEmpleado.Rows(c).Cells("c_nombre_articulo").Value = tabla.Rows(c)(1)
+            Me.dgvEmpleado.Rows(c).Cells("c_precio_articulo").Value = tabla.Rows(c)(2)
+        Next
+    End Function
+
+    Private Sub dgvEmpleado_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmpleado.CellContentClick
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+
+        sql = " SELECT * FROM Persona WHERE NroDocumento = " & Me.dgvEmpleado.CurrentRow.Cells("cNroDoc").Value
+
+        tabla = ejecutosql(sql)
+
+        Me.txtApellido.Text = tabla.Rows(0)("Apellido")
+        Me.txtNombre.Text = tabla.Rows(0)("Nombre")
+        Me.mskNroDoc.Text = tabla.Rows(0)("NroDocumento")
+
+        Me.txtApellido.Enabled = True
+        Me.txtNombre.Enabled = True
+        btn_eliminar.Enabled = True
+        btn_guardar.Enabled = True
+        Me.mskNroDoc.Enabled = False
+        estado_Grabacion = condicionGrabacion.modificar
+    End Sub
+
+    Private Sub btn_eliminar_Click(sender As Object, e As EventArgs) Handles btn_eliminar.Click
+        Dim sql As String = ""
+
+        If validarDatos() = estadoGrabacion.aprobado Then
+            If validarPersona() = estadoGrabacion.rechazado Then
+                sql = " DELETE FROM Persona WHERE NroDocumento = " & mskNroDoc.Text
+                MsgBox("Se elimino correctamente la persona")
+            Else
+                MsgBox("Cargue correctamente la persona a eliminar")
+            End If
+        End If
+
+        ejecutosql(sql)
+        Me.cargar_grilla()
+    End Sub
+    Private Sub cargar_combo(ByRef combo As ComboBox _
+                              , ByRef tabla As DataTable _
+                              , ByVal pk As String _
+                              , ByVal descriptor As String)
+
+        combo.DataSource = tabla
+        combo.DisplayMember = descriptor
+        combo.ValueMember = pk
+        combo.SelectedIndex = -1
+
+    End Sub
+    Private Function leo_tabla(ByVal nombre_tabla As String) As DataTable
+        Return Me.ejecutosql("SELECT * FROM " & nombre_tabla)
+    End Function
 End Class
