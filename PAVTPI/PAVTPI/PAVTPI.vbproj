@@ -145,11 +145,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -160,6 +155,12 @@
     <EmbeddedResource Include="GUILayer\AbmArticulo.resx">
       <DependentUpon>AbmArticulo.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\AbmBarrio.resx">
+      <DependentUpon>AbmBarrio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\AbmCombo.resx">
+      <DependentUpon>AbmCombo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\AbmDependencia.resx">
       <DependentUpon>AbmDependencia.vb</DependentUpon>
     </EmbeddedResource>
@@ -169,15 +170,20 @@
     <EmbeddedResource Include="GUILayer\AbmLocalidad.resx">
       <DependentUpon>AbmLocalidad.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\AbmProvincia.resx">
+      <DependentUpon>AbmProvincia.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\AbmRol.resx">
       <DependentUpon>AbmRol.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\AbmTipoDocumento.resx">
+      <DependentUpon>AbmTipoDocumento.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -198,6 +204,12 @@
     <Folder Include="Bussines Layer\Entities\" />
     <Folder Include="Bussines Layer\Services\" />
     <Folder Include="DATALayer\DAOs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editarrrrrr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search11.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
