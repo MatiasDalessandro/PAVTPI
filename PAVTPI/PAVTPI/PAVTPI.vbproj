@@ -166,6 +166,9 @@
     <EmbeddedResource Include="GUILayer\AbmEmpleado.resx">
       <DependentUpon>AbmEmpleado.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\AbmLocalidad.resx">
+      <DependentUpon>AbmLocalidad.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\AbmRol.resx">
       <DependentUpon>AbmRol.vb</DependentUpon>
     </EmbeddedResource>
