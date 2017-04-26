@@ -23,12 +23,6 @@ Partial Class AbmDependencia
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.dgv_datos_dependencia = New System.Windows.Forms.DataGridView()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nro_cuenta = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lbl_nombre = New System.Windows.Forms.Label()
         Me.lbl_descripcion = New System.Windows.Forms.Label()
         Me.lbl_estado = New System.Windows.Forms.Label()
@@ -41,6 +35,12 @@ Partial Class AbmDependencia
         Me.btn_guardar = New System.Windows.Forms.Button()
         Me.btn_borrar = New System.Windows.Forms.Button()
         Me.btn_salir = New System.Windows.Forms.Button()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nro_cuenta = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv_datos_dependencia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -52,36 +52,6 @@ Partial Class AbmDependencia
         Me.dgv_datos_dependencia.Name = "dgv_datos_dependencia"
         Me.dgv_datos_dependencia.Size = New System.Drawing.Size(545, 211)
         Me.dgv_datos_dependencia.TabIndex = 0
-        '
-        'nombre
-        '
-        Me.nombre.HeaderText = "Nombre"
-        Me.nombre.Name = "nombre"
-        '
-        'descripcion
-        '
-        Me.descripcion.HeaderText = "Descripción"
-        Me.descripcion.Name = "descripcion"
-        '
-        'nro_cuenta
-        '
-        Me.nro_cuenta.HeaderText = "Número de cuenta"
-        Me.nro_cuenta.Name = "nro_cuenta"
-        '
-        'saldo
-        '
-        Me.saldo.HeaderText = "Saldo"
-        Me.saldo.Name = "saldo"
-        '
-        'estado
-        '
-        Me.estado.HeaderText = "Estado"
-        Me.estado.Name = "estado"
-        '
-        'id
-        '
-        Me.id.HeaderText = "id"
-        Me.id.Name = "id"
         '
         'lbl_nombre
         '
@@ -186,6 +156,37 @@ Partial Class AbmDependencia
         Me.btn_salir.Text = "Salir"
         Me.btn_salir.UseVisualStyleBackColor = True
         '
+        'nombre
+        '
+        Me.nombre.HeaderText = "Nombre"
+        Me.nombre.Name = "nombre"
+        '
+        'descripcion
+        '
+        Me.descripcion.HeaderText = "Descripción"
+        Me.descripcion.Name = "descripcion"
+        '
+        'nro_cuenta
+        '
+        Me.nro_cuenta.HeaderText = "Número de cuenta"
+        Me.nro_cuenta.Name = "nro_cuenta"
+        '
+        'saldo
+        '
+        Me.saldo.HeaderText = "Saldo"
+        Me.saldo.Name = "saldo"
+        '
+        'estado
+        '
+        Me.estado.HeaderText = "Estado"
+        Me.estado.Name = "estado"
+        '
+        'id
+        '
+        Me.id.HeaderText = "id"
+        Me.id.Name = "id"
+        Me.id.Visible = False
+        '
         'AbmDependencia
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -223,12 +224,12 @@ Partial Class AbmDependencia
     Friend WithEvents txt_nro As TextBox
     Friend WithEvents btn_nuevo As Button
     Friend WithEvents btn_guardar As Button
+    Friend WithEvents btn_borrar As Button
+    Friend WithEvents btn_salir As Button
     Friend WithEvents nombre As DataGridViewTextBoxColumn
     Friend WithEvents descripcion As DataGridViewTextBoxColumn
     Friend WithEvents nro_cuenta As DataGridViewTextBoxColumn
     Friend WithEvents saldo As DataGridViewTextBoxColumn
     Friend WithEvents estado As DataGridViewTextBoxColumn
     Friend WithEvents id As DataGridViewTextBoxColumn
-    Friend WithEvents btn_borrar As Button
-    Friend WithEvents btn_salir As Button
 End Class

@@ -134,16 +134,21 @@
         mskNroDoc.Enabled = True
         cmbTipoDoc.Enabled = False
         mskFechaIngreso.Enabled = False
+        mskFechaEgreso.Enabled = False
         txtDomicilio.Enabled = False
         txtEmail.Enabled = False
         txtCelular.Enabled = False
     End Sub
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
+        txtApellido.Text = ""
         txtApellido.Enabled = True
+        txtNombre.Text = ""
         txtNombre.Enabled = True
+        mskNroDoc.Text = ""
         mskNroDoc.Enabled = True
         cmbTipoDoc.Enabled = True
         mskFechaIngreso.Enabled = True
+        mskFechaEgreso.Enabled = False
         txtDomicilio.Enabled = True
         txtEmail.Enabled = True
         txtCelular.Enabled = True

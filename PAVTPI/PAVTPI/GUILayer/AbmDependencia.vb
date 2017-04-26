@@ -80,7 +80,7 @@
                 o.SelectedValue = -1
             End If
         Next
-        txt_nombre.Enabled = True
+        Me.txt_nombre.Enabled = True
         Me.txt_descripcion.Enabled = True
         Me.cmb_estado.Enabled = True
         Me.txt_nro.Text = generar_nro_cta()
@@ -92,6 +92,11 @@
         Dim sql = "Select NroCuentaCorriente FROM Dependencia"
         Dim nro As Integer = 0
         Dim tabla As DataTable = ejecuto_sql(sql)
+
+        If tabla.Rows.Count = 0 Then
+            Return 1
+            Exit Function
+        End If
         nro = tabla.Rows(tabla.Rows.Count - 1)(0)
         Return nro + 1
     End Function
@@ -120,8 +125,6 @@
         Dim sql As String = "UPDATE [PAV-TPI].dbo.Dependencia set nombre='" & Me.txt_nombre.Text & "',descripcion = '" & txt_descripcion.Text & "' where IdDependencia = "
         sql &= id
         grabar_borrar(sql)
-
-
     End Sub
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
         If condicion_grabacion = estado_grabacion.insertar Then
