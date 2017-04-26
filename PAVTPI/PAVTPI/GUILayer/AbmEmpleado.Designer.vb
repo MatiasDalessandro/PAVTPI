@@ -42,12 +42,11 @@ Partial Class AbmEmpleado
         Me.lblFechaIngreso = New System.Windows.Forms.Label()
         Me.mskFechaIngreso = New System.Windows.Forms.MaskedTextBox()
         Me.lblDomicilio = New System.Windows.Forms.Label()
-        Me.txtDomicilio = New System.Windows.Forms.TextBox()
         Me.lblEmail = New System.Windows.Forms.Label()
         Me.lblCelular = New System.Windows.Forms.Label()
-        Me.txtDomi = New System.Windows.Forms.TextBox()
         Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.txtCelular = New System.Windows.Forms.TextBox()
+        Me.txtDomicilio = New System.Windows.Forms.TextBox()
         CType(Me.dgvEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -86,7 +85,7 @@ Partial Class AbmEmpleado
         Me.btn_buscar.Location = New System.Drawing.Point(336, 313)
         Me.btn_buscar.Name = "btn_buscar"
         Me.btn_buscar.Size = New System.Drawing.Size(75, 23)
-        Me.btn_buscar.TabIndex = 25
+        Me.btn_buscar.TabIndex = 12
         Me.btn_buscar.Text = "Buscar"
         Me.btn_buscar.UseVisualStyleBackColor = True
         '
@@ -95,7 +94,7 @@ Partial Class AbmEmpleado
         Me.btn_cancelar.Location = New System.Drawing.Point(255, 313)
         Me.btn_cancelar.Name = "btn_cancelar"
         Me.btn_cancelar.Size = New System.Drawing.Size(75, 23)
-        Me.btn_cancelar.TabIndex = 26
+        Me.btn_cancelar.TabIndex = 11
         Me.btn_cancelar.Text = "Cancelar"
         Me.btn_cancelar.UseVisualStyleBackColor = True
         '
@@ -105,7 +104,7 @@ Partial Class AbmEmpleado
         Me.btn_guardar.Location = New System.Drawing.Point(93, 313)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(75, 23)
-        Me.btn_guardar.TabIndex = 27
+        Me.btn_guardar.TabIndex = 9
         Me.btn_guardar.Text = "Guardar"
         Me.btn_guardar.UseVisualStyleBackColor = True
         '
@@ -115,7 +114,7 @@ Partial Class AbmEmpleado
         Me.btn_eliminar.Location = New System.Drawing.Point(174, 313)
         Me.btn_eliminar.Name = "btn_eliminar"
         Me.btn_eliminar.Size = New System.Drawing.Size(75, 23)
-        Me.btn_eliminar.TabIndex = 28
+        Me.btn_eliminar.TabIndex = 10
         Me.btn_eliminar.Text = "Eliminar"
         Me.btn_eliminar.UseVisualStyleBackColor = True
         '
@@ -124,7 +123,7 @@ Partial Class AbmEmpleado
         Me.btn_nuevo.Location = New System.Drawing.Point(12, 313)
         Me.btn_nuevo.Name = "btn_nuevo"
         Me.btn_nuevo.Size = New System.Drawing.Size(75, 23)
-        Me.btn_nuevo.TabIndex = 29
+        Me.btn_nuevo.TabIndex = 8
         Me.btn_nuevo.Text = "Nuevo"
         Me.btn_nuevo.UseVisualStyleBackColor = True
         '
@@ -134,14 +133,14 @@ Partial Class AbmEmpleado
         Me.txtNombre.Location = New System.Drawing.Point(135, 62)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(156, 20)
-        Me.txtNombre.TabIndex = 23
+        Me.txtNombre.TabIndex = 1
         '
         'txtApellido
         '
         Me.txtApellido.Location = New System.Drawing.Point(135, 32)
         Me.txtApellido.Name = "txtApellido"
         Me.txtApellido.Size = New System.Drawing.Size(156, 20)
-        Me.txtApellido.TabIndex = 24
+        Me.txtApellido.TabIndex = 0
         '
         'lblNroDoc
         '
@@ -176,7 +175,7 @@ Partial Class AbmEmpleado
         Me.mskNroDoc.Mask = "99999999"
         Me.mskNroDoc.Name = "mskNroDoc"
         Me.mskNroDoc.Size = New System.Drawing.Size(100, 20)
-        Me.mskNroDoc.TabIndex = 31
+        Me.mskNroDoc.TabIndex = 2
         '
         'lblTipoDoc
         '
@@ -193,7 +192,7 @@ Partial Class AbmEmpleado
         Me.cmbTipoDoc.Location = New System.Drawing.Point(135, 122)
         Me.cmbTipoDoc.Name = "cmbTipoDoc"
         Me.cmbTipoDoc.Size = New System.Drawing.Size(121, 21)
-        Me.cmbTipoDoc.TabIndex = 32
+        Me.cmbTipoDoc.TabIndex = 3
         '
         'lblFechaIngreso
         '
@@ -210,7 +209,7 @@ Partial Class AbmEmpleado
         Me.mskFechaIngreso.Mask = "00/00/0000"
         Me.mskFechaIngreso.Name = "mskFechaIngreso"
         Me.mskFechaIngreso.Size = New System.Drawing.Size(100, 20)
-        Me.mskFechaIngreso.TabIndex = 31
+        Me.mskFechaIngreso.TabIndex = 4
         Me.mskFechaIngreso.ValidatingType = GetType(Date)
         '
         'lblDomicilio
@@ -221,14 +220,6 @@ Partial Class AbmEmpleado
         Me.lblDomicilio.Size = New System.Drawing.Size(49, 13)
         Me.lblDomicilio.TabIndex = 21
         Me.lblDomicilio.Text = "Domicilio"
-        '
-        'txtDomicilio
-        '
-        Me.txtDomicilio.Enabled = False
-        Me.txtDomicilio.Location = New System.Drawing.Point(135, 182)
-        Me.txtDomicilio.Name = "txtDomicilio"
-        Me.txtDomicilio.Size = New System.Drawing.Size(156, 20)
-        Me.txtDomicilio.TabIndex = 23
         '
         'lblEmail
         '
@@ -248,21 +239,13 @@ Partial Class AbmEmpleado
         Me.lblCelular.TabIndex = 21
         Me.lblCelular.Text = "Celular"
         '
-        'txtDomi
-        '
-        Me.txtDomi.Enabled = False
-        Me.txtDomi.Location = New System.Drawing.Point(135, 182)
-        Me.txtDomi.Name = "txtDomi"
-        Me.txtDomi.Size = New System.Drawing.Size(156, 20)
-        Me.txtDomi.TabIndex = 23
-        '
         'txtEmail
         '
         Me.txtEmail.Enabled = False
         Me.txtEmail.Location = New System.Drawing.Point(135, 212)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(156, 20)
-        Me.txtEmail.TabIndex = 23
+        Me.txtEmail.TabIndex = 6
         '
         'txtCelular
         '
@@ -270,7 +253,15 @@ Partial Class AbmEmpleado
         Me.txtCelular.Location = New System.Drawing.Point(135, 240)
         Me.txtCelular.Name = "txtCelular"
         Me.txtCelular.Size = New System.Drawing.Size(156, 20)
-        Me.txtCelular.TabIndex = 23
+        Me.txtCelular.TabIndex = 7
+        '
+        'txtDomicilio
+        '
+        Me.txtDomicilio.Enabled = False
+        Me.txtDomicilio.Location = New System.Drawing.Point(135, 182)
+        Me.txtDomicilio.Name = "txtDomicilio"
+        Me.txtDomicilio.Size = New System.Drawing.Size(156, 20)
+        Me.txtDomicilio.TabIndex = 5
         '
         'AbmEmpleado
         '
@@ -288,7 +279,6 @@ Partial Class AbmEmpleado
         Me.Controls.Add(Me.btn_nuevo)
         Me.Controls.Add(Me.txtCelular)
         Me.Controls.Add(Me.txtEmail)
-        Me.Controls.Add(Me.txtDomi)
         Me.Controls.Add(Me.txtDomicilio)
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.txtApellido)
@@ -325,13 +315,12 @@ Partial Class AbmEmpleado
     Friend WithEvents lblFechaIngreso As Label
     Friend WithEvents mskFechaIngreso As MaskedTextBox
     Friend WithEvents lblDomicilio As Label
-    Friend WithEvents txtDomicilio As TextBox
     Friend WithEvents lblEmail As Label
     Friend WithEvents lblCelular As Label
-    Friend WithEvents txtDomi As TextBox
     Friend WithEvents txtEmail As TextBox
     Friend WithEvents txtCelular As TextBox
     Friend WithEvents cApellido As DataGridViewTextBoxColumn
     Friend WithEvents cNombre As DataGridViewTextBoxColumn
     Friend WithEvents cNroDoc As DataGridViewTextBoxColumn
+    Friend WithEvents txtDomicilio As TextBox
 End Class
