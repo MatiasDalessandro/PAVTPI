@@ -160,6 +160,12 @@
     <EmbeddedResource Include="GUILayer\AbmArticulo.resx">
       <DependentUpon>AbmArticulo.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\AbmBarrio.resx">
+      <DependentUpon>AbmBarrio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\AbmCombo.resx">
+      <DependentUpon>AbmCombo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\AbmDependencia.resx">
       <DependentUpon>AbmDependencia.vb</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\AbmLocalidad.resx">
       <DependentUpon>AbmLocalidad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\AbmProvincia.resx">
+      <DependentUpon>AbmProvincia.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\AbmRol.resx">
       <DependentUpon>AbmRol.vb</DependentUpon>
@@ -201,6 +210,12 @@
     <Folder Include="Bussines Layer\Entities\" />
     <Folder Include="Bussines Layer\Services\" />
     <Folder Include="DATALayer\DAOs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editarrrrrr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search11.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
