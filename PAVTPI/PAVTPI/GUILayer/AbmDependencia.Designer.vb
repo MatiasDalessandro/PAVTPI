@@ -31,7 +31,7 @@ Partial Class AbmDependencia
         Me.lbl_nombre = New System.Windows.Forms.Label()
         Me.lbl_descripcion = New System.Windows.Forms.Label()
         Me.lbl_estado = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cmb_estado = New System.Windows.Forms.ComboBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         CType(Me.dgv_datos_dependencia, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -98,13 +98,13 @@ Partial Class AbmDependencia
         Me.lbl_estado.TabIndex = 5
         Me.lbl_estado.Text = "Estado"
         '
-        'ComboBox1
+        'cmb_estado
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(121, 338)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(192, 21)
-        Me.ComboBox1.TabIndex = 7
+        Me.cmb_estado.FormattingEnabled = True
+        Me.cmb_estado.Location = New System.Drawing.Point(121, 338)
+        Me.cmb_estado.Name = "cmb_estado"
+        Me.cmb_estado.Size = New System.Drawing.Size(192, 21)
+        Me.cmb_estado.TabIndex = 7
         '
         'TextBox1
         '
@@ -127,7 +127,7 @@ Partial Class AbmDependencia
         Me.ClientSize = New System.Drawing.Size(571, 518)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cmb_estado)
         Me.Controls.Add(Me.lbl_estado)
         Me.Controls.Add(Me.lbl_descripcion)
         Me.Controls.Add(Me.lbl_nombre)
@@ -149,7 +149,7 @@ Partial Class AbmDependencia
     Friend WithEvents lbl_nombre As Label
     Friend WithEvents lbl_descripcion As Label
     Friend WithEvents lbl_estado As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cmb_estado As ComboBox
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents TextBox2 As TextBox
 End Class
