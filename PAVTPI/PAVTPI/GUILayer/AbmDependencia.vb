@@ -1,5 +1,5 @@
 ﻿Public Class AbmDependencia
-    Dim cadena_conexion As String = "Provider=SQLNCLI11;Data Source=DESKTOP-VS0357J\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+    Dim cadena_conexion As String = "Provider=SQLNCLI11;Data Source=MATI-PC\GDAPAV;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
     Enum estado_grabacion
         insertar
         modificar
@@ -80,7 +80,7 @@
                 o.SelectedValue = -1
             End If
         Next
-        Me.txt_nombre.Enabled = True
+        txt_nombre.Enabled = True
         Me.txt_descripcion.Enabled = True
         Me.cmb_estado.Enabled = True
         Me.txt_nro.Text = generar_nro_cta()

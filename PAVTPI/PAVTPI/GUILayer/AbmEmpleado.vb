@@ -65,7 +65,7 @@
     End Sub
     Private Sub insertar()
         Dim sql As String = ""
-        sql = " INSERT INTO Persona (Nombre,Apellido,NroDocumento,IdTipoDocumento,FechaIngreso,FechaEgreso,Celular,Email,Domicilio) values ( '" & txtNombre.Text & "', '" & txtApellido.Text & "' , " & mskNroDoc.Text & " , '" & cmbTipoDoc.Text & "' , '" & mskFechaIngreso.Text & "' ,   null   , " & txtCelular.Text & " , '" & txtEmail.Text & "' , '" & txtDomicilio.Text & "')"
+        sql = " INSERT INTO Persona (Nombre,Apellido,NroDocumento,IdTipoDocumento,FechaIngreso,FechaEgreso,Celular,Email,Domicilio) values ( '" & txtNombre.Text & "', '" & txtApellido.Text & "' , " & mskNroDoc.Text & " , '" & cmbTipoDoc.SelectedValue & "' , '" & mskFechaIngreso.Text & "' ,   null   , " & txtCelular.Text & " , '" & txtEmail.Text & "' , '" & txtDomicilio.Text & "')"
         ejecutosql(sql)
         MsgBox("Se grabo correctamente")
         Me.cargar_grilla()
@@ -76,7 +76,7 @@
         sql &= " UPDATE Persona SET NroDocumento = " & mskNroDoc.Text
         sql &= " , Nombre = '" & txtNombre.Text & "'"
         sql &= " , Apellido = '" & txtApellido.Text & "'"
-        sql &= " , IdTipoDocumento = '" & cmbTipoDoc.Text & "'"
+        sql &= " , IdTipoDocumento = '" & cmbTipoDoc.SelectedValue & "'"
         sql &= " , FechaIngreso = '" & mskFechaIngreso.Text & "'"
         sql &= " , FechaEgreso = null "
         sql &= " , Celular = " & txtCelular.Text
@@ -161,9 +161,9 @@
 
         For c = 0 To tabla.Rows.Count - 1
             Me.dgvEmpleado.Rows.Add()
-            Me.dgvEmpleado.Rows(c).Cells("c_id_articulo").Value = tabla.Rows(c)(0)
-            Me.dgvEmpleado.Rows(c).Cells("c_nombre_articulo").Value = tabla.Rows(c)(1)
-            Me.dgvEmpleado.Rows(c).Cells("c_precio_articulo").Value = tabla.Rows(c)(2)
+            Me.dgvEmpleado.Rows(c).Cells("cNombre").Value = tabla.Rows(c)(0)
+            Me.dgvEmpleado.Rows(c).Cells("cApellido").Value = tabla.Rows(c)(1)
+            Me.dgvEmpleado.Rows(c).Cells("cNroDoc").Value = tabla.Rows(c)(2)
         Next
     End Function
 
