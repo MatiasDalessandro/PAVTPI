@@ -172,6 +172,9 @@
     <EmbeddedResource Include="GUILayer\AbmRol.resx">
       <DependentUpon>AbmRol.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\AbmTipoDocumento.resx">
+      <DependentUpon>AbmTipoDocumento.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>

@@ -113,6 +113,7 @@
                 End If
             End If
         Next
+
     End Function
     Private Function validarPersona() As estadoGrabacion
         Dim sql As String = ""
