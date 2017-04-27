@@ -205,12 +205,6 @@
     <Folder Include="Bussines Layer\Services\" />
     <Folder Include="DATALayer\DAOs\" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\editarrrrrr.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\search11.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
