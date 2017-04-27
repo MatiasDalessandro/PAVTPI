@@ -15,7 +15,7 @@
 
     Private Sub btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
         If Not ((txt_idProvincia.Text = "") Or (txt_nomProvincia.Text = "")) Then
-            Dim str As String = 
+            'Dim str As String = 
         End If
     End Sub
 
