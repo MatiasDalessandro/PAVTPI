@@ -117,31 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btn_buscar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAAgVJREFUOE+lkz+oQVEcx6+BlDJZLJKBYjBIGRSKhJJJogyysRgM8i+yMRhIKZSJ
-        MhqVKDIolEGhiMyysP3eO7933XJzvXrvUyff+7u/+7nHOfdQwGKxWIDD4QAejwcUReHQaDTQaDTojs+8
-        CFUqFQqazSZd+WE2m4FCocB75/OZrr6HEZJml8uFuVKpgFgsZmYYCASwPhwO8fp4POL1O1DodDrBYDD8
-        FL4fkMlkMB6P4fF4wH6/h3A4jPXdbgeTyQQzF9T9fmcaRCIRhEIhzGw2mw3Tp9VqIZfLYWZDFQoF8Pv9
-        sFwuP76ZEIvFcFm22y1nL2Wz2aDf70MwGIR0Ok2X33O9XhkRp1Cn08F8PgeLxQKtVosuc/Or0O12Q6fT
-        gWg0iuMTh8Phd2GtVgOTyQS3242z6YndbodIJAKj0QgkEgldfQUNT5HVagW5XI6ZTbVaZfqEQiG0223M
-        bLCDbAY5agSj0YgPkhrZrHq9DlKplJGVy+WP/4S5o9frgc/nYz6dTuDz+fAoms1m6Ha7WJ9Op/hLhKVS
-        CTObl1fF43Fs9ng8MBgM4HK5wGq1gkwmg3Uystks9nJJ3849kUiAUqkEgUCAi+/1evGkEIjo+b2+k3Iv
-        xgeIKJlMMrlYLGIm/ElI4Jrpn4UEIkqlUkzu9Xr/ExKIKJ/P4yaq1er/CwnP73S9XsMXjmIWtUM8870A
-        AAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btn_editar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAATRJREFUOE+tlMFxgzAQRaVcaCYcAi4imAM+UkXUBiVk3AQ0wCkyPsQFwBmKMFw2
-        /otEYBLbYPNmdkC70mN3mJFQH4qEEKuEUuwStP/c0+n7RFprOhZHOugD6S89O3AWDiMWnHgWOAYhOgJJ
-        kpCUguI45vUS0OkgxJhASmmT5L66dG7PnJ/DRFjogpPozAodx6G6rjk/h4kQC4vruiwry5LXeZ5T13X8
-        fourwrZth86qquJNQRDw+hZXhRZ0ZjZw+G++qfzPXSHGDN4Ds6n/WZ7nmepf7gotkIyl4XZrKlNmCwHG
-        xT4pXnppGJrKL4uEAJKxdONvTKVnsRBgXHOII81SU3lQCHy/Hx8RRZHJPiEEWZpdZDsWWJ4Sjmmahp8T
-        4erX13DBXr7ySODscMGaa3uVUErRDwLeoz5NDNfZAAAAAElFTkSuQmCC
-</value>
-  </data>
 </root>
