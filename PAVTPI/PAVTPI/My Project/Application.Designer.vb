@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.PAVTPI.ver_nombre_maquina
+            Me.MainForm = Global.PAVTPI.Form1
         End Sub
     End Class
 End Namespace

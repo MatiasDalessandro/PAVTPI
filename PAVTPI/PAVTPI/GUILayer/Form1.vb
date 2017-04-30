@@ -42,4 +42,8 @@
     Private Sub ABMToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ABMToolStripMenuItem1.Click
         AbmPersonaAutorizada.Show()
     End Sub
+
+    Private Sub VerNombreMaquinaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerNombreMaquinaToolStripMenuItem.Click
+        ver_nombre_maquina.Show()
+    End Sub
 End Class

@@ -34,6 +34,7 @@ Partial Class Form1
         Me.ABMLocalidadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMProvinciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMComboToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VerNombreMaquinaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -48,7 +49,7 @@ Partial Class Form1
         '
         'ABMToolStripMenuItem
         '
-        Me.ABMToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMEmpleadoToolStripMenuItem, Me.ABMToolStripMenuItem1, Me.ABMTipoDocumentoToolStripMenuItem, Me.ABMBarrioToolStripMenuItem, Me.ABMArticuloToolStripMenuItem, Me.ABMRolToolStripMenuItem, Me.ABMDependenciaToolStripMenuItem, Me.ABMLocalidadToolStripMenuItem, Me.ABMProvinciaToolStripMenuItem, Me.ABMComboToolStripMenuItem})
+        Me.ABMToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMEmpleadoToolStripMenuItem, Me.ABMToolStripMenuItem1, Me.ABMTipoDocumentoToolStripMenuItem, Me.ABMBarrioToolStripMenuItem, Me.ABMArticuloToolStripMenuItem, Me.ABMRolToolStripMenuItem, Me.ABMDependenciaToolStripMenuItem, Me.ABMLocalidadToolStripMenuItem, Me.ABMProvinciaToolStripMenuItem, Me.ABMComboToolStripMenuItem, Me.VerNombreMaquinaToolStripMenuItem})
         Me.ABMToolStripMenuItem.Name = "ABMToolStripMenuItem"
         Me.ABMToolStripMenuItem.Size = New System.Drawing.Size(45, 20)
         Me.ABMToolStripMenuItem.Text = "ABM"
@@ -113,6 +114,12 @@ Partial Class Form1
         Me.ABMComboToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.ABMComboToolStripMenuItem.Text = "ABM Combo"
         '
+        'VerNombreMaquinaToolStripMenuItem
+        '
+        Me.VerNombreMaquinaToolStripMenuItem.Name = "VerNombreMaquinaToolStripMenuItem"
+        Me.VerNombreMaquinaToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.VerNombreMaquinaToolStripMenuItem.Text = "ver nombre maquina"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -141,4 +148,5 @@ Partial Class Form1
     Friend WithEvents ABMLocalidadToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMProvinciaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMComboToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents VerNombreMaquinaToolStripMenuItem As ToolStripMenuItem
 End Class
