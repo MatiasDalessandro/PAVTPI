@@ -12,15 +12,11 @@ Public Class DBHelper
     Public deDondeViene As Integer
     Private Sub New()
 
-        'IMPORTANTE
-        'CUANDO TRABAJEMOS CON EL STRING DE CONEXION,
-        'COMENTAR EL DE LA OTRA PERSONA Y DESCOMENTAR EL PROPIO
-        'ASI NO NOS COMEMOS EL VIAJE DE ESTARLO PONIENDO SIEMPRE.
+        Select Case My.Computer.Name.ToString
+            Case "DESKTOP-B5BDNHJ"
+                string_conexion = "Provider=SQLNCLI11;Data Source=DESKTOP-B5BDNHJ\EUROCOOLSQLEX;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+        End Select
 
-
-
-        string_conexion = "Data Source=" & My.Computer.Name.ToString & ";Initial Catalog=prueba2;Integrated Security=True"
-        'string_conexion = "Data Source=basedato.db"
     End Sub
 
     Public Shared Function getDBHelper() As DBHelper
