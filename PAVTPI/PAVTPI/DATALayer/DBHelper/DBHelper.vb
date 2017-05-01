@@ -15,6 +15,8 @@ Public Class DBHelper
         Select Case My.Computer.Name.ToString
             Case "DESKTOP-B5BDNHJ"
                 string_conexion = "Provider=SQLNCLI11;Data Source=DESKTOP-B5BDNHJ\EUROCOOLSQLEX;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+            Case "MATI-PC"
+                string_conexion = "Provider=SQLNCLI11;Data Source=MATI-PC;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
         End Select
 
     End Sub
