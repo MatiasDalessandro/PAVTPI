@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DATALayer\DBHelper\DBHelper.vb" />
+    <Compile Include="DATALayer\DBHelper\_3k6_2017_acceso_datosvb.vb" />
     <Compile Include="GUILayer\AbmArticulo.Designer.vb">
       <DependentUpon>AbmArticulo.vb</DependentUpon>
     </Compile>

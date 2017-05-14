@@ -43,14 +43,13 @@ Partial Class AbmCombo
         '
         'dgv_datos_articulos
         '
-        Me.dgv_datos_articulos.AllowUserToAddRows = False
         Me.dgv_datos_articulos.AllowUserToDeleteRows = False
         Me.dgv_datos_articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_datos_articulos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.c_id_articulo, Me.c_nombre_articulo, Me.c_precio_articulo, Me.Borrar})
         Me.dgv_datos_articulos.Location = New System.Drawing.Point(27, 141)
         Me.dgv_datos_articulos.Name = "dgv_datos_articulos"
         Me.dgv_datos_articulos.ReadOnly = True
-        Me.dgv_datos_articulos.Size = New System.Drawing.Size(524, 228)
+        Me.dgv_datos_articulos.Size = New System.Drawing.Size(471, 228)
         Me.dgv_datos_articulos.TabIndex = 30
         '
         'btn_buscar
@@ -173,16 +172,18 @@ Partial Class AbmCombo
         '
         'Borrar
         '
+        Me.Borrar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
         Me.Borrar.HeaderText = "      "
         Me.Borrar.Image = Global.PAVTPI.My.Resources.Resources.X_Para_borrar_100_100
         Me.Borrar.Name = "Borrar"
         Me.Borrar.ReadOnly = True
+        Me.Borrar.Width = 28
         '
         'AbmCombo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(563, 490)
+        Me.ClientSize = New System.Drawing.Size(518, 490)
         Me.Controls.Add(Me.dgv_datos_articulos)
         Me.Controls.Add(Me.btn_buscar)
         Me.Controls.Add(Me.btn_cancelar)
@@ -204,10 +205,6 @@ Partial Class AbmCombo
     End Sub
 
     Friend WithEvents dgv_datos_articulos As DataGridView
-    Friend WithEvents c_id_articulo As DataGridViewTextBoxColumn
-    Friend WithEvents c_nombre_articulo As DataGridViewTextBoxColumn
-    Friend WithEvents c_precio_articulo As DataGridViewTextBoxColumn
-    Friend WithEvents Borrar As DataGridViewImageColumn
     Friend WithEvents btn_buscar As Button
     Friend WithEvents btn_cancelar As Button
     Friend WithEvents btn_guardar As Button
@@ -219,4 +216,8 @@ Partial Class AbmCombo
     Friend WithEvents lbl_precio As Label
     Friend WithEvents lbl_nombre_articulo As Label
     Friend WithEvents lbl_id_articulo As Label
+    Friend WithEvents c_id_articulo As DataGridViewTextBoxColumn
+    Friend WithEvents c_nombre_articulo As DataGridViewTextBoxColumn
+    Friend WithEvents c_precio_articulo As DataGridViewTextBoxColumn
+    Friend WithEvents Borrar As DataGridViewImageColumn
 End Class
