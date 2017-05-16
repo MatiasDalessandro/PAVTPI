@@ -8,7 +8,7 @@
         modificar
     End Enum
     Dim estado_Grabacion As condicionGrabacion = condicionGrabacion.insertar
-    Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=(localdb)\Alvo_Server;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+    Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=MATI-PC\GDAPAV;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
 
     Private Sub AbmTipoDocumento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla()

@@ -2,8 +2,6 @@
 
     Private Sub AbmProvincia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         iniciarNuevo()
-        'provando despues de volver a la vida
-        'proBando animal jajajajaja
     End Sub
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
         txt_idProvincia.Text = Nothing
