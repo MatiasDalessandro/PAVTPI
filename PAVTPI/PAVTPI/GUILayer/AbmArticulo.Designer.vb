@@ -174,7 +174,7 @@ Partial Class AbmArticulo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(485, 447)
+        Me.ClientSize = New System.Drawing.Size(476, 447)
         Me.Controls.Add(Me.dgv_datos_articulos)
         Me.Controls.Add(Me.btn_buscar)
         Me.Controls.Add(Me.btn_cancelar)

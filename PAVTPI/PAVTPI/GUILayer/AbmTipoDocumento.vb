@@ -163,19 +163,51 @@
     Private Sub btn_Eliminar_Click(sender As Object, e As EventArgs) Handles btn_Eliminar.Click
         Dim sql As String = ""
 
-        If validarDatos() = estadoGrabacion.aprobado Then
-            If validarTipoDocuemnto() = estadoGrabacion.rechazado Then
-                sql = " DELETE FROM TipoDocumento WHERE IdTipoDocuemnto = " & txt_Id_Tipo_Doc.Text
-                MsgBox("Se elimino correctamente el tipo de docuemnto")
-            Else
-                MsgBox("Cargue correctamente el tipo de docuemnto a eliminar")
-            End If
+        'If validarDatos() = estadoGrabacion.aprobado Then
+        '    If validarTipoDocuemnto() = estadoGrabacion.rechazado Then
+        '        sql = " DELETE FROM TipoDocumento WHERE IdTipoDocuemnto = " & txt_Id_Tipo_Doc.Text
+        '        MsgBox("Se elimino correctamente el tipo de docuemnto")
+        '    Else
+        '        MsgBox("Cargue correctamente el tipo de docuemnto a eliminar")
+        '    End If
+        'End If
+        If MessageBox.Show("Esta seguro de borrar: " + Chr(13) +
+                           Me.dgv_Tipo_Doc.CurrentRow.Cells(0).Value.ToString.Trim + ", " +
+                           Me.dgv_Tipo_Doc.CurrentRow.Cells(1).Value.ToString.Trim _
+                           , "Importante" _
+                           , MessageBoxButtons.YesNo _
+                           , MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.No Then
+            Exit Sub
         End If
+        Dim txt_borrar As String = ""
+        txt_borrar &= "DELETE TipoDoc "
+        txt_borrar &= " where IdTipoDocumento= " & Me.dgv_Tipo_Doc.CurrentRow.Cells(0).Value
+        txt_borrar &= " and Numero_Tipo_Documento= " & Me.dgv_Tipo_Doc.CurrentRow.Cells(1).Value
 
-        ejecutosql(sql)
+        ejecutosql(txt_borrar)
         Me.cargar_grilla()
     End Sub
     Private Function leo_tabla(ByVal nombre_tabla As String) As DataTable
         Return Me.ejecutosql("SELECT * FROM " & nombre_tabla)
     End Function
+
+    Private Sub dgv_Tipo_Doc_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_Tipo_Doc.CellContentClick
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+
+        sql = " SELECT * FROM TipoDocuemnto WHERE IdTipoDocuemnto = " & Me.dgv_Tipo_Doc.CurrentRow.Cells("Id_Tipo_Doc").Value
+
+        tabla = ejecutosql(sql)
+
+        Me.txt_Id_Tipo_Doc.Text = tabla.Rows(0)("ID")
+        Me.txt_Nombre.Text = tabla.Rows(0)("Nombre")
+
+
+
+        Me.txt_Nombre.Enabled = True
+        btn_Eliminar.Enabled = True
+        btn_Guardar.Enabled = True
+        Me.txt_Id_Tipo_Doc.Enabled = False
+        estado_Grabacion = condicionGrabacion.modificar
+    End Sub
 End Class

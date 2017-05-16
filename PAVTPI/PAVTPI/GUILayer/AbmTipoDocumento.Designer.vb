@@ -112,7 +112,6 @@ Partial Class AbmTipoDocumento
         '
         'btn_Eliminar
         '
-        Me.btn_Eliminar.Enabled = False
         Me.btn_Eliminar.Location = New System.Drawing.Point(174, 172)
         Me.btn_Eliminar.Name = "btn_Eliminar"
         Me.btn_Eliminar.Size = New System.Drawing.Size(75, 23)
