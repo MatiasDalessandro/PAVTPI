@@ -188,6 +188,9 @@
     <EmbeddedResource Include="GUILayer\AbmLocalidad.resx">
       <DependentUpon>AbmLocalidad.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\AbmPersonaAutorizada.resx">
+      <DependentUpon>AbmPersonaAutorizada.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\AbmProvincia.resx">
       <DependentUpon>AbmProvincia.vb</DependentUpon>
     </EmbeddedResource>

@@ -8,8 +8,8 @@
         modificar
     End Enum
     Dim estado_Grabacion As condicionGrabacion = condicionGrabacion.insertar
-    Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=MATI-PC\GDAPAV;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
-
+    'Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=MATI-PC\GDAPAV;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+    Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=DESKTOP-B5BDNHJ\EUROCOOLSQLEX;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
     Private Sub AbmTipoDocumento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla()
     End Sub
@@ -25,8 +25,8 @@
 
         Dim sql As String = ""
 
-        sql &= "SELECT        IdTipoDocumento, Nombre "
-        sql &= " From            TipoDocumento"
+        sql &= "SELECT        idTipoDocumento, descripcion "
+        sql &= " From            tipoDocumento"
 
         cmd.CommandText = sql
         tabla.Load(cmd.ExecuteReader())
@@ -60,7 +60,7 @@
     End Sub
     Private Sub insertar()
         Dim sql As String = ""
-        sql = " INSERT INTO TipoDocumento (IdTipoDocumento,Nombre) VALUES ( '" & txt_Id_Tipo_Doc.Text & "', '" & txt_Nombre.Text & "')"
+        sql = " INSERT INTO tipoDocumento (idTipoDocumento,descripcion) VALUES ( '" & txt_Id_Tipo_Doc.Text & "', '" & txt_Nombre.Text & "')"
         ejecutosql(sql)
         MsgBox("Se grabo correctamente")
         Me.cargar_grilla()
@@ -68,9 +68,9 @@
     Private Sub modificar()
         Dim sql As String = ""
 
-        sql &= "UPDATE TipoDocumento "
-        sql &= "SET Nombre = '" & Me.txt_Nombre.Text & "'"
-        sql &= " WHERE IdTipoDocumento = " & Me.txt_Id_Tipo_Doc.Text
+        sql &= "UPDATE tipoDocumento "
+        sql &= "SET descripcion = '" & Me.txt_Nombre.Text & "'"
+        sql &= " WHERE idTipoDocumento = " & Me.txt_Id_Tipo_Doc.Text
 
         ejecutosql(sql)
         Me.cargar_grilla()
@@ -108,7 +108,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql &= " SELECT * FROM TipoDocumento WHERE IdTipoDocumento = " & Me.txt_Id_Tipo_Doc.Text
+        sql &= " SELECT * FROM tipoDocumento WHERE idTipoDocumento = " & Me.txt_Id_Tipo_Doc.Text
 
         tabla = ejecutosql(sql)
 
@@ -146,7 +146,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql = "SELECT * FROM TipoDocuemnto WHERE IdTipoDocuemnto = " & txt_Id_Tipo_Doc.Text
+        sql = "SELECT * FROM tipoDocuemnto WHERE idTipoDocuemnto = " & txt_Id_Tipo_Doc.Text
         tabla = ejecutosql(sql)
         Me.dgv_Tipo_Doc.Rows.Clear()
 
@@ -163,28 +163,16 @@
     Private Sub btn_Eliminar_Click(sender As Object, e As EventArgs) Handles btn_Eliminar.Click
         Dim sql As String = ""
 
-        'If validarDatos() = estadoGrabacion.aprobado Then
-        '    If validarTipoDocuemnto() = estadoGrabacion.rechazado Then
-        '        sql = " DELETE FROM TipoDocumento WHERE IdTipoDocuemnto = " & txt_Id_Tipo_Doc.Text
-        '        MsgBox("Se elimino correctamente el tipo de docuemnto")
-        '    Else
-        '        MsgBox("Cargue correctamente el tipo de docuemnto a eliminar")
-        '    End If
-        'End If
-        If MessageBox.Show("Esta seguro de borrar: " + Chr(13) +
-                           Me.dgv_Tipo_Doc.CurrentRow.Cells(0).Value.ToString.Trim + ", " +
-                           Me.dgv_Tipo_Doc.CurrentRow.Cells(1).Value.ToString.Trim _
-                           , "Importante" _
-                           , MessageBoxButtons.YesNo _
-                           , MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.No Then
-            Exit Sub
+        If validarDatos() = estadoGrabacion.aprobado Then
+            If validarTipoDocuemnto() = estadoGrabacion.rechazado Then
+                sql = " DELETE FROM tipoDocumento WHERE idTipoDocumento = " & txt_Id_Tipo_Doc.Text
+                MsgBox("Se elimino correctamente el Tipo de Documento ")
+            Else
+                MsgBox("Cargue correctamente el Tipo de Documento a eliminar")
+            End If
         End If
-        Dim txt_borrar As String = ""
-        txt_borrar &= "DELETE TipoDoc "
-        txt_borrar &= " where IdTipoDocumento= " & Me.dgv_Tipo_Doc.CurrentRow.Cells(0).Value
-        txt_borrar &= " and Numero_Tipo_Documento= " & Me.dgv_Tipo_Doc.CurrentRow.Cells(1).Value
 
-        ejecutosql(txt_borrar)
+        ejecutosql(sql)
         Me.cargar_grilla()
     End Sub
     Private Function leo_tabla(ByVal nombre_tabla As String) As DataTable
@@ -195,7 +183,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql = " SELECT * FROM TipoDocuemnto WHERE IdTipoDocuemnto = " & Me.dgv_Tipo_Doc.CurrentRow.Cells("Id_Tipo_Doc").Value
+        sql = " SELECT * FROM tipoDocuemnto WHERE idTipoDocuemnto = " & Me.dgv_Tipo_Doc.CurrentRow.Cells("Id_Tipo_Doc").Value
 
         tabla = ejecutosql(sql)
 

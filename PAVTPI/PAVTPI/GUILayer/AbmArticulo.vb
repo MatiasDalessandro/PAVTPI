@@ -1,5 +1,5 @@
 ﻿Public Class AbmArticulo
-    Dim cadena_conexion As String = "Provider=SQLNCLI11;Data Source=MATI-PC\GDAPAV;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+    Dim cadena_conexion As String = "Provider=SQLNCLI11;Data Source=DESKTOP-B5BDNHJ\EUROCOOLSQLEX;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
 
     Enum estado_grabacion
         aprobado

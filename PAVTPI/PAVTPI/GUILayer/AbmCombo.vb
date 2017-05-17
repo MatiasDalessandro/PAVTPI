@@ -158,9 +158,9 @@
         btn_editar_combo.Enabled = True
         btn_editar_combo.Visible = True
         bandera = tipoOperacion.editar
-        Dim sql As String = "SELECT A.IdArticulo_Combo, A.NombreCombo, B.IdArticulo_Combo, B.Nombre, B.Precio " _
-            & "FROM ComboXArticulo A, Articulo B " _
-            & "WHERE A.IdArticuloIntegrante = B.IdArticulo_Combo"
+        Dim sql As String = "SELECT A.idArticuloCombo, A.nombreCombo, B.idArticuloCombo, B.nombre, B.precio " _
+            & "FROM comboXArticulo A, articulo B " _
+            & "WHERE A.idArticuloIntegrante = B.idArticuloCombo"
         'dass
 
     End Sub
