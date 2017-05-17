@@ -22,9 +22,7 @@ Partial Class AbmTipoDocumento
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.lbl_Id_Tipo_Doc = New System.Windows.Forms.Label()
         Me.lbl_Nombre_Tipo_Doc = New System.Windows.Forms.Label()
-        Me.txt_Id_Tipo_Doc = New System.Windows.Forms.MaskedTextBox()
         Me.txt_Nombre = New System.Windows.Forms.TextBox()
         Me.dgv_Tipo_Doc = New System.Windows.Forms.DataGridView()
         Me.Id_Tipo_Doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -34,17 +32,10 @@ Partial Class AbmTipoDocumento
         Me.btn_Eliminar = New System.Windows.Forms.Button()
         Me.btn_Cancelar = New System.Windows.Forms.Button()
         Me.btn_Buscar = New System.Windows.Forms.Button()
+        Me.lbl_Id_Tipo_Doc = New System.Windows.Forms.Label()
+        Me.txt_Id_Tipo_Doc = New System.Windows.Forms.MaskedTextBox()
         CType(Me.dgv_Tipo_Doc, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'lbl_Id_Tipo_Doc
-        '
-        Me.lbl_Id_Tipo_Doc.AutoSize = True
-        Me.lbl_Id_Tipo_Doc.Location = New System.Drawing.Point(64, 44)
-        Me.lbl_Id_Tipo_Doc.Name = "lbl_Id_Tipo_Doc"
-        Me.lbl_Id_Tipo_Doc.Size = New System.Drawing.Size(18, 13)
-        Me.lbl_Id_Tipo_Doc.TabIndex = 0
-        Me.lbl_Id_Tipo_Doc.Text = "ID"
         '
         'lbl_Nombre_Tipo_Doc
         '
@@ -54,15 +45,6 @@ Partial Class AbmTipoDocumento
         Me.lbl_Nombre_Tipo_Doc.Size = New System.Drawing.Size(44, 13)
         Me.lbl_Nombre_Tipo_Doc.TabIndex = 1
         Me.lbl_Nombre_Tipo_Doc.Text = "Nombre"
-        '
-        'txt_Id_Tipo_Doc
-        '
-        Me.txt_Id_Tipo_Doc.Enabled = False
-        Me.txt_Id_Tipo_Doc.Location = New System.Drawing.Point(88, 37)
-        Me.txt_Id_Tipo_Doc.Mask = "999"
-        Me.txt_Id_Tipo_Doc.Name = "txt_Id_Tipo_Doc"
-        Me.txt_Id_Tipo_Doc.Size = New System.Drawing.Size(100, 20)
-        Me.txt_Id_Tipo_Doc.TabIndex = 2
         '
         'txt_Nombre
         '
@@ -137,6 +119,24 @@ Partial Class AbmTipoDocumento
         Me.btn_Buscar.Text = "Buscar"
         Me.btn_Buscar.UseVisualStyleBackColor = True
         '
+        'lbl_Id_Tipo_Doc
+        '
+        Me.lbl_Id_Tipo_Doc.AutoSize = True
+        Me.lbl_Id_Tipo_Doc.Location = New System.Drawing.Point(64, 44)
+        Me.lbl_Id_Tipo_Doc.Name = "lbl_Id_Tipo_Doc"
+        Me.lbl_Id_Tipo_Doc.Size = New System.Drawing.Size(18, 13)
+        Me.lbl_Id_Tipo_Doc.TabIndex = 0
+        Me.lbl_Id_Tipo_Doc.Text = "ID"
+        '
+        'txt_Id_Tipo_Doc
+        '
+        Me.txt_Id_Tipo_Doc.Enabled = False
+        Me.txt_Id_Tipo_Doc.Location = New System.Drawing.Point(88, 37)
+        Me.txt_Id_Tipo_Doc.Mask = "999"
+        Me.txt_Id_Tipo_Doc.Name = "txt_Id_Tipo_Doc"
+        Me.txt_Id_Tipo_Doc.Size = New System.Drawing.Size(100, 20)
+        Me.txt_Id_Tipo_Doc.TabIndex = 2
+        '
         'AbmTipoDocumento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -159,10 +159,7 @@ Partial Class AbmTipoDocumento
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents lbl_Id_Tipo_Doc As Label
     Friend WithEvents lbl_Nombre_Tipo_Doc As Label
-    Friend WithEvents txt_Id_Tipo_Doc As MaskedTextBox
     Friend WithEvents txt_Nombre As TextBox
     Friend WithEvents dgv_Tipo_Doc As DataGridView
     Friend WithEvents btn_Nuevo As Button
@@ -172,4 +169,6 @@ Partial Class AbmTipoDocumento
     Friend WithEvents btn_Buscar As Button
     Friend WithEvents Id_Tipo_Doc As DataGridViewTextBoxColumn
     Friend WithEvents Nombre_Tipo_Doc As DataGridViewTextBoxColumn
+    Friend WithEvents lbl_Id_Tipo_Doc As Label
+    Friend WithEvents txt_Id_Tipo_Doc As MaskedTextBox
 End Class
