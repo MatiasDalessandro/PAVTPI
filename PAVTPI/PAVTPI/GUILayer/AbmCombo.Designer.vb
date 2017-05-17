@@ -23,10 +23,6 @@ Partial Class AbmCombo
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.dgv_datos_articulos = New System.Windows.Forms.DataGridView()
-        Me.c_id_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.c_nombre_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.c_precio_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Borrar = New System.Windows.Forms.DataGridViewImageColumn()
         Me.btn_buscar = New System.Windows.Forms.Button()
         Me.btn_salir = New System.Windows.Forms.Button()
         Me.btn_guardar = New System.Windows.Forms.Button()
@@ -41,6 +37,9 @@ Partial Class AbmCombo
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.c_id_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.c_nombre_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.c_precio_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv_datos_articulos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -49,42 +48,12 @@ Partial Class AbmCombo
         '
         Me.dgv_datos_articulos.AllowUserToDeleteRows = False
         Me.dgv_datos_articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_datos_articulos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.c_id_articulo, Me.c_nombre_articulo, Me.c_precio_articulo, Me.Borrar})
+        Me.dgv_datos_articulos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.c_id_articulo, Me.c_nombre_articulo, Me.c_precio_articulo})
         Me.dgv_datos_articulos.Location = New System.Drawing.Point(27, 148)
         Me.dgv_datos_articulos.Name = "dgv_datos_articulos"
         Me.dgv_datos_articulos.ReadOnly = True
-        Me.dgv_datos_articulos.Size = New System.Drawing.Size(463, 228)
+        Me.dgv_datos_articulos.Size = New System.Drawing.Size(447, 228)
         Me.dgv_datos_articulos.TabIndex = 30
-        '
-        'c_id_articulo
-        '
-        Me.c_id_articulo.HeaderText = "ID Articulo"
-        Me.c_id_articulo.Name = "c_id_articulo"
-        Me.c_id_articulo.ReadOnly = True
-        Me.c_id_articulo.Width = 80
-        '
-        'c_nombre_articulo
-        '
-        Me.c_nombre_articulo.HeaderText = "Nombre Articulo"
-        Me.c_nombre_articulo.Name = "c_nombre_articulo"
-        Me.c_nombre_articulo.ReadOnly = True
-        Me.c_nombre_articulo.Width = 250
-        '
-        'c_precio_articulo
-        '
-        Me.c_precio_articulo.HeaderText = "Precio"
-        Me.c_precio_articulo.Name = "c_precio_articulo"
-        Me.c_precio_articulo.ReadOnly = True
-        Me.c_precio_articulo.Width = 70
-        '
-        'Borrar
-        '
-        Me.Borrar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.Borrar.HeaderText = "      "
-        Me.Borrar.Image = Global.PAVTPI.My.Resources.Resources.X_Para_borrar_100_100
-        Me.Borrar.Name = "Borrar"
-        Me.Borrar.ReadOnly = True
-        Me.Borrar.Width = 21
         '
         'btn_buscar
         '
@@ -97,7 +66,7 @@ Partial Class AbmCombo
         '
         'btn_salir
         '
-        Me.btn_salir.Location = New System.Drawing.Point(346, 451)
+        Me.btn_salir.Location = New System.Drawing.Point(334, 444)
         Me.btn_salir.Name = "btn_salir"
         Me.btn_salir.Size = New System.Drawing.Size(75, 23)
         Me.btn_salir.TabIndex = 26
@@ -107,7 +76,7 @@ Partial Class AbmCombo
         'btn_guardar
         '
         Me.btn_guardar.Enabled = False
-        Me.btn_guardar.Location = New System.Drawing.Point(98, 451)
+        Me.btn_guardar.Location = New System.Drawing.Point(86, 444)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(75, 23)
         Me.btn_guardar.TabIndex = 27
@@ -117,7 +86,7 @@ Partial Class AbmCombo
         'btn_eliminar
         '
         Me.btn_eliminar.Enabled = False
-        Me.btn_eliminar.Location = New System.Drawing.Point(222, 451)
+        Me.btn_eliminar.Location = New System.Drawing.Point(210, 444)
         Me.btn_eliminar.Name = "btn_eliminar"
         Me.btn_eliminar.Size = New System.Drawing.Size(75, 23)
         Me.btn_eliminar.TabIndex = 28
@@ -177,7 +146,7 @@ Partial Class AbmCombo
         '
         'btn_editar_combo
         '
-        Me.btn_editar_combo.Location = New System.Drawing.Point(409, 393)
+        Me.btn_editar_combo.Location = New System.Drawing.Point(393, 393)
         Me.btn_editar_combo.Name = "btn_editar_combo"
         Me.btn_editar_combo.Size = New System.Drawing.Size(81, 23)
         Me.btn_editar_combo.TabIndex = 33
@@ -189,7 +158,7 @@ Partial Class AbmCombo
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.BuscarToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(517, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(504, 24)
         Me.MenuStrip1.TabIndex = 36
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -205,11 +174,32 @@ Partial Class AbmCombo
         Me.BuscarToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.BuscarToolStripMenuItem.Text = "Buscar"
         '
+        'c_id_articulo
+        '
+        Me.c_id_articulo.HeaderText = "ID Articulo"
+        Me.c_id_articulo.Name = "c_id_articulo"
+        Me.c_id_articulo.ReadOnly = True
+        Me.c_id_articulo.Width = 80
+        '
+        'c_nombre_articulo
+        '
+        Me.c_nombre_articulo.HeaderText = "Nombre Articulo"
+        Me.c_nombre_articulo.Name = "c_nombre_articulo"
+        Me.c_nombre_articulo.ReadOnly = True
+        Me.c_nombre_articulo.Width = 250
+        '
+        'c_precio_articulo
+        '
+        Me.c_precio_articulo.HeaderText = "Precio"
+        Me.c_precio_articulo.Name = "c_precio_articulo"
+        Me.c_precio_articulo.ReadOnly = True
+        Me.c_precio_articulo.Width = 70
+        '
         'AbmCombo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(517, 490)
+        Me.ClientSize = New System.Drawing.Size(504, 490)
         Me.Controls.Add(Me.btn_editar_combo)
         Me.Controls.Add(Me.btn_quitar_articulo)
         Me.Controls.Add(Me.btn_agregar_articulo)
@@ -243,14 +233,13 @@ Partial Class AbmCombo
     Friend WithEvents txt_id_combo As TextBox
     Friend WithEvents lbl_nombre_combo As Label
     Friend WithEvents lbl_id_combo As Label
-    Friend WithEvents c_id_articulo As DataGridViewTextBoxColumn
-    Friend WithEvents c_nombre_articulo As DataGridViewTextBoxColumn
-    Friend WithEvents c_precio_articulo As DataGridViewTextBoxColumn
-    Friend WithEvents Borrar As DataGridViewImageColumn
     Friend WithEvents btn_agregar_articulo As Button
     Friend WithEvents btn_quitar_articulo As Button
     Friend WithEvents btn_editar_combo As Button
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents NuevoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BuscarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents c_id_articulo As DataGridViewTextBoxColumn
+    Friend WithEvents c_nombre_articulo As DataGridViewTextBoxColumn
+    Friend WithEvents c_precio_articulo As DataGridViewTextBoxColumn
 End Class
