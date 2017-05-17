@@ -46,6 +46,7 @@ Partial Class AbmCombo
         '
         'dgv_datos_articulos
         '
+        Me.dgv_datos_articulos.AllowUserToAddRows = False
         Me.dgv_datos_articulos.AllowUserToDeleteRows = False
         Me.dgv_datos_articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_datos_articulos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.c_id_articulo, Me.c_nombre_articulo, Me.c_precio_articulo})

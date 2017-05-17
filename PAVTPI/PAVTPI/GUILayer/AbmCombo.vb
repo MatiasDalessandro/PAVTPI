@@ -116,11 +116,13 @@
     Private Function verificarCampos()
         Dim ret As camposLlenos
         For Each Obj In Me.Controls
-            If Trim(Obj.Text) = "" Then
-                ret = camposLlenos.no
-            Else
-                ret = camposLlenos.si
-                Exit For
+            If Obj.GetType.ToString = "System.Windows.Forms.TextBox" Then
+                If Obj.Text = "" Then
+                    ret = camposLlenos.no
+                Else
+                    ret = camposLlenos.si
+                    Exit For
+                End If
             End If
         Next
         Return ret
@@ -161,5 +163,9 @@
             & "WHERE A.IdArticuloIntegrante = B.IdArticulo_Combo"
         'dass
 
+    End Sub
+
+    Private Sub btn_agregar_articulo_Click(sender As Object, e As EventArgs) Handles btn_agregar_articulo.Click
+        ArticulosParaCombo.ShowDialog()
     End Sub
 End Class
