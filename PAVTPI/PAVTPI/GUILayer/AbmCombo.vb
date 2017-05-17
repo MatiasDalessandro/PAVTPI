@@ -159,7 +159,7 @@
         Dim sql As String = "SELECT A.IdArticulo_Combo, A.NombreCombo, B.IdArticulo_Combo, B.Nombre, B.Precio " _
             & "FROM ComboXArticulo A, Articulo B " _
             & "WHERE A.IdArticuloIntegrante = B.IdArticulo_Combo"
-
+        'das
 
     End Sub
 End Class
