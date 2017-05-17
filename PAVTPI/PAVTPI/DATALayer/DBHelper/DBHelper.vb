@@ -17,6 +17,7 @@ Public Class DBHelper
                 string_conexion = "Provider=SQLNCLI11;Data Source=DESKTOP-B5BDNHJ\EUROCOOLSQLEX;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
             Case "MATI-PC"
                 string_conexion = "Provider=SQLNCLI11;Data Source=MATI-PC;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+            Case ""
         End Select
 
     End Sub
