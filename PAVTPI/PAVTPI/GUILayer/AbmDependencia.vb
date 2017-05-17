@@ -29,18 +29,17 @@
     End Function
     Private Sub cargarGrilla()
 
-        Dim sql As String = "SELECT IdDependencia,Nombre,Descripcion,NroCuentaCorriente,Saldo,Estado from Dependencia"
+        Dim sql As String = "SELECT Nombre,Descripcion,nroCuentaCorriente,Saldo,Estado from dependencia"
         Dim tabla As DataTable = ejecuto_sql(sql)
         dgv_datos_dependencia.Rows.Clear()
         Dim c As Integer = 0
         For c = 0 To tabla.Rows.Count - 1
             Me.dgv_datos_dependencia.Rows.Add()
             Me.dgv_datos_dependencia.Rows(c).Cells(0).Value = tabla.Rows(c)("nombre")
-            Me.dgv_datos_dependencia.Rows(c).Cells(1).Value = tabla.Rows(c)(2)
-            Me.dgv_datos_dependencia.Rows(c).Cells(2).Value = tabla.Rows(c)(3)
-            Me.dgv_datos_dependencia.Rows(c).Cells(3).Value = tabla.Rows(c)(4)
-            Me.dgv_datos_dependencia.Rows(c).Cells(4).Value = validar_estado(tabla.Rows(c)(5))
-            Me.dgv_datos_dependencia.Rows(c).Cells(5).Value = tabla.Rows(c)(0)
+            Me.dgv_datos_dependencia.Rows(c).Cells(1).Value = tabla.Rows(c)("descripcion")
+            Me.dgv_datos_dependencia.Rows(c).Cells(2).Value = tabla.Rows(c)("nroCuentaCorriente")
+            Me.dgv_datos_dependencia.Rows(c).Cells(3).Value = tabla.Rows(c)("Saldo")
+            Me.dgv_datos_dependencia.Rows(c).Cells(4).Value = tabla.Rows(c)("Estado")
         Next
     End Sub
     Private Function validar_estado(ByVal estado As Integer)
@@ -83,23 +82,10 @@
         Me.txt_nombre.Enabled = True
         Me.txt_descripcion.Enabled = True
         Me.cmb_estado.Enabled = True
-        Me.txt_nro.Text = generar_nro_cta()
-        Me.txt_nro.ReadOnly = True
         Me.condicion_grabacion = estado_grabacion.insertar
         Me.txt_nombre.Focus()
     End Sub
-    Private Function generar_nro_cta()
-        Dim sql = "Select NroCuentaCorriente FROM Dependencia"
-        Dim nro As Integer = 0
-        Dim tabla As DataTable = ejecuto_sql(sql)
 
-        If tabla.Rows.Count = 0 Then
-            Return 1
-            Exit Function
-        End If
-        nro = tabla.Rows(tabla.Rows.Count - 1)(0)
-        Return nro + 1
-    End Function
     Private Sub grabar_borrar(sql As String)
         Dim conexion As New OleDb.OleDbConnection
         Dim cmd As New OleDb.OleDbCommand
@@ -112,23 +98,27 @@
         conexion.Close()
     End Sub
     Private Sub insertar()
-        Dim nro As Integer = Me.txt_nro.Text
         Dim estado As Integer = validar_estado_r(Me.cmb_estado.SelectedValue)
         Dim sql As String = ""
-        sql &= "insert into [PAV-TPI].dbo.Dependencia (Nombre,Descripcion,NroCuentaCorriente,Estado) VALUES ('"
-        sql &= Me.txt_nombre.Text & "', '" & Me.txt_descripcion.Text & "'," & nro & "," & estado & ")"
+        sql &= "insert into [PAV-TPI].dbo.dependencia (nombre,descripcion,estado) VALUES ('"
+        sql &= Me.txt_nombre.Text & "', '" & Me.txt_descripcion.Text & "'," & estado & ")"
         grabar_borrar(sql)
 
     End Sub
     Private Sub modificar()
-        Dim id As Integer = dgv_datos_dependencia.CurrentRow.Cells(5).Value
-        Dim sql As String = "UPDATE [PAV-TPI].dbo.Dependencia set nombre='" & Me.txt_nombre.Text & "',descripcion = '" & txt_descripcion.Text & "' where IdDependencia = "
-        sql &= id
+        Dim nro As Integer = dgv_datos_dependencia.CurrentRow.Cells(2).Value
+        Dim sql As String = "UPDATE [PAV-TPI].dbo.dependencia set nombre='" & Me.txt_nombre.Text & "',descripcion = '" & txt_descripcion.Text & "' where nroCuentaCorriente = "
+        sql &= nro
         grabar_borrar(sql)
     End Sub
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
         If condicion_grabacion = estado_grabacion.insertar Then
-            insertar()
+            If validar_repetitivo() Then
+                insertar()
+            Else
+                MsgBox("No se puede guardar registro duplicado.")
+                Exit Sub
+            End If
         Else
             modificar()
         End If
@@ -138,14 +128,14 @@
 
     Private Sub dgv_datos_dependencia_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_datos_dependencia.CellContentClick
         Dim sql As String = ""
-        sql &= "SELECT * FROM [PAV-TPI].dbo.Dependencia WHERE IdDependencia = " & dgv_datos_dependencia.CurrentRow.Cells(5).Value
+
+        sql &= "SELECT * FROM [PAV-TPI].dbo.dependencia WHERE nroCuentaCorriente = " & dgv_datos_dependencia.CurrentRow.Cells(2).Value
         Dim tabla As DataTable = ejecuto_sql(sql)
         If tabla.Rows.Count = 0 Then
-            MsgBox("No hay personas para recuperar")
+            MsgBox("No hay Dependencias para recuperar")
         End If
-        Me.txt_nombre.Text = tabla.Rows(0)("Nombre")
-        Me.txt_descripcion.Text = tabla.Rows(0)("Descripcion")
-        Me.txt_nro.Text = tabla.Rows(0)("NroCuentaCorriente")
+        Me.txt_nombre.Text = tabla.Rows(0)("nombre")
+        Me.txt_descripcion.Text = tabla.Rows(0)("descripcion")
         Me.cmb_estado.Text = validar_estado(tabla.Rows(0)("Estado"))
         condicion_grabacion = estado_grabacion.modificar
 
@@ -161,8 +151,8 @@
                            , MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.No Then
             Exit Sub
         End If
-        Dim sql As String = "DELETE FROM [PAV-TPI].dbo.Dependencia where IdDependencia = "
-        sql &= dgv_datos_dependencia.CurrentRow.Cells(5).Value
+        Dim sql As String = "DELETE FROM [PAV-TPI].dbo.dependencia where nroCuentaCorriente = "
+        sql &= dgv_datos_dependencia.CurrentRow.Cells(2).Value
         grabar_borrar(sql)
         cargarGrilla()
     End Sub
@@ -170,4 +160,14 @@
     Private Sub btn_salir_Click(sender As Object, e As EventArgs) Handles btn_salir.Click
         Me.Close()
     End Sub
+    Private Function validar_repetitivo() As Boolean
+        Dim resultado As Boolean = False
+        Dim tabla As New DataTable
+        tabla = ejecuto_sql("SELECT * FROM [PAV-TPI].dbo.dependencia where nombre ='" & txt_nombre.Text & "'")
+        If tabla.Rows.Count = 0 Then
+            Return resultado = True
+            Exit Function
+        End If
+        Return resultado
+    End Function
 End Class
