@@ -27,12 +27,9 @@ Partial Class Form1
         Me.ABMEmpleadoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMTipoDocumentoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ABMBarrioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMArticuloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMRolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMDependenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ABMLocalidadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ABMProvinciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMComboToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VerNombreMaquinaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
@@ -49,7 +46,7 @@ Partial Class Form1
         '
         'ABMToolStripMenuItem
         '
-        Me.ABMToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMEmpleadoToolStripMenuItem, Me.ABMToolStripMenuItem1, Me.ABMTipoDocumentoToolStripMenuItem, Me.ABMBarrioToolStripMenuItem, Me.ABMArticuloToolStripMenuItem, Me.ABMRolToolStripMenuItem, Me.ABMDependenciaToolStripMenuItem, Me.ABMLocalidadToolStripMenuItem, Me.ABMProvinciaToolStripMenuItem, Me.ABMComboToolStripMenuItem, Me.VerNombreMaquinaToolStripMenuItem})
+        Me.ABMToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMEmpleadoToolStripMenuItem, Me.ABMToolStripMenuItem1, Me.ABMTipoDocumentoToolStripMenuItem, Me.ABMArticuloToolStripMenuItem, Me.ABMRolToolStripMenuItem, Me.ABMDependenciaToolStripMenuItem, Me.ABMComboToolStripMenuItem, Me.VerNombreMaquinaToolStripMenuItem})
         Me.ABMToolStripMenuItem.Name = "ABMToolStripMenuItem"
         Me.ABMToolStripMenuItem.Size = New System.Drawing.Size(45, 20)
         Me.ABMToolStripMenuItem.Text = "ABM"
@@ -72,12 +69,6 @@ Partial Class Form1
         Me.ABMTipoDocumentoToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.ABMTipoDocumentoToolStripMenuItem.Text = "ABM Tipo Documento"
         '
-        'ABMBarrioToolStripMenuItem
-        '
-        Me.ABMBarrioToolStripMenuItem.Name = "ABMBarrioToolStripMenuItem"
-        Me.ABMBarrioToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
-        Me.ABMBarrioToolStripMenuItem.Text = "ABM Barrio"
-        '
         'ABMArticuloToolStripMenuItem
         '
         Me.ABMArticuloToolStripMenuItem.Name = "ABMArticuloToolStripMenuItem"
@@ -95,18 +86,6 @@ Partial Class Form1
         Me.ABMDependenciaToolStripMenuItem.Name = "ABMDependenciaToolStripMenuItem"
         Me.ABMDependenciaToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.ABMDependenciaToolStripMenuItem.Text = "ABM Dependencia"
-        '
-        'ABMLocalidadToolStripMenuItem
-        '
-        Me.ABMLocalidadToolStripMenuItem.Name = "ABMLocalidadToolStripMenuItem"
-        Me.ABMLocalidadToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
-        Me.ABMLocalidadToolStripMenuItem.Text = "ABM Localidad"
-        '
-        'ABMProvinciaToolStripMenuItem
-        '
-        Me.ABMProvinciaToolStripMenuItem.Name = "ABMProvinciaToolStripMenuItem"
-        Me.ABMProvinciaToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
-        Me.ABMProvinciaToolStripMenuItem.Text = "ABM Provincia"
         '
         'ABMComboToolStripMenuItem
         '
@@ -141,12 +120,9 @@ Partial Class Form1
     Friend WithEvents ABMEmpleadoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ABMTipoDocumentoToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ABMBarrioToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMArticuloToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMRolToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMDependenciaToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ABMLocalidadToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ABMProvinciaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMComboToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VerNombreMaquinaToolStripMenuItem As ToolStripMenuItem
 End Class
