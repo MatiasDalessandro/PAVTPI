@@ -32,10 +32,6 @@
     Private Sub cerrar_conexion()
         conexion.Close()
     End Sub
-    Enum valoresReturn
-        tabla As DataTable
-        filas As Integer
-    End Enum
     Public Function _ejecutar_sql(ByVal sql As String) As DataTable
         Me.conectar()
         If sql.Trim.ToUpper.IndexOf("SELECT") = 0 Then
