@@ -1,5 +1,5 @@
-﻿Imports System.Data.SqlClient
-'Imports System.Data.SQLite
+﻿'Imports System.Data.SqlClient
+Imports System.Data.OleDb
 
 Public Class DBHelper
     ' La clase BDHelper permite quitar del código del formulario todo lo relacionado con el acceso a bd.
@@ -33,8 +33,8 @@ Public Class DBHelper
     Public Function EjecutarSQL(ByVal strSql As String) As Integer
         ' Se utiliza para sentencias SQL del tipo “Insert/Update/Delete”
         Dim number As Integer = 0
-        Dim conexion As New SqlConnection
-        Dim cmd As New SqlCommand
+        Dim conexion As New OleDbConnection
+        Dim cmd As New OleDbCommand
         'Dim conexion As New SQLiteConnection
         'Dim cmd As New SQLiteCommand
 
@@ -69,8 +69,8 @@ Public Class DBHelper
     Public Function ConsultaSQL(ByVal strSql As String) As Data.DataTable
         ' Se utiliza para sentencias SQL del tipo “Select”
         ' La función recibe por valor una sentencia sql como string, devuelve un objeto de tipo DataTable
-        Dim conexion As New SqlConnection
-        Dim cmd As New SqlCommand
+        Dim conexion As New OleDbConnection
+        Dim cmd As New OleDbCommand
         Dim tabla As New DataTable
         Try
             conexion.ConnectionString = string_conexion
