@@ -1,4 +1,9 @@
 ﻿Public Class AbmCombo
+    Private bandera As tipoOperacion
+    Enum tipoOperacion
+        nuevo
+        editar
+    End Enum
     Enum camposLlenos
         si
         no
@@ -124,9 +129,11 @@
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         If verificarCampos() = camposLlenos.no Then
             setNuevo()
+            bandera = tipoOperacion.nuevo
         Else
             If MsgBox("Se perderan los cambios. ¿ Desea Continuar ?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 setNuevo()
+                bandera = tipoOperacion.nuevo
             End If
         End If
     End Sub
@@ -148,5 +155,11 @@
     Private Sub btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
         btn_editar_combo.Enabled = True
         btn_editar_combo.Visible = True
+        bandera = tipoOperacion.editar
+        Dim sql As String = "SELECT A.IdArticulo_Combo, A.NombreCombo, B.IdArticulo_Combo, B.Nombre, B.Precio " _
+            & "FROM ComboXArticulo A, Articulo B " _
+            & "WHERE A.IdArticuloIntegrante = B.IdArticulo_Combo"
+
+
     End Sub
 End Class
