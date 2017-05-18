@@ -1,5 +1,5 @@
 ﻿Public Class AbmArticulo
-    Dim cadena_conexion As String = "Provider=SQLNCLI11;Data Source=MATI-PC\GDAPAV;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+    Dim cadena_conexion As String = "Provider=SQLNCLI11;Data Source=DESKTOP-B5BDNHJ\EUROCOOLSQLEX;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
 
     Enum estado_grabacion
         aprobado
@@ -16,6 +16,7 @@
     End Sub
 
     Private Sub cargar_grilla()
+
         Dim conexion As New OleDb.OleDbConnection
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
@@ -28,6 +29,8 @@
         Dim sql As String = ""
 
         sql = "SELECT * FROM Articulo"
+
+        'DBHelper.getDBHelper.EjecutarSQL(sql)
 
         cmd.CommandText = sql
         tabla.Load(cmd.ExecuteReader())

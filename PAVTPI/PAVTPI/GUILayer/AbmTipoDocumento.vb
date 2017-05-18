@@ -8,8 +8,8 @@
         modificar
     End Enum
     Dim estado_Grabacion As condicionGrabacion = condicionGrabacion.insertar
-    Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=(localdb)\Alvo_Server;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
-
+    'Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=MATI-PC\GDAPAV;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+    Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=DESKTOP-B5BDNHJ\EUROCOOLSQLEX;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
     Private Sub AbmTipoDocumento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla()
     End Sub
@@ -47,23 +47,26 @@
         Dim sql As String = ""
         If validarDatos() = estadoGrabacion.aprobado Then
             If estado_Grabacion = condicionGrabacion.insertar Then
-                If validarTipoDocuemnto() = estadoGrabacion.aprobado Then
-                    insertar()
-                Else
-                    MsgBox("El ID que intenta cargar ya existe")
-                End If
+
+                insertar()
+
             Else
                 modificar()
             End If
         Else
         End If
+        Me.cargar_grilla()
     End Sub
     Private Sub insertar()
         Dim sql As String = ""
-        sql = " INSERT INTO tipoDocumento (idTipoDocumento,descripcion) VALUES ( '" & txt_Id_Tipo_Doc.Text & "', '" & txt_Nombre.Text & "')"
-        ejecutosql(sql)
-        MsgBox("Se grabo correctamente")
-        Me.cargar_grilla()
+        sql = " INSERT INTO tipoDocumento (descripcion) VALUES ('" & txt_Nombre.Text & "')"
+        Dim num As Integer
+        num = ejecSql(sql)
+        If num > 0 Then
+            MsgBox("Se grabo correctamente")
+        Else
+            MsgBox("no se pudo insetar")
+        End If
     End Sub
     Private Sub modificar()
         Dim sql As String = ""
@@ -72,12 +75,19 @@
         sql &= "SET descripcion = '" & Me.txt_Nombre.Text & "'"
         sql &= " WHERE idTipoDocumento = " & Me.txt_Id_Tipo_Doc.Text
 
-        ejecutosql(sql)
-        Me.cargar_grilla()
+        Dim num As Integer
+        num = ejecSql(sql)
+        If num > 0 Then
+            MsgBox("Se grabo correctamente")
+        Else
+            MsgBox("no se pudo insetar")
+        End If
+
         MsgBox("Se Modifico correctamente")
     End Sub
 
     Private Function ejecutosql(ByVal consulta As String) As DataTable
+
         Dim conexion As New OleDb.OleDbConnection
         Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
@@ -92,17 +102,26 @@
         conexion.Close()
         Return tabla
     End Function
+    Private Function ejecSql(ByVal sql As String) As Integer
+        Dim num As Integer
+        num = DBHelper.getDBHelper.EjecutarSQL(sql)
+        Return num
+    End Function
     Private Function validarDatos() As estadoGrabacion
-        For Each obj As Control In Me.Controls
-            If obj.GetType.Name = "TextBox" Or obj.GetType.Name = "MaskedTextBox" Then
-                If obj.Text = "" Then
-                    MsgBox("El " & obj.Name & " esta vacio")
-                    obj.Focus()
-                    Return estadoGrabacion.rechazado
-                End If
-            End If
-        Next
-        Return estadoGrabacion.aprobado
+        'For Each obj As Control In Me.Controls
+        'If obj.GetType.Name = "TextBox" Or obj.GetType.Name = "MaskedTextBox" Then
+        'If obj.Text = "" Then
+        'MsgBox("El " & obj.Name & " esta vacio")
+        'obj.Focus()
+        'Return estadoGrabacion.rechazado
+        'End If
+        'End If
+        'Next
+        If txt_Nombre.Text = "" Then
+            Return estadoGrabacion.rechazado
+        Else
+            Return estadoGrabacion.aprobado
+        End If
     End Function
     Private Function validarTipoDocuemnto() As estadoGrabacion
         Dim sql As String = ""
@@ -166,9 +185,9 @@
         If validarDatos() = estadoGrabacion.aprobado Then
             If validarTipoDocuemnto() = estadoGrabacion.rechazado Then
                 sql = " DELETE FROM tipoDocumento WHERE idTipoDocumento = " & txt_Id_Tipo_Doc.Text
-                MsgBox("Se elimino correctamente el tipo de documento")
+                MsgBox("Se elimino correctamente el Tipo de Documento ")
             Else
-                MsgBox("Cargue correctamente el tipo documento a eliminar")
+                MsgBox("Cargue correctamente el Tipo de Documento a eliminar")
             End If
         End If
 
