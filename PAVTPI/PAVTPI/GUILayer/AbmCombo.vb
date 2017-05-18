@@ -104,10 +104,10 @@
         btn_eliminar.Visible = False
         btn_salir.Enabled = True
 
-        btn_agregar_articulo.Enabled = True
-        btn_agregar_articulo.Visible = True
-        btn_quitar_articulo.Enabled = True
-        btn_quitar_articulo.Visible = True
+        btn_agregar_articulo.Enabled = False
+        btn_agregar_articulo.Visible = False
+        btn_quitar_articulo.Enabled = False
+        btn_quitar_articulo.Visible = False
 
         btn_editar_combo.Enabled = False
         btn_editar_combo.Visible = False
