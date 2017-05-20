@@ -1,4 +1,5 @@
-﻿Public Class AbmTipoDocumento
+﻿'ABM Tipo Documento Alvaro
+Public Class AbmTipoDocumento
     Enum estadoGrabacion
         aprobado
         rechazado
@@ -143,6 +144,7 @@
         Else
             Return estadoGrabacion.rechazado
         End If
+
     End Function
 
     Private Sub btn_Cancelar_Click(sender As Object, e As EventArgs) Handles btn_Cancelar.Click
