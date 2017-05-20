@@ -9,7 +9,7 @@
     End Enum
     Dim estado_Grabacion As condicionGrabacion = condicionGrabacion.insertar
     'Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=MATI-PC\GDAPAV;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
-    Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=DESKTOP-B5BDNHJ\EUROCOOLSQLEX;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+    Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=(localdb)\Alvo_Server;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
     Private Sub AbmTipoDocumento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla()
     End Sub
@@ -106,6 +106,7 @@
         Dim num As Integer
         num = DBHelper.getDBHelper.EjecutarSQL(sql)
         Return num
+
     End Function
     Private Function validarDatos() As estadoGrabacion
         'For Each obj As Control In Me.Controls
@@ -153,19 +154,21 @@
             End If
         Next
 
-        Me.txt_Id_Tipo_Doc.Enabled = True
+
         Me.txt_Nombre.Enabled = True
         Me.btn_Guardar.Enabled = True
-        Me.btn_Eliminar.Enabled = True
+        Me.btn_Buscar.Enabled = False
+        Me.btn_Eliminar.Enabled = False
+
         Me.estado_Grabacion = condicionGrabacion.insertar
-        Me.txt_Id_Tipo_Doc.Focus()
+        Me.txt_Nombre.Focus()
     End Sub
 
     Private Sub btn_Buscar_Click(sender As Object, e As EventArgs) Handles btn_Buscar.Click
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql = "SELECT * FROM tipoDocuemnto WHERE idTipoDocuemnto = " & txt_Id_Tipo_Doc.Text
+        sql = "SELECT * FROM tipoDocuemento WHERE idTipoDocumento = " & txt_Id_Tipo_Doc.Text
         tabla = ejecutosql(sql)
         Me.dgv_Tipo_Doc.Rows.Clear()
 
@@ -177,6 +180,7 @@
             Me.dgv_Tipo_Doc.Rows(c).Cells("Nombre_Tipo_Doc").Value = tabla.Rows(c)(1)
 
         Next
+        Me.btn_Eliminar.Enabled = True
     End Sub
 
     Private Sub btn_Eliminar_Click(sender As Object, e As EventArgs) Handles btn_Eliminar.Click
@@ -193,6 +197,8 @@
 
         ejecutosql(sql)
         Me.cargar_grilla()
+        txt_Nombre.Text = ""
+        txt_Id_Tipo_Doc.Text = ""
     End Sub
     Private Function leo_tabla(ByVal nombre_tabla As String) As DataTable
         Return Me.ejecutosql("SELECT * FROM " & nombre_tabla)
@@ -202,12 +208,12 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql = " SELECT * FROM tipoDocuemnto WHERE idTipoDocuemnto = " & Me.dgv_Tipo_Doc.CurrentRow.Cells("Id_Tipo_Doc").Value
+        sql = " SELECT * FROM tipoDocumento WHERE idTipoDocumento = " & Me.dgv_Tipo_Doc.CurrentRow.Cells("Id_Tipo_Doc").Value
 
         tabla = ejecutosql(sql)
 
-        Me.txt_Id_Tipo_Doc.Text = tabla.Rows(0)("ID")
-        Me.txt_Nombre.Text = tabla.Rows(0)("Nombre")
+        Me.txt_Id_Tipo_Doc.Text = tabla.Rows(0)("idTipoDocumento")
+        Me.txt_Nombre.Text = tabla.Rows(0)("descripcion")
 
 
 
