@@ -1,5 +1,5 @@
 ﻿Public Class AbmDependencia
-    Dim cadena_conexion As String = "Provider=SQLNCLI11;Data Source=DESKTOP-B5BDNHJ\EUROCOOLSQLEX;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+    Dim cadena_conexion As String = "Provider=SQLNCLI11;Data Source=DESKTOP-VS0357J\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
     Enum estado_grabacion
         insertar
         modificar
@@ -12,6 +12,7 @@
         txt_descripcion.Enabled = False
         txt_nombre.Enabled = False
         cmb_estado.Enabled = False
+        cmb_estado.DropDownStyle = ComboBoxStyle.DropDownList
     End Sub
     Private Function ejecuto_sql(ByVal consulta As String)
         Dim conexion As New OleDb.OleDbConnection
@@ -83,7 +84,11 @@
         Me.txt_descripcion.Enabled = True
         Me.cmb_estado.Enabled = True
         Me.condicion_grabacion = estado_grabacion.insertar
+        btn_buscar.Enabled = False
+        txt_buscar.Enabled = False
+        btn_guardar.Enabled = True
         Me.txt_nombre.Focus()
+        cargarGrilla()
     End Sub
 
     Private Sub grabar_borrar(sql As String)
@@ -110,20 +115,31 @@
         Dim sql As String = "UPDATE [PAV-TPI].dbo.dependencia set nombre='" & Me.txt_nombre.Text & "',descripcion = '" & txt_descripcion.Text & "' where nroCuentaCorriente = "
         sql &= nro
         grabar_borrar(sql)
+        txt_nombre.Enabled = False
+        txt_descripcion.Enabled = False
+        txt_buscar.Enabled = True
+
     End Sub
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
         If condicion_grabacion = estado_grabacion.insertar Then
-            If validar_repetitivo() Then
+            If validar_repetitivo() = True Then
                 insertar()
+                MsgBox("Se cargo correctamente.")
             Else
-                MsgBox("No se puede guardar registro duplicado.")
-                Exit Sub
+                MsgBox("No se puede grabar registro repetido" + Chr(13) +
+                       "La dependencia " & txt_nombre.Text & " ya existe.")
             End If
         Else
             modificar()
+            MsgBox("Se cargo correctamente.")
         End If
         cargarGrilla()
-        MsgBox("Se cargo correctamente.")
+        txt_nombre.Text = ""
+        txt_descripcion.Text = ""
+        txt_buscar.Text = ""
+        btn_guardar.Enabled = False
+        btn_buscar.Enabled = True
+        txt_buscar.Enabled = True
     End Sub
 
     Private Sub dgv_datos_dependencia_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_datos_dependencia.CellContentClick
@@ -161,13 +177,39 @@
         Me.Close()
     End Sub
     Private Function validar_repetitivo() As Boolean
-        Dim resultado As Boolean = False
+        Dim grabar As Boolean = False
+        Dim sql As String = "SELECT * FROM [PAV-TPI].dbo.dependencia where nombre ='" & txt_nombre.Text & "'"
         Dim tabla As New DataTable
-        tabla = ejecuto_sql("SELECT * FROM [PAV-TPI].dbo.dependencia where nombre ='" & txt_nombre.Text & "'")
+        tabla = ejecuto_sql(sql)
         If tabla.Rows.Count = 0 Then
-            Return resultado = True
+            grabar = True
+            Return grabar
             Exit Function
         End If
-        Return resultado
+        Return grabar
     End Function
+
+    Private Sub btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
+        Dim tabla As New DataTable
+        Dim sql As String
+        sql = "SELECT * FROM [PAV-TPI].dbo.dependencia where nroCuentaCorriente = " & txt_buscar.Text
+        tabla = ejecuto_sql(sql)
+        If tabla.Rows.Count = 0 Then
+            MsgBox("No existe cuenta corriente asociada al número indicado")
+            Exit Sub
+        End If
+        condicion_grabacion = estado_grabacion.modificar
+        dgv_datos_dependencia.Rows.Clear()
+        dgv_datos_dependencia.Rows.Add()
+        dgv_datos_dependencia.Rows(0).Cells(0).Value = tabla.Rows(0)("nombre")
+        dgv_datos_dependencia.Rows(0).Cells(1).Value = tabla.Rows(0)("descripcion")
+        dgv_datos_dependencia.Rows(0).Cells(2).Value = tabla.Rows(0)("nroCuentaCorriente")
+        dgv_datos_dependencia.Rows(0).Cells(3).Value = tabla.Rows(0)("saldo")
+        dgv_datos_dependencia.Rows(0).Cells(4).Value = tabla.Rows(0)("estado")
+        txt_nombre.Enabled = True
+        txt_descripcion.Enabled = True
+        txt_nombre.Text = tabla.Rows(0)("nombre")
+        txt_descripcion.Text = tabla.Rows(0)("descripcion")
+        btn_guardar.Enabled = True
+    End Sub
 End Class
