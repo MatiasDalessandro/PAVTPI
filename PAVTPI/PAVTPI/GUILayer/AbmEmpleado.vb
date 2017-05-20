@@ -1,6 +1,6 @@
 ﻿Public Class AbmEmpleado
 
-    Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=DESKTOP-B5BDNHJ\EUROCOOLSQLEX;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+    Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=LAPTOP-6VOLNCDP\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
     Dim estado_Grabacion As condicionGrabacion = condicionGrabacion.insertar
     Enum estadoGrabacion
         aprobado
@@ -13,7 +13,7 @@
 
     Private Sub AbmEmpleado_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla()
-        cargar_combo(cmbTipoDoc, Me.leo_tabla("TipoDocumento"), "IdTipoDocumento", "Nombre")
+        cargar_combo(cmbTipoDoc, Me.leo_tabla("tipoDocumento"), "idTipoDocumento", "descripcion")
     End Sub
 
     Private Sub cargar_grilla()
@@ -29,7 +29,7 @@
         Dim sql As String = ""
 
         sql &= "SELECT        persona.nombre, persona.apellido, persona.nroDocumento, persona.idTipoDocumento, persona.fechaIngreso, persona.fechaEgreso, "
-        sql &= "                 persona.celular, persona.email, persona.domicilio, tipoDocumento.nombre, tipoDocumento.idTipoDocumento "
+        sql &= "                 persona.celular, persona.Mail, persona.Domicilio, tipoDocumento.descripcion, tipoDocumento.idTipoDocumento "
         sql &= " From            persona INNER JOIN "
         sql &= " tipoDocumento ON persona.idTipoDocumento = tipoDocumento.idTipoDocumento "
 
@@ -65,7 +65,7 @@
     End Sub
     Private Sub insertar()
         Dim sql As String = ""
-        sql = " INSERT INTO Persona (Nombre,Apellido,NroDocumento,IdTipoDocumento,FechaIngreso,FechaEgreso,Celular,Email,Domicilio) values ( '" & txtNombre.Text & "', '" & txtApellido.Text & "' , " & mskNroDoc.Text & " , '" & cmbTipoDoc.SelectedValue & "' , '" & mskFechaIngreso.Text & "' ,   null   , " & txtCelular.Text & " , '" & txtEmail.Text & "' , '" & txtDomicilio.Text & "')"
+        sql = " INSERT INTO persona (nombre,apellido,nroDocumento,idTipoDocumento,fechaIngreso,fechaEgreso, celular,Mail,Domicilio) values ( '" & txtNombre.Text & "', '" & txtApellido.Text & "' , " & mskNroDoc.Text & " , " & cmbTipoDoc.SelectedValue & " , '" & mskFechaIngreso.Text & "' ,   null   , " & txtCelular.Text & " , '" & txtEmail.Text & "' , '" & txtDomicilio.Text & "')"
         ejecutosql(sql)
         MsgBox("Se grabo correctamente")
         Me.cargar_grilla()
@@ -73,16 +73,16 @@
     Private Sub modificar()
         Dim sql As String = ""
 
-        sql &= " UPDATE Persona SET NroDocumento = " & mskNroDoc.Text
-        sql &= " , Nombre = '" & txtNombre.Text & "'"
-        sql &= " , Apellido = '" & txtApellido.Text & "'"
-        sql &= " , IdTipoDocumento = '" & cmbTipoDoc.SelectedValue & "'"
-        sql &= " , FechaIngreso = '" & mskFechaIngreso.Text & "'"
-        sql &= " , FechaEgreso = null "
-        sql &= " , Celular = " & txtCelular.Text
-        sql &= " , Email = '" & txtEmail.Text & "'"
+        sql &= " UPDATE persona SET nroDocumento = " & mskNroDoc.Text
+        sql &= " , nombre = '" & txtNombre.Text & "'"
+        sql &= " , apellido = '" & txtApellido.Text & "'"
+        sql &= " , idTipoDocumento = '" & cmbTipoDoc.SelectedValue & "'"
+        sql &= " , fechaIngreso = '" & mskFechaIngreso.Text & "'"
+        sql &= " , fechaEgreso = null "
+        sql &= " , celular = " & txtCelular.Text
+        sql &= " , Mail = '" & txtEmail.Text & "'"
         sql &= " , Domicilio = '" & txtDomicilio.Text & "'"
-        sql &= " WHERE NroDocumento = " & mskNroDoc.Text
+        sql &= " WHERE nroDocumento = " & mskNroDoc.Text
 
         ejecutosql(sql)
         Me.cargar_grilla()
@@ -119,7 +119,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql &= " SELECT * FROM Persona WHERE NroDocumento = " & Me.mskNroDoc.Text
+        sql &= " SELECT * FROM persona WHERE nroDocumento = " & Me.mskNroDoc.Text
 
         tabla = ejecutosql(sql)
 
@@ -159,7 +159,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql = "SELECT * FROM Persona WHERE NroDocumento = " & mskNroDoc.Text
+        sql = "SELECT * FROM persona WHERE nroDocumento = " & mskNroDoc.Text
         tabla = ejecutosql(sql)
         Me.dgvEmpleado.Rows.Clear()
 
@@ -177,13 +177,13 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql = " SELECT * FROM Persona WHERE NroDocumento = " & Me.dgvEmpleado.CurrentRow.Cells("cNroDoc").Value
+        sql = " SELECT * FROM persona WHERE nroDocumento = " & Me.dgvEmpleado.CurrentRow.Cells("cNroDoc").Value
 
         tabla = ejecutosql(sql)
 
-        Me.txtApellido.Text = tabla.Rows(0)("Apellido")
-        Me.txtNombre.Text = tabla.Rows(0)("Nombre")
-        Me.mskNroDoc.Text = tabla.Rows(0)("NroDocumento")
+        Me.txtApellido.Text = tabla.Rows(0)("apellido")
+        Me.txtNombre.Text = tabla.Rows(0)("nombre")
+        Me.mskNroDoc.Text = tabla.Rows(0)("nroDocumento")
 
         Me.txtApellido.Enabled = True
         Me.txtNombre.Enabled = True
@@ -198,7 +198,7 @@
 
         If validarDatos() = estadoGrabacion.aprobado Then
             If validarPersona() = estadoGrabacion.rechazado Then
-                sql = " DELETE FROM Persona WHERE NroDocumento = " & mskNroDoc.Text
+                sql = " DELETE FROM persona WHERE nroDocumento = " & mskNroDoc.Text
                 MsgBox("Se elimino correctamente la persona")
             Else
                 MsgBox("Cargue correctamente la persona a eliminar")
