@@ -1,6 +1,7 @@
 ﻿Public Class AbmEmpleado
 
-    Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=LAPTOP-6VOLNCDP\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+    'Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=LAPTOP-6VOLNCDP\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+    Dim cadenaConexion As String = "Provider = SQLNCLI11;Data Source=DESKTOP-B5BDNHJ\EUROCOOLSQLEX;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
     Dim estado_Grabacion As condicionGrabacion = condicionGrabacion.insertar
     Enum estadoGrabacion
         aprobado
@@ -28,10 +29,10 @@
 
         Dim sql As String = ""
 
-        sql &= "SELECT        persona.nombre, persona.apellido, persona.nroDocumento, persona.idTipoDocumento, persona.fechaIngreso, persona.fechaEgreso, "
+        sql &= "Select        persona.nombre, persona.apellido, persona.nroDocumento, persona.idTipoDocumento, persona.fechaIngreso, persona.fechaEgreso, "
         sql &= "                 persona.celular, persona.Mail, persona.Domicilio, tipoDocumento.descripcion, tipoDocumento.idTipoDocumento "
         sql &= " From            persona INNER JOIN "
-        sql &= " tipoDocumento ON persona.idTipoDocumento = tipoDocumento.idTipoDocumento "
+        sql &= " tipoDocumento On persona.idTipoDocumento = tipoDocumento.idTipoDocumento "
 
         cmd.CommandText = sql
         tabla.Load(cmd.ExecuteReader())

@@ -13,8 +13,14 @@
     End Sub
 
     Private Sub setNuevo()
+        bandera = tipoOperacion.nuevo
+
+        Dim strSQL As String = ""
+        strSQL = "SELECT idArticuloCombo FROM comboXArticulo GROUP BY idArticuloCombo"
+        Dim numID As Integer = (DBHelper.getDBHelper.ConsultaSQL(strSQL).Rows.Count + 1)
+
         txt_id_combo.Enabled = False
-        txt_id_combo.Text = Nothing
+        txt_id_combo.Text = numID.ToString
 
         txt_nombre_articulo.Enabled = True
         txt_nombre_articulo.Text = Nothing
@@ -36,6 +42,8 @@
 
         btn_editar_combo.Enabled = False
         btn_editar_combo.Visible = False
+
+
 
     End Sub
 
@@ -66,6 +74,8 @@
     End Sub
 
     Private Sub setEdit()
+        bandera = tipoOperacion.editar
+
         txt_id_combo.Enabled = False
         txt_nombre_articulo.Enabled = True
 
@@ -117,11 +127,13 @@
         Dim ret As camposLlenos
         For Each Obj In Me.Controls
             If Obj.GetType.ToString = "System.Windows.Forms.TextBox" Then
-                If Obj.Text = "" Then
-                    ret = camposLlenos.no
-                Else
-                    ret = camposLlenos.si
-                    Exit For
+                If Not (Obj.Equals(txt_id_combo)) Then
+                    If Obj.Text = "" Then
+                        ret = camposLlenos.no
+                    Else
+                        ret = camposLlenos.si
+                        Exit For
+                    End If
                 End If
             End If
         Next
@@ -131,11 +143,9 @@
     Private Sub NuevoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NuevoToolStripMenuItem.Click
         If verificarCampos() = camposLlenos.no Then
             setNuevo()
-            bandera = tipoOperacion.nuevo
         Else
             If MsgBox("Se perderan los cambios. ¿ Desea Continuar ?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
                 setNuevo()
-                bandera = tipoOperacion.nuevo
             End If
         End If
     End Sub
@@ -157,15 +167,25 @@
     Private Sub btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
         btn_editar_combo.Enabled = True
         btn_editar_combo.Visible = True
-        bandera = tipoOperacion.editar
+
         Dim sql As String = "SELECT A.idArticuloCombo, A.nombreCombo, B.idArticuloCombo, B.nombre, B.precio " _
             & "FROM comboXArticulo A, articulo B " _
             & "WHERE A.idArticuloIntegrante = B.idArticuloCombo"
-        'dass
+
 
     End Sub
 
     Private Sub btn_agregar_articulo_Click(sender As Object, e As EventArgs) Handles btn_agregar_articulo.Click
         ArticulosParaCombo.ShowDialog()
+    End Sub
+
+    Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
+        Dim strSQL As String = ""
+        If bandera = tipoOperacion.nuevo Then
+            For Each row1 As DataGridViewRow In dgv_datos_articulos.Rows
+                strSQL += "INSERT INTO comboXArticulo (idArticuloCombo,nombreCombo,idArticuloIntegrante) VALUES (" _
+                  & txt_id_combo.Text & ",'" & txt_nombre_articulo.Text & "'," & row1.Cells(0).Value.ToString & ");" & vbNewLine
+            Next
+        End If
     End Sub
 End Class

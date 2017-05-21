@@ -4,15 +4,31 @@
     End Sub
 
     Private Sub btn_agregarACombo_Click(sender As Object, e As EventArgs) Handles btn_agregarACombo.Click
-        AbmCombo.dgv_datos_articulos.Rows.Add(Me.dgv_datos_articulos.CurrentRow)
+        If (dgv_datos_articulos.SelectedRows.Count > 0) Then
+            AbmCombo.dgv_datos_articulos.Rows.Add(Me.dgv_datos_articulos.CurrentRow)
+        End If
     End Sub
 
     Private Sub llenarGrilla()
         Dim strSQL As String = "SELECT * FROM articulo"
-        For Each row As DataRow In DBHelper.getDBHelper().ConsultaSQL(strSQL).Rows
-            Me.dgv_datos_articulos.Rows.Add(row)
-            'fafsa
-        Next
+        Try
+            Dim tabla As DataTable = DBHelper.getDBHelper().ConsultaSQL(strSQL)
+            If tabla.Rows.Count > 0 Then
+                For Each row1 As DataRow In tabla.Rows
+                    With row1
+                        Me.dgv_datos_articulos.Rows.Add(New String() {
+                                                        .Item("idArticuloCombo").ToString,
+                                                        .Item("nombre").ToString,
+                                                        .Item("precio").ToString
+                                                        })
+                    End With
+                Next
+            Else
+                Throw New Exception
+            End If
+        Catch ex As Exception
+            MsgBox("No se puede cargar el listado de articulos")
+        End Try
     End Sub
 
 End Class
