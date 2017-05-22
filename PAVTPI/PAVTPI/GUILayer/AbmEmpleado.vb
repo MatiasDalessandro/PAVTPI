@@ -64,11 +64,11 @@
         Dim sql As String = ""
 
         sql &= " UPDATE persona SET nroDocumento = " & mskNroDoc.Text
-        sql &= " , nombre = '" & txtNombre.Text & "'"
         sql &= " , apellido = '" & txtApellido.Text & "'"
+        sql &= " , nombre = '" & txtNombre.Text & "'"
         sql &= " , idTipoDocumento = '" & cmbTipoDoc.SelectedValue & "'"
-        sql &= " , fechaIngreso = '" & mskFechaIngreso.Text & "'"
-        sql &= " , fechaEgreso = null "
+        sql &= " , fechaIngreso = '" & FormatDateTime(mskFechaIngreso.Text) & "'"
+        sql &= " , fechaEgreso = '" & FormatDateTime(mskFechaEgreso.Text) & "'"
         sql &= " , celular = " & txtCelular.Text
         sql &= " , Mail = '" & txtEmail.Text & "'"
         sql &= " , Domicilio = '" & txtDomicilio.Text & "'"
@@ -122,11 +122,17 @@
         txtNombre.Enabled = True
         mskNroDoc.Text = ""
         mskNroDoc.Enabled = True
+        cmbTipoDoc.SelectedIndex = -1
         cmbTipoDoc.Enabled = True
+        mskFechaIngreso.Text = ""
         mskFechaIngreso.Enabled = True
+        mskFechaEgreso.Text = ""
         mskFechaEgreso.Enabled = False
+        txtDomicilio.Text = ""
         txtDomicilio.Enabled = True
+        txtEmail.Text = ""
         txtEmail.Enabled = True
+        txtCelular.Text = ""
         txtCelular.Enabled = True
         btn_guardar.Enabled = True
     End Sub
@@ -159,6 +165,18 @@
         Me.txtApellido.Text = tabla.Rows(0)("apellido")
         Me.txtNombre.Text = tabla.Rows(0)("nombre")
         Me.mskNroDoc.Text = tabla.Rows(0)("nroDocumento")
+        Me.cmbTipoDoc.SelectedValue = tabla.Rows(0)("idTipoDocumento")
+        Me.mskFechaIngreso.Text = tabla.Rows(0)("fechaIngreso")
+
+        If IsDBNull(tabla.Rows(0)("fechaEgreso")) = True Then
+            Me.mskFechaEgreso.Text = ""
+        Else
+            Me.mskFechaEgreso.Text = tabla.Rows(0)("fechaEgreso")
+        End If
+
+        Me.txtCelular.Text = tabla.Rows(0)("celular")
+        Me.txtEmail.Text = tabla.Rows(0)("Mail")
+        Me.txtDomicilio.Text = tabla.Rows(0)("Domicilio")
 
         Me.txtApellido.Enabled = True
         Me.txtNombre.Enabled = True
@@ -192,6 +210,9 @@
         combo.DisplayMember = descriptor
         combo.ValueMember = pk
         combo.SelectedIndex = -1
-
     End Sub
+    Private Function transformFecha(fecha As String)
+
+
+    End Function
 End Class
