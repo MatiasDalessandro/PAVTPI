@@ -12,8 +12,8 @@
     End Enum
 
     Private Sub AbmEmpleado_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' cargar_grilla()
-        cargar_combo(cmbTipoDoc, dbhelper.ConsultaSQL("tipoDocumento"), "idTipoDocumento", "descripcion")
+        cargar_grilla()
+        cargar_combo(cmbTipoDoc, (dbhelper.ConsultaSQL("select * from tipoDocumento")), "idTipoDocumento", "descripcion")
     End Sub
 
     Private Sub cargar_grilla()
@@ -26,9 +26,6 @@
         sql &= " tipoDocumento On persona.idTipoDocumento = tipoDocumento.idTipoDocumento "
 
         tabla = dbhelper.ConsultaSQL(sql)
-        If tabla.Rows.Count = -1 Then
-            Exit Sub
-        End If
 
         Dim c As Integer = 0
 
