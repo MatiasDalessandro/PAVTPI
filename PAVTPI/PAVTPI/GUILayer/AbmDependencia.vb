@@ -20,11 +20,10 @@
         End If
         Return "Deshabilitado"
     End Function
-    Private Function validar_estado_r(ByVal estado As String)
-        If estado = "Habilitado" Then
+    Private Function validar_estado_r(ByVal estado As Integer)
+        If estado = 0 Then
             Return 1
             Exit Function
-
         End If
         Return 0
     End Function
@@ -48,8 +47,7 @@
         Me.txt_descripcion.Enabled = True
         Me.cmb_estado.Enabled = True
         Me.condicion_grabacion = estado_grabacion.insertar
-        btn_buscar.Enabled = False
-        txt_buscar.Enabled = False
+
         btn_guardar.Enabled = True
         Me.txt_nombre.Focus()
         cargar_grilla2()
@@ -68,7 +66,7 @@
         'conexion.Close()
     End Sub
     Private Sub insertar()
-        Dim estado As Integer = validar_estado_r(Me.cmb_estado.SelectedValue)
+        Dim estado As Integer = validar_estado_r(Me.cmb_estado.SelectedIndex)
         Dim sql As String = ""
         sql &= "insert into [PAV-TPI].dbo.dependencia (nombre,descripcion,estado) VALUES ('"
         sql &= Me.txt_nombre.Text & "', '" & Me.txt_descripcion.Text & "'," & estado & ")"
@@ -77,7 +75,9 @@
     End Sub
     Private Sub modificar()
         Dim nro As Integer = dgv_datos_dependencia.CurrentRow.Cells(2).Value
-        Dim sql As String = "UPDATE [PAV-TPI].dbo.dependencia set nombre='" & Me.txt_nombre.Text & "',descripcion = '" & txt_descripcion.Text & "' where nroCuentaCorriente = "
+        Dim estado As Integer = validar_estado_r(cmb_estado.SelectedIndex)
+        Dim sql As String = "UPDATE [PAV-TPI].dbo.dependencia set nombre='" & Me.txt_nombre.Text & "',descripcion = '" & txt_descripcion.Text & "',estado = "
+        sql &= estado & " where nroCuentaCorriente = "
         sql &= nro
         grabar_borrar(sql)
         txt_nombre.Enabled = False
@@ -105,6 +105,8 @@
         btn_guardar.Enabled = False
         btn_buscar.Enabled = True
         txt_buscar.Enabled = True
+        cmb_estado.SelectedIndex = -1
+
     End Sub
     Private Sub dgv_datos_dependencia_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_datos_dependencia.CellContentClick
         Dim sql As String = ""
@@ -115,8 +117,12 @@
         End If
         Me.txt_nombre.Text = tabla.Rows(0)("nombre")
         Me.txt_descripcion.Text = tabla.Rows(0)("descripcion")
-        Me.cmb_estado.Text = validar_estado(tabla.Rows(0)("Estado"))
+        Me.cmb_estado.SelectedIndex = validar_estado_r(tabla.Rows(0)("estado"))
         condicion_grabacion = estado_grabacion.modificar
+        btn_guardar.Enabled = True
+        txt_nombre.Enabled = True
+        txt_descripcion.Enabled = True
+        cmb_estado.Enabled = True
 
 
     End Sub
@@ -133,6 +139,10 @@
         sql &= dgv_datos_dependencia.CurrentRow.Cells(2).Value
         grabar_borrar(sql)
         cargar_grilla2()
+        txt_buscar.Enabled = True
+        btn_buscar.Enabled = True
+        txt_descripcion.Enabled = False
+        txt_nombre.Enabled = False
     End Sub
     Private Sub btn_salir_Click(sender As Object, e As EventArgs) Handles btn_salir.Click
         Me.Close()
@@ -165,7 +175,8 @@
         dgv_datos_dependencia.Rows(0).Cells(1).Value = tabla.Rows(0)("descripcion")
         dgv_datos_dependencia.Rows(0).Cells(2).Value = tabla.Rows(0)("nroCuentaCorriente")
         dgv_datos_dependencia.Rows(0).Cells(3).Value = tabla.Rows(0)("saldo")
-        dgv_datos_dependencia.Rows(0).Cells(4).Value = tabla.Rows(0)("estado")
+        dgv_datos_dependencia.Rows(0).Cells(4).Value = validar_estado(tabla.Rows(0)("estado"))
+        cmb_estado.SelectedIndex = validar_estado_r(tabla.Rows(0)("estado"))
         txt_nombre.Enabled = True
         txt_descripcion.Enabled = True
         txt_nombre.Text = tabla.Rows(0)("nombre")
@@ -184,7 +195,8 @@
             Me.dgv_datos_dependencia.Rows(c).Cells(1).Value = tabla.Rows(c)("descripcion")
             Me.dgv_datos_dependencia.Rows(c).Cells(2).Value = tabla.Rows(c)("nroCuentaCorriente")
             Me.dgv_datos_dependencia.Rows(c).Cells(3).Value = tabla.Rows(c)("Saldo")
-            Me.dgv_datos_dependencia.Rows(c).Cells(4).Value = tabla.Rows(c)("Estado")
+            Me.dgv_datos_dependencia.Rows(c).Cells(4).Value = validar_estado(tabla.Rows(c)("Estado"))
+
         Next
     End Sub
 End Class
