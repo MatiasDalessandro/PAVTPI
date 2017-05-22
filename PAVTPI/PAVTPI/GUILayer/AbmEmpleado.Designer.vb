@@ -49,6 +49,7 @@ Partial Class AbmEmpleado
         Me.txtDomicilio = New System.Windows.Forms.TextBox()
         Me.lblFechaEgreso = New System.Windows.Forms.Label()
         Me.mskFechaEgreso = New System.Windows.Forms.MaskedTextBox()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         CType(Me.dgvEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -283,11 +284,20 @@ Partial Class AbmEmpleado
         Me.mskFechaEgreso.TabIndex = 4
         Me.mskFechaEgreso.ValidatingType = GetType(Date)
         '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(459, 316)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker1.TabIndex = 31
+        '
         'AbmEmpleado
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(803, 345)
+        Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.cmbTipoDoc)
         Me.Controls.Add(Me.mskFechaEgreso)
         Me.Controls.Add(Me.mskFechaIngreso)
@@ -347,4 +357,5 @@ Partial Class AbmEmpleado
     Friend WithEvents txtDomicilio As TextBox
     Friend WithEvents lblFechaEgreso As Label
     Friend WithEvents mskFechaEgreso As MaskedTextBox
+    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class
