@@ -4,14 +4,13 @@
     End Sub
 
     Private Sub ABMEmpleadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMEmpleadoToolStripMenuItem.Click
-        AbmEmpleado.Show()
+        Botones.Show()
     End Sub
-
     Private Sub ABMTipoDocumentoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMTipoDocumentoToolStripMenuItem.Click
         AbmTipoDocumento.Show()
     End Sub
 
-    Private Sub ABMBarrioToolStripMenuItem_Click(sender As Object, e As EventArgs) 
+    Private Sub ABMBarrioToolStripMenuItem_Click(sender As Object, e As EventArgs)
         AbmBarrio.Show()
     End Sub
 
@@ -27,11 +26,11 @@
         AbmDependencia.Show()
     End Sub
 
-    Private Sub ABMLocalidadToolStripMenuItem_Click(sender As Object, e As EventArgs) 
+    Private Sub ABMLocalidadToolStripMenuItem_Click(sender As Object, e As EventArgs)
         AbmLocalidad.Show()
     End Sub
 
-    Private Sub ABMProvinciaToolStripMenuItem_Click(sender As Object, e As EventArgs) 
+    Private Sub ABMProvinciaToolStripMenuItem_Click(sender As Object, e As EventArgs)
         AbmProvincia.Show()
     End Sub
 

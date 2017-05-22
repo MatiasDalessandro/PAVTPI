@@ -114,9 +114,7 @@
     <Compile Include="GUILayer\AbmPersonaAutorizada.Designer.vb">
       <DependentUpon>AbmPersonaAutorizada.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\AbmPersonaAutorizada.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="GUILayer\AbmPersonaAutorizada.vb" />
     <Compile Include="GUILayer\AbmProvincia.Designer.vb">
       <DependentUpon>AbmProvincia.vb</DependentUpon>
     </Compile>
@@ -139,6 +137,12 @@
       <DependentUpon>ArticulosParaCombo.vb</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\ArticulosParaCombo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\Botones.Designer.vb">
+      <DependentUpon>Botones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\Botones.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\Form1.vb">
@@ -203,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\ArticulosParaCombo.resx">
       <DependentUpon>ArticulosParaCombo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\Botones.resx">
+      <DependentUpon>Botones.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
