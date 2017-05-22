@@ -139,6 +139,8 @@
         sql &= dgv_datos_dependencia.CurrentRow.Cells(2).Value
         grabar_borrar(sql)
         cargar_grilla2()
+        txt_descripcion.Text = ""
+        txt_nombre.Text = ""
         txt_buscar.Enabled = True
         btn_buscar.Enabled = True
         txt_descripcion.Enabled = False
