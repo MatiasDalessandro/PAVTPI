@@ -13,7 +13,7 @@
     Dim conexion As New OleDb.OleDbConnection
     Dim cmd As New OleDb.OleDbCommand
     Dim transaccion As OleDb.OleDbTransaction
-
+    '
     Dim cadena_conexion As String = ""
     Dim nombre_tabla As String = ""
 
