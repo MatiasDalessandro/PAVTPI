@@ -1,47 +1,17 @@
 ﻿Public Class AbmDependencia
-    Dim cadena_conexion As String = "Provider=SQLNCLI11;Data Source=DESKTOP-VS0357J\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
     Enum estado_grabacion
         insertar
         modificar
     End Enum
+    Dim dbHelper As DBHelper = DBHelper.getDBHelper
     Dim condicion_grabacion As estado_grabacion = estado_grabacion.insertar
-
     Private Sub AbmDependencia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cargarGrilla()
+        cargar_grilla2()
         cargar_combo()
         txt_descripcion.Enabled = False
         txt_nombre.Enabled = False
         cmb_estado.Enabled = False
         cmb_estado.DropDownStyle = ComboBoxStyle.DropDownList
-    End Sub
-    Private Function ejecuto_sql(ByVal consulta As String)
-        Dim conexion As New OleDb.OleDbConnection
-        Dim cmd As New OleDb.OleDbCommand
-        Dim tabla As New DataTable
-        conexion.ConnectionString = cadena_conexion
-        conexion.Open()
-        cmd.Connection = conexion
-        cmd.CommandType = CommandType.Text
-        cmd.CommandText = consulta
-        cmd.CommandText = consulta
-        tabla.Load(cmd.ExecuteReader())
-        conexion.Close()
-        Return tabla
-    End Function
-    Private Sub cargarGrilla()
-
-        Dim sql As String = "SELECT Nombre,Descripcion,nroCuentaCorriente,Saldo,Estado from dependencia"
-        Dim tabla As DataTable = ejecuto_sql(sql)
-        dgv_datos_dependencia.Rows.Clear()
-        Dim c As Integer = 0
-        For c = 0 To tabla.Rows.Count - 1
-            Me.dgv_datos_dependencia.Rows.Add()
-            Me.dgv_datos_dependencia.Rows(c).Cells(0).Value = tabla.Rows(c)("nombre")
-            Me.dgv_datos_dependencia.Rows(c).Cells(1).Value = tabla.Rows(c)("descripcion")
-            Me.dgv_datos_dependencia.Rows(c).Cells(2).Value = tabla.Rows(c)("nroCuentaCorriente")
-            Me.dgv_datos_dependencia.Rows(c).Cells(3).Value = tabla.Rows(c)("Saldo")
-            Me.dgv_datos_dependencia.Rows(c).Cells(4).Value = tabla.Rows(c)("Estado")
-        Next
     End Sub
     Private Function validar_estado(ByVal estado As Integer)
         If estado = True Then
@@ -64,12 +34,6 @@
         combo.Items.Add("Deshabilitado")
 
     End Sub
-    Private Function leo_tabla(ByVal sql As String) As DataTable
-        Dim tabla As DataTable
-        tabla = ejecuto_sql("SELECT * FROM" & sql)
-        Return tabla
-    End Function
-
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
         For Each obj As Control In Me.Controls
             If obj.GetType.Name = "TextBox" Or obj.GetType.Name = "MaskedTextBox" Then
@@ -88,19 +52,20 @@
         txt_buscar.Enabled = False
         btn_guardar.Enabled = True
         Me.txt_nombre.Focus()
-        cargarGrilla()
+        cargar_grilla2()
+        cmb_estado.SelectedIndex = -1
     End Sub
-
     Private Sub grabar_borrar(sql As String)
-        Dim conexion As New OleDb.OleDbConnection
-        Dim cmd As New OleDb.OleDbCommand
-        conexion.ConnectionString = cadena_conexion
-        conexion.Open()
-        cmd.Connection = conexion
-        cmd.CommandType = CommandType.Text
-        cmd.CommandText = sql
-        cmd.ExecuteNonQuery()
-        conexion.Close()
+        dbHelper.EjecutarSQL(sql)
+        'Dim conexion As New OleDb.OleDbConnection
+        'Dim cmd As New OleDb.OleDbCommand
+        'conexion.ConnectionString = cadena_conexion
+        'conexion.Open()
+        'cmd.Connection = conexion
+        'cmd.CommandType = CommandType.Text
+        'cmd.CommandText = sql
+        'cmd.ExecuteNonQuery()
+        'conexion.Close()
     End Sub
     Private Sub insertar()
         Dim estado As Integer = validar_estado_r(Me.cmb_estado.SelectedValue)
@@ -133,7 +98,7 @@
             modificar()
             MsgBox("Se cargo correctamente.")
         End If
-        cargarGrilla()
+        cargar_grilla2()
         txt_nombre.Text = ""
         txt_descripcion.Text = ""
         txt_buscar.Text = ""
@@ -141,12 +106,10 @@
         btn_buscar.Enabled = True
         txt_buscar.Enabled = True
     End Sub
-
     Private Sub dgv_datos_dependencia_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_datos_dependencia.CellContentClick
         Dim sql As String = ""
-
         sql &= "SELECT * FROM [PAV-TPI].dbo.dependencia WHERE nroCuentaCorriente = " & dgv_datos_dependencia.CurrentRow.Cells(2).Value
-        Dim tabla As DataTable = ejecuto_sql(sql)
+        Dim tabla As DataTable = dbHelper.ConsultaSQL(sql)
         If tabla.Rows.Count = 0 Then
             MsgBox("No hay Dependencias para recuperar")
         End If
@@ -157,7 +120,6 @@
 
 
     End Sub
-
     Private Sub btn_borrar_Click(sender As Object, e As EventArgs) Handles btn_borrar.Click
         If MessageBox.Show("Esta seguro de borrar: " + Chr(13) +
                            "Dependencia: " & Me.dgv_datos_dependencia.CurrentRow.Cells(0).Value.ToString.Trim + Chr(10) +
@@ -170,9 +132,8 @@
         Dim sql As String = "DELETE FROM [PAV-TPI].dbo.dependencia where nroCuentaCorriente = "
         sql &= dgv_datos_dependencia.CurrentRow.Cells(2).Value
         grabar_borrar(sql)
-        cargarGrilla()
+        cargar_grilla2()
     End Sub
-
     Private Sub btn_salir_Click(sender As Object, e As EventArgs) Handles btn_salir.Click
         Me.Close()
     End Sub
@@ -180,7 +141,7 @@
         Dim grabar As Boolean = False
         Dim sql As String = "SELECT * FROM [PAV-TPI].dbo.dependencia where nombre ='" & txt_nombre.Text & "'"
         Dim tabla As New DataTable
-        tabla = ejecuto_sql(sql)
+        tabla = dbHelper.ConsultaSQL(sql)
         If tabla.Rows.Count = 0 Then
             grabar = True
             Return grabar
@@ -188,12 +149,11 @@
         End If
         Return grabar
     End Function
-
     Private Sub btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
         Dim tabla As New DataTable
         Dim sql As String
         sql = "SELECT * FROM [PAV-TPI].dbo.dependencia where nroCuentaCorriente = " & txt_buscar.Text
-        tabla = ejecuto_sql(sql)
+        tabla = dbHelper.ConsultaSQL(sql)
         If tabla.Rows.Count = 0 Then
             MsgBox("No existe cuenta corriente asociada al número indicado")
             Exit Sub
@@ -211,5 +171,20 @@
         txt_nombre.Text = tabla.Rows(0)("nombre")
         txt_descripcion.Text = tabla.Rows(0)("descripcion")
         btn_guardar.Enabled = True
+    End Sub
+    Private Sub cargar_grilla2()
+        Dim sql As String = "SELECT * FROM dependencia"
+        Dim tabla As New DataTable
+        tabla = dbHelper.ConsultaSQL(sql)
+        dgv_datos_dependencia.Rows.Clear()
+        Dim c As Integer = 0
+        For c = 0 To tabla.Rows.Count - 1
+            Me.dgv_datos_dependencia.Rows.Add()
+            Me.dgv_datos_dependencia.Rows(c).Cells(0).Value = tabla.Rows(c)("nombre")
+            Me.dgv_datos_dependencia.Rows(c).Cells(1).Value = tabla.Rows(c)("descripcion")
+            Me.dgv_datos_dependencia.Rows(c).Cells(2).Value = tabla.Rows(c)("nroCuentaCorriente")
+            Me.dgv_datos_dependencia.Rows(c).Cells(3).Value = tabla.Rows(c)("Saldo")
+            Me.dgv_datos_dependencia.Rows(c).Cells(4).Value = tabla.Rows(c)("Estado")
+        Next
     End Sub
 End Class

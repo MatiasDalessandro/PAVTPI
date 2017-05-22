@@ -17,7 +17,7 @@ Public Class DBHelper
                 string_conexion = "Provider=SQLNCLI11;Data Source=DESKTOP-B5BDNHJ\EUROCOOLSQLEX;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
             Case "LAPTOP-6VOLNCDP"
                 string_conexion = "Provider=SQLNCLI11;Data Source=LAPTOP-6VOLNCDP\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
-            Case "DESKTOP-VS0357J\SQLEXPRESS"
+            Case "DESKTOP-VS0357J"
                 string_conexion = "Provider=SQLNCLI11;Data Source=DESKTOP-VS0357J\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
             Case "ALVARO-PC"
                 string_conexion = "Provider=SQLNCLI11;Data Source=(localdb)\Alvo_Server;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
