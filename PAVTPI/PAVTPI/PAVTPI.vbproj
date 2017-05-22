@@ -114,7 +114,9 @@
     <Compile Include="GUILayer\AbmPersonaAutorizada.Designer.vb">
       <DependentUpon>AbmPersonaAutorizada.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\AbmPersonaAutorizada.vb" />
+    <Compile Include="GUILayer\AbmPersonaAutorizada.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GUILayer\AbmProvincia.Designer.vb">
       <DependentUpon>AbmProvincia.vb</DependentUpon>
     </Compile>
@@ -150,6 +152,12 @@
     </Compile>
     <Compile Include="GUILayer\Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\PersonaXDependencia.Designer.vb">
+      <DependentUpon>PersonaXDependencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\PersonaXDependencia.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\ver nombre maquina.Designer.vb">
@@ -213,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\PersonaXDependencia.resx">
+      <DependentUpon>PersonaXDependencia.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\ver nombre maquina.resx">
       <DependentUpon>ver nombre maquina.vb</DependentUpon>

@@ -45,4 +45,8 @@
     Private Sub VerNombreMaquinaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerNombreMaquinaToolStripMenuItem.Click
         ver_nombre_maquina.Show()
     End Sub
+
+    Private Sub CargarPersonaAutorizadaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CargarPersonaAutorizadaToolStripMenuItem.Click
+        PersonaXDependencia.Show()
+    End Sub
 End Class

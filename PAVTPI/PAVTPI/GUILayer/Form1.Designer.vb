@@ -32,15 +32,17 @@ Partial Class Form1
         Me.ABMDependenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMComboToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VerNombreMaquinaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProcesosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CargarPersonaAutorizadaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMToolStripMenuItem, Me.ProcesosToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(284, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(406, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -99,11 +101,25 @@ Partial Class Form1
         Me.VerNombreMaquinaToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.VerNombreMaquinaToolStripMenuItem.Text = "ver nombre maquina"
         '
+        'ProcesosToolStripMenuItem
+        '
+        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargarPersonaAutorizadaToolStripMenuItem})
+        Me.ProcesosToolStripMenuItem.Name = "ProcesosToolStripMenuItem"
+        Me.ProcesosToolStripMenuItem.Size = New System.Drawing.Size(66, 20)
+        Me.ProcesosToolStripMenuItem.Text = "Procesos"
+        '
+        'CargarPersonaAutorizadaToolStripMenuItem
+        '
+        Me.CargarPersonaAutorizadaToolStripMenuItem.Enabled = False
+        Me.CargarPersonaAutorizadaToolStripMenuItem.Name = "CargarPersonaAutorizadaToolStripMenuItem"
+        Me.CargarPersonaAutorizadaToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.CargarPersonaAutorizadaToolStripMenuItem.Text = "Cargar Persona autorizada"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.ClientSize = New System.Drawing.Size(406, 320)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form1"
@@ -125,4 +141,6 @@ Partial Class Form1
     Friend WithEvents ABMDependenciaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMComboToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VerNombreMaquinaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ProcesosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CargarPersonaAutorizadaToolStripMenuItem As ToolStripMenuItem
 End Class
