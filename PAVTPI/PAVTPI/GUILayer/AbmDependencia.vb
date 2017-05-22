@@ -13,14 +13,14 @@
         cmb_estado.Enabled = False
         cmb_estado.DropDownStyle = ComboBoxStyle.DropDownList
     End Sub
-    Private Function validar_estado(ByVal estado As Integer)
+    Public Function validar_estado(ByVal estado As Integer)
         If estado = True Then
             Return "Habilitado"
             Exit Function
         End If
         Return "Deshabilitado"
     End Function
-    Private Function validar_estado_r(ByVal estado As Integer)
+    Public Function validar_estado_r(ByVal estado As Integer)
         If estado = 0 Then
             Return 1
             Exit Function

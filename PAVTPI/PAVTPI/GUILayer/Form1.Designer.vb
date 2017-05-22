@@ -110,7 +110,6 @@ Partial Class Form1
         '
         'CargarPersonaAutorizadaToolStripMenuItem
         '
-        Me.CargarPersonaAutorizadaToolStripMenuItem.Enabled = False
         Me.CargarPersonaAutorizadaToolStripMenuItem.Name = "CargarPersonaAutorizadaToolStripMenuItem"
         Me.CargarPersonaAutorizadaToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
         Me.CargarPersonaAutorizadaToolStripMenuItem.Text = "Cargar Persona autorizada"
