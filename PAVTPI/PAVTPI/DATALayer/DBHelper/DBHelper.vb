@@ -6,6 +6,11 @@ Public Class DBHelper
     ' Permite ejecutar comandos sql y retornar resultados a la capa de datos.
     ' Implementa el patrón SINGLETON, que garantiza tener solo una instancia de esta clase.
 
+    Enum tipoOperacion
+        comun
+        transaccion
+    End Enum
+
     Private string_conexion As String
     Private Shared instance As DBHelper 'Unica instancia de la clase
 
@@ -33,8 +38,50 @@ Public Class DBHelper
     End Function
 
     Public Function EjecutarSQL(ByVal strSql As String) As Integer
+
+        Dim operacion As tipoOperacion = tipoOperacion.comun
+
+        Dim str As String = strSql
+        Dim myarray() As String = str.Split(vbLf)
+        Dim listadoString As List(Of String) = myarray.ToList()
+
+        Dim count As Integer = 0
+
+        For Each stringg As String In listadoString
+            If stringg.Trim.ToUpper.Contains("INSERT") Then
+                count += 1
+                If count > 2 Then
+                    operacion = tipoOperacion.transaccion
+                    Exit For
+                End If
+            ElseIf stringg.Trim.ToUpper.Contains("UPDATE") Then
+                count += 1
+                If count > 2 Then
+                    operacion = tipoOperacion.transaccion
+                    Exit For
+                End If
+            ElseIf stringg.Trim.ToUpper.Contains("DELETE") Then
+                count += 1
+                If count > 2 Then
+                    operacion = tipoOperacion.transaccion
+                    Exit For
+                End If
+            End If
+        Next
+
+        If operacion = tipoOperacion.transaccion Then
+            Return ejecutarTransaccion(strSql)
+        Else
+            Return ejecutarSimple(strSql)
+        End If
+
+    End Function
+
+    Private Function ejecutarSimple(ByVal strSql As String) As Integer
         ' Se utiliza para sentencias SQL del tipo “Insert/Update/Delete”
-        Dim number As Integer = 0
+
+        Dim ret As Integer = 0
+
         Dim conexion As New OleDbConnection
         Dim cmd As New OleDbCommand
         'Dim conexion As New SQLiteConnection
@@ -56,7 +103,7 @@ Public Class DBHelper
             ' Establece la instrucción a ejecutar
             cmd.CommandText = strSql
             ' Retorna el resultado de ejecutar el comando
-            number = cmd.ExecuteNonQuery()
+            ret = cmd.ExecuteNonQuery()
         Catch ex As Exception
             'Throw ex
             MsgBox(ex.ToString)
@@ -65,7 +112,16 @@ Public Class DBHelper
             conexion.Close()
             conexion.Dispose()
         End Try
-        Return number
+
+        Return ret
+    End Function
+
+    Private Function ejecutarTransaccion(ByVal strSql As String) As Integer
+        Dim ret As Integer = 0
+
+
+
+        Return ret
     End Function
 
     Public Function ConsultaSQL(ByVal strSql As String) As Data.DataTable
