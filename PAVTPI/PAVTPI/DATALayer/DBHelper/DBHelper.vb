@@ -108,6 +108,7 @@ Public Class DBHelper
             'Throw ex
             MsgBox(ex.ToString)
         Finally
+            '
             ' Cierra la conexión
             conexion.Close()
             conexion.Dispose()
