@@ -1,7 +1,6 @@
 ﻿Public Class AbmEmpleado
 
-    Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=LAPTOP-6VOLNCDP\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
-    ' Dim cadenaConexion As String = "Provider = SQLNCLI11;Data Source=DESKTOP-B5BDNHJ\EUROCOOLSQLEX;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+    Dim dbhelper As DBHelper = DBHelper.getDBHelper
     Dim estado_Grabacion As condicionGrabacion = condicionGrabacion.insertar
     Enum estadoGrabacion
         aprobado
@@ -13,20 +12,12 @@
     End Enum
 
     Private Sub AbmEmpleado_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cargar_grilla()
-        cargar_combo(cmbTipoDoc, Me.leo_tabla("tipoDocumento"), "idTipoDocumento", "descripcion")
+        ' cargar_grilla()
+        cargar_combo(cmbTipoDoc, dbhelper.ConsultaSQL("tipoDocumento"), "idTipoDocumento", "descripcion")
     End Sub
 
     Private Sub cargar_grilla()
-        Dim conexion As New OleDb.OleDbConnection
-        Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
-
-        conexion.ConnectionString = cadenaConexion
-        conexion.Open()
-        cmd.Connection = conexion
-        cmd.CommandType = CommandType.Text
-
         Dim sql As String = ""
 
         sql &= "Select        persona.nombre, persona.apellido, persona.nroDocumento, persona.idTipoDocumento, persona.fechaIngreso, persona.fechaEgreso, "
@@ -34,9 +25,10 @@
         sql &= " From            persona INNER JOIN "
         sql &= " tipoDocumento On persona.idTipoDocumento = tipoDocumento.idTipoDocumento "
 
-        cmd.CommandText = sql
-        tabla.Load(cmd.ExecuteReader())
-        conexion.Close()
+        tabla = dbhelper.ConsultaSQL(sql)
+        If tabla.Rows.Count = -1 Then
+            Exit Sub
+        End If
 
         Dim c As Integer = 0
 
@@ -67,7 +59,7 @@
     Private Sub insertar()
         Dim sql As String = ""
         sql = " INSERT INTO persona (nombre,apellido,nroDocumento,idTipoDocumento,fechaIngreso,fechaEgreso, celular,Mail,Domicilio) values ( '" & txtNombre.Text & "', '" & txtApellido.Text & "' , " & mskNroDoc.Text & " , " & cmbTipoDoc.SelectedValue & " , '" & mskFechaIngreso.Text & "' ,   null   , " & txtCelular.Text & " , '" & txtEmail.Text & "' , '" & txtDomicilio.Text & "')"
-        ejecutosql(sql)
+        dbhelper.EjecutarSQL(sql)
         MsgBox("Se grabo correctamente")
         Me.cargar_grilla()
     End Sub
@@ -85,25 +77,10 @@
         sql &= " , Domicilio = '" & txtDomicilio.Text & "'"
         sql &= " WHERE nroDocumento = " & mskNroDoc.Text
 
-        ejecutosql(sql)
+        dbhelper.EjecutarSQL(sql)
         Me.cargar_grilla()
         MsgBox("Se Modifico correctamente")
     End Sub
-    Private Function ejecutosql(ByVal consulta As String) As DataTable
-        Dim conexion As New OleDb.OleDbConnection
-        Dim cmd As New OleDb.OleDbCommand
-        Dim tabla As New DataTable
-
-        conexion.ConnectionString = cadenaConexion
-        conexion.Open()
-        cmd.Connection = conexion
-        cmd.CommandType = CommandType.Text
-
-        cmd.CommandText = consulta
-        tabla.Load(cmd.ExecuteReader())
-        conexion.Close()
-        Return tabla
-    End Function
     Private Function validarDatos() As estadoGrabacion
         For Each obj As Control In Me.Controls
             If obj.GetType.Name = "TextBox" Then
@@ -122,7 +99,7 @@
 
         sql &= " SELECT * FROM persona WHERE nroDocumento = " & Me.mskNroDoc.Text
 
-        tabla = ejecutosql(sql)
+        tabla = dbhelper.ConsultaSQL(sql)
 
         If tabla.Rows.Count = 0 Then
             Return estadoGrabacion.aprobado
@@ -161,7 +138,7 @@
         Dim tabla As New DataTable
 
         sql = "SELECT * FROM persona WHERE nroDocumento = " & mskNroDoc.Text
-        tabla = ejecutosql(sql)
+        tabla = dbhelper.ConsultaSQL(sql)
         Me.dgvEmpleado.Rows.Clear()
 
         Dim c As Integer = 0
@@ -180,7 +157,7 @@
 
         sql = " SELECT * FROM persona WHERE nroDocumento = " & Me.dgvEmpleado.CurrentRow.Cells("cNroDoc").Value
 
-        tabla = ejecutosql(sql)
+        tabla = dbhelper.ConsultaSQL(sql)
 
         Me.txtApellido.Text = tabla.Rows(0)("apellido")
         Me.txtNombre.Text = tabla.Rows(0)("nombre")
@@ -206,7 +183,7 @@
             End If
         End If
 
-        ejecutosql(sql)
+        dbhelper.EjecutarSQL(sql)
         Me.cargar_grilla()
     End Sub
     Private Sub cargar_combo(ByRef combo As ComboBox _
@@ -220,7 +197,4 @@
         combo.SelectedIndex = -1
 
     End Sub
-    Private Function leo_tabla(ByVal nombre_tabla As String) As DataTable
-        Return Me.ejecutosql("SELECT * FROM " & nombre_tabla)
-    End Function
 End Class
