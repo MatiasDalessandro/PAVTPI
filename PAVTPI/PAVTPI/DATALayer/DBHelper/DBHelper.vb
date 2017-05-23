@@ -137,11 +137,13 @@ Public Class DBHelper
             'Por cada valor realiza la inserción en la tabla de materias por alumnos
             For Each str As String In listadoString
                 ' En la sentencia los @indican parámetros
-                cmd = New OleDbCommand(str.ToString, conexion, miTransaccion)
-                cmd.Connection = conexion
-                'Ejecuta la consulta insert con los parámetros ya con los valores adecuados
-                cmd.ExecuteNonQuery()
-                ret += 1
+                If Not (str.ToString = "") Then
+                    cmd = New OleDbCommand(str.ToString, conexion, miTransaccion)
+                    cmd.Connection = conexion
+                    'Ejecuta la consulta insert con los parámetros ya con los valores adecuados
+                    cmd.ExecuteNonQuery()
+                    ret += 1
+                End If
             Next
             miTransaccion.Commit()
             MsgBox("EJECUTANDO COMMIT")
