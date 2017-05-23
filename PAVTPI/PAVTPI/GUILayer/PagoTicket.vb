@@ -35,7 +35,10 @@
     End Sub
 
     Private Sub btn_quitar_Click(sender As Object, e As EventArgs) Handles btn_quitar.Click
+        Dim total As Double = txt_total.Text
+        total += -dgv_detalle.CurrentRow.Cells(2).Value
         dgv_detalle.Rows.Remove(dgv_detalle.CurrentRow)
+        txt_total.Text = total
     End Sub
     Private Sub calcular_total()
         Dim total As Double = 0
