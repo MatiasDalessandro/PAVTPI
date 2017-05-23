@@ -25,7 +25,6 @@ Partial Class Form1
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ABMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMEmpleadoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ABMToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMTipoDocumentoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMArticuloToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMRolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -49,7 +48,7 @@ Partial Class Form1
         '
         'ABMToolStripMenuItem
         '
-        Me.ABMToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMEmpleadoToolStripMenuItem, Me.ABMToolStripMenuItem1, Me.ABMTipoDocumentoToolStripMenuItem, Me.ABMArticuloToolStripMenuItem, Me.ABMRolToolStripMenuItem, Me.ABMDependenciaToolStripMenuItem, Me.ABMComboToolStripMenuItem, Me.VerNombreMaquinaToolStripMenuItem})
+        Me.ABMToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMEmpleadoToolStripMenuItem, Me.ABMTipoDocumentoToolStripMenuItem, Me.ABMArticuloToolStripMenuItem, Me.ABMRolToolStripMenuItem, Me.ABMDependenciaToolStripMenuItem, Me.ABMComboToolStripMenuItem, Me.VerNombreMaquinaToolStripMenuItem})
         Me.ABMToolStripMenuItem.Name = "ABMToolStripMenuItem"
         Me.ABMToolStripMenuItem.Size = New System.Drawing.Size(45, 20)
         Me.ABMToolStripMenuItem.Text = "ABM"
@@ -57,49 +56,43 @@ Partial Class Form1
         'ABMEmpleadoToolStripMenuItem
         '
         Me.ABMEmpleadoToolStripMenuItem.Name = "ABMEmpleadoToolStripMenuItem"
-        Me.ABMEmpleadoToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.ABMEmpleadoToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
         Me.ABMEmpleadoToolStripMenuItem.Text = "ABM Empleado"
-        '
-        'ABMToolStripMenuItem1
-        '
-        Me.ABMToolStripMenuItem1.Name = "ABMToolStripMenuItem1"
-        Me.ABMToolStripMenuItem1.Size = New System.Drawing.Size(205, 22)
-        Me.ABMToolStripMenuItem1.Text = "ABM Persona Autorizada"
         '
         'ABMTipoDocumentoToolStripMenuItem
         '
         Me.ABMTipoDocumentoToolStripMenuItem.Name = "ABMTipoDocumentoToolStripMenuItem"
-        Me.ABMTipoDocumentoToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.ABMTipoDocumentoToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
         Me.ABMTipoDocumentoToolStripMenuItem.Text = "ABM Tipo Documento"
         '
         'ABMArticuloToolStripMenuItem
         '
         Me.ABMArticuloToolStripMenuItem.Name = "ABMArticuloToolStripMenuItem"
-        Me.ABMArticuloToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.ABMArticuloToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
         Me.ABMArticuloToolStripMenuItem.Text = "ABM Articulo"
         '
         'ABMRolToolStripMenuItem
         '
         Me.ABMRolToolStripMenuItem.Name = "ABMRolToolStripMenuItem"
-        Me.ABMRolToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.ABMRolToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
         Me.ABMRolToolStripMenuItem.Text = "ABM Rol"
         '
         'ABMDependenciaToolStripMenuItem
         '
         Me.ABMDependenciaToolStripMenuItem.Name = "ABMDependenciaToolStripMenuItem"
-        Me.ABMDependenciaToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.ABMDependenciaToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
         Me.ABMDependenciaToolStripMenuItem.Text = "ABM Dependencia"
         '
         'ABMComboToolStripMenuItem
         '
         Me.ABMComboToolStripMenuItem.Name = "ABMComboToolStripMenuItem"
-        Me.ABMComboToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.ABMComboToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
         Me.ABMComboToolStripMenuItem.Text = "ABM Combo"
         '
         'VerNombreMaquinaToolStripMenuItem
         '
         Me.VerNombreMaquinaToolStripMenuItem.Name = "VerNombreMaquinaToolStripMenuItem"
-        Me.VerNombreMaquinaToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.VerNombreMaquinaToolStripMenuItem.Size = New System.Drawing.Size(193, 22)
         Me.VerNombreMaquinaToolStripMenuItem.Text = "ver nombre maquina"
         '
         'ProcesosToolStripMenuItem
@@ -140,7 +133,6 @@ Partial Class Form1
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents ABMToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMEmpleadoToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ABMToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ABMTipoDocumentoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMArticuloToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMRolToolStripMenuItem As ToolStripMenuItem

@@ -21,10 +21,11 @@
 
         Dim sql As String = ""
 
-        sql &= "Select        persona.nombre, persona.apellido, persona.nroDocumento, persona.idTipoDocumento, persona.fechaIngreso, persona.fechaEgreso, "
-        sql &= "                 persona.celular, persona.Mail, persona.Domicilio, tipoDocumento.descripcion, tipoDocumento.idTipoDocumento "
+        sql &= "Select        persona.nombre, persona.apellido, persona.nroDocumento, persona.idTipoDocumento, "
+        sql &= "                 tipoDocumento.descripcion, tipoDocumento.idTipoDocumento "
         sql &= " From            persona INNER JOIN "
         sql &= " tipoDocumento On persona.idTipoDocumento = tipoDocumento.idTipoDocumento "
+        sql &= " INNER JOIN dependencia On dependencia.NroCuentaCorriente = "
 
         tabla = dbhelper.ConsultaSQL(sql)
 

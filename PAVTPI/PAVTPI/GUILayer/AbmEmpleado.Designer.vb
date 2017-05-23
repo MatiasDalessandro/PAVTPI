@@ -40,7 +40,6 @@ Partial Class AbmEmpleado
         Me.lblTipoDoc = New System.Windows.Forms.Label()
         Me.cmbTipoDoc = New System.Windows.Forms.ComboBox()
         Me.lblFechaIngreso = New System.Windows.Forms.Label()
-        Me.mskFechaIngreso = New System.Windows.Forms.MaskedTextBox()
         Me.lblDomicilio = New System.Windows.Forms.Label()
         Me.lblEmail = New System.Windows.Forms.Label()
         Me.lblCelular = New System.Windows.Forms.Label()
@@ -48,8 +47,8 @@ Partial Class AbmEmpleado
         Me.txtCelular = New System.Windows.Forms.TextBox()
         Me.txtDomicilio = New System.Windows.Forms.TextBox()
         Me.lblFechaEgreso = New System.Windows.Forms.Label()
-        Me.mskFechaEgreso = New System.Windows.Forms.MaskedTextBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFechaIngreso = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFechaEgreso = New System.Windows.Forms.DateTimePicker()
         CType(Me.dgvEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -206,15 +205,6 @@ Partial Class AbmEmpleado
         Me.lblFechaIngreso.TabIndex = 21
         Me.lblFechaIngreso.Text = "Fecha de Ingreso"
         '
-        'mskFechaIngreso
-        '
-        Me.mskFechaIngreso.Location = New System.Drawing.Point(135, 152)
-        Me.mskFechaIngreso.Mask = "00/00/0000"
-        Me.mskFechaIngreso.Name = "mskFechaIngreso"
-        Me.mskFechaIngreso.Size = New System.Drawing.Size(100, 20)
-        Me.mskFechaIngreso.TabIndex = 4
-        Me.mskFechaIngreso.ValidatingType = GetType(Date)
-        '
         'lblDomicilio
         '
         Me.lblDomicilio.AutoSize = True
@@ -275,32 +265,30 @@ Partial Class AbmEmpleado
         Me.lblFechaEgreso.TabIndex = 21
         Me.lblFechaEgreso.Text = "Fecha de Egreso"
         '
-        'mskFechaEgreso
+        'dtpFechaIngreso
         '
-        Me.mskFechaEgreso.Location = New System.Drawing.Point(135, 178)
-        Me.mskFechaEgreso.Mask = "00/00/0000"
-        Me.mskFechaEgreso.Name = "mskFechaEgreso"
-        Me.mskFechaEgreso.Size = New System.Drawing.Size(100, 20)
-        Me.mskFechaEgreso.TabIndex = 4
-        Me.mskFechaEgreso.ValidatingType = GetType(Date)
+        Me.dtpFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpFechaIngreso.Location = New System.Drawing.Point(135, 149)
+        Me.dtpFechaIngreso.Name = "dtpFechaIngreso"
+        Me.dtpFechaIngreso.Size = New System.Drawing.Size(100, 20)
+        Me.dtpFechaIngreso.TabIndex = 31
         '
-        'DateTimePicker1
+        'dtpFechaEgreso
         '
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(459, 316)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
-        Me.DateTimePicker1.TabIndex = 31
+        Me.dtpFechaEgreso.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFechaEgreso.Location = New System.Drawing.Point(135, 175)
+        Me.dtpFechaEgreso.Name = "dtpFechaEgreso"
+        Me.dtpFechaEgreso.Size = New System.Drawing.Size(100, 20)
+        Me.dtpFechaEgreso.TabIndex = 31
         '
         'AbmEmpleado
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(803, 345)
-        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.dtpFechaEgreso)
+        Me.Controls.Add(Me.dtpFechaIngreso)
         Me.Controls.Add(Me.cmbTipoDoc)
-        Me.Controls.Add(Me.mskFechaEgreso)
-        Me.Controls.Add(Me.mskFechaIngreso)
         Me.Controls.Add(Me.mskNroDoc)
         Me.Controls.Add(Me.dgvEmpleado)
         Me.Controls.Add(Me.btn_buscar)
@@ -345,7 +333,6 @@ Partial Class AbmEmpleado
     Friend WithEvents lblTipoDoc As Label
     Friend WithEvents cmbTipoDoc As ComboBox
     Friend WithEvents lblFechaIngreso As Label
-    Friend WithEvents mskFechaIngreso As MaskedTextBox
     Friend WithEvents lblDomicilio As Label
     Friend WithEvents lblEmail As Label
     Friend WithEvents lblCelular As Label
@@ -356,6 +343,6 @@ Partial Class AbmEmpleado
     Friend WithEvents cNroDoc As DataGridViewTextBoxColumn
     Friend WithEvents txtDomicilio As TextBox
     Friend WithEvents lblFechaEgreso As Label
-    Friend WithEvents mskFechaEgreso As MaskedTextBox
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents dtpFechaIngreso As DateTimePicker
+    Friend WithEvents dtpFechaEgreso As DateTimePicker
 End Class
