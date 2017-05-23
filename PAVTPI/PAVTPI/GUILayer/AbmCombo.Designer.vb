@@ -50,7 +50,7 @@ Partial Class AbmCombo
         Me.dgv_datos_articulos.AllowUserToDeleteRows = False
         Me.dgv_datos_articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_datos_articulos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.c_id_articulo, Me.c_nombre_articulo, Me.c_precio_articulo})
-        Me.dgv_datos_articulos.Location = New System.Drawing.Point(27, 108)
+        Me.dgv_datos_articulos.Location = New System.Drawing.Point(393, 27)
         Me.dgv_datos_articulos.Name = "dgv_datos_articulos"
         Me.dgv_datos_articulos.ReadOnly = True
         Me.dgv_datos_articulos.Size = New System.Drawing.Size(447, 228)
@@ -88,7 +88,7 @@ Partial Class AbmCombo
         '
         'btn_salir
         '
-        Me.btn_salir.Location = New System.Drawing.Point(334, 404)
+        Me.btn_salir.Location = New System.Drawing.Point(765, 284)
         Me.btn_salir.Name = "btn_salir"
         Me.btn_salir.Size = New System.Drawing.Size(75, 23)
         Me.btn_salir.TabIndex = 26
@@ -98,7 +98,7 @@ Partial Class AbmCombo
         'btn_guardar
         '
         Me.btn_guardar.Enabled = False
-        Me.btn_guardar.Location = New System.Drawing.Point(86, 404)
+        Me.btn_guardar.Location = New System.Drawing.Point(110, 284)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(75, 23)
         Me.btn_guardar.TabIndex = 27
@@ -108,7 +108,7 @@ Partial Class AbmCombo
         'btn_eliminar
         '
         Me.btn_eliminar.Enabled = False
-        Me.btn_eliminar.Location = New System.Drawing.Point(210, 404)
+        Me.btn_eliminar.Location = New System.Drawing.Point(191, 284)
         Me.btn_eliminar.Name = "btn_eliminar"
         Me.btn_eliminar.Size = New System.Drawing.Size(75, 23)
         Me.btn_eliminar.TabIndex = 28
@@ -142,7 +142,7 @@ Partial Class AbmCombo
         'lbl_id_combo
         '
         Me.lbl_id_combo.AutoSize = True
-        Me.lbl_id_combo.Location = New System.Drawing.Point(24, 39)
+        Me.lbl_id_combo.Location = New System.Drawing.Point(50, 39)
         Me.lbl_id_combo.Name = "lbl_id_combo"
         Me.lbl_id_combo.Size = New System.Drawing.Size(54, 13)
         Me.lbl_id_combo.TabIndex = 19
@@ -150,7 +150,7 @@ Partial Class AbmCombo
         '
         'btn_agregar_articulo
         '
-        Me.btn_agregar_articulo.Location = New System.Drawing.Point(29, 353)
+        Me.btn_agregar_articulo.Location = New System.Drawing.Point(14, 284)
         Me.btn_agregar_articulo.Name = "btn_agregar_articulo"
         Me.btn_agregar_articulo.Size = New System.Drawing.Size(90, 23)
         Me.btn_agregar_articulo.TabIndex = 31
@@ -159,7 +159,7 @@ Partial Class AbmCombo
         '
         'btn_quitar_articulo
         '
-        Me.btn_quitar_articulo.Location = New System.Drawing.Point(138, 353)
+        Me.btn_quitar_articulo.Location = New System.Drawing.Point(272, 284)
         Me.btn_quitar_articulo.Name = "btn_quitar_articulo"
         Me.btn_quitar_articulo.Size = New System.Drawing.Size(78, 23)
         Me.btn_quitar_articulo.TabIndex = 32
@@ -168,7 +168,7 @@ Partial Class AbmCombo
         '
         'btn_editar_combo
         '
-        Me.btn_editar_combo.Location = New System.Drawing.Point(393, 353)
+        Me.btn_editar_combo.Location = New System.Drawing.Point(356, 284)
         Me.btn_editar_combo.Name = "btn_editar_combo"
         Me.btn_editar_combo.Size = New System.Drawing.Size(81, 23)
         Me.btn_editar_combo.TabIndex = 33
@@ -180,7 +180,7 @@ Partial Class AbmCombo
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.BuscarToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(504, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(858, 24)
         Me.MenuStrip1.TabIndex = 36
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -200,7 +200,7 @@ Partial Class AbmCombo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(504, 447)
+        Me.ClientSize = New System.Drawing.Size(858, 321)
         Me.Controls.Add(Me.btn_editar_combo)
         Me.Controls.Add(Me.btn_quitar_articulo)
         Me.Controls.Add(Me.btn_agregar_articulo)
