@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class PagoTicket
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class Venta
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,14 +20,10 @@ Partial Class PagoTicket
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.btn_buscarArticulo = New System.Windows.Forms.Button()
         Me.txt_articulo = New System.Windows.Forms.MaskedTextBox()
-        Me.dgv_detalleTicket = New System.Windows.Forms.DataGridView()
-        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Articulo = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txt_combo = New System.Windows.Forms.MaskedTextBox()
@@ -35,13 +31,11 @@ Partial Class PagoTicket
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btn_cancelar = New System.Windows.Forms.Button()
         Me.btn_guardar = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txt_total = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.lbox_articulo = New System.Windows.Forms.ListBox()
-        Me.lbox_combo = New System.Windows.Forms.ListBox()
         Me.bnt_agregarArticulo = New System.Windows.Forms.Button()
         Me.btn_agregarCombo = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btn_quitar = New System.Windows.Forms.Button()
         Me.cmb_dependencia = New System.Windows.Forms.ComboBox()
         Me.btn_agregarDependencia = New System.Windows.Forms.Button()
         Me.cmb_empleado = New System.Windows.Forms.ComboBox()
@@ -49,7 +43,17 @@ Partial Class PagoTicket
         Me.chk_dependencia = New System.Windows.Forms.CheckBox()
         Me.chk_mozo = New System.Windows.Forms.CheckBox()
         Me.chk_abonado = New System.Windows.Forms.CheckBox()
-        CType(Me.dgv_detalleTicket, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.dgv_detalle = New System.Windows.Forms.DataGridView()
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre_2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgv_articulo = New System.Windows.Forms.DataGridView()
+        Me.dgv_combo = New System.Windows.Forms.DataGridView()
+        Me.btn_mostrarTodosArt = New System.Windows.Forms.Button()
+        Me.btn_mostrarTodosCom = New System.Windows.Forms.Button()
+        CType(Me.dgv_detalle, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgv_articulo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgv_combo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btn_buscarArticulo
@@ -69,32 +73,6 @@ Partial Class PagoTicket
         Me.txt_articulo.Size = New System.Drawing.Size(69, 20)
         Me.txt_articulo.TabIndex = 1
         Me.txt_articulo.ValidatingType = GetType(Integer)
-        '
-        'dgv_detalleTicket
-        '
-        Me.dgv_detalleTicket.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgv_detalleTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_detalleTicket.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Nombre, Me.cantidad, Me.precio})
-        Me.dgv_detalleTicket.Location = New System.Drawing.Point(11, 205)
-        Me.dgv_detalleTicket.Name = "dgv_detalleTicket"
-        Me.dgv_detalleTicket.RowHeadersWidth = 40
-        Me.dgv_detalleTicket.Size = New System.Drawing.Size(675, 150)
-        Me.dgv_detalleTicket.TabIndex = 2
-        '
-        'Nombre
-        '
-        Me.Nombre.HeaderText = "Nombre"
-        Me.Nombre.Name = "Nombre"
-        '
-        'cantidad
-        '
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.Name = "cantidad"
-        '
-        'precio
-        '
-        Me.precio.HeaderText = "Precio"
-        Me.precio.Name = "precio"
         '
         'Articulo
         '
@@ -159,12 +137,13 @@ Partial Class PagoTicket
         Me.btn_guardar.Text = "Guardar"
         Me.btn_guardar.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'txt_total
         '
-        Me.TextBox1.Location = New System.Drawing.Point(572, 362)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(114, 20)
-        Me.TextBox1.TabIndex = 12
+        Me.txt_total.Location = New System.Drawing.Point(572, 362)
+        Me.txt_total.Name = "txt_total"
+        Me.txt_total.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.txt_total.Size = New System.Drawing.Size(114, 20)
+        Me.txt_total.TabIndex = 12
         '
         'Label3
         '
@@ -174,24 +153,6 @@ Partial Class PagoTicket
         Me.Label3.Size = New System.Drawing.Size(31, 13)
         Me.Label3.TabIndex = 13
         Me.Label3.Text = "Total"
-        '
-        'lbox_articulo
-        '
-        Me.lbox_articulo.FormattingEnabled = True
-        Me.lbox_articulo.Location = New System.Drawing.Point(12, 51)
-        Me.lbox_articulo.Name = "lbox_articulo"
-        Me.lbox_articulo.Size = New System.Drawing.Size(305, 95)
-        Me.lbox_articulo.Sorted = True
-        Me.lbox_articulo.TabIndex = 14
-        '
-        'lbox_combo
-        '
-        Me.lbox_combo.FormattingEnabled = True
-        Me.lbox_combo.Location = New System.Drawing.Point(382, 54)
-        Me.lbox_combo.Name = "lbox_combo"
-        Me.lbox_combo.Size = New System.Drawing.Size(305, 95)
-        Me.lbox_combo.Sorted = True
-        Me.lbox_combo.TabIndex = 15
         '
         'bnt_agregarArticulo
         '
@@ -211,14 +172,14 @@ Partial Class PagoTicket
         Me.btn_agregarCombo.Text = "Agregar"
         Me.btn_agregarCombo.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btn_quitar
         '
-        Me.Button1.Location = New System.Drawing.Point(11, 365)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 18
-        Me.Button1.Text = "Quitar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btn_quitar.Location = New System.Drawing.Point(11, 365)
+        Me.btn_quitar.Name = "btn_quitar"
+        Me.btn_quitar.Size = New System.Drawing.Size(75, 23)
+        Me.btn_quitar.TabIndex = 18
+        Me.btn_quitar.Text = "Quitar"
+        Me.btn_quitar.UseVisualStyleBackColor = True
         '
         'cmb_dependencia
         '
@@ -284,11 +245,76 @@ Partial Class PagoTicket
         Me.chk_abonado.Text = "Abonado"
         Me.chk_abonado.UseVisualStyleBackColor = True
         '
-        'PagoTicket
+        'dgv_detalle
+        '
+        Me.dgv_detalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgv_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_detalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.nombre_2, Me.monto})
+        Me.dgv_detalle.Location = New System.Drawing.Point(11, 203)
+        Me.dgv_detalle.Name = "dgv_detalle"
+        Me.dgv_detalle.Size = New System.Drawing.Size(675, 150)
+        Me.dgv_detalle.TabIndex = 28
+        '
+        'id
+        '
+        Me.id.HeaderText = "Nro"
+        Me.id.Name = "id"
+        '
+        'nombre_2
+        '
+        Me.nombre_2.HeaderText = "Nombre"
+        Me.nombre_2.Name = "nombre_2"
+        '
+        'monto
+        '
+        Me.monto.HeaderText = "Precio"
+        Me.monto.Name = "monto"
+        '
+        'dgv_articulo
+        '
+        Me.dgv_articulo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgv_articulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_articulo.Location = New System.Drawing.Point(11, 51)
+        Me.dgv_articulo.Name = "dgv_articulo"
+        Me.dgv_articulo.Size = New System.Drawing.Size(304, 95)
+        Me.dgv_articulo.TabIndex = 29
+        '
+        'dgv_combo
+        '
+        Me.dgv_combo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgv_combo.Location = New System.Drawing.Point(382, 54)
+        Me.dgv_combo.Name = "dgv_combo"
+        Me.dgv_combo.Size = New System.Drawing.Size(304, 95)
+        Me.dgv_combo.TabIndex = 30
+        '
+        'btn_mostrarTodosArt
+        '
+        Me.btn_mostrarTodosArt.Location = New System.Drawing.Point(194, 155)
+        Me.btn_mostrarTodosArt.Name = "btn_mostrarTodosArt"
+        Me.btn_mostrarTodosArt.Size = New System.Drawing.Size(121, 23)
+        Me.btn_mostrarTodosArt.TabIndex = 31
+        Me.btn_mostrarTodosArt.Text = "Mostrar Todos"
+        Me.btn_mostrarTodosArt.UseVisualStyleBackColor = True
+        '
+        'btn_mostrarTodosCom
+        '
+        Me.btn_mostrarTodosCom.Location = New System.Drawing.Point(572, 155)
+        Me.btn_mostrarTodosCom.Name = "btn_mostrarTodosCom"
+        Me.btn_mostrarTodosCom.Size = New System.Drawing.Size(121, 23)
+        Me.btn_mostrarTodosCom.TabIndex = 32
+        Me.btn_mostrarTodosCom.Text = "Mostrar Todos"
+        Me.btn_mostrarTodosCom.UseVisualStyleBackColor = True
+        '
+        'Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(705, 513)
+        Me.Controls.Add(Me.btn_mostrarTodosCom)
+        Me.Controls.Add(Me.btn_mostrarTodosArt)
+        Me.Controls.Add(Me.dgv_combo)
+        Me.Controls.Add(Me.dgv_articulo)
+        Me.Controls.Add(Me.dgv_detalle)
         Me.Controls.Add(Me.chk_abonado)
         Me.Controls.Add(Me.chk_mozo)
         Me.Controls.Add(Me.chk_dependencia)
@@ -296,13 +322,11 @@ Partial Class PagoTicket
         Me.Controls.Add(Me.cmb_empleado)
         Me.Controls.Add(Me.btn_agregarDependencia)
         Me.Controls.Add(Me.cmb_dependencia)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btn_quitar)
         Me.Controls.Add(Me.btn_agregarCombo)
         Me.Controls.Add(Me.bnt_agregarArticulo)
-        Me.Controls.Add(Me.lbox_combo)
-        Me.Controls.Add(Me.lbox_articulo)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txt_total)
         Me.Controls.Add(Me.btn_guardar)
         Me.Controls.Add(Me.btn_cancelar)
         Me.Controls.Add(Me.Label2)
@@ -310,12 +334,13 @@ Partial Class PagoTicket
         Me.Controls.Add(Me.txt_combo)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Articulo)
-        Me.Controls.Add(Me.dgv_detalleTicket)
         Me.Controls.Add(Me.txt_articulo)
         Me.Controls.Add(Me.btn_buscarArticulo)
-        Me.Name = "PagoTicket"
+        Me.Name = "Venta"
         Me.Text = "Registrar Venta"
-        CType(Me.dgv_detalleTicket, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgv_detalle, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgv_articulo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgv_combo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -323,7 +348,6 @@ Partial Class PagoTicket
 
     Friend WithEvents btn_buscarArticulo As Button
     Friend WithEvents txt_articulo As MaskedTextBox
-    Friend WithEvents dgv_detalleTicket As DataGridView
     Friend WithEvents Articulo As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents txt_combo As MaskedTextBox
@@ -331,16 +355,11 @@ Partial Class PagoTicket
     Friend WithEvents Label2 As Label
     Friend WithEvents btn_cancelar As Button
     Friend WithEvents btn_guardar As Button
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txt_total As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents lbox_articulo As ListBox
-    Friend WithEvents lbox_combo As ListBox
     Friend WithEvents bnt_agregarArticulo As Button
     Friend WithEvents btn_agregarCombo As Button
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Nombre As DataGridViewTextBoxColumn
-    Friend WithEvents cantidad As DataGridViewTextBoxColumn
-    Friend WithEvents precio As DataGridViewTextBoxColumn
+    Friend WithEvents btn_quitar As Button
     Friend WithEvents cmb_dependencia As ComboBox
     Friend WithEvents btn_agregarDependencia As Button
     Friend WithEvents cmb_empleado As ComboBox
@@ -348,4 +367,12 @@ Partial Class PagoTicket
     Friend WithEvents chk_dependencia As CheckBox
     Friend WithEvents chk_mozo As CheckBox
     Friend WithEvents chk_abonado As CheckBox
+    Friend WithEvents dgv_detalle As DataGridView
+    Friend WithEvents dgv_articulo As DataGridView
+    Friend WithEvents dgv_combo As DataGridView
+    Friend WithEvents id As DataGridViewTextBoxColumn
+    Friend WithEvents nombre_2 As DataGridViewTextBoxColumn
+    Friend WithEvents monto As DataGridViewTextBoxColumn
+    Friend WithEvents btn_mostrarTodosArt As Button
+    Friend WithEvents btn_mostrarTodosCom As Button
 End Class
