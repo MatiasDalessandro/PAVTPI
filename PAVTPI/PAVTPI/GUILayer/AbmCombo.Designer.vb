@@ -88,7 +88,7 @@ Partial Class AbmCombo
         '
         'btn_salir
         '
-        Me.btn_salir.Location = New System.Drawing.Point(236, 261)
+        Me.btn_salir.Location = New System.Drawing.Point(239, 261)
         Me.btn_salir.Name = "btn_salir"
         Me.btn_salir.Size = New System.Drawing.Size(75, 23)
         Me.btn_salir.TabIndex = 26
