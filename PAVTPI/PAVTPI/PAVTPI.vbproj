@@ -160,6 +160,12 @@
     <Compile Include="GUILayer\PagoTicket.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GUILayer\PagoXCuentaCorriente.Designer.vb">
+      <DependentUpon>PagoXCuentaCorriente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\PagoXCuentaCorriente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GUILayer\PersonaXDependencia.Designer.vb">
       <DependentUpon>PersonaXDependencia.vb</DependentUpon>
     </Compile>
@@ -230,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\PagoTicket.resx">
       <DependentUpon>PagoTicket.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\PagoXCuentaCorriente.resx">
+      <DependentUpon>PagoXCuentaCorriente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\PersonaXDependencia.resx">
       <DependentUpon>PersonaXDependencia.vb</DependentUpon>

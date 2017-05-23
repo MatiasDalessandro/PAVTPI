@@ -1,5 +1,4 @@
 ﻿Public Class AbmArticulo
-    'Dim cadena_conexion As String = "Provider=SQLNCLI11;Data Source=DESKTOP-B5BDNHJ\EUROCOOLSQLEX;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
 
     Dim dbhelper As DBHelper = DBHelper.getDBHelper
 
@@ -65,34 +64,12 @@
 
     End Function
 
-
-
-    'Private Function ejecutosql(ByVal consulta As String) As DataTable
-    '    Dim conexion As New OleDb.OleDbConnection
-    '    Dim cmd As New OleDb.OleDbCommand
-    '    Dim tabla As New DataTable
-
-    '    conexion.ConnectionString = cadena_conexion
-    '    conexion.Open()
-    '    cmd.Connection = conexion
-    '    cmd.CommandType = CommandType.Text
-
-    '    cmd.CommandText = consulta
-    '    tabla.Load(cmd.ExecuteReader())
-    '    conexion.Close()
-    '    Return tabla
-    'End Function
-
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
         Dim sql As String = ""
 
         If validar_datos() = estado_grabacion.aprobado Then
             If estadoGrabacion = condicionGrabacion.insertar Then
-                If validar_articulo() = estado_grabacion.aprobado Then
-                    insertar()
-                Else
-                    MsgBox("El ID del Articulo ya existe.")
-                End If
+                insertar()
             Else
                 modificar()
             End If
@@ -104,12 +81,10 @@
     End Sub
     Private Sub insertar()
         Dim sql As String = ""
-        sql = " INSERT INTO articulo (nombre,precio) values ('" & txt_nombre_articulo.Text & "' , " & txt_precio.Text & ")"
+        sql = "INSERT INTO articulo (nombre,precio) values ('" & txt_nombre_articulo.Text & "' , " & txt_precio.Text & ")"
         dbhelper.EjecutarSQL(sql)
         MsgBox("Se grabo correctamente.")
         Me.cargar_grilla()
-
-
     End Sub
 
     Private Sub modificar()
@@ -144,7 +119,7 @@
         txt_nombre_articulo.Text = ""
         txt_precio.Text = ""
         Me.msk_IdArticulo.Text = ""
-        btn_eliminar.Enabled = True
+        btn_eliminar.Enabled = False
         btn_guardar.Enabled = True
         estadoGrabacion = condicionGrabacion.insertar
         Me.msk_IdArticulo.Enabled = False

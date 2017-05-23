@@ -31,9 +31,9 @@ Partial Class AbmRol
         Me.btn_eliminar = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
         Me.txt_nombre_rol = New System.Windows.Forms.TextBox()
-        Me.txt_id_rol = New System.Windows.Forms.TextBox()
         Me.lbl_nombre_articulo = New System.Windows.Forms.Label()
         Me.lbl_id_articulo = New System.Windows.Forms.Label()
+        Me.msk_idRol = New System.Windows.Forms.MaskedTextBox()
         CType(Me.dgv_datos_rol, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -117,13 +117,6 @@ Partial Class AbmRol
         Me.txt_nombre_rol.Size = New System.Drawing.Size(156, 20)
         Me.txt_nombre_rol.TabIndex = 20
         '
-        'txt_id_rol
-        '
-        Me.txt_id_rol.Location = New System.Drawing.Point(190, 315)
-        Me.txt_id_rol.Name = "txt_id_rol"
-        Me.txt_id_rol.Size = New System.Drawing.Size(100, 20)
-        Me.txt_id_rol.TabIndex = 21
-        '
         'lbl_nombre_articulo
         '
         Me.lbl_nombre_articulo.AutoSize = True
@@ -142,11 +135,20 @@ Partial Class AbmRol
         Me.lbl_id_articulo.TabIndex = 18
         Me.lbl_id_articulo.Text = "ID Rol"
         '
+        'msk_idRol
+        '
+        Me.msk_idRol.Location = New System.Drawing.Point(190, 310)
+        Me.msk_idRol.Mask = "99"
+        Me.msk_idRol.Name = "msk_idRol"
+        Me.msk_idRol.Size = New System.Drawing.Size(100, 20)
+        Me.msk_idRol.TabIndex = 28
+        '
         'AbmRol
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(472, 446)
+        Me.Controls.Add(Me.msk_idRol)
         Me.Controls.Add(Me.dgv_datos_rol)
         Me.Controls.Add(Me.btn_buscar)
         Me.Controls.Add(Me.btn_cancelar)
@@ -154,7 +156,6 @@ Partial Class AbmRol
         Me.Controls.Add(Me.btn_eliminar)
         Me.Controls.Add(Me.btn_nuevo)
         Me.Controls.Add(Me.txt_nombre_rol)
-        Me.Controls.Add(Me.txt_id_rol)
         Me.Controls.Add(Me.lbl_nombre_articulo)
         Me.Controls.Add(Me.lbl_id_articulo)
         Me.Name = "AbmRol"
@@ -174,7 +175,7 @@ Partial Class AbmRol
     Friend WithEvents btn_eliminar As Button
     Friend WithEvents btn_nuevo As Button
     Friend WithEvents txt_nombre_rol As TextBox
-    Friend WithEvents txt_id_rol As TextBox
     Friend WithEvents lbl_nombre_articulo As Label
     Friend WithEvents lbl_id_articulo As Label
+    Friend WithEvents msk_idRol As MaskedTextBox
 End Class
