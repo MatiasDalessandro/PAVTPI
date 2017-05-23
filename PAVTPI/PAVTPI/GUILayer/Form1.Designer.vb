@@ -34,6 +34,7 @@ Partial Class Form1
         Me.VerNombreMaquinaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProcesosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CargarPersonaAutorizadaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistrarVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -103,7 +104,7 @@ Partial Class Form1
         '
         'ProcesosToolStripMenuItem
         '
-        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargarPersonaAutorizadaToolStripMenuItem})
+        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargarPersonaAutorizadaToolStripMenuItem, Me.RegistrarVentaToolStripMenuItem})
         Me.ProcesosToolStripMenuItem.Name = "ProcesosToolStripMenuItem"
         Me.ProcesosToolStripMenuItem.Size = New System.Drawing.Size(66, 20)
         Me.ProcesosToolStripMenuItem.Text = "Procesos"
@@ -113,6 +114,12 @@ Partial Class Form1
         Me.CargarPersonaAutorizadaToolStripMenuItem.Name = "CargarPersonaAutorizadaToolStripMenuItem"
         Me.CargarPersonaAutorizadaToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
         Me.CargarPersonaAutorizadaToolStripMenuItem.Text = "Cargar Persona autorizada"
+        '
+        'RegistrarVentaToolStripMenuItem
+        '
+        Me.RegistrarVentaToolStripMenuItem.Name = "RegistrarVentaToolStripMenuItem"
+        Me.RegistrarVentaToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.RegistrarVentaToolStripMenuItem.Text = "Registrar Venta"
         '
         'Form1
         '
@@ -142,4 +149,5 @@ Partial Class Form1
     Friend WithEvents VerNombreMaquinaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProcesosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CargarPersonaAutorizadaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RegistrarVentaToolStripMenuItem As ToolStripMenuItem
 End Class

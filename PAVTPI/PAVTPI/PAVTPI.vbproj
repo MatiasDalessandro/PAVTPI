@@ -154,6 +154,12 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GUILayer\PagoTicket.Designer.vb">
+      <DependentUpon>PagoTicket.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\PagoTicket.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GUILayer\PersonaXDependencia.Designer.vb">
       <DependentUpon>PersonaXDependencia.vb</DependentUpon>
     </Compile>
@@ -221,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\PagoTicket.resx">
+      <DependentUpon>PagoTicket.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\PersonaXDependencia.resx">
       <DependentUpon>PersonaXDependencia.vb</DependentUpon>
