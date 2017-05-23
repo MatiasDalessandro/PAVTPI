@@ -51,6 +51,6 @@
     End Sub
 
     Private Sub RegistrarVentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarVentaToolStripMenuItem.Click
-        PagoTicket.Show()
+        Venta.Show()
     End Sub
 End Class

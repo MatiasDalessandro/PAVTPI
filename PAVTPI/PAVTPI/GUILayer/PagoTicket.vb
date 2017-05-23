@@ -1,4 +1,4 @@
-﻿Public Class PagoTicket
+﻿Public Class Venta
     Dim dbHelper As DBHelper = DBHelper.getDBHelper
 
     Private Sub cargar_combo(ByRef combo As ComboBox, ByRef tabla As DataTable, ByVal pk As String, ByVal descriptor As String)
@@ -10,29 +10,42 @@
         Dim tabla As New DataTable
         Dim sql As String = "SELECT * FROM articulo WHERE idArticuloCombo= " & txt_articulo.Text
         tabla = dbHelper.ConsultaSQL(sql)
+        cargar_grillas_simples(dgv_articulo, tabla)
 
     End Sub
-
-    Private Sub cargar_listBox_articulo()
-        Dim dt As New DataTable
-        dt = dbHelper.ConsultaSQL("SELECT * FROM articulo")
-        With lbox_articulo
-            .DataSource = dt
-            .DisplayMember = "nombre"
-            .ValueMember = "idArticuloCombo"
-        End With
-
-    End Sub
-    Private Sub cargar_listbox_combo()
-        Dim dt As DataTable = dbHelper.ConsultaSQL("SELECT * FROM comboXArticulo")
-        With lbox_combo
-            .DataSource = dt
-            .DisplayMember = "nombreCombo"
-            .ValueMember = "idArticuloIntegrante"
-        End With
-    End Sub
-
     Private Sub PagoTicket_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cargar_listBox_articulo()
+        cargar_grillas_simples(Me.dgv_articulo, dbHelper.ConsultaSQL("SELECT * FROM articulo"))
+
+    End Sub
+    Private Sub cargar_grillas_simples(ByRef dgv As DataGridView, ByRef tabla As DataTable)
+        dgv.Rows.Clear()
+        dgv.DataSource = tabla
+        dgv.Columns(0).HeaderCell.Value = "Nro"
+        dgv.Columns(1).HeaderCell.Value = "Nombre"
+        dgv.Columns(2).HeaderCell.Value = "Precio"
+    End Sub
+
+    Private Sub bnt_agregarArticulo_Click(sender As Object, e As EventArgs) Handles bnt_agregarArticulo.Click
+        dgv_detalle.Rows.Add(New String() {
+                                    dgv_articulo(0, dgv_articulo.CurrentRow.Index).Value.ToString(),
+                                    dgv_articulo(1, dgv_articulo.CurrentRow.Index).Value.ToString(),
+                                    dgv_articulo(2, dgv_articulo.CurrentRow.Index).Value.ToString()
+                               })
+        calcular_total()
+    End Sub
+
+    Private Sub btn_quitar_Click(sender As Object, e As EventArgs) Handles btn_quitar.Click
+        dgv_detalle.Rows.Remove(dgv_detalle.CurrentRow)
+    End Sub
+    Private Sub calcular_total()
+        Dim total As Double = 0
+        For Each row As DataGridViewRow In dgv_detalle.Rows
+            total += row.Cells(2).Value
+        Next
+        txt_total.Text = total
+    End Sub
+
+    Private Sub btn_mostrarTodosArt_Click(sender As Object, e As EventArgs) Handles btn_mostrarTodosArt.Click
+        cargar_grillas_simples(Me.dgv_articulo, dbHelper.ConsultaSQL("SELECT * FROM articulo"))
     End Sub
 End Class
