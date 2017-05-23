@@ -55,7 +55,7 @@
     End Sub
     Private Sub insertar()
         Dim sql As String = ""
-        sql = " INSERT INTO persona (nombre,apellido,nroDocumento,idTipoDocumento,fechaIngreso,fechaEgreso, celular,Mail,Domicilio) values ( '" & txtNombre.Text & "', '" & txtApellido.Text & "' , " & mskNroDoc.Text & " , " & cmbTipoDoc.SelectedValue & " , '" & mskFechaIngreso.Text & "' ,   null   , " & txtCelular.Text & " , '" & txtEmail.Text & "' , '" & txtDomicilio.Text & "')"
+        sql = " INSERT INTO persona (nombre,apellido,nroDocumento,idTipoDocumento,fechaIngreso,fechaEgreso, celular,Mail,Domicilio) values ( '" & txtNombre.Text & "', '" & txtApellido.Text & "' , " & mskNroDoc.Text & " , " & cmbTipoDoc.SelectedValue & " , '" & dtpFechaIngreso.Value & "' ,   null   , " & txtCelular.Text & " , '" & txtEmail.Text & "' , '" & txtDomicilio.Text & "')"
         dbhelper.EjecutarSQL(sql)
         MsgBox("Se grabo correctamente")
         Me.cargar_grilla()
@@ -67,8 +67,8 @@
         sql &= " , apellido = '" & txtApellido.Text & "'"
         sql &= " , nombre = '" & txtNombre.Text & "'"
         sql &= " , idTipoDocumento = '" & cmbTipoDoc.SelectedValue & "'"
-        sql &= " , fechaIngreso = '" & FormatDateTime(mskFechaIngreso.Text) & "'"
-        sql &= " , fechaEgreso = '" & FormatDateTime(mskFechaEgreso.Text) & "'"
+        sql &= " , fechaIngreso = '" & dtpFechaIngreso.Value & "'"
+        sql &= " , fechaEgreso = '" & dtpFechaEgreso.Value & "'"
         sql &= " , celular = " & txtCelular.Text
         sql &= " , Mail = '" & txtEmail.Text & "'"
         sql &= " , Domicilio = '" & txtDomicilio.Text & "'"
@@ -109,8 +109,8 @@
         txtNombre.Enabled = False
         mskNroDoc.Enabled = True
         cmbTipoDoc.Enabled = False
-        mskFechaIngreso.Enabled = False
-        mskFechaEgreso.Enabled = False
+        dtpFechaIngreso.Enabled = False
+        dtpFechaEgreso.Enabled = False
         txtDomicilio.Enabled = False
         txtEmail.Enabled = False
         txtCelular.Enabled = False
@@ -124,10 +124,10 @@
         mskNroDoc.Enabled = True
         cmbTipoDoc.SelectedIndex = -1
         cmbTipoDoc.Enabled = True
-        mskFechaIngreso.Text = ""
-        mskFechaIngreso.Enabled = True
-        mskFechaEgreso.Text = ""
-        mskFechaEgreso.Enabled = False
+        dtpFechaIngreso.Text = ""
+        dtpFechaIngreso.Enabled = True
+        dtpFechaEgreso.Text = ""
+        dtpFechaEgreso.Enabled = False
         txtDomicilio.Text = ""
         txtDomicilio.Enabled = True
         txtEmail.Text = ""
@@ -140,21 +140,25 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql = "SELECT * FROM persona WHERE nroDocumento = " & mskNroDoc.Text
-        tabla = dbhelper.ConsultaSQL(sql)
-        Me.dgvEmpleado.Rows.Clear()
+        If mskNroDoc.Text = "" Then
+            MsgBox("Debe ingresar un numero de documento")
+        Else
+            sql = "SELECT * FROM persona WHERE nroDocumento = " & mskNroDoc.Text
+            tabla = dbhelper.ConsultaSQL(sql)
+            Me.dgvEmpleado.Rows.Clear()
 
-        Dim c As Integer = 0
+            Dim c As Integer = 0
 
-        For c = 0 To tabla.Rows.Count - 1
-            Me.dgvEmpleado.Rows.Add()
-            Me.dgvEmpleado.Rows(c).Cells("cNombre").Value = tabla.Rows(c)(0)
-            Me.dgvEmpleado.Rows(c).Cells("cApellido").Value = tabla.Rows(c)(1)
-            Me.dgvEmpleado.Rows(c).Cells("cNroDoc").Value = tabla.Rows(c)(2)
-        Next
+            For c = 0 To tabla.Rows.Count - 1
+                Me.dgvEmpleado.Rows.Add()
+                Me.dgvEmpleado.Rows(c).Cells("cNombre").Value = tabla.Rows(c)(0)
+                Me.dgvEmpleado.Rows(c).Cells("cApellido").Value = tabla.Rows(c)(1)
+                Me.dgvEmpleado.Rows(c).Cells("cNroDoc").Value = tabla.Rows(c)(2)
+            Next
+        End If
     End Function
 
-    Private Sub dgvEmpleado_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmpleado.CellContentClick
+    Private Sub dgvEmpleado_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmpleado.CellContentDoubleClick
         Dim sql As String = ""
         Dim tabla As New DataTable
 
@@ -166,13 +170,13 @@
         Me.txtNombre.Text = tabla.Rows(0)("nombre")
         Me.mskNroDoc.Text = tabla.Rows(0)("nroDocumento")
         Me.cmbTipoDoc.SelectedValue = tabla.Rows(0)("idTipoDocumento")
-        Me.mskFechaIngreso.Text = tabla.Rows(0)("fechaIngreso")
+        Me.dtpFechaIngreso.Text = tabla.Rows(0)("fechaIngreso")
 
-        If IsDBNull(tabla.Rows(0)("fechaEgreso")) = True Then
-            Me.mskFechaEgreso.Text = ""
-        Else
-            Me.mskFechaEgreso.Text = tabla.Rows(0)("fechaEgreso")
-        End If
+        'If IsDBNull(tabla.Rows(0)("fechaEgreso")) = True Then
+        '    Me.mskFechaEgreso.Text = ""
+        'Else
+        '    Me.mskFechaEgreso.Text = tabla.Rows(0)("fechaEgreso")
+        'End If
 
         Me.txtCelular.Text = tabla.Rows(0)("celular")
         Me.txtEmail.Text = tabla.Rows(0)("Mail")
@@ -211,8 +215,4 @@
         combo.ValueMember = pk
         combo.SelectedIndex = -1
     End Sub
-    Private Function transformFecha(fecha As String)
-
-
-    End Function
 End Class

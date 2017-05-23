@@ -40,7 +40,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql &= " SELECT * FROM articulo WHERE idArticuloCombo = " & Me.msk_IdArticulo.Text
+        sql &= " SELECT * FROM articulo WHERE idArticuloIntegrante = " & Me.msk_IdArticulo.Text
 
         tabla = dbhelper.ConsultaSQL(sql)
 
@@ -93,7 +93,7 @@
         sql &= " UPDATE articulo SET "
         sql &= " nombre = '" & txt_nombre_articulo.Text & "'"
         sql &= " , precio = " & txt_precio.Text
-        sql &= " WHERE idArticuloCombo = " & Me.msk_IdArticulo.Text
+        sql &= " WHERE idArticuloIntegrante = " & Me.msk_IdArticulo.Text
 
         dbhelper.EjecutarSQL(sql)
         Me.cargar_grilla()
@@ -129,7 +129,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql = "SELECT * FROM articulo WHERE idArticuloCombo = " & Me.msk_IdArticulo.Text
+        sql = "SELECT * FROM articulo WHERE idArticuloIntegrante = " & Me.msk_IdArticulo.Text
         tabla = dbhelper.ConsultaSQL(sql)
         Me.dgv_datos_articulos.Rows.Clear()
 
@@ -148,7 +148,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql = " SELECT * FROM articulo WHERE idArticuloCombo = " & Me.dgv_datos_articulos.CurrentRow.Cells("c_id_articulo").Value
+        sql = " SELECT * FROM articulo WHERE idArticuloIntegrante = " & Me.dgv_datos_articulos.CurrentRow.Cells("c_id_articulo").Value
 
         tabla = dbhelper.ConsultaSQL(sql)
 
@@ -170,7 +170,7 @@
 
         If validar_datos() = estado_grabacion.aprobado Then
             If validar_articulo() = estado_grabacion.rechazado Then
-                sql = " DELETE FROM articulo WHERE idArticuloCombo = " & Me.msk_IdArticulo.Text
+                sql = " DELETE FROM articulo WHERE idArticuloIntegrante = " & Me.msk_IdArticulo.Text
                 MsgBox("Se elimino correctamente el Articulo.")
                 'Me.msk_IdArticulo.Text = ""
                 'Me.txt_nombre_articulo.Text = ""
