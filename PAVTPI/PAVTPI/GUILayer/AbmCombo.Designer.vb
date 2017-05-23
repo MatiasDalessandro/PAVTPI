@@ -88,7 +88,7 @@ Partial Class AbmCombo
         '
         'btn_salir
         '
-        Me.btn_salir.Location = New System.Drawing.Point(765, 284)
+        Me.btn_salir.Location = New System.Drawing.Point(236, 261)
         Me.btn_salir.Name = "btn_salir"
         Me.btn_salir.Size = New System.Drawing.Size(75, 23)
         Me.btn_salir.TabIndex = 26
@@ -98,7 +98,7 @@ Partial Class AbmCombo
         'btn_guardar
         '
         Me.btn_guardar.Enabled = False
-        Me.btn_guardar.Location = New System.Drawing.Point(110, 284)
+        Me.btn_guardar.Location = New System.Drawing.Point(12, 261)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(75, 23)
         Me.btn_guardar.TabIndex = 27
@@ -108,7 +108,7 @@ Partial Class AbmCombo
         'btn_eliminar
         '
         Me.btn_eliminar.Enabled = False
-        Me.btn_eliminar.Location = New System.Drawing.Point(191, 284)
+        Me.btn_eliminar.Location = New System.Drawing.Point(125, 261)
         Me.btn_eliminar.Name = "btn_eliminar"
         Me.btn_eliminar.Size = New System.Drawing.Size(75, 23)
         Me.btn_eliminar.TabIndex = 28
@@ -150,7 +150,7 @@ Partial Class AbmCombo
         '
         'btn_agregar_articulo
         '
-        Me.btn_agregar_articulo.Location = New System.Drawing.Point(14, 284)
+        Me.btn_agregar_articulo.Location = New System.Drawing.Point(393, 261)
         Me.btn_agregar_articulo.Name = "btn_agregar_articulo"
         Me.btn_agregar_articulo.Size = New System.Drawing.Size(90, 23)
         Me.btn_agregar_articulo.TabIndex = 31
@@ -159,7 +159,7 @@ Partial Class AbmCombo
         '
         'btn_quitar_articulo
         '
-        Me.btn_quitar_articulo.Location = New System.Drawing.Point(272, 284)
+        Me.btn_quitar_articulo.Location = New System.Drawing.Point(505, 261)
         Me.btn_quitar_articulo.Name = "btn_quitar_articulo"
         Me.btn_quitar_articulo.Size = New System.Drawing.Size(78, 23)
         Me.btn_quitar_articulo.TabIndex = 32
@@ -168,7 +168,7 @@ Partial Class AbmCombo
         '
         'btn_editar_combo
         '
-        Me.btn_editar_combo.Location = New System.Drawing.Point(356, 284)
+        Me.btn_editar_combo.Location = New System.Drawing.Point(759, 261)
         Me.btn_editar_combo.Name = "btn_editar_combo"
         Me.btn_editar_combo.Size = New System.Drawing.Size(81, 23)
         Me.btn_editar_combo.TabIndex = 33
@@ -200,7 +200,7 @@ Partial Class AbmCombo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(858, 321)
+        Me.ClientSize = New System.Drawing.Size(858, 303)
         Me.Controls.Add(Me.btn_editar_combo)
         Me.Controls.Add(Me.btn_quitar_articulo)
         Me.Controls.Add(Me.btn_agregar_articulo)
