@@ -1,5 +1,8 @@
 ﻿Public Class AbmArticulo
-    Dim cadena_conexion As String = "Provider=SQLNCLI11;Data Source=DESKTOP-B5BDNHJ\EUROCOOLSQLEX;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+    'Dim cadena_conexion As String = "Provider=SQLNCLI11;Data Source=DESKTOP-B5BDNHJ\EUROCOOLSQLEX;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+
+    Dim dbhelper As DBHelper = DBHelper.getDBHelper
+
 
     Enum estado_grabacion
         aprobado
@@ -19,9 +22,9 @@
         Dim tabla As New DataTable
         Dim sql As String = ""
 
-        sql = "SELECT * FROM Articulo"
+        sql = "SELECT * FROM articulo"
 
-        DBHelper.getDBHelper.EjecutarSQL(sql)
+        tabla = dbhelper.ConsultaSQL(sql)
         Dim c As Integer = 0
 
         Me.dgv_datos_articulos.Rows.Clear()
@@ -38,9 +41,9 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql &= " SELECT * FROM Articulo WHERE idArticulo_Combo = " & Me.txt_id_articulo.Text
+        sql &= " SELECT * FROM articulo WHERE idArticuloCombo = " & Me.msk_IdArticulo.Text
 
-        tabla = ejecutosql(sql)
+        tabla = dbhelper.ConsultaSQL(sql)
 
         If tabla.Rows.Count = 0 Then
             Return estado_grabacion.aprobado
@@ -64,27 +67,24 @@
 
 
 
-    Private Function ejecutosql(ByVal consulta As String) As DataTable
-        Dim conexion As New OleDb.OleDbConnection
-        Dim cmd As New OleDb.OleDbCommand
-        Dim tabla As New DataTable
+    'Private Function ejecutosql(ByVal consulta As String) As DataTable
+    '    Dim conexion As New OleDb.OleDbConnection
+    '    Dim cmd As New OleDb.OleDbCommand
+    '    Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadena_conexion
-        conexion.Open()
-        cmd.Connection = conexion
-        cmd.CommandType = CommandType.Text
+    '    conexion.ConnectionString = cadena_conexion
+    '    conexion.Open()
+    '    cmd.Connection = conexion
+    '    cmd.CommandType = CommandType.Text
 
-        cmd.CommandText = consulta
-        tabla.Load(cmd.ExecuteReader())
-        conexion.Close()
-        Return tabla
-    End Function
+    '    cmd.CommandText = consulta
+    '    tabla.Load(cmd.ExecuteReader())
+    '    conexion.Close()
+    '    Return tabla
+    'End Function
 
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
         Dim sql As String = ""
-
-
-
 
         If validar_datos() = estado_grabacion.aprobado Then
             If estadoGrabacion = condicionGrabacion.insertar Then
@@ -104,22 +104,23 @@
     End Sub
     Private Sub insertar()
         Dim sql As String = ""
-        sql = " INSERT INTO Articulo (IdArticulo_Combo,Nombre,Precio) values ( " & txt_id_articulo.Text & ", '" & txt_nombre_articulo.Text & "' , " & txt_precio.Text & ")"
-        ejecutosql(sql)
+        sql = " INSERT INTO articulo (nombre,precio) values ('" & txt_nombre_articulo.Text & "' , " & txt_precio.Text & ")"
+        dbhelper.EjecutarSQL(sql)
         MsgBox("Se grabo correctamente.")
         Me.cargar_grilla()
+
 
     End Sub
 
     Private Sub modificar()
         Dim sql As String = ""
 
-        sql &= " UPDATE Articulo SET IdArticulo_Combo = " & txt_id_articulo.Text
-        sql &= " , Nombre = '" & txt_nombre_articulo.Text & "'"
-        sql &= " , Precio = " & txt_precio.Text
-        sql &= " WHERE IdArticulo_Combo = " & txt_id_articulo.Text
+        sql &= " UPDATE articulo SET "
+        sql &= " nombre = '" & txt_nombre_articulo.Text & "'"
+        sql &= " , precio = " & txt_precio.Text
+        sql &= " WHERE idArticuloCombo = " & Me.msk_IdArticulo.Text
 
-        ejecutosql(sql)
+        dbhelper.EjecutarSQL(sql)
         Me.cargar_grilla()
         MsgBox("Se Modifico correctamente.")
 
@@ -130,11 +131,11 @@
         txt_nombre_articulo.Enabled = False
         txt_nombre_articulo.Text = ""
         txt_precio.Text = ""
-        txt_id_articulo.Text = ""
+        Me.msk_IdArticulo.Text = ""
         Me.cargar_grilla()
         btn_eliminar.Enabled = False
         btn_guardar.Enabled = False
-        Me.txt_id_articulo.Enabled = True
+        Me.msk_IdArticulo.Enabled = True
     End Sub
 
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
@@ -142,19 +143,19 @@
         txt_precio.Enabled = True
         txt_nombre_articulo.Text = ""
         txt_precio.Text = ""
-        txt_id_articulo.Text = ""
+        Me.msk_IdArticulo.Text = ""
         btn_eliminar.Enabled = True
         btn_guardar.Enabled = True
         estadoGrabacion = condicionGrabacion.insertar
-        Me.txt_id_articulo.Enabled = True
+        Me.msk_IdArticulo.Enabled = False
     End Sub
 
     Private Function btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql = "SELECT * FROM Articulo WHERE idArticulo_Combo = " & txt_id_articulo.Text
-        tabla = ejecutosql(sql)
+        sql = "SELECT * FROM articulo WHERE idArticuloCombo = " & Me.msk_IdArticulo.Text
+        tabla = dbhelper.ConsultaSQL(sql)
         Me.dgv_datos_articulos.Rows.Clear()
 
         Dim c As Integer = 0
@@ -172,19 +173,19 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql = " SELECT * FROM Articulo WHERE idArticulo_Combo = " & Me.dgv_datos_articulos.CurrentRow.Cells("c_id_articulo").Value
+        sql = " SELECT * FROM articulo WHERE idArticuloCombo = " & Me.dgv_datos_articulos.CurrentRow.Cells("c_id_articulo").Value
 
-        tabla = ejecutosql(sql)
+        tabla = dbhelper.ConsultaSQL(sql)
 
-        Me.txt_id_articulo.Text = tabla.Rows(0)("idArticulo_Combo")
-        Me.txt_nombre_articulo.Text = tabla.Rows(0)("Nombre")
-        Me.txt_precio.Text = tabla.Rows(0)("Precio")
+        Me.msk_IdArticulo.Text = tabla.Rows(0)("idArticuloCombo")
+        Me.txt_nombre_articulo.Text = tabla.Rows(0)("nombre")
+        Me.txt_precio.Text = tabla.Rows(0)("precio")
 
         Me.txt_precio.Enabled = True
         Me.txt_nombre_articulo.Enabled = True
         btn_eliminar.Enabled = True
         btn_guardar.Enabled = True
-        Me.txt_id_articulo.Enabled = False
+        Me.msk_IdArticulo.Enabled = False
         estadoGrabacion = condicionGrabacion.modificar
 
     End Sub
@@ -194,14 +195,17 @@
 
         If validar_datos() = estado_grabacion.aprobado Then
             If validar_articulo() = estado_grabacion.rechazado Then
-                sql = " DELETE FROM Articulo WHERE idArticulo_Combo = " & txt_id_articulo.Text
+                sql = " DELETE FROM articulo WHERE idArticuloCombo = " & Me.msk_IdArticulo.Text
                 MsgBox("Se elimino correctamente el Articulo.")
+                'Me.msk_IdArticulo.Text = ""
+                'Me.txt_nombre_articulo.Text = ""
+                'Me.txt_precio.Text = ""
             Else
                 MsgBox("Cargue correctamente el Articulo a eliminar.")
             End If
         End If
 
-        ejecutosql(sql)
+        dbhelper.EjecutarSQL(sql)
         Me.cargar_grilla()
     End Sub
 End Class

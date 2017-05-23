@@ -33,10 +33,10 @@ Partial Class AbmArticulo
         Me.btn_nuevo = New System.Windows.Forms.Button()
         Me.txt_precio = New System.Windows.Forms.TextBox()
         Me.txt_nombre_articulo = New System.Windows.Forms.TextBox()
-        Me.txt_id_articulo = New System.Windows.Forms.TextBox()
         Me.lbl_precio = New System.Windows.Forms.Label()
         Me.lbl_nombre_articulo = New System.Windows.Forms.Label()
         Me.lbl_id_articulo = New System.Windows.Forms.Label()
+        Me.msk_IdArticulo = New System.Windows.Forms.MaskedTextBox()
         CType(Me.dgv_datos_articulos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -136,13 +136,6 @@ Partial Class AbmArticulo
         Me.txt_nombre_articulo.Size = New System.Drawing.Size(156, 20)
         Me.txt_nombre_articulo.TabIndex = 11
         '
-        'txt_id_articulo
-        '
-        Me.txt_id_articulo.Location = New System.Drawing.Point(190, 315)
-        Me.txt_id_articulo.Name = "txt_id_articulo"
-        Me.txt_id_articulo.Size = New System.Drawing.Size(100, 20)
-        Me.txt_id_articulo.TabIndex = 12
-        '
         'lbl_precio
         '
         Me.lbl_precio.AutoSize = True
@@ -170,11 +163,21 @@ Partial Class AbmArticulo
         Me.lbl_id_articulo.TabIndex = 7
         Me.lbl_id_articulo.Text = "ID Articulo"
         '
+        'msk_IdArticulo
+        '
+        Me.msk_IdArticulo.Location = New System.Drawing.Point(190, 315)
+        Me.msk_IdArticulo.Mask = "99999"
+        Me.msk_IdArticulo.Name = "msk_IdArticulo"
+        Me.msk_IdArticulo.Size = New System.Drawing.Size(100, 20)
+        Me.msk_IdArticulo.TabIndex = 19
+        Me.msk_IdArticulo.ValidatingType = GetType(Integer)
+        '
         'AbmArticulo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(476, 447)
+        Me.Controls.Add(Me.msk_IdArticulo)
         Me.Controls.Add(Me.dgv_datos_articulos)
         Me.Controls.Add(Me.btn_buscar)
         Me.Controls.Add(Me.btn_cancelar)
@@ -183,7 +186,6 @@ Partial Class AbmArticulo
         Me.Controls.Add(Me.btn_nuevo)
         Me.Controls.Add(Me.txt_precio)
         Me.Controls.Add(Me.txt_nombre_articulo)
-        Me.Controls.Add(Me.txt_id_articulo)
         Me.Controls.Add(Me.lbl_precio)
         Me.Controls.Add(Me.lbl_nombre_articulo)
         Me.Controls.Add(Me.lbl_id_articulo)
@@ -205,8 +207,8 @@ Partial Class AbmArticulo
     Friend WithEvents btn_nuevo As Button
     Friend WithEvents txt_precio As TextBox
     Friend WithEvents txt_nombre_articulo As TextBox
-    Friend WithEvents txt_id_articulo As TextBox
     Friend WithEvents lbl_precio As Label
     Friend WithEvents lbl_nombre_articulo As Label
     Friend WithEvents lbl_id_articulo As Label
+    Friend WithEvents msk_IdArticulo As MaskedTextBox
 End Class
