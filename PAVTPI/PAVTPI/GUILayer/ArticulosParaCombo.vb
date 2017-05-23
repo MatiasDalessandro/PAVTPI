@@ -17,7 +17,7 @@
                 For Each row1 As DataRow In tabla.Rows
                     With row1
                         Me.dgv_datos_articulos.Rows.Add(New String() {
-                                                        .Item("idArticuloCombo").ToString,
+                                                        .Item("idArticuloIntegrante").ToString,
                                                         .Item("nombre").ToString,
                                                         .Item("precio").ToString
                                                         })

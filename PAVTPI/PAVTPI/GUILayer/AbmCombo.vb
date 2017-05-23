@@ -168,9 +168,9 @@
         btn_editar_combo.Enabled = True
         btn_editar_combo.Visible = True
 
-        Dim sql As String = "SELECT A.idArticuloCombo, A.nombreCombo, B.idArticuloCombo, B.nombre, B.precio " _
+        Dim sql As String = "SELECT A.idArticuloCombo, A.nombreCombo, B.idArticuloIntegrante, B.nombre, B.precio " _
             & "FROM comboXArticulo A, articulo B " _
-            & "WHERE A.idArticuloIntegrante = B.idArticuloCombo"
+            & "WHERE A.idArticuloIntegrante = B.idArticuloIntegrante"
 
 
     End Sub
