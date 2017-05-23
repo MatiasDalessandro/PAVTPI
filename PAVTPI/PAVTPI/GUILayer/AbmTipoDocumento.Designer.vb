@@ -39,7 +39,7 @@ Partial Class AbmTipoDocumento
         'lbl_Nombre_Tipo_Doc
         '
         Me.lbl_Nombre_Tipo_Doc.AutoSize = True
-        Me.lbl_Nombre_Tipo_Doc.Location = New System.Drawing.Point(90, 157)
+        Me.lbl_Nombre_Tipo_Doc.Location = New System.Drawing.Point(9, 26)
         Me.lbl_Nombre_Tipo_Doc.Name = "lbl_Nombre_Tipo_Doc"
         Me.lbl_Nombre_Tipo_Doc.Size = New System.Drawing.Size(44, 13)
         Me.lbl_Nombre_Tipo_Doc.TabIndex = 1
@@ -48,7 +48,7 @@ Partial Class AbmTipoDocumento
         'txt_Nombre
         '
         Me.txt_Nombre.Enabled = False
-        Me.txt_Nombre.Location = New System.Drawing.Point(149, 150)
+        Me.txt_Nombre.Location = New System.Drawing.Point(68, 19)
         Me.txt_Nombre.Name = "txt_Nombre"
         Me.txt_Nombre.Size = New System.Drawing.Size(100, 20)
         Me.txt_Nombre.TabIndex = 3
@@ -57,7 +57,7 @@ Partial Class AbmTipoDocumento
         '
         Me.dgv_Tipo_Doc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_Tipo_Doc.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Id_Tipo_Doc, Me.Nombre_Tipo_Doc})
-        Me.dgv_Tipo_Doc.Location = New System.Drawing.Point(12, 12)
+        Me.dgv_Tipo_Doc.Location = New System.Drawing.Point(235, 12)
         Me.dgv_Tipo_Doc.Name = "dgv_Tipo_Doc"
         Me.dgv_Tipo_Doc.Size = New System.Drawing.Size(384, 132)
         Me.dgv_Tipo_Doc.TabIndex = 4
@@ -74,7 +74,7 @@ Partial Class AbmTipoDocumento
         '
         'btn_Nuevo
         '
-        Me.btn_Nuevo.Location = New System.Drawing.Point(12, 226)
+        Me.btn_Nuevo.Location = New System.Drawing.Point(9, 162)
         Me.btn_Nuevo.Name = "btn_Nuevo"
         Me.btn_Nuevo.Size = New System.Drawing.Size(75, 23)
         Me.btn_Nuevo.TabIndex = 5
@@ -84,7 +84,7 @@ Partial Class AbmTipoDocumento
         'btn_Guardar
         '
         Me.btn_Guardar.Enabled = False
-        Me.btn_Guardar.Location = New System.Drawing.Point(93, 226)
+        Me.btn_Guardar.Location = New System.Drawing.Point(90, 162)
         Me.btn_Guardar.Name = "btn_Guardar"
         Me.btn_Guardar.Size = New System.Drawing.Size(75, 23)
         Me.btn_Guardar.TabIndex = 6
@@ -94,7 +94,7 @@ Partial Class AbmTipoDocumento
         'btn_Eliminar
         '
         Me.btn_Eliminar.Enabled = False
-        Me.btn_Eliminar.Location = New System.Drawing.Point(174, 226)
+        Me.btn_Eliminar.Location = New System.Drawing.Point(171, 162)
         Me.btn_Eliminar.Name = "btn_Eliminar"
         Me.btn_Eliminar.Size = New System.Drawing.Size(75, 23)
         Me.btn_Eliminar.TabIndex = 7
@@ -103,7 +103,7 @@ Partial Class AbmTipoDocumento
         '
         'btn_Cancelar
         '
-        Me.btn_Cancelar.Location = New System.Drawing.Point(321, 226)
+        Me.btn_Cancelar.Location = New System.Drawing.Point(318, 162)
         Me.btn_Cancelar.Name = "btn_Cancelar"
         Me.btn_Cancelar.Size = New System.Drawing.Size(75, 23)
         Me.btn_Cancelar.TabIndex = 8
@@ -113,7 +113,7 @@ Partial Class AbmTipoDocumento
         'lbl_Id_Tipo_Doc
         '
         Me.lbl_Id_Tipo_Doc.AutoSize = True
-        Me.lbl_Id_Tipo_Doc.Location = New System.Drawing.Point(116, 183)
+        Me.lbl_Id_Tipo_Doc.Location = New System.Drawing.Point(35, 52)
         Me.lbl_Id_Tipo_Doc.Name = "lbl_Id_Tipo_Doc"
         Me.lbl_Id_Tipo_Doc.Size = New System.Drawing.Size(18, 13)
         Me.lbl_Id_Tipo_Doc.TabIndex = 0
@@ -122,7 +122,7 @@ Partial Class AbmTipoDocumento
         'txt_Id_Tipo_Doc
         '
         Me.txt_Id_Tipo_Doc.Enabled = False
-        Me.txt_Id_Tipo_Doc.Location = New System.Drawing.Point(149, 176)
+        Me.txt_Id_Tipo_Doc.Location = New System.Drawing.Point(68, 45)
         Me.txt_Id_Tipo_Doc.Mask = "999"
         Me.txt_Id_Tipo_Doc.Name = "txt_Id_Tipo_Doc"
         Me.txt_Id_Tipo_Doc.Size = New System.Drawing.Size(100, 20)
@@ -132,7 +132,7 @@ Partial Class AbmTipoDocumento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(410, 268)
+        Me.ClientSize = New System.Drawing.Size(631, 193)
         Me.Controls.Add(Me.btn_Cancelar)
         Me.Controls.Add(Me.btn_Eliminar)
         Me.Controls.Add(Me.btn_Guardar)

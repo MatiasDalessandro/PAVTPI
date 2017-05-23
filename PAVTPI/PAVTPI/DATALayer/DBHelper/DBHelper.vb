@@ -26,10 +26,9 @@ Public Class DBHelper
                 string_conexion = "Provider=SQLNCLI11;Data Source=DESKTOP-VS0357J\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
             Case "ALVARO-PC"
                 string_conexion = "Provider=SQLNCLI11;Data Source=(localdb)\Alvo_Server;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
-            Case "Ema-PC"
+            Case "EMA-PC"
                 string_conexion = "Provider=SQLNCLI11;Data Source=EMA-PC;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
         End Select
-        'string_conexion = "Provider=SQLNCLI11;Data Source=EMA-PC;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
 
     End Sub
 

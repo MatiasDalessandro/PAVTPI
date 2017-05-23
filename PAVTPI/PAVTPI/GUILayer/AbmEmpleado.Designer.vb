@@ -62,7 +62,7 @@ Partial Class AbmEmpleado
         Me.dgvEmpleado.Location = New System.Drawing.Point(343, 12)
         Me.dgvEmpleado.Name = "dgvEmpleado"
         Me.dgvEmpleado.ReadOnly = True
-        Me.dgvEmpleado.Size = New System.Drawing.Size(448, 285)
+        Me.dgvEmpleado.Size = New System.Drawing.Size(448, 275)
         Me.dgvEmpleado.TabIndex = 30
         '
         'cApellido

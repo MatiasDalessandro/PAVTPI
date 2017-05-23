@@ -48,7 +48,7 @@ Partial Class AbmDependencia
         '
         Me.dgv_datos_dependencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_datos_dependencia.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nombre, Me.descripcion, Me.nro_cuenta, Me.saldo, Me.estado})
-        Me.dgv_datos_dependencia.Location = New System.Drawing.Point(12, 22)
+        Me.dgv_datos_dependencia.Location = New System.Drawing.Point(391, 12)
         Me.dgv_datos_dependencia.Name = "dgv_datos_dependencia"
         Me.dgv_datos_dependencia.Size = New System.Drawing.Size(545, 211)
         Me.dgv_datos_dependencia.TabIndex = 0
@@ -81,7 +81,7 @@ Partial Class AbmDependencia
         'lbl_nombre
         '
         Me.lbl_nombre.AutoSize = True
-        Me.lbl_nombre.Location = New System.Drawing.Point(16, 265)
+        Me.lbl_nombre.Location = New System.Drawing.Point(113, 51)
         Me.lbl_nombre.Name = "lbl_nombre"
         Me.lbl_nombre.Size = New System.Drawing.Size(44, 13)
         Me.lbl_nombre.TabIndex = 0
@@ -90,7 +90,7 @@ Partial Class AbmDependencia
         'lbl_descripcion
         '
         Me.lbl_descripcion.AutoSize = True
-        Me.lbl_descripcion.Location = New System.Drawing.Point(16, 291)
+        Me.lbl_descripcion.Location = New System.Drawing.Point(94, 77)
         Me.lbl_descripcion.Name = "lbl_descripcion"
         Me.lbl_descripcion.Size = New System.Drawing.Size(63, 13)
         Me.lbl_descripcion.TabIndex = 0
@@ -99,7 +99,7 @@ Partial Class AbmDependencia
         'lbl_estado
         '
         Me.lbl_estado.AutoSize = True
-        Me.lbl_estado.Location = New System.Drawing.Point(16, 318)
+        Me.lbl_estado.Location = New System.Drawing.Point(113, 104)
         Me.lbl_estado.Name = "lbl_estado"
         Me.lbl_estado.Size = New System.Drawing.Size(40, 13)
         Me.lbl_estado.TabIndex = 0
@@ -108,28 +108,28 @@ Partial Class AbmDependencia
         'cmb_estado
         '
         Me.cmb_estado.FormattingEnabled = True
-        Me.cmb_estado.Location = New System.Drawing.Point(182, 310)
+        Me.cmb_estado.Location = New System.Drawing.Point(182, 96)
         Me.cmb_estado.Name = "cmb_estado"
         Me.cmb_estado.Size = New System.Drawing.Size(192, 21)
         Me.cmb_estado.TabIndex = 10
         '
         'txt_nombre
         '
-        Me.txt_nombre.Location = New System.Drawing.Point(182, 258)
+        Me.txt_nombre.Location = New System.Drawing.Point(182, 44)
         Me.txt_nombre.Name = "txt_nombre"
         Me.txt_nombre.Size = New System.Drawing.Size(192, 20)
         Me.txt_nombre.TabIndex = 8
         '
         'txt_descripcion
         '
-        Me.txt_descripcion.Location = New System.Drawing.Point(182, 284)
+        Me.txt_descripcion.Location = New System.Drawing.Point(182, 70)
         Me.txt_descripcion.Name = "txt_descripcion"
         Me.txt_descripcion.Size = New System.Drawing.Size(192, 20)
         Me.txt_descripcion.TabIndex = 9
         '
         'btn_nuevo
         '
-        Me.btn_nuevo.Location = New System.Drawing.Point(19, 459)
+        Me.btn_nuevo.Location = New System.Drawing.Point(7, 240)
         Me.btn_nuevo.Name = "btn_nuevo"
         Me.btn_nuevo.Size = New System.Drawing.Size(75, 23)
         Me.btn_nuevo.TabIndex = 0
@@ -139,7 +139,7 @@ Partial Class AbmDependencia
         'btn_guardar
         '
         Me.btn_guardar.Enabled = False
-        Me.btn_guardar.Location = New System.Drawing.Point(100, 459)
+        Me.btn_guardar.Location = New System.Drawing.Point(88, 240)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(75, 23)
         Me.btn_guardar.TabIndex = 0
@@ -148,7 +148,7 @@ Partial Class AbmDependencia
         '
         'btn_borrar
         '
-        Me.btn_borrar.Location = New System.Drawing.Point(182, 459)
+        Me.btn_borrar.Location = New System.Drawing.Point(170, 240)
         Me.btn_borrar.Name = "btn_borrar"
         Me.btn_borrar.Size = New System.Drawing.Size(75, 23)
         Me.btn_borrar.TabIndex = 14
@@ -157,7 +157,7 @@ Partial Class AbmDependencia
         '
         'btn_salir
         '
-        Me.btn_salir.Location = New System.Drawing.Point(482, 459)
+        Me.btn_salir.Location = New System.Drawing.Point(863, 240)
         Me.btn_salir.Name = "btn_salir"
         Me.btn_salir.Size = New System.Drawing.Size(75, 23)
         Me.btn_salir.TabIndex = 15
@@ -166,7 +166,7 @@ Partial Class AbmDependencia
         '
         'btn_buscar
         '
-        Me.btn_buscar.Location = New System.Drawing.Point(299, 364)
+        Me.btn_buscar.Location = New System.Drawing.Point(299, 154)
         Me.btn_buscar.Name = "btn_buscar"
         Me.btn_buscar.Size = New System.Drawing.Size(75, 23)
         Me.btn_buscar.TabIndex = 16
@@ -176,7 +176,7 @@ Partial Class AbmDependencia
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(16, 366)
+        Me.Label1.Location = New System.Drawing.Point(16, 163)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(141, 13)
         Me.Label1.TabIndex = 17
@@ -184,7 +184,7 @@ Partial Class AbmDependencia
         '
         'txt_buscar
         '
-        Me.txt_buscar.Location = New System.Drawing.Point(182, 366)
+        Me.txt_buscar.Location = New System.Drawing.Point(182, 156)
         Me.txt_buscar.Mask = "99999999"
         Me.txt_buscar.Name = "txt_buscar"
         Me.txt_buscar.Size = New System.Drawing.Size(111, 20)
@@ -194,7 +194,7 @@ Partial Class AbmDependencia
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(571, 518)
+        Me.ClientSize = New System.Drawing.Size(950, 271)
         Me.Controls.Add(Me.txt_buscar)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btn_buscar)

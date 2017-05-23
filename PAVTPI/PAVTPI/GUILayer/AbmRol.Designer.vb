@@ -43,7 +43,7 @@ Partial Class AbmRol
         Me.dgv_datos_rol.AllowUserToDeleteRows = False
         Me.dgv_datos_rol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_datos_rol.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.c_id_rol, Me.c_nombre_rol})
-        Me.dgv_datos_rol.Location = New System.Drawing.Point(12, 12)
+        Me.dgv_datos_rol.Location = New System.Drawing.Point(296, 12)
         Me.dgv_datos_rol.Name = "dgv_datos_rol"
         Me.dgv_datos_rol.ReadOnly = True
         Me.dgv_datos_rol.Size = New System.Drawing.Size(448, 285)
@@ -64,7 +64,7 @@ Partial Class AbmRol
         '
         'btn_buscar
         '
-        Me.btn_buscar.Location = New System.Drawing.Point(352, 415)
+        Me.btn_buscar.Location = New System.Drawing.Point(204, 22)
         Me.btn_buscar.Name = "btn_buscar"
         Me.btn_buscar.Size = New System.Drawing.Size(75, 23)
         Me.btn_buscar.TabIndex = 22
@@ -73,7 +73,7 @@ Partial Class AbmRol
         '
         'btn_cancelar
         '
-        Me.btn_cancelar.Location = New System.Drawing.Point(271, 415)
+        Me.btn_cancelar.Location = New System.Drawing.Point(256, 303)
         Me.btn_cancelar.Name = "btn_cancelar"
         Me.btn_cancelar.Size = New System.Drawing.Size(75, 23)
         Me.btn_cancelar.TabIndex = 23
@@ -83,7 +83,7 @@ Partial Class AbmRol
         'btn_guardar
         '
         Me.btn_guardar.Enabled = False
-        Me.btn_guardar.Location = New System.Drawing.Point(109, 415)
+        Me.btn_guardar.Location = New System.Drawing.Point(94, 303)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(75, 23)
         Me.btn_guardar.TabIndex = 24
@@ -93,7 +93,7 @@ Partial Class AbmRol
         'btn_eliminar
         '
         Me.btn_eliminar.Enabled = False
-        Me.btn_eliminar.Location = New System.Drawing.Point(190, 415)
+        Me.btn_eliminar.Location = New System.Drawing.Point(175, 303)
         Me.btn_eliminar.Name = "btn_eliminar"
         Me.btn_eliminar.Size = New System.Drawing.Size(75, 23)
         Me.btn_eliminar.TabIndex = 25
@@ -102,7 +102,7 @@ Partial Class AbmRol
         '
         'btn_nuevo
         '
-        Me.btn_nuevo.Location = New System.Drawing.Point(28, 415)
+        Me.btn_nuevo.Location = New System.Drawing.Point(13, 303)
         Me.btn_nuevo.Name = "btn_nuevo"
         Me.btn_nuevo.Size = New System.Drawing.Size(75, 23)
         Me.btn_nuevo.TabIndex = 26
@@ -112,7 +112,7 @@ Partial Class AbmRol
         'txt_nombre_rol
         '
         Me.txt_nombre_rol.Enabled = False
-        Me.txt_nombre_rol.Location = New System.Drawing.Point(190, 348)
+        Me.txt_nombre_rol.Location = New System.Drawing.Point(98, 62)
         Me.txt_nombre_rol.Name = "txt_nombre_rol"
         Me.txt_nombre_rol.Size = New System.Drawing.Size(156, 20)
         Me.txt_nombre_rol.TabIndex = 20
@@ -120,7 +120,7 @@ Partial Class AbmRol
         'lbl_nombre_articulo
         '
         Me.lbl_nombre_articulo.AutoSize = True
-        Me.lbl_nombre_articulo.Location = New System.Drawing.Point(102, 351)
+        Me.lbl_nombre_articulo.Location = New System.Drawing.Point(10, 65)
         Me.lbl_nombre_articulo.Name = "lbl_nombre_articulo"
         Me.lbl_nombre_articulo.Size = New System.Drawing.Size(63, 13)
         Me.lbl_nombre_articulo.TabIndex = 19
@@ -129,7 +129,7 @@ Partial Class AbmRol
         'lbl_id_articulo
         '
         Me.lbl_id_articulo.AutoSize = True
-        Me.lbl_id_articulo.Location = New System.Drawing.Point(128, 318)
+        Me.lbl_id_articulo.Location = New System.Drawing.Point(36, 32)
         Me.lbl_id_articulo.Name = "lbl_id_articulo"
         Me.lbl_id_articulo.Size = New System.Drawing.Size(37, 13)
         Me.lbl_id_articulo.TabIndex = 18
@@ -137,7 +137,7 @@ Partial Class AbmRol
         '
         'msk_idRol
         '
-        Me.msk_idRol.Location = New System.Drawing.Point(190, 310)
+        Me.msk_idRol.Location = New System.Drawing.Point(98, 24)
         Me.msk_idRol.Mask = "99"
         Me.msk_idRol.Name = "msk_idRol"
         Me.msk_idRol.Size = New System.Drawing.Size(100, 20)
@@ -147,7 +147,7 @@ Partial Class AbmRol
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(472, 446)
+        Me.ClientSize = New System.Drawing.Size(758, 336)
         Me.Controls.Add(Me.msk_idRol)
         Me.Controls.Add(Me.dgv_datos_rol)
         Me.Controls.Add(Me.btn_buscar)

@@ -46,10 +46,10 @@ Partial Class AbmArticulo
         Me.dgv_datos_articulos.AllowUserToDeleteRows = False
         Me.dgv_datos_articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_datos_articulos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.c_id_articulo, Me.c_nombre_articulo, Me.c_precio_articulo})
-        Me.dgv_datos_articulos.Location = New System.Drawing.Point(12, 12)
+        Me.dgv_datos_articulos.Location = New System.Drawing.Point(309, 12)
         Me.dgv_datos_articulos.Name = "dgv_datos_articulos"
         Me.dgv_datos_articulos.ReadOnly = True
-        Me.dgv_datos_articulos.Size = New System.Drawing.Size(448, 285)
+        Me.dgv_datos_articulos.Size = New System.Drawing.Size(446, 272)
         Me.dgv_datos_articulos.TabIndex = 18
         '
         'c_id_articulo
@@ -75,7 +75,7 @@ Partial Class AbmArticulo
         '
         'btn_buscar
         '
-        Me.btn_buscar.Location = New System.Drawing.Point(352, 415)
+        Me.btn_buscar.Location = New System.Drawing.Point(215, 31)
         Me.btn_buscar.Name = "btn_buscar"
         Me.btn_buscar.Size = New System.Drawing.Size(75, 23)
         Me.btn_buscar.TabIndex = 13
@@ -84,7 +84,7 @@ Partial Class AbmArticulo
         '
         'btn_cancelar
         '
-        Me.btn_cancelar.Location = New System.Drawing.Point(271, 415)
+        Me.btn_cancelar.Location = New System.Drawing.Point(262, 298)
         Me.btn_cancelar.Name = "btn_cancelar"
         Me.btn_cancelar.Size = New System.Drawing.Size(75, 23)
         Me.btn_cancelar.TabIndex = 14
@@ -94,7 +94,7 @@ Partial Class AbmArticulo
         'btn_guardar
         '
         Me.btn_guardar.Enabled = False
-        Me.btn_guardar.Location = New System.Drawing.Point(109, 415)
+        Me.btn_guardar.Location = New System.Drawing.Point(100, 298)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(75, 23)
         Me.btn_guardar.TabIndex = 15
@@ -104,7 +104,7 @@ Partial Class AbmArticulo
         'btn_eliminar
         '
         Me.btn_eliminar.Enabled = False
-        Me.btn_eliminar.Location = New System.Drawing.Point(190, 415)
+        Me.btn_eliminar.Location = New System.Drawing.Point(181, 298)
         Me.btn_eliminar.Name = "btn_eliminar"
         Me.btn_eliminar.Size = New System.Drawing.Size(75, 23)
         Me.btn_eliminar.TabIndex = 16
@@ -113,7 +113,7 @@ Partial Class AbmArticulo
         '
         'btn_nuevo
         '
-        Me.btn_nuevo.Location = New System.Drawing.Point(28, 415)
+        Me.btn_nuevo.Location = New System.Drawing.Point(19, 298)
         Me.btn_nuevo.Name = "btn_nuevo"
         Me.btn_nuevo.Size = New System.Drawing.Size(75, 23)
         Me.btn_nuevo.TabIndex = 17
@@ -123,7 +123,7 @@ Partial Class AbmArticulo
         'txt_precio
         '
         Me.txt_precio.Enabled = False
-        Me.txt_precio.Location = New System.Drawing.Point(190, 378)
+        Me.txt_precio.Location = New System.Drawing.Point(100, 96)
         Me.txt_precio.Name = "txt_precio"
         Me.txt_precio.Size = New System.Drawing.Size(100, 20)
         Me.txt_precio.TabIndex = 10
@@ -131,7 +131,7 @@ Partial Class AbmArticulo
         'txt_nombre_articulo
         '
         Me.txt_nombre_articulo.Enabled = False
-        Me.txt_nombre_articulo.Location = New System.Drawing.Point(190, 348)
+        Me.txt_nombre_articulo.Location = New System.Drawing.Point(100, 66)
         Me.txt_nombre_articulo.Name = "txt_nombre_articulo"
         Me.txt_nombre_articulo.Size = New System.Drawing.Size(156, 20)
         Me.txt_nombre_articulo.TabIndex = 11
@@ -139,7 +139,7 @@ Partial Class AbmArticulo
         'lbl_precio
         '
         Me.lbl_precio.AutoSize = True
-        Me.lbl_precio.Location = New System.Drawing.Point(147, 381)
+        Me.lbl_precio.Location = New System.Drawing.Point(57, 99)
         Me.lbl_precio.Name = "lbl_precio"
         Me.lbl_precio.Size = New System.Drawing.Size(37, 13)
         Me.lbl_precio.TabIndex = 9
@@ -148,7 +148,7 @@ Partial Class AbmArticulo
         'lbl_nombre_articulo
         '
         Me.lbl_nombre_articulo.AutoSize = True
-        Me.lbl_nombre_articulo.Location = New System.Drawing.Point(102, 351)
+        Me.lbl_nombre_articulo.Location = New System.Drawing.Point(12, 69)
         Me.lbl_nombre_articulo.Name = "lbl_nombre_articulo"
         Me.lbl_nombre_articulo.Size = New System.Drawing.Size(82, 13)
         Me.lbl_nombre_articulo.TabIndex = 8
@@ -157,7 +157,7 @@ Partial Class AbmArticulo
         'lbl_id_articulo
         '
         Me.lbl_id_articulo.AutoSize = True
-        Me.lbl_id_articulo.Location = New System.Drawing.Point(128, 318)
+        Me.lbl_id_articulo.Location = New System.Drawing.Point(38, 36)
         Me.lbl_id_articulo.Name = "lbl_id_articulo"
         Me.lbl_id_articulo.Size = New System.Drawing.Size(56, 13)
         Me.lbl_id_articulo.TabIndex = 7
@@ -165,7 +165,7 @@ Partial Class AbmArticulo
         '
         'msk_IdArticulo
         '
-        Me.msk_IdArticulo.Location = New System.Drawing.Point(190, 315)
+        Me.msk_IdArticulo.Location = New System.Drawing.Point(100, 33)
         Me.msk_IdArticulo.Mask = "99999"
         Me.msk_IdArticulo.Name = "msk_IdArticulo"
         Me.msk_IdArticulo.Size = New System.Drawing.Size(100, 20)
@@ -176,7 +176,7 @@ Partial Class AbmArticulo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(476, 447)
+        Me.ClientSize = New System.Drawing.Size(779, 327)
         Me.Controls.Add(Me.msk_IdArticulo)
         Me.Controls.Add(Me.dgv_datos_articulos)
         Me.Controls.Add(Me.btn_buscar)
