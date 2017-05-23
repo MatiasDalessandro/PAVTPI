@@ -70,7 +70,7 @@ Public Class DBHelper
         Next
 
         If operacion = tipoOperacion.transaccion Then
-            Return ejecutarTransaccion(strSql)
+            Return ejecutarTransaccion(listadoString)
         Else
             Return ejecutarSimple(strSql)
         End If
@@ -117,10 +117,43 @@ Public Class DBHelper
         Return ret
     End Function
 
-    Private Function ejecutarTransaccion(ByVal strSql As String) As Integer
+    Private Function ejecutarTransaccion(ByVal listadoString As List(Of String)) As Integer
         Dim ret As Integer = 0
 
+        Dim conexion As New OleDbConnection
+        Dim cmd As New OleDbCommand
+        Dim tabla As New Data.DataTable
+        ' Las sentencias se ejecutarán bajo transacción
+        Dim miTransaccion As OleDbTransaction
 
+        Try
+            conexion.ConnectionString = string_conexion
+            conexion.Open()
+            ' La conexion establecida con la base de datos trabaja bajo transacción
+            miTransaccion = conexion.BeginTransaction
+            'Recorre la lista de calificaciones de la grilla.
+            'Por cada valor realiza la inserción en la tabla de materias por alumnos
+            For Each str As String In listadoString
+                ' En la sentencia los @indican parámetros
+                cmd = New OleDbCommand(str.ToString, conexion, miTransaccion)
+                cmd.Connection = conexion
+                'Ejecuta la consulta insert con los parámetros ya con los valores adecuados
+                cmd.ExecuteNonQuery()
+                ret += 1
+            Next
+            miTransaccion.Commit()
+            MsgBox("EJECUTANDO COMMIT")
+
+        Catch ex As Exception
+            miTransaccion.Rollback()
+            MsgBox("EJECUTANDO ROLLBACK")
+            ret = 0
+            Throw ex
+
+        Finally
+            conexion.Close()
+            conexion.Dispose()
+        End Try
 
         Return ret
     End Function
