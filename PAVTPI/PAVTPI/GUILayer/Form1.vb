@@ -49,4 +49,8 @@
     Private Sub CargarPersonaAutorizadaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CargarPersonaAutorizadaToolStripMenuItem.Click
         PersonaXDependencia.Show()
     End Sub
+
+    Private Sub RegistrarVentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarVentaToolStripMenuItem.Click
+        PagoTicket.Show()
+    End Sub
 End Class
