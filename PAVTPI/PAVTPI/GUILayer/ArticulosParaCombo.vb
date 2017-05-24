@@ -29,6 +29,7 @@
 
     Private Sub llenarGrilla()
         dgv_datos_articulos.DataSource = Nothing
+        dgv_datos_articulos.Rows.Clear()
         Dim strSQL As String = "SELECT * FROM articulo"
         Try
             Dim tabla As DataTable = DBHelper.getDBHelper().ConsultaSQL(strSQL)

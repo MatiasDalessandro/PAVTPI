@@ -52,19 +52,19 @@ Public Class DBHelper
         For Each stringg As String In listadoString
             If stringg.Trim.ToUpper.Contains("INSERT") Then
                 count += 1
-                If count > 2 Then
+                If count > 1 Then
                     operacion = tipoOperacion.transaccion
                     Exit For
                 End If
             ElseIf stringg.Trim.ToUpper.Contains("UPDATE") Then
                 count += 1
-                If count > 2 Then
+                If count > 1 Then
                     operacion = tipoOperacion.transaccion
                     Exit For
                 End If
             ElseIf stringg.Trim.ToUpper.Contains("DELETE") Then
                 count += 1
-                If count > 2 Then
+                If count > 1 Then
                     operacion = tipoOperacion.transaccion
                     Exit For
                 End If

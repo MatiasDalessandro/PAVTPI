@@ -30,6 +30,7 @@
         txt_nombre_articulo.Text = Nothing
 
         dgv_datos_articulos.DataSource = Nothing
+        dgv_datos_articulos.Rows.Clear()
 
         btn_guardar.Enabled = True
         btn_guardar.Visible = True
@@ -62,6 +63,7 @@
         txt_nombre_articulo.Text = Nothing
 
         dgv_datos_articulos.DataSource = Nothing
+        dgv_datos_articulos.Rows.Clear()
 
         btn_guardar.Enabled = False
         btn_guardar.Visible = False
@@ -107,6 +109,10 @@
     End Sub
 
     Private Sub setLoad()
+
+        dgv_datos_articulos.DataSource = Nothing
+        dgv_datos_articulos.Rows.Clear()
+
         txt_id_combo.Enabled = False
         txt_id_combo.Text = Nothing
 
