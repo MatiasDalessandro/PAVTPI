@@ -12,7 +12,8 @@
     End Enum
     Private Sub AbmPersonaAutorizada_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla()
-        cargar_combo(cmbTipoDocPA, dbhelper.ConsultaSQL("select * from tipoDocumento"), "idTipoDocumento", "descripcion")
+        cargar_combo(cmbTipoDocPA, (dbhelper.ConsultaSQL("select * from tipoDocumento")), "idTipoDocumento", "descripcion")
+        cargar_combo(cmbDependencia, (dbhelper.ConsultaSQL("select * from dependencia")), "nroCuentaCorriente", "descripcion")
     End Sub
     Private Sub cargar_grilla()
         Dim conexion As New OleDb.OleDbConnection
@@ -21,11 +22,9 @@
 
         Dim sql As String = ""
 
-        sql &= "Select        persona.nombre, persona.apellido, persona.nroDocumento, persona.idTipoDocumento, "
-        sql &= "                 tipoDocumento.descripcion, tipoDocumento.idTipoDocumento "
-        sql &= " From            persona INNER JOIN "
-        sql &= " tipoDocumento On persona.idTipoDocumento = tipoDocumento.idTipoDocumento "
-        sql &= " INNER JOIN dependencia On dependencia.NroCuentaCorriente = "
+        sql &= "                       Select a.nombre, a.apellido, a.nroDocumento, a.idTipoDocumento, t.descripcion, b.nroCuentaCorriente, d.nombre "
+        sql &= " From persona a, tipoDocumento t, dependenciaXPersona b, dependencia d "
+        sql &= "  Where a.nroDocumento = b.nroDocumento And a.idTipoDocumento = t.idTipoDocumento "
 
         tabla = dbhelper.ConsultaSQL(sql)
 
@@ -58,9 +57,11 @@
     End Sub
     Private Sub insertar()
         Dim sql As String = ""
-        sql = " INSERT INTO persona (nombre,apellido,nroDocumento,) values ( '" & txtNombrePA.Text & "', '" & txtApellidoPA.Text & "' , " & mskNroDocPA.Text & " , " & cmbTipoDocPA.SelectedValue & " , " & cmbDependencia.SelectedValue & ")"
+        sql = " INSERT INTO persona (nombre,apellido,nroDocumento,idTipoDocumento) values ( '" & txtNombrePA.Text & "', '" & txtApellidoPA.Text & "' , " & mskNroDocPA.Text & " , " & cmbTipoDocPA.SelectedValue & ")"
         dbhelper.EjecutarSQL(sql)
         MsgBox("Se grabo correctamente")
+        sql &= ""
+        sql &= "INSERT INTO dependenciaXPersona (nroCuentaCorriente,nroDocumento) values (" & cmbDependencia.SelectedValue & "," & mskNroDocPA.Text & ")"
         Me.cargar_grilla()
     End Sub
     Private Sub modificar()
@@ -154,7 +155,7 @@
         Me.txtApellidoPA.Text = tabla.Rows(0)("apellido")
         Me.txtNombrePA.Text = tabla.Rows(0)("nombre")
         Me.mskNroDocPA.Text = tabla.Rows(0)("nroDocumento")
-        Me.cmbDependencia.SelectedValue = tabla.Rows(0)("")
+        Me.cmbDependencia.SelectedValue = tabla.Rows(0)("dependencia")
 
         Me.txtApellidoPA.Enabled = True
         Me.txtNombrePA.Enabled = True

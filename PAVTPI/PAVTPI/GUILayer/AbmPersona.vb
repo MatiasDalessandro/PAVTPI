@@ -1,4 +1,4 @@
-﻿Public Class AbmEmpleado
+﻿Public Class AbmPersona
 
     Dim dbhelper As DBHelper = DBHelper.getDBHelper
     Dim estado_Grabacion As condicionGrabacion = condicionGrabacion.insertar
@@ -114,6 +114,8 @@
         txtDomicilio.Enabled = False
         txtEmail.Enabled = False
         txtCelular.Enabled = False
+        btn_eliminar.Enabled = False
+        btn_guardar.Enabled = False
     End Sub
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
         txtApellido.Text = ""
@@ -135,6 +137,7 @@
         txtCelular.Text = ""
         txtCelular.Enabled = True
         btn_guardar.Enabled = True
+        estado_Grabacion = condicionGrabacion.insertar
     End Sub
     Private Function btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
         Dim sql As String = ""
@@ -170,17 +173,41 @@
         Me.txtNombre.Text = tabla.Rows(0)("nombre")
         Me.mskNroDoc.Text = tabla.Rows(0)("nroDocumento")
         Me.cmbTipoDoc.SelectedValue = tabla.Rows(0)("idTipoDocumento")
-        Me.dtpFechaIngreso.Text = tabla.Rows(0)("fechaIngreso")
 
-        'If IsDBNull(tabla.Rows(0)("fechaEgreso")) = True Then
-        '    Me.mskFechaEgreso.Text = ""
-        'Else
-        '    Me.mskFechaEgreso.Text = tabla.Rows(0)("fechaEgreso")
-        'End If
+        If IsDBNull(tabla.Rows(0)("fechaIngreso")) = True Then
+            Me.dtpFechaIngreso.Text = ""
+            Me.dtpFechaIngreso.Enabled = True
+        Else
+            Me.dtpFechaIngreso.Value = tabla.Rows(0)("fechaIngreso")
+        End If
 
-        Me.txtCelular.Text = tabla.Rows(0)("celular")
-        Me.txtEmail.Text = tabla.Rows(0)("Mail")
-        Me.txtDomicilio.Text = tabla.Rows(0)("Domicilio")
+        If IsDBNull(tabla.Rows(0)("fechaEgreso")) = True Then
+            Me.dtpFechaEgreso.Text = ""
+            Me.dtpFechaEgreso.Enabled = True
+        Else
+            Me.dtpFechaEgreso.Value = tabla.Rows(0)("fechaEgreso")
+        End If
+
+        If IsDBNull(tabla.Rows(0)("celular")) = True Then
+            Me.txtCelular.Text = ""
+            Me.txtCelular.Enabled = True
+        Else
+            Me.txtCelular.Text = tabla.Rows(0)("celular")
+        End If
+
+        If IsDBNull(tabla.Rows(0)("Mail")) = True Then
+            Me.txtEmail.Text = ""
+            Me.txtEmail.Enabled = True
+        Else
+            Me.txtEmail.Text = tabla.Rows(0)("Mail")
+        End If
+
+        If IsDBNull(tabla.Rows(0)("Domicilio")) = True Then
+            Me.txtDomicilio.Text = ""
+            Me.txtDomicilio.Enabled = True
+        Else
+            Me.txtDomicilio.Text = tabla.Rows(0)("Domicilio")
+        End If
 
         Me.txtApellido.Enabled = True
         Me.txtNombre.Enabled = True

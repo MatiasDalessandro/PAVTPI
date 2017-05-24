@@ -16,7 +16,7 @@
         bandera = tipoOperacion.nuevo
 
         Dim strSQL As String = ""
-        strSQL = "SELECT idArticuloCombo FROM comboXArticulo GROUP BY idArticuloCombo"
+        strSQL = "SELECT idCombo FROM comboXArticulo GROUP BY idCombo"
         Dim numID As Integer = (DBHelper.getDBHelper.ConsultaSQL(strSQL).Rows.Count + 1)
 
         txt_id_combo.Enabled = False
@@ -168,7 +168,7 @@
         btn_editar_combo.Enabled = True
         btn_editar_combo.Visible = True
 
-        Dim sql As String = "SELECT A.idArticuloCombo, A.nombreCombo, B.idArticuloIntegrante, B.nombre, B.precio " _
+        Dim sql As String = "SELECT A.idCombo, A.nombreCombo, B.idArticuloIntegrante, B.nombre, B.precio " _
             & "FROM comboXArticulo A, articulo B " _
             & "WHERE A.idArticuloIntegrante = B.idArticuloIntegrante"
 
@@ -183,7 +183,7 @@
         Dim strSQL As String = ""
         If bandera = tipoOperacion.nuevo Then
             For Each row1 As DataGridViewRow In dgv_datos_articulos.Rows
-                strSQL += "INSERT INTO comboXArticulo (idArticuloCombo,nombreCombo,idArticuloIntegrante) VALUES (" _
+                strSQL += "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante) VALUES (" _
                   & txt_id_combo.Text & ",'" & txt_nombre_articulo.Text & "'," & row1.Cells(0).Value.ToString & ");" & vbNewLine
             Next
         End If

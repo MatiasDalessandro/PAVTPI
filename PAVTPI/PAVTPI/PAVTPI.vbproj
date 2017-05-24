@@ -99,10 +99,10 @@
     <Compile Include="GUILayer\AbmDependencia.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\AbmEmpleado.Designer.vb">
-      <DependentUpon>AbmEmpleado.vb</DependentUpon>
+    <Compile Include="GUILayer\AbmPersona.Designer.vb">
+      <DependentUpon>AbmPersona.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\AbmEmpleado.vb">
+    <Compile Include="GUILayer\AbmPersona.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\AbmLocalidad.Designer.vb">
@@ -207,8 +207,8 @@
     <EmbeddedResource Include="GUILayer\AbmDependencia.resx">
       <DependentUpon>AbmDependencia.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\AbmEmpleado.resx">
-      <DependentUpon>AbmEmpleado.vb</DependentUpon>
+    <EmbeddedResource Include="GUILayer\AbmPersona.resx">
+      <DependentUpon>AbmPersona.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\AbmLocalidad.resx">
       <DependentUpon>AbmLocalidad.vb</DependentUpon>

@@ -38,7 +38,7 @@
         AbmCombo.Show()
     End Sub
 
-    Private Sub ABMToolStripMenuItem1_Click(sender As Object, e As EventArgs) 
+    Private Sub ABMToolStripMenuItem1_Click(sender As Object, e As EventArgs)
         AbmPersonaAutorizada.Show()
     End Sub
 
