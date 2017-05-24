@@ -1,7 +1,9 @@
 ﻿Public Class ArticulosParaCombo
     Private Sub ArticulosParaCombo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         llenarGrilla()
-        Me.dgv_datos_articulos.CurrentRow.Selected = True
+        If dgv_datos_articulos.Rows.Count > 0 Then
+            Me.dgv_datos_articulos.CurrentRow.Selected = True
+        End If
     End Sub
 
     Private Sub btn_agregarACombo_Click(sender As Object, e As EventArgs) Handles btn_agregarACombo.Click
