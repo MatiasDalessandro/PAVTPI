@@ -23,9 +23,6 @@ Partial Class AbmCombo
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.dgv_datos_articulos = New System.Windows.Forms.DataGridView()
-        Me.c_id_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.c_nombre_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.c_precio_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btn_buscar = New System.Windows.Forms.Button()
         Me.btn_salir = New System.Windows.Forms.Button()
         Me.btn_guardar = New System.Windows.Forms.Button()
@@ -40,6 +37,10 @@ Partial Class AbmCombo
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.c_id_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.c_nombre_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.c_precio_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv_datos_articulos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -49,37 +50,16 @@ Partial Class AbmCombo
         Me.dgv_datos_articulos.AllowUserToAddRows = False
         Me.dgv_datos_articulos.AllowUserToDeleteRows = False
         Me.dgv_datos_articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_datos_articulos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.c_id_articulo, Me.c_nombre_articulo, Me.c_precio_articulo})
-        Me.dgv_datos_articulos.Location = New System.Drawing.Point(393, 27)
+        Me.dgv_datos_articulos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.c_id_articulo, Me.c_nombre_articulo, Me.c_precio_articulo, Me.cantidad})
+        Me.dgv_datos_articulos.Location = New System.Drawing.Point(349, 27)
         Me.dgv_datos_articulos.Name = "dgv_datos_articulos"
         Me.dgv_datos_articulos.ReadOnly = True
-        Me.dgv_datos_articulos.Size = New System.Drawing.Size(447, 228)
+        Me.dgv_datos_articulos.Size = New System.Drawing.Size(491, 228)
         Me.dgv_datos_articulos.TabIndex = 30
-        '
-        'c_id_articulo
-        '
-        Me.c_id_articulo.HeaderText = "ID Articulo"
-        Me.c_id_articulo.Name = "c_id_articulo"
-        Me.c_id_articulo.ReadOnly = True
-        Me.c_id_articulo.Width = 80
-        '
-        'c_nombre_articulo
-        '
-        Me.c_nombre_articulo.HeaderText = "Nombre Articulo"
-        Me.c_nombre_articulo.Name = "c_nombre_articulo"
-        Me.c_nombre_articulo.ReadOnly = True
-        Me.c_nombre_articulo.Width = 250
-        '
-        'c_precio_articulo
-        '
-        Me.c_precio_articulo.HeaderText = "Precio"
-        Me.c_precio_articulo.Name = "c_precio_articulo"
-        Me.c_precio_articulo.ReadOnly = True
-        Me.c_precio_articulo.Width = 70
         '
         'btn_buscar
         '
-        Me.btn_buscar.Location = New System.Drawing.Point(292, 33)
+        Me.btn_buscar.Location = New System.Drawing.Point(239, 34)
         Me.btn_buscar.Name = "btn_buscar"
         Me.btn_buscar.Size = New System.Drawing.Size(75, 23)
         Me.btn_buscar.TabIndex = 25
@@ -150,7 +130,7 @@ Partial Class AbmCombo
         '
         'btn_agregar_articulo
         '
-        Me.btn_agregar_articulo.Location = New System.Drawing.Point(393, 261)
+        Me.btn_agregar_articulo.Location = New System.Drawing.Point(349, 261)
         Me.btn_agregar_articulo.Name = "btn_agregar_articulo"
         Me.btn_agregar_articulo.Size = New System.Drawing.Size(90, 23)
         Me.btn_agregar_articulo.TabIndex = 31
@@ -159,7 +139,7 @@ Partial Class AbmCombo
         '
         'btn_quitar_articulo
         '
-        Me.btn_quitar_articulo.Location = New System.Drawing.Point(505, 261)
+        Me.btn_quitar_articulo.Location = New System.Drawing.Point(461, 261)
         Me.btn_quitar_articulo.Name = "btn_quitar_articulo"
         Me.btn_quitar_articulo.Size = New System.Drawing.Size(78, 23)
         Me.btn_quitar_articulo.TabIndex = 32
@@ -195,6 +175,34 @@ Partial Class AbmCombo
         Me.BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem"
         Me.BuscarToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.BuscarToolStripMenuItem.Text = "Buscar"
+        '
+        'c_id_articulo
+        '
+        Me.c_id_articulo.HeaderText = "ID Articulo"
+        Me.c_id_articulo.Name = "c_id_articulo"
+        Me.c_id_articulo.ReadOnly = True
+        Me.c_id_articulo.Width = 80
+        '
+        'c_nombre_articulo
+        '
+        Me.c_nombre_articulo.HeaderText = "Nombre Articulo"
+        Me.c_nombre_articulo.Name = "c_nombre_articulo"
+        Me.c_nombre_articulo.ReadOnly = True
+        Me.c_nombre_articulo.Width = 250
+        '
+        'c_precio_articulo
+        '
+        Me.c_precio_articulo.HeaderText = "Precio"
+        Me.c_precio_articulo.Name = "c_precio_articulo"
+        Me.c_precio_articulo.ReadOnly = True
+        Me.c_precio_articulo.Width = 60
+        '
+        'cantidad
+        '
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ReadOnly = True
+        Me.cantidad.Width = 60
         '
         'AbmCombo
         '
@@ -243,4 +251,5 @@ Partial Class AbmCombo
     Friend WithEvents c_id_articulo As DataGridViewTextBoxColumn
     Friend WithEvents c_nombre_articulo As DataGridViewTextBoxColumn
     Friend WithEvents c_precio_articulo As DataGridViewTextBoxColumn
+    Friend WithEvents cantidad As DataGridViewTextBoxColumn
 End Class
