@@ -272,4 +272,12 @@
     Private Sub dgv_datos_articulos_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_datos_articulos.CellClick
         Me.dgv_datos_articulos.CurrentRow.Selected = True
     End Sub
+
+    Private Sub btn_eliminar_Click(sender As Object, e As EventArgs) Handles btn_eliminar.Click
+        setNuevo()
+    End Sub
+
+    Private Sub btn_salir_Click(sender As Object, e As EventArgs) Handles btn_salir.Click
+        Me.Close()
+    End Sub
 End Class

@@ -23,6 +23,10 @@ Partial Class AbmCombo
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.dgv_datos_articulos = New System.Windows.Forms.DataGridView()
+        Me.c_id_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.c_nombre_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.c_precio_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btn_buscar = New System.Windows.Forms.Button()
         Me.btn_salir = New System.Windows.Forms.Button()
         Me.btn_guardar = New System.Windows.Forms.Button()
@@ -37,10 +41,6 @@ Partial Class AbmCombo
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.NuevoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.c_id_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.c_nombre_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.c_precio_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv_datos_articulos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -56,6 +56,34 @@ Partial Class AbmCombo
         Me.dgv_datos_articulos.ReadOnly = True
         Me.dgv_datos_articulos.Size = New System.Drawing.Size(491, 228)
         Me.dgv_datos_articulos.TabIndex = 30
+        '
+        'c_id_articulo
+        '
+        Me.c_id_articulo.HeaderText = "ID Articulo"
+        Me.c_id_articulo.Name = "c_id_articulo"
+        Me.c_id_articulo.ReadOnly = True
+        Me.c_id_articulo.Width = 80
+        '
+        'c_nombre_articulo
+        '
+        Me.c_nombre_articulo.HeaderText = "Nombre Articulo"
+        Me.c_nombre_articulo.Name = "c_nombre_articulo"
+        Me.c_nombre_articulo.ReadOnly = True
+        Me.c_nombre_articulo.Width = 250
+        '
+        'c_precio_articulo
+        '
+        Me.c_precio_articulo.HeaderText = "Precio"
+        Me.c_precio_articulo.Name = "c_precio_articulo"
+        Me.c_precio_articulo.ReadOnly = True
+        Me.c_precio_articulo.Width = 60
+        '
+        'cantidad
+        '
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ReadOnly = True
+        Me.cantidad.Width = 60
         '
         'btn_buscar
         '
@@ -175,34 +203,6 @@ Partial Class AbmCombo
         Me.BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem"
         Me.BuscarToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.BuscarToolStripMenuItem.Text = "Buscar"
-        '
-        'c_id_articulo
-        '
-        Me.c_id_articulo.HeaderText = "ID Articulo"
-        Me.c_id_articulo.Name = "c_id_articulo"
-        Me.c_id_articulo.ReadOnly = True
-        Me.c_id_articulo.Width = 80
-        '
-        'c_nombre_articulo
-        '
-        Me.c_nombre_articulo.HeaderText = "Nombre Articulo"
-        Me.c_nombre_articulo.Name = "c_nombre_articulo"
-        Me.c_nombre_articulo.ReadOnly = True
-        Me.c_nombre_articulo.Width = 250
-        '
-        'c_precio_articulo
-        '
-        Me.c_precio_articulo.HeaderText = "Precio"
-        Me.c_precio_articulo.Name = "c_precio_articulo"
-        Me.c_precio_articulo.ReadOnly = True
-        Me.c_precio_articulo.Width = 60
-        '
-        'cantidad
-        '
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.ReadOnly = True
-        Me.cantidad.Width = 60
         '
         'AbmCombo
         '
