@@ -1,5 +1,7 @@
 ﻿'ABM Tipo Documento Alvaro
 Public Class AbmTipoDocumento
+    Dim dbhelper As DBHelper = DBHelper.getDBHelper
+    Dim estado_Grabacion As condicionGrabacion = condicionGrabacion.insertar
     Enum estadoGrabacion
         aprobado
         rechazado
@@ -8,30 +10,19 @@ Public Class AbmTipoDocumento
         insertar
         modificar
     End Enum
-    Dim estado_Grabacion As condicionGrabacion = condicionGrabacion.insertar
-    'Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=MATI-PC\GDAPAV;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
-    Dim cadenaConexion As String = "Provider=SQLNCLI11;Data Source=(localdb)\Alvo_Server;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
+
     Private Sub AbmTipoDocumento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla()
     End Sub
     Private Sub cargar_grilla()
-        Dim conexion As New OleDb.OleDbConnection
-        Dim cmd As New OleDb.OleDbCommand
+
         Dim tabla As New DataTable
-
-        conexion.ConnectionString = cadenaConexion
-        conexion.Open()
-        cmd.Connection = conexion
-        cmd.CommandType = CommandType.Text
-
         Dim sql As String = ""
 
         sql &= "SELECT        idTipoDocumento, descripcion "
         sql &= " From            tipoDocumento"
 
-        cmd.CommandText = sql
-        tabla.Load(cmd.ExecuteReader())
-        conexion.Close()
+        tabla = dbhelper.ConsultaSQL(sql)
 
         Dim c As Integer = 0
 
@@ -67,13 +58,16 @@ Public Class AbmTipoDocumento
     Private Sub insertar()
         Dim sql As String = ""
         sql = " INSERT INTO tipoDocumento (descripcion) VALUES ('" & txt_Nombre.Text & "')"
-        Dim num As Integer
-        num = ejecSql(sql)
-        If num > 0 Then
-            MsgBox("Se grabo correctamente")
-        Else
-            MsgBox("no se pudo insetar")
-        End If
+        'Dim num As Integer
+        'num = ejecSql(sql)
+        'If num > 0 Then
+        '    MsgBox("Se grabo correctamente")
+        'Else
+        '    MsgBox("no se pudo insetar")
+        'End If
+        dbhelper.EjecutarSQL(sql)
+        MsgBox("Se grabo correctamente")
+        Me.cargar_grilla()
     End Sub
     Private Sub modificar()
         Dim sql As String = ""
@@ -82,39 +76,20 @@ Public Class AbmTipoDocumento
         sql &= "SET descripcion = '" & Me.txt_Nombre.Text & "'"
         sql &= " WHERE idTipoDocumento = " & Me.txt_Id_Tipo_Doc.Text
 
-        Dim num As Integer
-        num = ejecSql(sql)
-        If num > 0 Then
-            MsgBox("Se grabo correctamente")
-        Else
-            MsgBox("no se pudo insetar")
-        End If
-
+        'Dim num As Integer
+        'num = ejecSql(sql)
+        'If num > 0 Then
+        '    MsgBox("Se grabo correctamente")
+        'Else
+        '    MsgBox("no se pudo insetar")
+        'End If
+        dbhelper.EjecutarSQL(sql)
+        Me.cargar_grilla()
         MsgBox("Se Modifico correctamente")
     End Sub
 
-    Private Function ejecutosql(ByVal consulta As String) As DataTable
 
-        Dim conexion As New OleDb.OleDbConnection
-        Dim cmd As New OleDb.OleDbCommand
-        Dim tabla As New DataTable
 
-        conexion.ConnectionString = cadenaConexion
-        conexion.Open()
-        cmd.Connection = conexion
-        cmd.CommandType = CommandType.Text
-
-        cmd.CommandText = consulta
-        tabla.Load(cmd.ExecuteReader())
-        conexion.Close()
-        Return tabla
-    End Function
-    Private Function ejecSql(ByVal sql As String) As Integer
-        Dim num As Integer
-        num = DBHelper.getDBHelper.EjecutarSQL(sql)
-        Return num
-
-    End Function
     Private Function validarDatos() As estadoGrabacion
         'For Each obj As Control In Me.Controls
         'If obj.GetType.Name = "TextBox" Or obj.GetType.Name = "MaskedTextBox" Then
@@ -137,7 +112,7 @@ Public Class AbmTipoDocumento
 
         sql &= " SELECT * FROM tipoDocumento WHERE idTipoDocumento = " & Me.txt_Id_Tipo_Doc.Text
 
-        tabla = ejecutosql(sql)
+        tabla = dbhelper.ConsultaSQL(sql)
 
         If tabla.Rows.Count = 0 Then
             Return estadoGrabacion.aprobado
@@ -210,7 +185,7 @@ Public Class AbmTipoDocumento
             End If
         End If
 
-        ejecutosql(sql)
+        dbhelper.EjecutarSQL(sql)
         Me.cargar_grilla()
         txt_Nombre.Text = ""
         txt_Id_Tipo_Doc.Text = ""
@@ -219,9 +194,7 @@ Public Class AbmTipoDocumento
         btn_Guardar.Enabled = False
         txt_Nombre.Enabled = False
     End Sub
-    Private Function leo_tabla(ByVal nombre_tabla As String) As DataTable
-        Return Me.ejecutosql("SELECT * FROM " & nombre_tabla)
-    End Function
+
 
     Private Sub dgv_Tipo_Doc_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_Tipo_Doc.CellContentClick
         Dim sql As String = ""
@@ -229,7 +202,7 @@ Public Class AbmTipoDocumento
 
         sql = " SELECT * FROM tipoDocumento WHERE idTipoDocumento = " & Me.dgv_Tipo_Doc.CurrentRow.Cells("Id_Tipo_Doc").Value
 
-        tabla = ejecutosql(sql)
+        tabla = dbhelper.ConsultaSQL(sql)
 
         Me.txt_Id_Tipo_Doc.Text = tabla.Rows(0)("idTipoDocumento")
         Me.txt_Nombre.Text = tabla.Rows(0)("descripcion")
