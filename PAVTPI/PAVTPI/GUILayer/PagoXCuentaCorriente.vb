@@ -27,7 +27,7 @@
             Me.dgv_dependencia.Rows(c).Cells("c_nroCuentaCorriente").Value = tabla.Rows(c)(1)
             Me.dgv_dependencia.Rows(c).Cells("c_saldo").Value = tabla.Rows(c)(2)
             If tabla.Rows(c)(3) = "False" Then
-                Me.dgv_dependencia.Rows(c).Cells("c_estado").Value = "No habilitada"
+                Me.dgv_dependencia.Rows(c).Cells("c_estado").Value = "Deshabilitada"
             Else
                 Me.dgv_dependencia.Rows(c).Cells("c_estado").Value = "Habilitada"
             End If
