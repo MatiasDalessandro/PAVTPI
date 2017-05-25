@@ -22,7 +22,7 @@ Partial Class PagoXCuentaCorriente
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.lbl_Dependencia = New System.Windows.Forms.Label()
         Me.dgv_dependencia = New System.Windows.Forms.DataGridView()
         Me.c_nombreDependencia = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -52,8 +52,8 @@ Partial Class PagoXCuentaCorriente
         Me.lbl_montoPago = New System.Windows.Forms.Label()
         Me.txt_montoPago = New System.Windows.Forms.TextBox()
         Me.gb_dependenciaSeleccionada = New System.Windows.Forms.GroupBox()
-        Me.gb_pagoSeleccionado = New System.Windows.Forms.GroupBox()
         Me.btn_registrarPago = New System.Windows.Forms.Button()
+        Me.gb_pagoSeleccionado = New System.Windows.Forms.GroupBox()
         CType(Me.dgv_dependencia, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv_registroDePagos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gb_dependenciaSeleccionada.SuspendLayout()
@@ -118,7 +118,7 @@ Partial Class PagoXCuentaCorriente
         Me.btn_cancelar.Name = "btn_cancelar"
         Me.btn_cancelar.Size = New System.Drawing.Size(75, 23)
         Me.btn_cancelar.TabIndex = 18
-        Me.btn_cancelar.Text = "Cancelar"
+        Me.btn_cancelar.Text = "Salir"
         Me.btn_cancelar.UseVisualStyleBackColor = True
         '
         'btn_buscar
@@ -236,8 +236,8 @@ Partial Class PagoXCuentaCorriente
         '
         'c_nroCuentaCorrientePago
         '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.c_nroCuentaCorrientePago.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.c_nroCuentaCorrientePago.DefaultCellStyle = DataGridViewCellStyle1
         Me.c_nroCuentaCorrientePago.FillWeight = 50.0!
         Me.c_nroCuentaCorrientePago.HeaderText = "Cuenta Corriente"
         Me.c_nroCuentaCorrientePago.Name = "c_nroCuentaCorrientePago"
@@ -313,15 +313,6 @@ Partial Class PagoXCuentaCorriente
         Me.gb_dependenciaSeleccionada.TabStop = False
         Me.gb_dependenciaSeleccionada.Text = "Dependencia Seleccionada"
         '
-        'gb_pagoSeleccionado
-        '
-        Me.gb_pagoSeleccionado.Location = New System.Drawing.Point(9, 360)
-        Me.gb_pagoSeleccionado.Name = "gb_pagoSeleccionado"
-        Me.gb_pagoSeleccionado.Size = New System.Drawing.Size(485, 80)
-        Me.gb_pagoSeleccionado.TabIndex = 29
-        Me.gb_pagoSeleccionado.TabStop = False
-        Me.gb_pagoSeleccionado.Text = "Pago Seleccionado"
-        '
         'btn_registrarPago
         '
         Me.btn_registrarPago.Enabled = False
@@ -331,6 +322,15 @@ Partial Class PagoXCuentaCorriente
         Me.btn_registrarPago.TabIndex = 0
         Me.btn_registrarPago.Text = "Registrar Pago"
         Me.btn_registrarPago.UseVisualStyleBackColor = True
+        '
+        'gb_pagoSeleccionado
+        '
+        Me.gb_pagoSeleccionado.Location = New System.Drawing.Point(9, 360)
+        Me.gb_pagoSeleccionado.Name = "gb_pagoSeleccionado"
+        Me.gb_pagoSeleccionado.Size = New System.Drawing.Size(485, 80)
+        Me.gb_pagoSeleccionado.TabIndex = 29
+        Me.gb_pagoSeleccionado.TabStop = False
+        Me.gb_pagoSeleccionado.Text = "Pago Seleccionado"
         '
         'PagoXCuentaCorriente
         '

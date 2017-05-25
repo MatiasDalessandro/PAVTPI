@@ -76,7 +76,7 @@
         Me.txt_saldo.Text = tabla.Rows(0)(3)
 
         If tabla.Rows(0)(4) = "False" Then
-            Me.txt_estado.Text = "No habilitada"
+            Me.txt_estado.Text = "Deshabilitada"
         Else
             Me.txt_estado.Text = "Habilitada"
         End If
@@ -149,10 +149,10 @@
         Dim saldo2 As Double = Me.txt_montoAcobrar.Text
 
         If saldo2 < 1 Then
-            MsgBox("El monto a cobrar no puede ser menor a 1.")
+            MsgBox("El monto a cobrar no puede ser menor a 1")
         Else
             If saldo2 > saldo1 Then
-                MsgBox("El monto no puede ser mayor al saldo actual.")
+                MsgBox("El monto no puede ser mayor al saldo actual")
             Else
                 sql = "INSERT INTO pagoXCuentaCorriente (nroCuentaCorriente,fechaHora,monto) VALUES ( " & Me.txt_cuentaCorriente.Text & ",'" & DateTime.Now & "'," & Me.txt_montoAcobrar.Text & ")"
                 If dbhelper.EjecutarSQL(sql) = 1 Then
@@ -163,7 +163,7 @@
                     dbhelper.EjecutarSQL("UPDATE dependencia SET dependencia.saldo = " & restaSaldo & "WHERE dependencia.nroCuentaCorriente = " & Me.txt_cuentaCorriente.Text)
 
                 Else
-                    MsgBox("El Pago no pudo realizarse.")
+                    MsgBox("El Pago no pudo realizarse")
                 End If
             End If
 
