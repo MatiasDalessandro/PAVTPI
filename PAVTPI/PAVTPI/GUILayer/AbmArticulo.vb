@@ -79,6 +79,7 @@
 
 
     End Sub
+
     Private Sub insertar()
         Dim sql As String = ""
         sql = "INSERT INTO articulo (nombre,precio) values ('" & txt_nombre_articulo.Text & "' , " & txt_precio.Text & ")"

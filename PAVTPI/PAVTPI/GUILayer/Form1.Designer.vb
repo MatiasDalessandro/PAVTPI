@@ -34,6 +34,7 @@ Partial Class Form1
         Me.ProcesosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CargarPersonaAutorizadaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CancelarSaldoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -97,7 +98,7 @@ Partial Class Form1
         '
         'ProcesosToolStripMenuItem
         '
-        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargarPersonaAutorizadaToolStripMenuItem, Me.RegistrarVentaToolStripMenuItem})
+        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargarPersonaAutorizadaToolStripMenuItem, Me.RegistrarVentaToolStripMenuItem, Me.CancelarSaldoToolStripMenuItem})
         Me.ProcesosToolStripMenuItem.Name = "ProcesosToolStripMenuItem"
         Me.ProcesosToolStripMenuItem.Size = New System.Drawing.Size(66, 20)
         Me.ProcesosToolStripMenuItem.Text = "Procesos"
@@ -113,6 +114,12 @@ Partial Class Form1
         Me.RegistrarVentaToolStripMenuItem.Name = "RegistrarVentaToolStripMenuItem"
         Me.RegistrarVentaToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
         Me.RegistrarVentaToolStripMenuItem.Text = "Registrar Venta"
+        '
+        'CancelarSaldoToolStripMenuItem
+        '
+        Me.CancelarSaldoToolStripMenuItem.Name = "CancelarSaldoToolStripMenuItem"
+        Me.CancelarSaldoToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.CancelarSaldoToolStripMenuItem.Text = "Cancelar Saldo"
         '
         'Form1
         '
@@ -142,4 +149,5 @@ Partial Class Form1
     Friend WithEvents ProcesosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CargarPersonaAutorizadaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RegistrarVentaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CancelarSaldoToolStripMenuItem As ToolStripMenuItem
 End Class

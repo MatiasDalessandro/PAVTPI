@@ -53,4 +53,8 @@
     Private Sub RegistrarVentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistrarVentaToolStripMenuItem.Click
         Venta.Show()
     End Sub
+
+    Private Sub CancelarSaldoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CancelarSaldoToolStripMenuItem.Click
+        PagoXCuentaCorriente.Show()
+    End Sub
 End Class
