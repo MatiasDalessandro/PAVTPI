@@ -67,7 +67,7 @@
         sql &= " , apellido = '" & txtApellido.Text & "'"
         sql &= " , nombre = '" & txtNombre.Text & "'"
         sql &= " , idTipoDocumento = '" & cmbTipoDoc.SelectedValue & "'"
-        sql &= " , fechaIngreso = '" & dtpFechaIngreso.Value & "'"
+        sql &= " , fechaIngreso = '" & FormatDateTime(dtpFechaEgreso.Value) & "'"
         sql &= " , fechaEgreso = '" & dtpFechaEgreso.Value & "'"
         sql &= " , celular = " & txtCelular.Text
         sql &= " , Mail = '" & txtEmail.Text & "'"
