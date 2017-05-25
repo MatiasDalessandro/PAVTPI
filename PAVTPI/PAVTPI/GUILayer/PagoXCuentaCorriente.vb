@@ -26,7 +26,12 @@
             Me.dgv_dependencia.Rows(c).Cells("c_nombreDependencia").Value = tabla.Rows(c)(0)
             Me.dgv_dependencia.Rows(c).Cells("c_nroCuentaCorriente").Value = tabla.Rows(c)(1)
             Me.dgv_dependencia.Rows(c).Cells("c_saldo").Value = tabla.Rows(c)(2)
-            Me.dgv_dependencia.Rows(c).Cells("c_estado").Value = tabla.Rows(c)(3)
+            If tabla.Rows(c)(3) = "False" Then
+                Me.dgv_dependencia.Rows(c).Cells("c_estado").Value = "No habilitada"
+            Else
+                Me.dgv_dependencia.Rows(c).Cells("c_estado").Value = "Habilitada"
+            End If
+
         Next
     End Sub
 
@@ -69,7 +74,13 @@
         Me.txt_cuentaCorriente.Text = tabla.Rows(0)(0)
         Me.txt_nombre.Text = tabla.Rows(0)(1)
         Me.txt_saldo.Text = tabla.Rows(0)(3)
-        Me.txt_estado.Text = tabla.Rows(0)(4)
+
+        If tabla.Rows(0)(4) = "False" Then
+            Me.txt_estado.Text = "No habilitada"
+        Else
+            Me.txt_estado.Text = "Habilitada"
+        End If
+
 
         If Me.txt_saldo.Text < 0 Then
             Me.btn_registrarPago.Enabled = False
@@ -112,6 +123,7 @@
             Me.dgv_registroDePagos.Rows.Add()
             Me.dgv_registroDePagos.Rows(c).Cells("c_nroCuentaCorrientePago").Value = tablaPagos.Rows(c)(0)
             Me.dgv_registroDePagos.Rows(c).Cells("c_fechaHoraPago").Value = tablaPagos.Rows(c)(1)
+
             Me.dgv_registroDePagos.Rows(c).Cells("c_montoPago").Value = tablaPagos.Rows(c)(2)
         Next
 
