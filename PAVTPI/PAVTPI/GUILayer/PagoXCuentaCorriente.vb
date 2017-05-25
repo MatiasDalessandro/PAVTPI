@@ -96,36 +96,6 @@
         Me.txt_montoPago.Text = tabla.Rows(0)(2)
     End Sub
 
-    Private Sub btn_registrarPago_Click(sender As Object, e As EventArgs) Handles btn_registrarPago.Click
-        Dim sql As String = ""
-        Dim tabla As New DataTable
-
-        If Me.txt_montoAcobrar.Text = "" Then
-            MsgBox("Debe ingresar el monto a cobrar.")
-
-        Else
-            sql = "INSERT INTO pagoXCuentaCorriente (nroCuentaCorriente,fechaHora,monto) VALUES ( " & Me.txt_cuentaCorriente.Text & ",'" & DateTime.Now & "'," & Me.txt_montoAcobrar.Text & ")"
-            If dbhelper.EjecutarSQL(sql) = 1 Then
-                MsgBox("Se realizo correctamente el Pago.")
-
-                Dim restaSaldo As Double = 0
-                Dim saldo1 As Double = Me.txt_saldo.Text
-                Dim saldo2 As Double = Me.txt_montoAcobrar.Text
-
-                restaSaldo = saldo1 - saldo2
-                dbhelper.EjecutarSQL("UPDATE dependencia SET dependencia.saldo = " & restaSaldo & "WHERE dependencia.nroCuentaCorriente = " & Me.txt_cuentaCorriente.Text)
-
-            Else
-                MsgBox("El Pago no pudo realizarse.")
-            End If
-        End If
-
-        cargar_grillaPagos()
-        refrescar_saldo()
-        Me.cargar_grilla()
-        Me.txt_montoAcobrar.Text = ""
-    End Sub
-
     Private Sub cargar_grillaPagos()
         Dim sql As String = ""
         Dim tablaPagos As New DataTable
@@ -159,4 +129,33 @@
         End If
     End Sub
 
+    Private Sub btn_registrarPago_Click_1(sender As Object, e As EventArgs) Handles btn_registrarPago.Click
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+
+        If Me.txt_montoAcobrar.Text = "" Then
+            MsgBox("Debe ingresar el monto a cobrar.")
+
+        Else
+            sql = "INSERT INTO pagoXCuentaCorriente (nroCuentaCorriente,fechaHora,monto) VALUES ( " & Me.txt_cuentaCorriente.Text & ",'" & DateTime.Now & "'," & Me.txt_montoAcobrar.Text & ")"
+            If dbhelper.EjecutarSQL(sql) = 1 Then
+                MsgBox("Se realizo correctamente el Pago.")
+
+                Dim restaSaldo As Double = 0
+                Dim saldo1 As Double = Me.txt_saldo.Text
+                Dim saldo2 As Double = Me.txt_montoAcobrar.Text
+
+                restaSaldo = saldo1 - saldo2
+                dbhelper.EjecutarSQL("UPDATE dependencia SET dependencia.saldo = " & restaSaldo & "WHERE dependencia.nroCuentaCorriente = " & Me.txt_cuentaCorriente.Text)
+
+            Else
+                MsgBox("El Pago no pudo realizarse.")
+            End If
+        End If
+
+        cargar_grillaPagos()
+        refrescar_saldo()
+        Me.cargar_grilla()
+        Me.txt_montoAcobrar.Text = ""
+    End Sub
 End Class
