@@ -133,7 +133,11 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        If Me.txt_montoAcobrar.Text < 1 Or Me.txt_montoAcobrar.Text > Me.txt_saldo.Text Then
+        Dim restaSaldo As Double = 0
+        Dim saldo1 As Double = Me.txt_saldo.Text
+        Dim saldo2 As Double = Me.txt_montoAcobrar.Text
+
+        If saldo2 < 1 Or saldo2 > Me.txt_saldo.Text Then
             MsgBox("Debe ingresar correctamente el monto a cobrar.")
 
         Else
@@ -141,9 +145,6 @@
             If dbhelper.EjecutarSQL(sql) = 1 Then
                 MsgBox("Se realizo correctamente el Pago.")
 
-                Dim restaSaldo As Double = 0
-                Dim saldo1 As Double = Me.txt_saldo.Text
-                Dim saldo2 As Double = Me.txt_montoAcobrar.Text
 
                 restaSaldo = saldo1 - saldo2
                 dbhelper.EjecutarSQL("UPDATE dependencia SET dependencia.saldo = " & restaSaldo & "WHERE dependencia.nroCuentaCorriente = " & Me.txt_cuentaCorriente.Text)
