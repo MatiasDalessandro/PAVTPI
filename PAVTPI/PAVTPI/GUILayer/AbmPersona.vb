@@ -161,7 +161,7 @@
         End If
     End Function
 
-    Private Sub dgvEmpleado_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmpleado.CellContentDoubleClick
+    Private Sub dgvEmpleado_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmpleado.CellDoubleClick
         Dim sql As String = ""
         Dim tabla As New DataTable
 
