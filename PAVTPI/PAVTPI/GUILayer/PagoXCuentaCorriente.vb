@@ -137,21 +137,25 @@
         Dim saldo1 As Double = Me.txt_saldo.Text
         Dim saldo2 As Double = Me.txt_montoAcobrar.Text
 
-        If saldo2 < 1 Or saldo2 > saldo1 Then
-            MsgBox("Debe ingresar correctamente el monto a cobrar.")
-
+        If saldo2 < 1 Then
+            MsgBox("El monto a cobrar no puede ser menor a 1.")
         Else
-            sql = "INSERT INTO pagoXCuentaCorriente (nroCuentaCorriente,fechaHora,monto) VALUES ( " & Me.txt_cuentaCorriente.Text & ",'" & DateTime.Now & "'," & Me.txt_montoAcobrar.Text & ")"
-            If dbhelper.EjecutarSQL(sql) = 1 Then
-                MsgBox("Se realizo correctamente el Pago.")
-
-
-                restaSaldo = saldo1 - saldo2
-                dbhelper.EjecutarSQL("UPDATE dependencia SET dependencia.saldo = " & restaSaldo & "WHERE dependencia.nroCuentaCorriente = " & Me.txt_cuentaCorriente.Text)
-
+            If saldo2 > saldo1 Then
+                MsgBox("El monto no puede ser mayor al saldo actual.")
             Else
-                MsgBox("El Pago no pudo realizarse.")
+                sql = "INSERT INTO pagoXCuentaCorriente (nroCuentaCorriente,fechaHora,monto) VALUES ( " & Me.txt_cuentaCorriente.Text & ",'" & DateTime.Now & "'," & Me.txt_montoAcobrar.Text & ")"
+                If dbhelper.EjecutarSQL(sql) = 1 Then
+                    MsgBox("Se realizo correctamente el Pago.")
+
+
+                    restaSaldo = saldo1 - saldo2
+                    dbhelper.EjecutarSQL("UPDATE dependencia SET dependencia.saldo = " & restaSaldo & "WHERE dependencia.nroCuentaCorriente = " & Me.txt_cuentaCorriente.Text)
+
+                Else
+                    MsgBox("El Pago no pudo realizarse.")
+                End If
             End If
+
         End If
 
         cargar_grillaPagos()
