@@ -137,7 +137,7 @@
         Dim saldo1 As Double = Me.txt_saldo.Text
         Dim saldo2 As Double = Me.txt_montoAcobrar.Text
 
-        If saldo2 < 1 Or saldo2 > Me.txt_saldo.Text Then
+        If saldo2 < 1 Or saldo2 > saldo1 Then
             MsgBox("Debe ingresar correctamente el monto a cobrar.")
 
         Else
