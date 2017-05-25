@@ -133,8 +133,8 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        If Me.txt_montoAcobrar.Text = "" Then
-            MsgBox("Debe ingresar el monto a cobrar.")
+        If Me.txt_montoAcobrar.Text < 1 Then
+            MsgBox("Debe ingresar correctamente el monto a cobrar.")
 
         Else
             sql = "INSERT INTO pagoXCuentaCorriente (nroCuentaCorriente,fechaHora,monto) VALUES ( " & Me.txt_cuentaCorriente.Text & ",'" & DateTime.Now & "'," & Me.txt_montoAcobrar.Text & ")"
