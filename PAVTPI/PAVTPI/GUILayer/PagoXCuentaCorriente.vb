@@ -111,7 +111,7 @@
         Dim sql As String = ""
         Dim tablaPagos As New DataTable
 
-        sql = "SELECT * FROM pagoXCuentaCorriente WHERE pagoXCuentaCorriente.nroCuentaCorriente = " & Me.txt_cuentaCorriente.Text
+        sql = "SELECT * FROM pagoXCuentaCorriente WHERE pagoXCuentaCorriente.nroCuentaCorriente = " & Me.txt_cuentaCorriente.Text & "ORDER BY fechaHora DESC"
         tablaPagos = dbhelper.ConsultaSQL(sql)
         Me.dgv_registroDePagos.Rows.Clear()
 
