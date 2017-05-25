@@ -71,25 +71,69 @@
         Me.txt_saldo.Text = tabla.Rows(0)(3)
         Me.txt_estado.Text = tabla.Rows(0)(4)
 
-        sql = "SELECT * FROM pagoXCuentaCorriente WHERE pagoXCuentaCorriente.nroCuentaCorriente = " & Me.txt_cuentaCorriente.Text
+        If Me.txt_saldo.Text = "0" Then
+            Me.btn_registrarPago.Enabled = False
+        Else
+            Me.btn_registrarPago.Enabled = True
+        End If
 
+        Me.cargar_grillaPagos()
+
+
+    End Sub
+
+
+    Private Sub dgv_registroDePagos_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_registroDePagos.CellDoubleClick
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+
+        sql &= "SELECT * FROM pagoXCuentaCorriente WHERE pagoXCuentaCorriente.nroCuentaCorriente = " & Me.dgv_registroDePagos.CurrentRow.Cells("c_nroCuentaCorrientePago").Value
+        sql &= " AND pagoXCuentaCorriente.fechaHora = '" & Me.dgv_registroDePagos.CurrentRow.Cells("c_fechaHoraPago").Value & "'"
+
+        tabla = dbhelper.ConsultaSQL(sql)
+
+        Me.txt_fechaPago.Text = tabla.Rows(0)(1)
+        Me.txt_montoPago.Text = tabla.Rows(0)(2)
+    End Sub
+
+    Private Sub btn_registrarPago_Click(sender As Object, e As EventArgs) Handles btn_registrarPago.Click
+        Dim sql As String = ""
+        Dim tabla As New DataTable
+
+        If Me.txt_montoAcobrar.Text = "" Then
+            MsgBox("Debe ingresar el monto a cobrar.")
+
+        Else
+            sql = "INSERT INTO pagoXCuentaCorriente (nroCuentaCorriente,fechaHora,monto) VALUES ( " & Me.txt_cuentaCorriente.Text & ",'" & DateTime.Now & "'," & Me.txt_montoAcobrar.Text & ")"
+            If dbhelper.EjecutarSQL(sql) = 1 Then
+                MsgBox("Se realizo correctamente el Pago.")
+            Else
+                MsgBox("El Pago no pudo realizarse.")
+            End If
+        End If
+
+        cargar_grillaPagos()
+
+    End Sub
+
+    Private Sub cargar_grillaPagos()
+        Dim sql As String = ""
+        Dim tablaPagos As New DataTable
+
+        sql = "SELECT * FROM pagoXCuentaCorriente WHERE pagoXCuentaCorriente.nroCuentaCorriente = " & Me.txt_cuentaCorriente.Text
         tablaPagos = dbhelper.ConsultaSQL(sql)
         Me.dgv_registroDePagos.Rows.Clear()
 
+        Me.txt_fechaPago.Text = ""
+        Me.txt_montoPago.Text = ""
 
-        If tablaPagos.Rows.Count = 0 Then
-            MsgBox("La dependencia no tiene pagos realizados.")
-        Else
-            Dim c As Integer = 0
+        Dim c As Integer = 0
             For c = 0 To tablaPagos.Rows.Count() - 1
                 Me.dgv_registroDePagos.Rows.Add()
                 Me.dgv_registroDePagos.Rows(c).Cells("c_nroCuentaCorrientePago").Value = tablaPagos.Rows(c)(0)
                 Me.dgv_registroDePagos.Rows(c).Cells("c_fechaHoraPago").Value = tablaPagos.Rows(c)(1)
                 Me.dgv_registroDePagos.Rows(c).Cells("c_montoPago").Value = tablaPagos.Rows(c)(2)
             Next
-
-        End If
-
 
     End Sub
 End Class

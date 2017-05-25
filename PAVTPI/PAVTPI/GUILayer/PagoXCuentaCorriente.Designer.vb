@@ -22,6 +22,7 @@ Partial Class PagoXCuentaCorriente
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.lbl_Dependencia = New System.Windows.Forms.Label()
         Me.dgv_dependencia = New System.Windows.Forms.DataGridView()
         Me.c_nombreDependencia = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -29,7 +30,7 @@ Partial Class PagoXCuentaCorriente
         Me.c_Saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.c_Estado = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btn_cancelar = New System.Windows.Forms.Button()
-        Me.btn_guardar = New System.Windows.Forms.Button()
+        Me.btn_registrarPago = New System.Windows.Forms.Button()
         Me.btn_buscar = New System.Windows.Forms.Button()
         Me.mtb_nroCuentacorriente = New System.Windows.Forms.MaskedTextBox()
         Me.lbl_nombre = New System.Windows.Forms.Label()
@@ -43,10 +44,14 @@ Partial Class PagoXCuentaCorriente
         Me.txt_estado = New System.Windows.Forms.TextBox()
         Me.txt_montoAcobrar = New System.Windows.Forms.TextBox()
         Me.dgv_registroDePagos = New System.Windows.Forms.DataGridView()
-        Me.lbl_registroDePagos = New System.Windows.Forms.Label()
         Me.c_nroCuentaCorrientePago = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.c_fechaHoraPago = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.c_montoPago = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lbl_registroDePagos = New System.Windows.Forms.Label()
+        Me.lbl_fechaPago = New System.Windows.Forms.Label()
+        Me.txt_fechaPago = New System.Windows.Forms.TextBox()
+        Me.lbl_montoPago = New System.Windows.Forms.Label()
+        Me.txt_montoPago = New System.Windows.Forms.TextBox()
         CType(Me.dgv_dependencia, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv_registroDePagos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -113,15 +118,15 @@ Partial Class PagoXCuentaCorriente
         Me.btn_cancelar.Text = "Cancelar"
         Me.btn_cancelar.UseVisualStyleBackColor = True
         '
-        'btn_guardar
+        'btn_registrarPago
         '
-        Me.btn_guardar.Enabled = False
-        Me.btn_guardar.Location = New System.Drawing.Point(9, 409)
-        Me.btn_guardar.Name = "btn_guardar"
-        Me.btn_guardar.Size = New System.Drawing.Size(75, 23)
-        Me.btn_guardar.TabIndex = 19
-        Me.btn_guardar.Text = "Guardar"
-        Me.btn_guardar.UseVisualStyleBackColor = True
+        Me.btn_registrarPago.Enabled = False
+        Me.btn_registrarPago.Location = New System.Drawing.Point(360, 310)
+        Me.btn_registrarPago.Name = "btn_registrarPago"
+        Me.btn_registrarPago.Size = New System.Drawing.Size(114, 23)
+        Me.btn_registrarPago.TabIndex = 19
+        Me.btn_registrarPago.Text = "Registrar Pago"
+        Me.btn_registrarPago.UseVisualStyleBackColor = True
         '
         'btn_buscar
         '
@@ -236,17 +241,10 @@ Partial Class PagoXCuentaCorriente
         Me.dgv_registroDePagos.Size = New System.Drawing.Size(285, 336)
         Me.dgv_registroDePagos.TabIndex = 26
         '
-        'lbl_registroDePagos
-        '
-        Me.lbl_registroDePagos.AutoSize = True
-        Me.lbl_registroDePagos.Location = New System.Drawing.Point(525, 40)
-        Me.lbl_registroDePagos.Name = "lbl_registroDePagos"
-        Me.lbl_registroDePagos.Size = New System.Drawing.Size(94, 13)
-        Me.lbl_registroDePagos.TabIndex = 27
-        Me.lbl_registroDePagos.Text = "Registro de Pagos"
-        '
         'c_nroCuentaCorrientePago
         '
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.c_nroCuentaCorrientePago.DefaultCellStyle = DataGridViewCellStyle4
         Me.c_nroCuentaCorrientePago.FillWeight = 50.0!
         Me.c_nroCuentaCorrientePago.HeaderText = "Cuenta Corriente"
         Me.c_nroCuentaCorrientePago.Name = "c_nroCuentaCorrientePago"
@@ -269,13 +267,60 @@ Partial Class PagoXCuentaCorriente
         Me.c_montoPago.ReadOnly = True
         Me.c_montoPago.Width = 50
         '
+        'lbl_registroDePagos
+        '
+        Me.lbl_registroDePagos.AutoSize = True
+        Me.lbl_registroDePagos.Location = New System.Drawing.Point(525, 40)
+        Me.lbl_registroDePagos.Name = "lbl_registroDePagos"
+        Me.lbl_registroDePagos.Size = New System.Drawing.Size(94, 13)
+        Me.lbl_registroDePagos.TabIndex = 27
+        Me.lbl_registroDePagos.Text = "Registro de Pagos"
+        '
+        'lbl_fechaPago
+        '
+        Me.lbl_fechaPago.AutoSize = True
+        Me.lbl_fechaPago.Location = New System.Drawing.Point(16, 383)
+        Me.lbl_fechaPago.Name = "lbl_fechaPago"
+        Me.lbl_fechaPago.Size = New System.Drawing.Size(82, 13)
+        Me.lbl_fechaPago.TabIndex = 28
+        Me.lbl_fechaPago.Text = "Fecha De Pago"
+        '
+        'txt_fechaPago
+        '
+        Me.txt_fechaPago.Enabled = False
+        Me.txt_fechaPago.Location = New System.Drawing.Point(104, 376)
+        Me.txt_fechaPago.Name = "txt_fechaPago"
+        Me.txt_fechaPago.Size = New System.Drawing.Size(174, 20)
+        Me.txt_fechaPago.TabIndex = 25
+        '
+        'lbl_montoPago
+        '
+        Me.lbl_montoPago.AutoSize = True
+        Me.lbl_montoPago.Location = New System.Drawing.Point(61, 413)
+        Me.lbl_montoPago.Name = "lbl_montoPago"
+        Me.lbl_montoPago.Size = New System.Drawing.Size(37, 13)
+        Me.lbl_montoPago.TabIndex = 28
+        Me.lbl_montoPago.Text = "Monto"
+        '
+        'txt_montoPago
+        '
+        Me.txt_montoPago.Enabled = False
+        Me.txt_montoPago.Location = New System.Drawing.Point(104, 406)
+        Me.txt_montoPago.Name = "txt_montoPago"
+        Me.txt_montoPago.Size = New System.Drawing.Size(70, 20)
+        Me.txt_montoPago.TabIndex = 25
+        '
         'PagoXCuentaCorriente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(827, 442)
+        Me.Controls.Add(Me.lbl_montoPago)
+        Me.Controls.Add(Me.lbl_fechaPago)
         Me.Controls.Add(Me.lbl_registroDePagos)
         Me.Controls.Add(Me.dgv_registroDePagos)
+        Me.Controls.Add(Me.txt_montoPago)
+        Me.Controls.Add(Me.txt_fechaPago)
         Me.Controls.Add(Me.txt_montoAcobrar)
         Me.Controls.Add(Me.txt_estado)
         Me.Controls.Add(Me.txt_cuentaCorriente)
@@ -289,7 +334,7 @@ Partial Class PagoXCuentaCorriente
         Me.Controls.Add(Me.mtb_nroCuentacorriente)
         Me.Controls.Add(Me.btn_buscar)
         Me.Controls.Add(Me.btn_cancelar)
-        Me.Controls.Add(Me.btn_guardar)
+        Me.Controls.Add(Me.btn_registrarPago)
         Me.Controls.Add(Me.dgv_dependencia)
         Me.Controls.Add(Me.lbl_Dependencia)
         Me.Name = "PagoXCuentaCorriente"
@@ -308,7 +353,7 @@ Partial Class PagoXCuentaCorriente
     Friend WithEvents c_Saldo As DataGridViewTextBoxColumn
     Friend WithEvents c_Estado As DataGridViewTextBoxColumn
     Friend WithEvents btn_cancelar As Button
-    Friend WithEvents btn_guardar As Button
+    Friend WithEvents btn_registrarPago As Button
     Friend WithEvents btn_buscar As Button
     Friend WithEvents mtb_nroCuentacorriente As MaskedTextBox
     Friend WithEvents lbl_nombre As Label
@@ -326,4 +371,8 @@ Partial Class PagoXCuentaCorriente
     Friend WithEvents c_nroCuentaCorrientePago As DataGridViewTextBoxColumn
     Friend WithEvents c_fechaHoraPago As DataGridViewTextBoxColumn
     Friend WithEvents c_montoPago As DataGridViewTextBoxColumn
+    Friend WithEvents lbl_fechaPago As Label
+    Friend WithEvents txt_fechaPago As TextBox
+    Friend WithEvents lbl_montoPago As Label
+    Friend WithEvents txt_montoPago As TextBox
 End Class
