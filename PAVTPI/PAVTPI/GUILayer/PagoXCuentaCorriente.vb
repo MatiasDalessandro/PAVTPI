@@ -123,7 +123,6 @@
             Me.dgv_registroDePagos.Rows.Add()
             Me.dgv_registroDePagos.Rows(c).Cells("c_nroCuentaCorrientePago").Value = tablaPagos.Rows(c)(0)
             Me.dgv_registroDePagos.Rows(c).Cells("c_fechaHoraPago").Value = tablaPagos.Rows(c)(1)
-
             Me.dgv_registroDePagos.Rows(c).Cells("c_montoPago").Value = tablaPagos.Rows(c)(2)
         Next
 
