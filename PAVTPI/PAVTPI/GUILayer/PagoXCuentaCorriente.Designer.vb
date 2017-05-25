@@ -22,7 +22,7 @@ Partial Class PagoXCuentaCorriente
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.lbl_Dependencia = New System.Windows.Forms.Label()
         Me.dgv_dependencia = New System.Windows.Forms.DataGridView()
         Me.c_nombreDependencia = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -52,6 +52,8 @@ Partial Class PagoXCuentaCorriente
         Me.txt_fechaPago = New System.Windows.Forms.TextBox()
         Me.lbl_montoPago = New System.Windows.Forms.Label()
         Me.txt_montoPago = New System.Windows.Forms.TextBox()
+        Me.gb_dependenciaSeleccionada = New System.Windows.Forms.GroupBox()
+        Me.gb_pagoSeleccionado = New System.Windows.Forms.GroupBox()
         CType(Me.dgv_dependencia, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv_registroDePagos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -111,7 +113,7 @@ Partial Class PagoXCuentaCorriente
         '
         'btn_cancelar
         '
-        Me.btn_cancelar.Location = New System.Drawing.Point(738, 409)
+        Me.btn_cancelar.Location = New System.Drawing.Point(738, 417)
         Me.btn_cancelar.Name = "btn_cancelar"
         Me.btn_cancelar.Size = New System.Drawing.Size(75, 23)
         Me.btn_cancelar.TabIndex = 18
@@ -243,8 +245,8 @@ Partial Class PagoXCuentaCorriente
         '
         'c_nroCuentaCorrientePago
         '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.c_nroCuentaCorrientePago.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.c_nroCuentaCorrientePago.DefaultCellStyle = DataGridViewCellStyle1
         Me.c_nroCuentaCorrientePago.FillWeight = 50.0!
         Me.c_nroCuentaCorrientePago.HeaderText = "Cuenta Corriente"
         Me.c_nroCuentaCorrientePago.Name = "c_nroCuentaCorrientePago"
@@ -288,7 +290,7 @@ Partial Class PagoXCuentaCorriente
         'txt_fechaPago
         '
         Me.txt_fechaPago.Enabled = False
-        Me.txt_fechaPago.Location = New System.Drawing.Point(104, 376)
+        Me.txt_fechaPago.Location = New System.Drawing.Point(104, 379)
         Me.txt_fechaPago.Name = "txt_fechaPago"
         Me.txt_fechaPago.Size = New System.Drawing.Size(174, 20)
         Me.txt_fechaPago.TabIndex = 25
@@ -305,16 +307,34 @@ Partial Class PagoXCuentaCorriente
         'txt_montoPago
         '
         Me.txt_montoPago.Enabled = False
-        Me.txt_montoPago.Location = New System.Drawing.Point(104, 406)
+        Me.txt_montoPago.Location = New System.Drawing.Point(104, 408)
         Me.txt_montoPago.Name = "txt_montoPago"
         Me.txt_montoPago.Size = New System.Drawing.Size(70, 20)
         Me.txt_montoPago.TabIndex = 25
+        '
+        'gb_dependenciaSeleccionada
+        '
+        Me.gb_dependenciaSeleccionada.Location = New System.Drawing.Point(9, 199)
+        Me.gb_dependenciaSeleccionada.Name = "gb_dependenciaSeleccionada"
+        Me.gb_dependenciaSeleccionada.Size = New System.Drawing.Size(485, 155)
+        Me.gb_dependenciaSeleccionada.TabIndex = 29
+        Me.gb_dependenciaSeleccionada.TabStop = False
+        Me.gb_dependenciaSeleccionada.Text = "Dependencia Seleccionada"
+        '
+        'gb_pagoSeleccionado
+        '
+        Me.gb_pagoSeleccionado.Location = New System.Drawing.Point(9, 360)
+        Me.gb_pagoSeleccionado.Name = "gb_pagoSeleccionado"
+        Me.gb_pagoSeleccionado.Size = New System.Drawing.Size(485, 80)
+        Me.gb_pagoSeleccionado.TabIndex = 29
+        Me.gb_pagoSeleccionado.TabStop = False
+        Me.gb_pagoSeleccionado.Text = "Pago Seleccionado"
         '
         'PagoXCuentaCorriente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(827, 442)
+        Me.ClientSize = New System.Drawing.Size(820, 446)
         Me.Controls.Add(Me.lbl_montoPago)
         Me.Controls.Add(Me.lbl_fechaPago)
         Me.Controls.Add(Me.lbl_registroDePagos)
@@ -337,6 +357,8 @@ Partial Class PagoXCuentaCorriente
         Me.Controls.Add(Me.btn_registrarPago)
         Me.Controls.Add(Me.dgv_dependencia)
         Me.Controls.Add(Me.lbl_Dependencia)
+        Me.Controls.Add(Me.gb_pagoSeleccionado)
+        Me.Controls.Add(Me.gb_dependenciaSeleccionada)
         Me.Name = "PagoXCuentaCorriente"
         Me.Text = "PagoXCuentaCorriente"
         CType(Me.dgv_dependencia, System.ComponentModel.ISupportInitialize).EndInit()
@@ -375,4 +397,6 @@ Partial Class PagoXCuentaCorriente
     Friend WithEvents txt_fechaPago As TextBox
     Friend WithEvents lbl_montoPago As Label
     Friend WithEvents txt_montoPago As TextBox
+    Friend WithEvents gb_dependenciaSeleccionada As GroupBox
+    Friend WithEvents gb_pagoSeleccionado As GroupBox
 End Class

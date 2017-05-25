@@ -158,4 +158,5 @@
             Me.btn_registrarPago.Enabled = False
         End If
     End Sub
+
 End Class
