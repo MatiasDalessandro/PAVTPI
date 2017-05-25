@@ -71,7 +71,7 @@
         Me.txt_saldo.Text = tabla.Rows(0)(3)
         Me.txt_estado.Text = tabla.Rows(0)(4)
 
-        If Me.txt_saldo.Text = "0" Then
+        If Me.txt_saldo.Text < 0 Then
             Me.btn_registrarPago.Enabled = False
         Else
             Me.btn_registrarPago.Enabled = True
