@@ -123,7 +123,7 @@
         cargar_grillaPagos()
         refrescar_saldo()
         Me.cargar_grilla()
-
+        Me.txt_montoAcobrar.Text = ""
     End Sub
 
     Private Sub cargar_grillaPagos()
