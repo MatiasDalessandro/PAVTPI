@@ -107,12 +107,22 @@
             sql = "INSERT INTO pagoXCuentaCorriente (nroCuentaCorriente,fechaHora,monto) VALUES ( " & Me.txt_cuentaCorriente.Text & ",'" & DateTime.Now & "'," & Me.txt_montoAcobrar.Text & ")"
             If dbhelper.EjecutarSQL(sql) = 1 Then
                 MsgBox("Se realizo correctamente el Pago.")
+
+                Dim restaSaldo As Double = 0
+                Dim saldo1 As Double = Me.txt_saldo.Text
+                Dim saldo2 As Double = Me.txt_montoAcobrar.Text
+
+                restaSaldo = saldo1 - saldo2
+                dbhelper.EjecutarSQL("UPDATE dependencia SET dependencia.saldo = " & restaSaldo & "WHERE dependencia.nroCuentaCorriente = " & Me.txt_cuentaCorriente.Text)
+
             Else
                 MsgBox("El Pago no pudo realizarse.")
             End If
         End If
 
         cargar_grillaPagos()
+        refrescar_saldo()
+        Me.cargar_grilla()
 
     End Sub
 
@@ -128,12 +138,24 @@
         Me.txt_montoPago.Text = ""
 
         Dim c As Integer = 0
-            For c = 0 To tablaPagos.Rows.Count() - 1
-                Me.dgv_registroDePagos.Rows.Add()
-                Me.dgv_registroDePagos.Rows(c).Cells("c_nroCuentaCorrientePago").Value = tablaPagos.Rows(c)(0)
-                Me.dgv_registroDePagos.Rows(c).Cells("c_fechaHoraPago").Value = tablaPagos.Rows(c)(1)
-                Me.dgv_registroDePagos.Rows(c).Cells("c_montoPago").Value = tablaPagos.Rows(c)(2)
-            Next
+        For c = 0 To tablaPagos.Rows.Count() - 1
+            Me.dgv_registroDePagos.Rows.Add()
+            Me.dgv_registroDePagos.Rows(c).Cells("c_nroCuentaCorrientePago").Value = tablaPagos.Rows(c)(0)
+            Me.dgv_registroDePagos.Rows(c).Cells("c_fechaHoraPago").Value = tablaPagos.Rows(c)(1)
+            Me.dgv_registroDePagos.Rows(c).Cells("c_montoPago").Value = tablaPagos.Rows(c)(2)
+        Next
 
+    End Sub
+
+    Private Sub refrescar_saldo()
+        Dim tabla As New DataTable
+
+        tabla = dbhelper.ConsultaSQL("SELECT dependencia.saldo from dependencia WHERE dependencia.nroCuentaCorriente = " & Me.txt_cuentaCorriente.Text)
+
+        Me.txt_saldo.Text = tabla.Rows(0)(0)
+
+        If Me.txt_saldo.Text = 0 Then
+            Me.btn_registrarPago.Enabled = False
+        End If
     End Sub
 End Class
