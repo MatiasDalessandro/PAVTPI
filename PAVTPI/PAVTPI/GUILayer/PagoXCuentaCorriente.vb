@@ -133,7 +133,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        If Me.txt_montoAcobrar.Text < 1 Then
+        If Me.txt_montoAcobrar.Text < 1 Or Me.txt_montoAcobrar.Text > Me.txt_saldo.Text Then
             MsgBox("Debe ingresar correctamente el monto a cobrar.")
 
         Else
