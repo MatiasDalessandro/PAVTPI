@@ -82,7 +82,7 @@
         End If
 
 
-        If Me.txt_saldo.Text < 0 Then
+        If Me.txt_saldo.Text < 1 Then
             Me.btn_registrarPago.Enabled = False
         Else
             Me.btn_registrarPago.Enabled = True
@@ -105,6 +105,7 @@
 
         Me.txt_fechaPago.Text = tabla.Rows(0)(1)
         Me.txt_montoPago.Text = tabla.Rows(0)(2)
+
     End Sub
 
     Private Sub cargar_grillaPagos()
@@ -135,7 +136,7 @@
 
         Me.txt_saldo.Text = tabla.Rows(0)(0)
 
-        If Me.txt_saldo.Text = 0 Then
+        If Me.txt_saldo.Text < 1 Then
             Me.btn_registrarPago.Enabled = False
         End If
     End Sub
