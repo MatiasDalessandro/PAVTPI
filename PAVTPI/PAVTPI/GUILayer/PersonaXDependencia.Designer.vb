@@ -212,16 +212,16 @@ Partial Class PersonaXDependencia
         '
         Me.btn_dependencia.Location = New System.Drawing.Point(162, 40)
         Me.btn_dependencia.Name = "btn_dependencia"
-        Me.btn_dependencia.Size = New System.Drawing.Size(17, 23)
+        Me.btn_dependencia.Size = New System.Drawing.Size(17, 20)
         Me.btn_dependencia.TabIndex = 17
         Me.btn_dependencia.Text = "+"
         Me.btn_dependencia.UseVisualStyleBackColor = True
         '
         'btn_persona_empleado
         '
-        Me.btn_persona_empleado.Location = New System.Drawing.Point(372, 34)
+        Me.btn_persona_empleado.Location = New System.Drawing.Point(372, 37)
         Me.btn_persona_empleado.Name = "btn_persona_empleado"
-        Me.btn_persona_empleado.Size = New System.Drawing.Size(17, 23)
+        Me.btn_persona_empleado.Size = New System.Drawing.Size(17, 21)
         Me.btn_persona_empleado.TabIndex = 18
         Me.btn_persona_empleado.Text = "+"
         Me.btn_persona_empleado.UseVisualStyleBackColor = True

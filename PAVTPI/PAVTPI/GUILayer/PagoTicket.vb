@@ -6,6 +6,8 @@
         cargar_combo(cmb_dependencia, (dbHelper.ConsultaSQL("select * from dependencia")), "nroCuentaCorriente", "descripcion")
 
         Dim sql As String = "select * from rolXPersona where idRol = (select idRol from rol where descripcion= 'Mozo')"
+        Dim tabla As DataTable
+        tabla = dbHelper.ConsultaSQL(sql)
 
         cargar_combo(cmb_empleado, (dbHelper.ConsultaSQL(sql)), "nroDocumento", "")
 
