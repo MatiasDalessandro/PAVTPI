@@ -202,13 +202,15 @@
                         Me.dgv_datos_articulos.Rows.Add(New String() {
                                                         .Item("idArticuloIntegrante").ToString,
                                                         .Item("nombre").ToString,
-                                                        .Item("precio").ToString,
                                                         .Item("cantidad").ToString
                                                         })
                         txt_id_combo.Text = .Item("idCombo").ToString
                         txt_nombre_articulo.Text = .Item("nombreCombo").ToString
+
+
                     End With
                 Next
+                txt_precio.Text = tabla(0)("precio")
             Else
                 Throw New Exception
             End If
@@ -228,12 +230,12 @@
 
                 For Each rowInsert As DataGridViewRow In dgv_datos_articulos.Rows
                     If strSQL = "" Then
-                        strSQL &= "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante,cantidad) VALUES (" _
-                      & txt_id_combo.Text & ",'" & txt_nombre_articulo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & ");"
+                        strSQL &= "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante,cantidad,precio) VALUES (" _
+                      & txt_id_combo.Text & ",'" & txt_nombre_articulo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & "," & txt_precio.Text & ");"
                     Else
                         strSQL &= vbLf
-                        strSQL &= "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante,cantidad) VALUES (" _
-                      & txt_id_combo.Text & ",'" & txt_nombre_articulo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & ");"
+                        strSQL &= "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante,cantidad,precio) VALUES (" _
+                      & txt_id_combo.Text & ",'" & txt_nombre_articulo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & "," & txt_precio.Text & ");"
                     End If
                 Next
 
@@ -254,12 +256,12 @@
 
                 For Each rowInsert As DataGridViewRow In dgv_datos_articulos.Rows
                     If strSQL = "" Then
-                        strSQL &= "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante,cantidad) VALUES (" _
-                      & txt_id_combo.Text & ",'" & txt_nombre_articulo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & ");"
+                        strSQL &= "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante,cantidad,precio) VALUES (" _
+                      & txt_id_combo.Text & ",'" & txt_nombre_articulo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & "," & txt_precio.Text & ");"
                     Else
                         strSQL &= vbLf
-                        strSQL &= "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante,cantidad) VALUES (" _
-                      & txt_id_combo.Text & ",'" & txt_nombre_articulo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & ");"
+                        strSQL &= "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante,cantidad,precio) VALUES (" _
+                      & txt_id_combo.Text & ",'" & txt_nombre_articulo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & "," & txt_precio.Text & ");"
                     End If
                 Next
 
@@ -286,4 +288,6 @@
     Private Sub btn_salir_Click(sender As Object, e As EventArgs) Handles btn_salir.Click
         Me.Close()
     End Sub
+
+
 End Class

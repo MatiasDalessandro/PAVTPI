@@ -153,7 +153,7 @@
 
         tabla = dbhelper.ConsultaSQL(sql)
 
-        Me.msk_IdArticulo.Text = tabla.Rows(0)("idArticuloCombo")
+        Me.msk_IdArticulo.Text = tabla.Rows(0)("idArticuloIntegrante")
         Me.txt_nombre_articulo.Text = tabla.Rows(0)("nombre")
         Me.txt_precio.Text = tabla.Rows(0)("precio")
 

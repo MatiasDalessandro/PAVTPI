@@ -247,11 +247,14 @@ Partial Class Venta
         '
         'dgv_detalle
         '
+        Me.dgv_detalle.AllowUserToAddRows = False
+        Me.dgv_detalle.AllowUserToDeleteRows = False
         Me.dgv_detalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgv_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_detalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.nombre_2, Me.monto})
         Me.dgv_detalle.Location = New System.Drawing.Point(11, 318)
         Me.dgv_detalle.Name = "dgv_detalle"
+        Me.dgv_detalle.ReadOnly = True
         Me.dgv_detalle.Size = New System.Drawing.Size(994, 150)
         Me.dgv_detalle.TabIndex = 28
         '
@@ -272,18 +275,24 @@ Partial Class Venta
         '
         'dgv_articulo
         '
+        Me.dgv_articulo.AllowUserToAddRows = False
+        Me.dgv_articulo.AllowUserToDeleteRows = False
         Me.dgv_articulo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgv_articulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_articulo.Location = New System.Drawing.Point(11, 51)
         Me.dgv_articulo.Name = "dgv_articulo"
+        Me.dgv_articulo.ReadOnly = True
         Me.dgv_articulo.Size = New System.Drawing.Size(450, 201)
         Me.dgv_articulo.TabIndex = 29
         '
         'dgv_combo
         '
+        Me.dgv_combo.AllowUserToAddRows = False
+        Me.dgv_combo.AllowUserToDeleteRows = False
         Me.dgv_combo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_combo.Location = New System.Drawing.Point(555, 51)
         Me.dgv_combo.Name = "dgv_combo"
+        Me.dgv_combo.ReadOnly = True
         Me.dgv_combo.Size = New System.Drawing.Size(450, 201)
         Me.dgv_combo.TabIndex = 30
         '
