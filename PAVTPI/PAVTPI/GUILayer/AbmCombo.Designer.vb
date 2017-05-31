@@ -23,11 +23,14 @@ Partial Class AbmCombo
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.dgv_datos_articulos = New System.Windows.Forms.DataGridView()
+        Me.c_id_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.c_nombre_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btn_buscar = New System.Windows.Forms.Button()
         Me.btn_salir = New System.Windows.Forms.Button()
         Me.btn_guardar = New System.Windows.Forms.Button()
         Me.btn_eliminar = New System.Windows.Forms.Button()
-        Me.txt_nombre_articulo = New System.Windows.Forms.TextBox()
+        Me.txt_nombre_combo = New System.Windows.Forms.TextBox()
         Me.txt_id_combo = New System.Windows.Forms.TextBox()
         Me.lbl_nombre_combo = New System.Windows.Forms.Label()
         Me.lbl_id_combo = New System.Windows.Forms.Label()
@@ -39,9 +42,6 @@ Partial Class AbmCombo
         Me.BuscarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txt_precio = New System.Windows.Forms.TextBox()
-        Me.c_id_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.c_nombre_articulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv_datos_articulos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -55,8 +55,29 @@ Partial Class AbmCombo
         Me.dgv_datos_articulos.Location = New System.Drawing.Point(349, 27)
         Me.dgv_datos_articulos.Name = "dgv_datos_articulos"
         Me.dgv_datos_articulos.ReadOnly = True
-        Me.dgv_datos_articulos.Size = New System.Drawing.Size(491, 228)
+        Me.dgv_datos_articulos.Size = New System.Drawing.Size(438, 228)
         Me.dgv_datos_articulos.TabIndex = 30
+        '
+        'c_id_articulo
+        '
+        Me.c_id_articulo.HeaderText = "ID Articulo"
+        Me.c_id_articulo.Name = "c_id_articulo"
+        Me.c_id_articulo.ReadOnly = True
+        Me.c_id_articulo.Width = 80
+        '
+        'c_nombre_articulo
+        '
+        Me.c_nombre_articulo.HeaderText = "Nombre Articulo"
+        Me.c_nombre_articulo.Name = "c_nombre_articulo"
+        Me.c_nombre_articulo.ReadOnly = True
+        Me.c_nombre_articulo.Width = 250
+        '
+        'cantidad
+        '
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ReadOnly = True
+        Me.cantidad.Width = 60
         '
         'btn_buscar
         '
@@ -96,13 +117,13 @@ Partial Class AbmCombo
         Me.btn_eliminar.Text = "Eliminar"
         Me.btn_eliminar.UseVisualStyleBackColor = True
         '
-        'txt_nombre_articulo
+        'txt_nombre_combo
         '
-        Me.txt_nombre_articulo.Enabled = False
-        Me.txt_nombre_articulo.Location = New System.Drawing.Point(125, 71)
-        Me.txt_nombre_articulo.Name = "txt_nombre_articulo"
-        Me.txt_nombre_articulo.Size = New System.Drawing.Size(156, 20)
-        Me.txt_nombre_articulo.TabIndex = 23
+        Me.txt_nombre_combo.Enabled = False
+        Me.txt_nombre_combo.Location = New System.Drawing.Point(125, 71)
+        Me.txt_nombre_combo.Name = "txt_nombre_combo"
+        Me.txt_nombre_combo.Size = New System.Drawing.Size(156, 20)
+        Me.txt_nombre_combo.TabIndex = 23
         '
         'txt_id_combo
         '
@@ -149,7 +170,7 @@ Partial Class AbmCombo
         '
         'btn_editar_combo
         '
-        Me.btn_editar_combo.Location = New System.Drawing.Point(759, 261)
+        Me.btn_editar_combo.Location = New System.Drawing.Point(706, 261)
         Me.btn_editar_combo.Name = "btn_editar_combo"
         Me.btn_editar_combo.Size = New System.Drawing.Size(81, 23)
         Me.btn_editar_combo.TabIndex = 33
@@ -161,7 +182,7 @@ Partial Class AbmCombo
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NuevoToolStripMenuItem, Me.BuscarToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(858, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(807, 24)
         Me.MenuStrip1.TabIndex = 36
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -193,32 +214,11 @@ Partial Class AbmCombo
         Me.txt_precio.Size = New System.Drawing.Size(156, 20)
         Me.txt_precio.TabIndex = 38
         '
-        'c_id_articulo
-        '
-        Me.c_id_articulo.HeaderText = "ID Articulo"
-        Me.c_id_articulo.Name = "c_id_articulo"
-        Me.c_id_articulo.ReadOnly = True
-        Me.c_id_articulo.Width = 80
-        '
-        'c_nombre_articulo
-        '
-        Me.c_nombre_articulo.HeaderText = "Nombre Articulo"
-        Me.c_nombre_articulo.Name = "c_nombre_articulo"
-        Me.c_nombre_articulo.ReadOnly = True
-        Me.c_nombre_articulo.Width = 250
-        '
-        'cantidad
-        '
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.ReadOnly = True
-        Me.cantidad.Width = 60
-        '
         'AbmCombo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(858, 303)
+        Me.ClientSize = New System.Drawing.Size(807, 303)
         Me.Controls.Add(Me.txt_precio)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btn_editar_combo)
@@ -229,7 +229,7 @@ Partial Class AbmCombo
         Me.Controls.Add(Me.btn_salir)
         Me.Controls.Add(Me.btn_guardar)
         Me.Controls.Add(Me.btn_eliminar)
-        Me.Controls.Add(Me.txt_nombre_articulo)
+        Me.Controls.Add(Me.txt_nombre_combo)
         Me.Controls.Add(Me.txt_id_combo)
         Me.Controls.Add(Me.lbl_nombre_combo)
         Me.Controls.Add(Me.lbl_id_combo)
@@ -250,7 +250,7 @@ Partial Class AbmCombo
     Friend WithEvents btn_salir As Button
     Friend WithEvents btn_guardar As Button
     Friend WithEvents btn_eliminar As Button
-    Friend WithEvents txt_nombre_articulo As TextBox
+    Friend WithEvents txt_nombre_combo As TextBox
     Friend WithEvents txt_id_combo As TextBox
     Friend WithEvents lbl_nombre_combo As Label
     Friend WithEvents lbl_id_combo As Label

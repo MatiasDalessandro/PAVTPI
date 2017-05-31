@@ -26,8 +26,11 @@
         txt_id_combo.Enabled = False
         txt_id_combo.Text = numID.ToString
 
-        txt_nombre_articulo.Enabled = True
-        txt_nombre_articulo.Text = Nothing
+        txt_nombre_combo.Enabled = True
+        txt_nombre_combo.Text = Nothing
+
+        txt_precio.Enabled = True
+        txt_precio.Text = Nothing
 
         dgv_datos_articulos.DataSource = Nothing
         dgv_datos_articulos.Rows.Clear()
@@ -59,8 +62,11 @@
         txt_id_combo.Enabled = True
         txt_id_combo.Text = Nothing
 
-        txt_nombre_articulo.Enabled = False
-        txt_nombre_articulo.Text = Nothing
+        txt_nombre_combo.Enabled = False
+        txt_nombre_combo.Text = Nothing
+
+        txt_precio.Enabled = False
+        txt_precio.Text = Nothing
 
         dgv_datos_articulos.DataSource = Nothing
         dgv_datos_articulos.Rows.Clear()
@@ -88,7 +94,8 @@
         bandera = tipoOperacion.editar
 
         txt_id_combo.Enabled = False
-        txt_nombre_articulo.Enabled = True
+        txt_nombre_combo.Enabled = True
+        txt_precio.Enabled = True
 
         btn_buscar.Enabled = False
         btn_buscar.Visible = False
@@ -116,8 +123,11 @@
         txt_id_combo.Enabled = False
         txt_id_combo.Text = Nothing
 
-        txt_nombre_articulo.Enabled = False
-        txt_nombre_articulo.Text = Nothing
+        txt_nombre_combo.Enabled = False
+        txt_nombre_combo.Text = Nothing
+
+        txt_precio.Enabled = False
+        txt_precio.Text = Nothing
 
         dgv_datos_articulos.DataSource = Nothing
 
@@ -183,17 +193,21 @@
     End Sub
 
     Private Sub btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
+        Dim idCom As String = txt_id_combo.Text.ToString
+        setBuscar()
+
         btn_editar_combo.Enabled = True
         btn_editar_combo.Visible = True
 
-        llenarGrilla(txt_id_combo.Text.ToString)
+        llenarGrilla(idCom)
 
     End Sub
 
     Private Sub llenarGrilla(ByVal idCombo As String)
-        Dim strSql As String = "SELECT A.idCombo, A.nombreCombo, B.idArticuloIntegrante, B.nombre, B.precio, A.cantidad " _
+        Dim strSql As String = "SELECT A.idCombo, A.nombreCombo, B.idArticuloIntegrante, B.nombre, A.cantidad, A.precio " _
             & "FROM comboXArticulo A, articulo B " _
-            & "WHERE A.idArticuloIntegrante = B.idArticuloIntegrante AND idCombo = " & idCombo.ToString
+            & "WHERE A.idArticuloIntegrante = B.idArticuloIntegrante AND idCombo = " & idCombo
+
         Try
             Dim tabla As DataTable = DBHelper.getDBHelper().ConsultaSQL(strSql)
             If tabla.Rows.Count > 0 Then
@@ -205,12 +219,11 @@
                                                         .Item("cantidad").ToString
                                                         })
                         txt_id_combo.Text = .Item("idCombo").ToString
-                        txt_nombre_articulo.Text = .Item("nombreCombo").ToString
-
+                        txt_nombre_combo.Text = .Item("nombreCombo").ToString
+                        txt_precio.Text = .Item("precio")
 
                     End With
                 Next
-                txt_precio.Text = tabla(0)("precio")
             Else
                 Throw New Exception
             End If
@@ -230,12 +243,12 @@
 
                 For Each rowInsert As DataGridViewRow In dgv_datos_articulos.Rows
                     If strSQL = "" Then
-                        strSQL &= "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante,cantidad,precio) VALUES (" _
-                      & txt_id_combo.Text & ",'" & txt_nombre_articulo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & "," & txt_precio.Text & ");"
+                        strSQL &= "INSERT INTO comboXArticulo (idCombo, nombreCombo, idArticuloIntegrante, cantidad, precio) VALUES (" _
+                      & txt_id_combo.Text & ",'" & txt_nombre_combo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & "," & txt_precio.Text & ");"
                     Else
                         strSQL &= vbLf
                         strSQL &= "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante,cantidad,precio) VALUES (" _
-                      & txt_id_combo.Text & ",'" & txt_nombre_articulo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & "," & txt_precio.Text & ");"
+                      & txt_id_combo.Text & ",'" & txt_nombre_combo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & "," & txt_precio.Text & ");"
                     End If
                 Next
 
@@ -254,19 +267,26 @@
                     End If
                 Next
 
+                If strSQL = "" Then
+                    strSQL &= "UPDATE comboXArticulo set nombreCombo = " & txt_nombre_combo.Text.ToString & ", precio = " & txt_precio.Text.ToString & "WHERE idCombo = 1;"
+                Else
+                    strSQL &= vbLf
+                    strSQL &= "UPDATE comboXArticulo set nombreCombo = " & txt_nombre_combo.Text.ToString & ", precio = " & txt_precio.Text.ToString & "WHERE idCombo = 1;"
+                End If
+
                 For Each rowInsert As DataGridViewRow In dgv_datos_articulos.Rows
                     If strSQL = "" Then
                         strSQL &= "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante,cantidad,precio) VALUES (" _
-                      & txt_id_combo.Text & ",'" & txt_nombre_articulo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & "," & txt_precio.Text & ");"
+                      & txt_id_combo.Text & ",'" & txt_nombre_combo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & "," & txt_precio.Text & ");"
                     Else
                         strSQL &= vbLf
                         strSQL &= "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante,cantidad,precio) VALUES (" _
-                      & txt_id_combo.Text & ",'" & txt_nombre_articulo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & "," & txt_precio.Text & ");"
+                      & txt_id_combo.Text & ",'" & txt_nombre_combo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & "," & txt_precio.Text & ");"
                     End If
                 Next
 
                 DBHelper.getDBHelper.EjecutarSQL(strSQL)
-                setNuevo()
+                setBuscar()
 
             End If
         End If
