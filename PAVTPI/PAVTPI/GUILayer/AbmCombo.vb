@@ -244,11 +244,11 @@
                 For Each rowInsert As DataGridViewRow In dgv_datos_articulos.Rows
                     If strSQL = "" Then
                         strSQL &= "INSERT INTO comboXArticulo (idCombo, nombreCombo, idArticuloIntegrante, cantidad, precio) VALUES (" _
-                      & txt_id_combo.Text & ",'" & txt_nombre_combo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & "," & txt_precio.Text & ");"
+                      & txt_id_combo.Text & ",'" & txt_nombre_combo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(2).Value.ToString & "," & txt_precio.Text.ToString & ");"
                     Else
                         strSQL &= vbLf
                         strSQL &= "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante,cantidad,precio) VALUES (" _
-                      & txt_id_combo.Text & ",'" & txt_nombre_combo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & "," & txt_precio.Text & ");"
+                      & txt_id_combo.Text & ",'" & txt_nombre_combo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(2).Value.ToString & "," & txt_precio.Text.ToString & ");"
                     End If
                 Next
 
@@ -277,11 +277,11 @@
                 For Each rowInsert As DataGridViewRow In dgv_datos_articulos.Rows
                     If strSQL = "" Then
                         strSQL &= "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante,cantidad,precio) VALUES (" _
-                      & txt_id_combo.Text & ",'" & txt_nombre_combo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & "," & txt_precio.Text & ");"
+                      & txt_id_combo.Text & ",'" & txt_nombre_combo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(2).Value.ToString & "," & txt_precio.Text.ToString & ");"
                     Else
                         strSQL &= vbLf
                         strSQL &= "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante,cantidad,precio) VALUES (" _
-                      & txt_id_combo.Text & ",'" & txt_nombre_combo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(3).Value.ToString & "," & txt_precio.Text & ");"
+                      & txt_id_combo.Text & ",'" & txt_nombre_combo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(2).Value.ToString & "," & txt_precio.Text.ToString & ");"
                     End If
                 Next
 
