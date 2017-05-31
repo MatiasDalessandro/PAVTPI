@@ -58,7 +58,7 @@ Partial Class Venta
         '
         'btn_buscarArticulo
         '
-        Me.btn_buscarArticulo.Location = New System.Drawing.Point(87, 22)
+        Me.btn_buscarArticulo.Location = New System.Drawing.Point(87, 25)
         Me.btn_buscarArticulo.Name = "btn_buscarArticulo"
         Me.btn_buscarArticulo.Size = New System.Drawing.Size(69, 23)
         Me.btn_buscarArticulo.TabIndex = 0
@@ -86,7 +86,7 @@ Partial Class Venta
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(379, 9)
+        Me.Label1.Location = New System.Drawing.Point(552, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(40, 13)
         Me.Label1.TabIndex = 4
@@ -94,7 +94,7 @@ Partial Class Venta
         '
         'txt_combo
         '
-        Me.txt_combo.Location = New System.Drawing.Point(382, 25)
+        Me.txt_combo.Location = New System.Drawing.Point(555, 25)
         Me.txt_combo.Mask = "99999"
         Me.txt_combo.Name = "txt_combo"
         Me.txt_combo.Size = New System.Drawing.Size(69, 20)
@@ -103,7 +103,7 @@ Partial Class Venta
         '
         'btn_buscarCombo
         '
-        Me.btn_buscarCombo.Location = New System.Drawing.Point(457, 25)
+        Me.btn_buscarCombo.Location = New System.Drawing.Point(630, 25)
         Me.btn_buscarCombo.Name = "btn_buscarCombo"
         Me.btn_buscarCombo.Size = New System.Drawing.Size(69, 23)
         Me.btn_buscarCombo.TabIndex = 8
@@ -113,7 +113,7 @@ Partial Class Venta
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(10, 186)
+        Me.Label2.Location = New System.Drawing.Point(10, 301)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(86, 13)
         Me.Label2.TabIndex = 9
@@ -121,7 +121,7 @@ Partial Class Venta
         '
         'btn_cancelar
         '
-        Me.btn_cancelar.Location = New System.Drawing.Point(611, 482)
+        Me.btn_cancelar.Location = New System.Drawing.Point(930, 594)
         Me.btn_cancelar.Name = "btn_cancelar"
         Me.btn_cancelar.Size = New System.Drawing.Size(75, 23)
         Me.btn_cancelar.TabIndex = 10
@@ -130,7 +130,7 @@ Partial Class Venta
         '
         'btn_guardar
         '
-        Me.btn_guardar.Location = New System.Drawing.Point(526, 482)
+        Me.btn_guardar.Location = New System.Drawing.Point(849, 594)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(75, 23)
         Me.btn_guardar.TabIndex = 11
@@ -139,7 +139,7 @@ Partial Class Venta
         '
         'txt_total
         '
-        Me.txt_total.Location = New System.Drawing.Point(572, 362)
+        Me.txt_total.Location = New System.Drawing.Point(891, 477)
         Me.txt_total.Name = "txt_total"
         Me.txt_total.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.txt_total.Size = New System.Drawing.Size(114, 20)
@@ -148,7 +148,7 @@ Partial Class Venta
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(535, 365)
+        Me.Label3.Location = New System.Drawing.Point(854, 480)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(31, 13)
         Me.Label3.TabIndex = 13
@@ -156,7 +156,7 @@ Partial Class Venta
         '
         'bnt_agregarArticulo
         '
-        Me.bnt_agregarArticulo.Location = New System.Drawing.Point(12, 153)
+        Me.bnt_agregarArticulo.Location = New System.Drawing.Point(11, 258)
         Me.bnt_agregarArticulo.Name = "bnt_agregarArticulo"
         Me.bnt_agregarArticulo.Size = New System.Drawing.Size(75, 23)
         Me.bnt_agregarArticulo.TabIndex = 16
@@ -165,7 +165,7 @@ Partial Class Venta
         '
         'btn_agregarCombo
         '
-        Me.btn_agregarCombo.Location = New System.Drawing.Point(382, 155)
+        Me.btn_agregarCombo.Location = New System.Drawing.Point(555, 258)
         Me.btn_agregarCombo.Name = "btn_agregarCombo"
         Me.btn_agregarCombo.Size = New System.Drawing.Size(75, 23)
         Me.btn_agregarCombo.TabIndex = 17
@@ -174,7 +174,7 @@ Partial Class Venta
         '
         'btn_quitar
         '
-        Me.btn_quitar.Location = New System.Drawing.Point(11, 365)
+        Me.btn_quitar.Location = New System.Drawing.Point(11, 480)
         Me.btn_quitar.Name = "btn_quitar"
         Me.btn_quitar.Size = New System.Drawing.Size(75, 23)
         Me.btn_quitar.TabIndex = 18
@@ -184,14 +184,14 @@ Partial Class Venta
         'cmb_dependencia
         '
         Me.cmb_dependencia.FormattingEnabled = True
-        Me.cmb_dependencia.Location = New System.Drawing.Point(11, 455)
+        Me.cmb_dependencia.Location = New System.Drawing.Point(11, 570)
         Me.cmb_dependencia.Name = "cmb_dependencia"
         Me.cmb_dependencia.Size = New System.Drawing.Size(121, 21)
         Me.cmb_dependencia.TabIndex = 19
         '
         'btn_agregarDependencia
         '
-        Me.btn_agregarDependencia.Location = New System.Drawing.Point(139, 455)
+        Me.btn_agregarDependencia.Location = New System.Drawing.Point(139, 570)
         Me.btn_agregarDependencia.Name = "btn_agregarDependencia"
         Me.btn_agregarDependencia.Size = New System.Drawing.Size(28, 23)
         Me.btn_agregarDependencia.TabIndex = 21
@@ -201,14 +201,14 @@ Partial Class Venta
         'cmb_empleado
         '
         Me.cmb_empleado.FormattingEnabled = True
-        Me.cmb_empleado.Location = New System.Drawing.Point(185, 457)
+        Me.cmb_empleado.Location = New System.Drawing.Point(185, 572)
         Me.cmb_empleado.Name = "cmb_empleado"
         Me.cmb_empleado.Size = New System.Drawing.Size(121, 21)
         Me.cmb_empleado.TabIndex = 23
         '
         'btn_agregarEmpleado
         '
-        Me.btn_agregarEmpleado.Location = New System.Drawing.Point(312, 453)
+        Me.btn_agregarEmpleado.Location = New System.Drawing.Point(312, 568)
         Me.btn_agregarEmpleado.Name = "btn_agregarEmpleado"
         Me.btn_agregarEmpleado.Size = New System.Drawing.Size(28, 23)
         Me.btn_agregarEmpleado.TabIndex = 24
@@ -218,7 +218,7 @@ Partial Class Venta
         'chk_dependencia
         '
         Me.chk_dependencia.AutoSize = True
-        Me.chk_dependencia.Location = New System.Drawing.Point(11, 432)
+        Me.chk_dependencia.Location = New System.Drawing.Point(11, 547)
         Me.chk_dependencia.Name = "chk_dependencia"
         Me.chk_dependencia.Size = New System.Drawing.Size(90, 17)
         Me.chk_dependencia.TabIndex = 25
@@ -228,7 +228,7 @@ Partial Class Venta
         'chk_mozo
         '
         Me.chk_mozo.AutoSize = True
-        Me.chk_mozo.Location = New System.Drawing.Point(185, 432)
+        Me.chk_mozo.Location = New System.Drawing.Point(185, 547)
         Me.chk_mozo.Name = "chk_mozo"
         Me.chk_mozo.Size = New System.Drawing.Size(52, 17)
         Me.chk_mozo.TabIndex = 26
@@ -238,7 +238,7 @@ Partial Class Venta
         'chk_abonado
         '
         Me.chk_abonado.AutoSize = True
-        Me.chk_abonado.Location = New System.Drawing.Point(11, 488)
+        Me.chk_abonado.Location = New System.Drawing.Point(11, 603)
         Me.chk_abonado.Name = "chk_abonado"
         Me.chk_abonado.Size = New System.Drawing.Size(69, 17)
         Me.chk_abonado.TabIndex = 27
@@ -250,9 +250,9 @@ Partial Class Venta
         Me.dgv_detalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgv_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_detalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.nombre_2, Me.monto})
-        Me.dgv_detalle.Location = New System.Drawing.Point(11, 203)
+        Me.dgv_detalle.Location = New System.Drawing.Point(11, 318)
         Me.dgv_detalle.Name = "dgv_detalle"
-        Me.dgv_detalle.Size = New System.Drawing.Size(675, 150)
+        Me.dgv_detalle.Size = New System.Drawing.Size(994, 150)
         Me.dgv_detalle.TabIndex = 28
         '
         'id
@@ -276,20 +276,20 @@ Partial Class Venta
         Me.dgv_articulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_articulo.Location = New System.Drawing.Point(11, 51)
         Me.dgv_articulo.Name = "dgv_articulo"
-        Me.dgv_articulo.Size = New System.Drawing.Size(304, 95)
+        Me.dgv_articulo.Size = New System.Drawing.Size(450, 201)
         Me.dgv_articulo.TabIndex = 29
         '
         'dgv_combo
         '
         Me.dgv_combo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_combo.Location = New System.Drawing.Point(382, 54)
+        Me.dgv_combo.Location = New System.Drawing.Point(555, 51)
         Me.dgv_combo.Name = "dgv_combo"
-        Me.dgv_combo.Size = New System.Drawing.Size(304, 95)
+        Me.dgv_combo.Size = New System.Drawing.Size(450, 201)
         Me.dgv_combo.TabIndex = 30
         '
         'btn_mostrarTodosArt
         '
-        Me.btn_mostrarTodosArt.Location = New System.Drawing.Point(194, 155)
+        Me.btn_mostrarTodosArt.Location = New System.Drawing.Point(340, 258)
         Me.btn_mostrarTodosArt.Name = "btn_mostrarTodosArt"
         Me.btn_mostrarTodosArt.Size = New System.Drawing.Size(121, 23)
         Me.btn_mostrarTodosArt.TabIndex = 31
@@ -298,7 +298,7 @@ Partial Class Venta
         '
         'btn_mostrarTodosCom
         '
-        Me.btn_mostrarTodosCom.Location = New System.Drawing.Point(572, 155)
+        Me.btn_mostrarTodosCom.Location = New System.Drawing.Point(884, 258)
         Me.btn_mostrarTodosCom.Name = "btn_mostrarTodosCom"
         Me.btn_mostrarTodosCom.Size = New System.Drawing.Size(121, 23)
         Me.btn_mostrarTodosCom.TabIndex = 32
@@ -309,7 +309,7 @@ Partial Class Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(705, 513)
+        Me.ClientSize = New System.Drawing.Size(1016, 629)
         Me.Controls.Add(Me.btn_mostrarTodosCom)
         Me.Controls.Add(Me.btn_mostrarTodosArt)
         Me.Controls.Add(Me.dgv_combo)

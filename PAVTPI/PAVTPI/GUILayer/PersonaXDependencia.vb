@@ -56,7 +56,6 @@
             dgv_personaDependencia.Rows(c).Cells(3) = tabla.Rows(c)("nroDocumento")
         Next
 
-
     End Sub
 
     Private Sub PersonaXDependencia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
