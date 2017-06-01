@@ -20,7 +20,6 @@
                 AbmCombo.dgv_datos_articulos.Rows.Add(New String() {
                                                         .Cells("id_articulo").Value.ToString,
                                                         .Cells("nombre_articulo").Value.ToString,
-                                                        .Cells("precio_articulo").Value.ToString,
                                                         cantidada.ToString
                                                         })
             End With
