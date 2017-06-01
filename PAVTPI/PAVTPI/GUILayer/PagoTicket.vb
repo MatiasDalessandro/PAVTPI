@@ -5,11 +5,9 @@
         cargar_grillas_simples(Me.dgv_combo, dbHelper.ConsultaSQL("SELECT DISTINCT idCombo,nombreCombo,precio FROM comboXArticulo"))
         cargar_combo(cmb_dependencia, (dbHelper.ConsultaSQL("select * from dependencia")), "nroCuentaCorriente", "descripcion")
 
-        Dim sql As String = "select * from rolXPersona where idRol = (select idRol from rol where descripcion= 'Mozo')"
-        Dim tabla As DataTable
-        tabla = dbHelper.ConsultaSQL(sql)
+        Dim sql As String = "Select E.apellido, E.nombre from persona E where E.nroDocumento in (select rolXPersona.nroDocumento from rolXPersona where rolXPersona.idRol = 1)"
 
-        cargar_combo(cmb_empleado, (dbHelper.ConsultaSQL(sql)), "nroDocumento", "")
+        'cargar_combo(cmb_empleado, (dbHelper.ConsultaSQL(sql)), "nroDocumento", sql.ToString)
 
         Me.txt_total.Enabled = False
 
@@ -75,9 +73,9 @@
 
     Private Sub btn_agregarCombo_Click(sender As Object, e As EventArgs) Handles btn_agregarCombo.Click
         dgv_detalle.Rows.Add(New String() {
-                                    dgv_articulo(0, dgv_combo.CurrentRow.Index).Value.ToString(),
-                                    dgv_articulo(1, dgv_combo.CurrentRow.Index).Value.ToString(),
-                                    dgv_articulo(2, dgv_combo.CurrentRow.Index).Value.ToString()
+                                    dgv_combo(0, dgv_combo.CurrentRow.Index).Value.ToString(),
+                                    dgv_combo(1, dgv_combo.CurrentRow.Index).Value.ToString(),
+                                    dgv_combo(2, dgv_combo.CurrentRow.Index).Value.ToString()
                                })
         calcular_total()
     End Sub

@@ -262,16 +262,19 @@ Partial Class Venta
         '
         Me.id.HeaderText = "Nro"
         Me.id.Name = "id"
+        Me.id.ReadOnly = True
         '
         'nombre_2
         '
         Me.nombre_2.HeaderText = "Nombre"
         Me.nombre_2.Name = "nombre_2"
+        Me.nombre_2.ReadOnly = True
         '
         'monto
         '
         Me.monto.HeaderText = "Precio"
         Me.monto.Name = "monto"
+        Me.monto.ReadOnly = True
         '
         'dgv_articulo
         '
@@ -289,6 +292,7 @@ Partial Class Venta
         '
         Me.dgv_combo.AllowUserToAddRows = False
         Me.dgv_combo.AllowUserToDeleteRows = False
+        Me.dgv_combo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgv_combo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_combo.Location = New System.Drawing.Point(555, 51)
         Me.dgv_combo.Name = "dgv_combo"

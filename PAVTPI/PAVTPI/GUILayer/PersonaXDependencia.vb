@@ -6,7 +6,6 @@
 
     Private Sub btn_dependencia_Click(sender As Object, e As EventArgs) Handles btn_dependencia.Click
         AbmDependencia.Show()
-
     End Sub
     Private Sub btn_buscarDependencia_Click(sender As Object, e As EventArgs) Handles btn_buscarDependencia.Click
         Dim sql As String = "SELECT nombre,descripcion,nroCuentaCorriente FROM dependencia WHERE nroCuentaCorriente = " & txt_nroDependencia.Text
@@ -39,7 +38,6 @@
         Dim sql As String = "INSERT INTO dependenciaXPersona (nroCuentaCorriente,nroDocumento) VALUES ("
         sql &= txt_dependencia_nro.Text & "," & txt_persona_dni.Text & ")"
         dbHelper.EjecutarSQL(sql)
-
     End Sub
     Private Sub cargarGrilla()
         Dim sql As String = "Select persona.nombre, persona.apellido, persona.nroDocumento, dependenciaXPersona.nroCuentaCorriente 
@@ -55,7 +53,6 @@
             dgv_personaDependencia.Rows(c).Cells(2) = tabla.Rows(c)("nombre")
             dgv_personaDependencia.Rows(c).Cells(3) = tabla.Rows(c)("nroDocumento")
         Next
-
     End Sub
 
     Private Sub PersonaXDependencia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -74,7 +71,6 @@
         txt_persona_nombre.Text = dgv_personaDependencia.CurrentRow.Cells(2).Value
         txt_persona_dni = dgv_personaDependencia.CurrentRow.Cells(3).Value
         txt_documento.Text = txt_persona_dni.Text
-
     End Sub
 
     Private Sub btn_borrar_Click(sender As Object, e As EventArgs) Handles btn_Borrar.Click
