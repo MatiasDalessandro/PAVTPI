@@ -88,7 +88,6 @@
                 End If
             End If
         Next
-
     End Function
     Private Function validarPersona() As estadoGrabacion
         Dim sql As String = ""
@@ -119,6 +118,15 @@
         btn_guardar.Enabled = False
     End Sub
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
+
+        If chkPersAut.Checked Then
+            dtpFechaEgreso.Enabled = False
+            dtpFechaIngreso.Enabled = False
+            txtDomicilio.Enabled = False
+            txtCelular.Enabled = False
+            txtEmail.Enabled = False
+        End If
+
         chkPersAut.Enabled = True
         txtApellido.Text = ""
         txtApellido.Enabled = True

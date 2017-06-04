@@ -16,15 +16,13 @@
         'cargar_combo(cmbDependencia, (dbhelper.ConsultaSQL("select * from dependencia")), "nroCuentaCorriente", "descripcion")
     End Sub
     Private Sub cargar_grilla()
-        Dim conexion As New OleDb.OleDbConnection
-        Dim cmd As New OleDb.OleDbCommand
         Dim tabla As New DataTable
 
         Dim sql As String = ""
 
-        sql &= "Select a.nombre, a.apellido, a.nroDocumento From persona a"
-        sql &= "inner join tipoDocumento td on td.idTipoDocumento = a.idTipoDocumento"
-        sql &= "Where a.fechaIngreso is null"
+        sql &= "SELECT persona.nombre, persona.apellido, persona.nroDocumento FROM persona "
+        sql &= "INNER JOIN tipoDocumento ON tipoDocumento.idTipoDocumento = persona.idTipoDocumento "
+        sql &= "WHERE persona.fechaIngreso is null"
 
         tabla = dbhelper.ConsultaSQL(sql)
 
@@ -34,10 +32,9 @@
 
         For c = 0 To tabla.Rows.Count - 1
             Me.dgvPersAut.Rows.Add()
-            Me.dgvPersAut.Rows(c).Cells("cApellido").Value = tabla.Rows(c)(0)
-            Me.dgvPersAut.Rows(c).Cells("cNombre").Value = tabla.Rows(c)(1)
+            Me.dgvPersAut.Rows(c).Cells("cNombre").Value = tabla.Rows(c)(0)
+            Me.dgvPersAut.Rows(c).Cells("cApellido").Value = tabla.Rows(c)(1)
             Me.dgvPersAut.Rows(c).Cells("cNroDoc").Value = tabla.Rows(c)(2)
-            Me.dgvPersAut.Rows(c).Cells("cDependencia").Value = tabla.Rows(c)(3)
         Next
     End Sub
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
@@ -141,11 +138,10 @@
             Me.dgvPersAut.Rows(c).Cells("cNombre").Value = tabla.Rows(c)(0)
             Me.dgvPersAut.Rows(c).Cells("cApellido").Value = tabla.Rows(c)(1)
             Me.dgvPersAut.Rows(c).Cells("cNroDoc").Value = tabla.Rows(c)(2)
-            Me.dgvPersAut.Rows(c).Cells("cDependencia").Value = tabla.Rows(c)(3)
         Next
     End Function
 
-    Private Sub dgvPersAut_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPersAut.CellContentClick
+    Private Sub dgvPersAut_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvPersAut.CellDoubleClick
         Dim sql As String = ""
         Dim tabla As New DataTable
 
@@ -155,7 +151,6 @@
         Me.txtApellidoPA.Text = tabla.Rows(0)("apellido")
         Me.txtNombrePA.Text = tabla.Rows(0)("nombre")
         Me.mskNroDocPA.Text = tabla.Rows(0)("nroDocumento")
-        Me.cmbDependencia.SelectedValue = tabla.Rows(0)("dependencia")
 
         Me.txtApellidoPA.Enabled = True
         Me.txtNombrePA.Enabled = True

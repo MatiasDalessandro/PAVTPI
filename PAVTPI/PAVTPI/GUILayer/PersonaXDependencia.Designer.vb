@@ -38,14 +38,14 @@ Partial Class PersonaXDependencia
         Me.txt_persona_nombre = New System.Windows.Forms.TextBox()
         Me.btn_guardar = New System.Windows.Forms.Button()
         Me.dgv_personaDependencia = New System.Windows.Forms.DataGridView()
-        Me.nroCuenta = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.documento = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btn_Borrar = New System.Windows.Forms.Button()
         Me.btn_dependencia = New System.Windows.Forms.Button()
         Me.btn_persona_empleado = New System.Windows.Forms.Button()
         Me.btn_salir = New System.Windows.Forms.Button()
+        Me.nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.apellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.documento = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nroCuenta = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv_personaDependencia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -173,31 +173,11 @@ Partial Class PersonaXDependencia
         'dgv_personaDependencia
         '
         Me.dgv_personaDependencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_personaDependencia.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nroCuenta, Me.apellido, Me.nombre, Me.documento})
+        Me.dgv_personaDependencia.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nombre, Me.apellido, Me.documento, Me.nroCuenta})
         Me.dgv_personaDependencia.Location = New System.Drawing.Point(416, 21)
         Me.dgv_personaDependencia.Name = "dgv_personaDependencia"
         Me.dgv_personaDependencia.Size = New System.Drawing.Size(442, 244)
         Me.dgv_personaDependencia.TabIndex = 15
-        '
-        'nroCuenta
-        '
-        Me.nroCuenta.HeaderText = "Numero de Cuenta"
-        Me.nroCuenta.Name = "nroCuenta"
-        '
-        'apellido
-        '
-        Me.apellido.HeaderText = "Apellido"
-        Me.apellido.Name = "apellido"
-        '
-        'nombre
-        '
-        Me.nombre.HeaderText = "Nombres"
-        Me.nombre.Name = "nombre"
-        '
-        'documento
-        '
-        Me.documento.HeaderText = "Numero de Documento"
-        Me.documento.Name = "documento"
         '
         'btn_Borrar
         '
@@ -234,6 +214,26 @@ Partial Class PersonaXDependencia
         Me.btn_salir.TabIndex = 19
         Me.btn_salir.Text = "Salir"
         Me.btn_salir.UseVisualStyleBackColor = True
+        '
+        'nombre
+        '
+        Me.nombre.HeaderText = "Nombres"
+        Me.nombre.Name = "nombre"
+        '
+        'apellido
+        '
+        Me.apellido.HeaderText = "Apellido"
+        Me.apellido.Name = "apellido"
+        '
+        'documento
+        '
+        Me.documento.HeaderText = "Numero de Documento"
+        Me.documento.Name = "documento"
+        '
+        'nroCuenta
+        '
+        Me.nroCuenta.HeaderText = "Numero de Cuenta"
+        Me.nroCuenta.Name = "nroCuenta"
         '
         'PersonaXDependencia
         '
@@ -287,9 +287,9 @@ Partial Class PersonaXDependencia
     Friend WithEvents btn_Borrar As Button
     Friend WithEvents btn_dependencia As Button
     Friend WithEvents btn_persona_empleado As Button
-    Friend WithEvents nroCuenta As DataGridViewTextBoxColumn
-    Friend WithEvents apellido As DataGridViewTextBoxColumn
-    Friend WithEvents nombre As DataGridViewTextBoxColumn
-    Friend WithEvents documento As DataGridViewTextBoxColumn
     Friend WithEvents btn_salir As Button
+    Friend WithEvents nombre As DataGridViewTextBoxColumn
+    Friend WithEvents apellido As DataGridViewTextBoxColumn
+    Friend WithEvents documento As DataGridViewTextBoxColumn
+    Friend WithEvents nroCuenta As DataGridViewTextBoxColumn
 End Class

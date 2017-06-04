@@ -1,5 +1,10 @@
 ﻿Public Class PersonaXDependencia
     Dim dbHelper As DBHelper = DBHelper.getDBHelper
+
+    Private Sub PersonaXDependencia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cargarGrilla()
+    End Sub
+
     Private Sub btn_persona_empleado_Click(sender As Object, e As EventArgs) Handles btn_persona_empleado.Click
         AbmPersonaAutorizada.Show()
     End Sub
@@ -28,9 +33,9 @@
             MsgBox("No se encontro ninguna persona con DNI: " & txt_documento.Text)
             Exit Sub
         End If
-        txt_persona_dni = tabla.Rows(0)("nroDocumento")
-        txt_persona_apellido = tabla.Rows(0)("apellido")
-        txt_persona_nombre = tabla.Rows(0)("nombre")
+        txt_persona_dni.Text = tabla.Rows(0)("nroDocumento")
+        txt_persona_apellido.Text = tabla.Rows(0)("apellido")
+        txt_persona_nombre.Text = tabla.Rows(0)("nombre")
 
     End Sub
 
@@ -47,16 +52,12 @@
         dgv_personaDependencia.Rows.Clear()
         Dim c As Integer
         For c = 0 To tabla.Rows.Count - 1
-            dgv_personaDependencia.Rows.Add()
-            dgv_personaDependencia.Rows(c).Cells(0) = tabla.Rows(c)("nroCuentaCorriente")
-            dgv_personaDependencia.Rows(c).Cells(1) = tabla.Rows(c)("apellido")
-            dgv_personaDependencia.Rows(c).Cells(2) = tabla.Rows(c)("nombre")
-            dgv_personaDependencia.Rows(c).Cells(3) = tabla.Rows(c)("nroDocumento")
+            Me.dgv_personaDependencia.Rows.Add()
+            Me.dgv_personaDependencia.Rows(c).Cells("nombre").Value = tabla.Rows(c)(0)
+            Me.dgv_personaDependencia.Rows(c).Cells("apellido").Value = tabla.Rows(c)(1)
+            Me.dgv_personaDependencia.Rows(c).Cells("documento").Value = tabla.Rows(c)(2)
+            Me.dgv_personaDependencia.Rows(c).Cells("nroCuenta").Value = tabla.Rows(c)(3)
         Next
-    End Sub
-
-    Private Sub PersonaXDependencia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cargarGrilla()
     End Sub
 
     Private Sub dgv_personaDependencia_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_personaDependencia.CellContentClick

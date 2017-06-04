@@ -37,10 +37,9 @@ Partial Class AbmPersonaAutorizada
         Me.btn_eliminar = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
         Me.dgvPersAut = New System.Windows.Forms.DataGridView()
-        Me.cApellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cApellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cNroDoc = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cDependencia = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvPersAut, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -171,18 +170,12 @@ Partial Class AbmPersonaAutorizada
         Me.dgvPersAut.AllowUserToAddRows = False
         Me.dgvPersAut.AllowUserToDeleteRows = False
         Me.dgvPersAut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvPersAut.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cApellido, Me.cNombre, Me.cNroDoc, Me.cDependencia})
+        Me.dgvPersAut.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cNombre, Me.cApellido, Me.cNroDoc})
         Me.dgvPersAut.Location = New System.Drawing.Point(369, 12)
         Me.dgvPersAut.Name = "dgvPersAut"
         Me.dgvPersAut.ReadOnly = True
         Me.dgvPersAut.Size = New System.Drawing.Size(455, 285)
         Me.dgvPersAut.TabIndex = 34
-        '
-        'cApellido
-        '
-        Me.cApellido.HeaderText = "Apellido"
-        Me.cApellido.Name = "cApellido"
-        Me.cApellido.ReadOnly = True
         '
         'cNombre
         '
@@ -190,17 +183,17 @@ Partial Class AbmPersonaAutorizada
         Me.cNombre.Name = "cNombre"
         Me.cNombre.ReadOnly = True
         '
+        'cApellido
+        '
+        Me.cApellido.HeaderText = "Apellido"
+        Me.cApellido.Name = "cApellido"
+        Me.cApellido.ReadOnly = True
+        '
         'cNroDoc
         '
         Me.cNroDoc.HeaderText = "Nro. Documento"
         Me.cNroDoc.Name = "cNroDoc"
         Me.cNroDoc.ReadOnly = True
-        '
-        'cDependencia
-        '
-        Me.cDependencia.HeaderText = "Dependencia"
-        Me.cDependencia.Name = "cDependencia"
-        Me.cDependencia.ReadOnly = True
         '
         'AbmPersonaAutorizada
         '
@@ -245,8 +238,7 @@ Partial Class AbmPersonaAutorizada
     Friend WithEvents btn_eliminar As Button
     Friend WithEvents btn_nuevo As Button
     Friend WithEvents dgvPersAut As DataGridView
-    Friend WithEvents cApellido As DataGridViewTextBoxColumn
     Friend WithEvents cNombre As DataGridViewTextBoxColumn
+    Friend WithEvents cApellido As DataGridViewTextBoxColumn
     Friend WithEvents cNroDoc As DataGridViewTextBoxColumn
-    Friend WithEvents cDependencia As DataGridViewTextBoxColumn
 End Class
