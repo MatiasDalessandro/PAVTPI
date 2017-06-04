@@ -13,7 +13,7 @@
     Private Sub AbmPersonaAutorizada_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla()
         cargar_combo(cmbTipoDocPA, (dbhelper.ConsultaSQL("select * from tipoDocumento")), "idTipoDocumento", "descripcion")
-        cargar_combo(cmbDependencia, (dbhelper.ConsultaSQL("select * from dependencia")), "nroCuentaCorriente", "descripcion")
+        'cargar_combo(cmbDependencia, (dbhelper.ConsultaSQL("select * from dependencia")), "nroCuentaCorriente", "descripcion")
     End Sub
     Private Sub cargar_grilla()
         Dim conexion As New OleDb.OleDbConnection
@@ -22,9 +22,9 @@
 
         Dim sql As String = ""
 
-        sql &= "                       Select a.nombre, a.apellido, a.nroDocumento, a.idTipoDocumento, t.descripcion, b.nroCuentaCorriente, d.nombre "
-        sql &= " From persona a, tipoDocumento t, dependenciaXPersona b, dependencia d "
-        sql &= "  Where a.nroDocumento = b.nroDocumento And a.idTipoDocumento = t.idTipoDocumento "
+        sql &= "Select a.nombre, a.apellido, a.nroDocumento From persona a"
+        sql &= "inner join tipoDocumento td on td.idTipoDocumento = a.idTipoDocumento"
+        sql &= "Where a.fechaIngreso is null"
 
         tabla = dbhelper.ConsultaSQL(sql)
 
@@ -60,8 +60,8 @@
         sql = " INSERT INTO persona (nombre,apellido,nroDocumento,idTipoDocumento) values ( '" & txtNombrePA.Text & "', '" & txtApellidoPA.Text & "' , " & mskNroDocPA.Text & " , " & cmbTipoDocPA.SelectedValue & ")"
         dbhelper.EjecutarSQL(sql)
         MsgBox("Se grabo correctamente")
-        sql &= ""
-        sql &= "INSERT INTO dependenciaXPersona (nroCuentaCorriente,nroDocumento) values (" & cmbDependencia.SelectedValue & "," & mskNroDocPA.Text & ")"
+        'sql &= ""
+        'sql &= "INSERT INTO dependenciaXPersona (nroCuentaCorriente,nroDocumento) values (" & cmbDependencia.SelectedValue & "," & mskNroDocPA.Text & ")"
         Me.cargar_grilla()
     End Sub
     Private Sub modificar()

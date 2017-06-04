@@ -105,6 +105,7 @@
         End If
     End Function
     Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
+        chkPersAut.Enabled = False
         txtApellido.Enabled = False
         txtNombre.Enabled = False
         mskNroDoc.Enabled = True
@@ -118,6 +119,7 @@
         btn_guardar.Enabled = False
     End Sub
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
+        chkPersAut.Enabled = True
         txtApellido.Text = ""
         txtApellido.Enabled = True
         txtNombre.Text = ""
@@ -174,37 +176,53 @@
         Me.mskNroDoc.Text = tabla.Rows(0)("nroDocumento")
         Me.cmbTipoDoc.SelectedValue = tabla.Rows(0)("idTipoDocumento")
 
+        chkPersAut.Enabled = True
+        txtApellido.Enabled = True
+        txtNombre.Enabled = True
+        mskNroDoc.Enabled = True
+        cmbTipoDoc.Enabled = True
+        dtpFechaIngreso.Enabled = True
+        dtpFechaEgreso.Enabled = False
+        txtDomicilio.Enabled = True
+        txtEmail.Enabled = True
+        txtCelular.Enabled = True
+        btn_guardar.Enabled = True
+
         If IsDBNull(tabla.Rows(0)("fechaIngreso")) = True Then
             Me.dtpFechaIngreso.Text = ""
-            Me.dtpFechaIngreso.Enabled = True
+            Me.dtpFechaIngreso.Enabled = False
+            Me.chkPersAut.Enabled = False
+            Me.chkPersAut.Checked = True
         Else
             Me.dtpFechaIngreso.Value = tabla.Rows(0)("fechaIngreso")
+            Me.chkPersAut.Enabled = True
+            Me.chkPersAut.Checked = False
         End If
 
         If IsDBNull(tabla.Rows(0)("fechaEgreso")) = True Then
             Me.dtpFechaEgreso.Text = ""
-            Me.dtpFechaEgreso.Enabled = True
+            Me.dtpFechaEgreso.Enabled = False
         Else
             Me.dtpFechaEgreso.Value = tabla.Rows(0)("fechaEgreso")
         End If
 
         If IsDBNull(tabla.Rows(0)("celular")) = True Then
             Me.txtCelular.Text = ""
-            Me.txtCelular.Enabled = True
+            Me.txtCelular.Enabled = False
         Else
             Me.txtCelular.Text = tabla.Rows(0)("celular")
         End If
 
         If IsDBNull(tabla.Rows(0)("Mail")) = True Then
             Me.txtEmail.Text = ""
-            Me.txtEmail.Enabled = True
+            Me.txtEmail.Enabled = False
         Else
             Me.txtEmail.Text = tabla.Rows(0)("Mail")
         End If
 
         If IsDBNull(tabla.Rows(0)("Domicilio")) = True Then
             Me.txtDomicilio.Text = ""
-            Me.txtDomicilio.Enabled = True
+            Me.txtDomicilio.Enabled = False
         Else
             Me.txtDomicilio.Text = tabla.Rows(0)("Domicilio")
         End If
@@ -241,5 +259,21 @@
         combo.DisplayMember = descriptor
         combo.ValueMember = pk
         combo.SelectedIndex = -1
+    End Sub
+
+    Private Sub chkPersAut_CheckStateChanged(sender As Object, e As EventArgs) Handles chkPersAut.CheckStateChanged
+        If chkPersAut.Checked Then
+            dtpFechaIngreso.Enabled = False
+            dtpFechaEgreso.Enabled = False
+            txtDomicilio.Enabled = False
+            txtEmail.Enabled = False
+            txtCelular.Enabled = False
+        Else
+            dtpFechaIngreso.Enabled = True
+            dtpFechaEgreso.Enabled = True
+            txtDomicilio.Enabled = True
+            txtEmail.Enabled = True
+            txtCelular.Enabled = True
+        End If
     End Sub
 End Class

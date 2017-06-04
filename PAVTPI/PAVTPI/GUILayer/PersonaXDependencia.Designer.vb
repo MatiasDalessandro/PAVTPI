@@ -228,7 +228,7 @@ Partial Class PersonaXDependencia
         '
         'btn_salir
         '
-        Me.btn_salir.Location = New System.Drawing.Point(783, 312)
+        Me.btn_salir.Location = New System.Drawing.Point(783, 270)
         Me.btn_salir.Name = "btn_salir"
         Me.btn_salir.Size = New System.Drawing.Size(75, 23)
         Me.btn_salir.TabIndex = 19
@@ -239,7 +239,7 @@ Partial Class PersonaXDependencia
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(870, 360)
+        Me.ClientSize = New System.Drawing.Size(870, 300)
         Me.Controls.Add(Me.btn_salir)
         Me.Controls.Add(Me.btn_persona_empleado)
         Me.Controls.Add(Me.btn_dependencia)

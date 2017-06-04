@@ -25,7 +25,7 @@
         Dim tabla As New DataTable
         tabla = dbHelper.ConsultaSQL(sql)
         If tabla.Rows.Count = -1 Then
-            MsgBox("No se encontor ninguna persona con DNI: " & txt_documento.Text)
+            MsgBox("No se encontro ninguna persona con DNI: " & txt_documento.Text)
             Exit Sub
         End If
         txt_persona_dni = tabla.Rows(0)("nroDocumento")

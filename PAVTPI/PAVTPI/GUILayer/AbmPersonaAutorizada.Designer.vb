@@ -114,7 +114,7 @@ Partial Class AbmPersonaAutorizada
         'lblDependencia
         '
         Me.lblDependencia.AutoSize = True
-        Me.lblDependencia.Location = New System.Drawing.Point(52, 152)
+        Me.lblDependencia.Location = New System.Drawing.Point(52, 183)
         Me.lblDependencia.Name = "lblDependencia"
         Me.lblDependencia.Size = New System.Drawing.Size(71, 13)
         Me.lblDependencia.TabIndex = 28
@@ -123,7 +123,7 @@ Partial Class AbmPersonaAutorizada
         'cmbDependencia
         '
         Me.cmbDependencia.FormattingEnabled = True
-        Me.cmbDependencia.Location = New System.Drawing.Point(129, 149)
+        Me.cmbDependencia.Location = New System.Drawing.Point(129, 180)
         Me.cmbDependencia.Name = "cmbDependencia"
         Me.cmbDependencia.Size = New System.Drawing.Size(121, 21)
         Me.cmbDependencia.TabIndex = 25

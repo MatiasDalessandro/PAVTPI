@@ -49,6 +49,7 @@ Partial Class AbmPersona
         Me.lblFechaEgreso = New System.Windows.Forms.Label()
         Me.dtpFechaIngreso = New System.Windows.Forms.DateTimePicker()
         Me.dtpFechaEgreso = New System.Windows.Forms.DateTimePicker()
+        Me.chkPersAut = New System.Windows.Forms.CheckBox()
         CType(Me.dgvEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -281,11 +282,22 @@ Partial Class AbmPersona
         Me.dtpFechaEgreso.Size = New System.Drawing.Size(100, 20)
         Me.dtpFechaEgreso.TabIndex = 31
         '
-        'AbmEmpleado
+        'chkPersAut
+        '
+        Me.chkPersAut.AutoSize = True
+        Me.chkPersAut.Location = New System.Drawing.Point(135, 9)
+        Me.chkPersAut.Name = "chkPersAut"
+        Me.chkPersAut.Size = New System.Drawing.Size(118, 17)
+        Me.chkPersAut.TabIndex = 32
+        Me.chkPersAut.Text = "Persona Autorizada"
+        Me.chkPersAut.UseVisualStyleBackColor = True
+        '
+        'AbmPersona
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(803, 345)
+        Me.Controls.Add(Me.chkPersAut)
         Me.Controls.Add(Me.dtpFechaEgreso)
         Me.Controls.Add(Me.dtpFechaIngreso)
         Me.Controls.Add(Me.cmbTipoDoc)
@@ -310,7 +322,7 @@ Partial Class AbmPersona
         Me.Controls.Add(Me.lblNroDoc)
         Me.Controls.Add(Me.lblNombre)
         Me.Controls.Add(Me.lblApellido)
-        Me.Name = "AbmEmpleado"
+        Me.Name = "AbmPersona"
         Me.Text = "AbmEmpleado"
         CType(Me.dgvEmpleado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -345,4 +357,5 @@ Partial Class AbmPersona
     Friend WithEvents lblFechaEgreso As Label
     Friend WithEvents dtpFechaIngreso As DateTimePicker
     Friend WithEvents dtpFechaEgreso As DateTimePicker
+    Friend WithEvents chkPersAut As CheckBox
 End Class

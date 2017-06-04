@@ -4,7 +4,7 @@
     End Sub
 
     Private Sub ABMEmpleadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMEmpleadoToolStripMenuItem.Click
-        Botones.Show()
+        AbmPersona.Show()
     End Sub
     Private Sub ABMTipoDocumentoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMTipoDocumentoToolStripMenuItem.Click
         AbmTipoDocumento.Show()
@@ -42,9 +42,9 @@
         AbmPersonaAutorizada.Show()
     End Sub
 
-    Private Sub VerNombreMaquinaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerNombreMaquinaToolStripMenuItem.Click
-        ver_nombre_maquina.Show()
-    End Sub
+    'Private Sub VerNombreMaquinaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerNombreMaquinaToolStripMenuItem.Click
+    '    ver_nombre_maquina.Show()
+    'End Sub
 
     Private Sub CargarPersonaAutorizadaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CargarPersonaAutorizadaToolStripMenuItem.Click
         PersonaXDependencia.Show()
