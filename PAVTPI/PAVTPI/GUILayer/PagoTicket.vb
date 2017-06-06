@@ -178,7 +178,11 @@
         End If
     End Sub
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
-        Dim compraComun As String = "INSERT INTO Ticket (fechaHora,monto) VALUES ('" & System.DateTime.Now.ToString() & "', " & CType(txt_total.Text, System.Double) & ")"
+        Dim compraComun As String = "INSERT INTO ticket (fechaHora,monto) VALUES ('" & System.DateTime.Now.ToString() & "', " & CType(txt_total.Text, System.Double) & ")"
+        Dim ccc As String = "SELECT p.nroDocumento FROM persona p inner join dependenciaXPersona dp on dp.nroDocumento = p.nroDocumento where dp.nroCuentaCorriente = " & cmb_dependencia.SelectedIndex
+        Dim tabla As DataTable = dbHelper.ConsultaSQL(ccc)
+        Dim compraCtaCte As String = "INSERT INTO ticket (fechaHora, monto, nroDocumento, nroCuentaCorriente) VALUES ('" & System.DateTime.Now.ToString() & "'," & CType(txt_total.Text, System.Double) & "," & tabla.Rows(0)(0) & "," & cmb_dependencia.SelectedIndex & ")"
+        Dim ctaCteMozo As String = ""
 
         If dgv_detalle.Rows.Count = 0 Then
             MsgBox("No se puede guardar venta sin articulos o combos.")
@@ -194,13 +198,6 @@
 
             End If
         End If
-
-
+        
     End Sub
-    'Private Sub insertar()
-    '    Dim sql As String = ""
-    '    sql = " INSERT INTO persona (nombre,apellido,nroDocumento,idTipoDocumento,fechaIngreso,fechaEgreso, celular,Mail,Domicilio) values ( '" & txtNombre.Text & "', '" & txtApellido.Text & "' , " & mskNroDoc.Text & " , " & cmbTipoDoc.SelectedValue & " , '" & dtpFechaIngreso.Value & "' ,   null   , " & txtCelular.Text & " , '" & txtEmail.Text & "' , '" & txtDomicilio.Text & "')"
-    '    dbHelper.EjecutarSQL(sql)
-    '    MsgBox("Se grabo correctamente")
-    'End Sub
 End Class
