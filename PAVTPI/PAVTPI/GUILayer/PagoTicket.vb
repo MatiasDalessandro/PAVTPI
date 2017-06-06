@@ -3,7 +3,7 @@
     Private Sub PagoTicket_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grillas_simples(Me.dgv_articulo, dbHelper.ConsultaSQL("SELECT * FROM articulo"))
         cargar_grillas_simples(Me.dgv_combo, dbHelper.ConsultaSQL("SELECT DISTINCT idCombo,nombreCombo,precio FROM comboXArticulo"))
-        cargar_combo(cmb_dependencia, (dbHelper.ConsultaSQL("select * from dependencia")), "nroCuentaCorriente", "descripcion")
+        cargar_combo(cmb_dependencia, (dbHelper.ConsultaSQL("select * from dependencia")), "nroCuentaCorriente", "nombre")
 
         Dim sql As String = "Select E.apellido, E.nombre from persona E where E.nroDocumento in (select rolXPersona.nroDocumento from rolXPersona where rolXPersona.idRol = 1)"
 
@@ -43,18 +43,27 @@
                                     dgv_articulo(2, dgv_articulo.CurrentRow.Index).Value.ToString()
                                })
         calcular_total()
+        btn_quitar.Enabled = True
     End Sub
 
     Private Sub btn_quitar_Click(sender As Object, e As EventArgs) Handles btn_quitar.Click
-        Dim total As Double = txt_total.Text
-        total += -dgv_detalle.CurrentRow.Cells(2).Value
-        dgv_detalle.Rows.Remove(dgv_detalle.CurrentRow)
-        txt_total.Text = total
+        If dgv_detalle.Rows.Count > 1 Then
+            Dim total As Double = txt_total.Text
+            total += -dgv_detalle.CurrentRow.Cells(2).Value
+            dgv_detalle.Rows.Remove(dgv_detalle.CurrentRow)
+            txt_total.Text = total
+        ElseIf dgv_detalle.Rows.Count = 1 Then
+            Dim total As Double = txt_total.Text
+            total += -dgv_detalle.CurrentRow.Cells(2).Value
+            dgv_detalle.Rows.Remove(dgv_detalle.CurrentRow)
+            txt_total.Text = total
+            btn_quitar.Enabled = False
+        End If
     End Sub
     Private Sub calcular_total()
         Dim total As Double = 0
         For Each row As DataGridViewRow In dgv_detalle.Rows
-            total += row.Cells(2).Value
+            total += CType(row.Cells(2).Value, Double)
         Next
         txt_total.Text = total
     End Sub
@@ -67,7 +76,7 @@
         AbmDependencia.Show()
     End Sub
 
-    Private Sub btn_agregarEmpleado_Click(sender As Object, e As EventArgs) Handles btn_agregarEmpleado.Click
+    Private Sub btn_agregarEmpleado_Click(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -78,6 +87,7 @@
                                     dgv_combo(2, dgv_combo.CurrentRow.Index).Value.ToString()
                                })
         calcular_total()
+        btn_quitar.Enabled = True
     End Sub
 
     Private Sub btn_mostrarTodosCom_Click(sender As Object, e As EventArgs) Handles btn_mostrarTodosCom.Click
@@ -89,5 +99,28 @@
         Dim sql As String = "SELECT DISTINCT idCombo,nombreCombo,precio FROM comboXArticulo WHERE idCombo = " & txt_combo.Text
         tabla = dbHelper.ConsultaSQL(sql)
         cargar_grillas_simples(dgv_combo, tabla)
+    End Sub
+
+    Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
+        Me.Close()
+    End Sub
+
+    Private Sub chk_dependencia_CheckedChanged(sender As Object, e As EventArgs) Handles chk_dependencia.CheckedChanged
+        If chk_dependencia.Checked Then
+            cmb_dependencia.Enabled = True
+            btn_agregarDependencia.Enabled = True
+        End If
+        If Not chk_dependencia.Checked Then
+            cmb_dependencia.Enabled = False
+            btn_agregarDependencia.Enabled = False
+        End If
+    End Sub
+
+    Private Sub chk_mozo_CheckedChanged(sender As Object, e As EventArgs) Handles chk_mozo.CheckedChanged
+        If chk_mozo.Checked Then
+            cmb_empleado.Enabled = True
+        Else
+            cmb_empleado.Enabled = False
+        End If
     End Sub
 End Class

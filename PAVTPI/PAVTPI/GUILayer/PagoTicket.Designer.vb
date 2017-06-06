@@ -39,7 +39,6 @@ Partial Class Venta
         Me.cmb_dependencia = New System.Windows.Forms.ComboBox()
         Me.btn_agregarDependencia = New System.Windows.Forms.Button()
         Me.cmb_empleado = New System.Windows.Forms.ComboBox()
-        Me.btn_agregarEmpleado = New System.Windows.Forms.Button()
         Me.chk_dependencia = New System.Windows.Forms.CheckBox()
         Me.chk_mozo = New System.Windows.Forms.CheckBox()
         Me.chk_abonado = New System.Windows.Forms.CheckBox()
@@ -125,7 +124,7 @@ Partial Class Venta
         Me.btn_cancelar.Name = "btn_cancelar"
         Me.btn_cancelar.Size = New System.Drawing.Size(75, 23)
         Me.btn_cancelar.TabIndex = 10
-        Me.btn_cancelar.Text = "Cancelar"
+        Me.btn_cancelar.Text = "Salir"
         Me.btn_cancelar.UseVisualStyleBackColor = True
         '
         'btn_guardar
@@ -174,6 +173,7 @@ Partial Class Venta
         '
         'btn_quitar
         '
+        Me.btn_quitar.Enabled = False
         Me.btn_quitar.Location = New System.Drawing.Point(11, 480)
         Me.btn_quitar.Name = "btn_quitar"
         Me.btn_quitar.Size = New System.Drawing.Size(75, 23)
@@ -183,6 +183,7 @@ Partial Class Venta
         '
         'cmb_dependencia
         '
+        Me.cmb_dependencia.Enabled = False
         Me.cmb_dependencia.FormattingEnabled = True
         Me.cmb_dependencia.Location = New System.Drawing.Point(11, 570)
         Me.cmb_dependencia.Name = "cmb_dependencia"
@@ -191,6 +192,7 @@ Partial Class Venta
         '
         'btn_agregarDependencia
         '
+        Me.btn_agregarDependencia.Enabled = False
         Me.btn_agregarDependencia.Location = New System.Drawing.Point(139, 570)
         Me.btn_agregarDependencia.Name = "btn_agregarDependencia"
         Me.btn_agregarDependencia.Size = New System.Drawing.Size(28, 23)
@@ -200,20 +202,12 @@ Partial Class Venta
         '
         'cmb_empleado
         '
+        Me.cmb_empleado.Enabled = False
         Me.cmb_empleado.FormattingEnabled = True
         Me.cmb_empleado.Location = New System.Drawing.Point(185, 572)
         Me.cmb_empleado.Name = "cmb_empleado"
         Me.cmb_empleado.Size = New System.Drawing.Size(121, 21)
         Me.cmb_empleado.TabIndex = 23
-        '
-        'btn_agregarEmpleado
-        '
-        Me.btn_agregarEmpleado.Location = New System.Drawing.Point(312, 568)
-        Me.btn_agregarEmpleado.Name = "btn_agregarEmpleado"
-        Me.btn_agregarEmpleado.Size = New System.Drawing.Size(28, 23)
-        Me.btn_agregarEmpleado.TabIndex = 24
-        Me.btn_agregarEmpleado.Text = "..."
-        Me.btn_agregarEmpleado.UseVisualStyleBackColor = True
         '
         'chk_dependencia
         '
@@ -331,7 +325,6 @@ Partial Class Venta
         Me.Controls.Add(Me.chk_abonado)
         Me.Controls.Add(Me.chk_mozo)
         Me.Controls.Add(Me.chk_dependencia)
-        Me.Controls.Add(Me.btn_agregarEmpleado)
         Me.Controls.Add(Me.cmb_empleado)
         Me.Controls.Add(Me.btn_agregarDependencia)
         Me.Controls.Add(Me.cmb_dependencia)
@@ -376,7 +369,6 @@ Partial Class Venta
     Friend WithEvents cmb_dependencia As ComboBox
     Friend WithEvents btn_agregarDependencia As Button
     Friend WithEvents cmb_empleado As ComboBox
-    Friend WithEvents btn_agregarEmpleado As Button
     Friend WithEvents chk_dependencia As CheckBox
     Friend WithEvents chk_mozo As CheckBox
     Friend WithEvents chk_abonado As CheckBox
