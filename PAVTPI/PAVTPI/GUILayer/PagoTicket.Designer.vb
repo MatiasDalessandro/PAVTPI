@@ -43,13 +43,17 @@ Partial Class Venta
         Me.chk_mozo = New System.Windows.Forms.CheckBox()
         Me.chk_abonado = New System.Windows.Forms.CheckBox()
         Me.dgv_detalle = New System.Windows.Forms.DataGridView()
-        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre_2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgv_articulo = New System.Windows.Forms.DataGridView()
         Me.dgv_combo = New System.Windows.Forms.DataGridView()
         Me.btn_mostrarTodosArt = New System.Windows.Forms.Button()
         Me.btn_mostrarTodosCom = New System.Windows.Forms.Button()
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre_2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btn_qf = New System.Windows.Forms.Button()
+        Me.cmb_persona = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.dgv_detalle, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv_articulo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv_combo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -204,7 +208,7 @@ Partial Class Venta
         '
         Me.cmb_empleado.Enabled = False
         Me.cmb_empleado.FormattingEnabled = True
-        Me.cmb_empleado.Location = New System.Drawing.Point(185, 572)
+        Me.cmb_empleado.Location = New System.Drawing.Point(471, 570)
         Me.cmb_empleado.Name = "cmb_empleado"
         Me.cmb_empleado.Size = New System.Drawing.Size(121, 21)
         Me.cmb_empleado.TabIndex = 23
@@ -222,7 +226,7 @@ Partial Class Venta
         'chk_mozo
         '
         Me.chk_mozo.AutoSize = True
-        Me.chk_mozo.Location = New System.Drawing.Point(185, 547)
+        Me.chk_mozo.Location = New System.Drawing.Point(471, 545)
         Me.chk_mozo.Name = "chk_mozo"
         Me.chk_mozo.Size = New System.Drawing.Size(52, 17)
         Me.chk_mozo.TabIndex = 26
@@ -243,32 +247,13 @@ Partial Class Venta
         '
         Me.dgv_detalle.AllowUserToAddRows = False
         Me.dgv_detalle.AllowUserToDeleteRows = False
-        Me.dgv_detalle.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgv_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_detalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.nombre_2, Me.monto})
+        Me.dgv_detalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.nombre_2, Me.monto, Me.cantidad})
         Me.dgv_detalle.Location = New System.Drawing.Point(11, 318)
         Me.dgv_detalle.Name = "dgv_detalle"
         Me.dgv_detalle.ReadOnly = True
         Me.dgv_detalle.Size = New System.Drawing.Size(994, 150)
         Me.dgv_detalle.TabIndex = 28
-        '
-        'id
-        '
-        Me.id.HeaderText = "Nro"
-        Me.id.Name = "id"
-        Me.id.ReadOnly = True
-        '
-        'nombre_2
-        '
-        Me.nombre_2.HeaderText = "Nombre"
-        Me.nombre_2.Name = "nombre_2"
-        Me.nombre_2.ReadOnly = True
-        '
-        'monto
-        '
-        Me.monto.HeaderText = "Precio"
-        Me.monto.Name = "monto"
-        Me.monto.ReadOnly = True
         '
         'dgv_articulo
         '
@@ -312,11 +297,70 @@ Partial Class Venta
         Me.btn_mostrarTodosCom.Text = "Mostrar Todos"
         Me.btn_mostrarTodosCom.UseVisualStyleBackColor = True
         '
+        'id
+        '
+        Me.id.HeaderText = "Nro"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
+        Me.id.Width = 238
+        '
+        'nombre_2
+        '
+        Me.nombre_2.HeaderText = "Nombre"
+        Me.nombre_2.Name = "nombre_2"
+        Me.nombre_2.ReadOnly = True
+        Me.nombre_2.Width = 238
+        '
+        'monto
+        '
+        Me.monto.HeaderText = "Precio"
+        Me.monto.Name = "monto"
+        Me.monto.ReadOnly = True
+        Me.monto.Width = 237
+        '
+        'cantidad
+        '
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ReadOnly = True
+        Me.cantidad.Width = 238
+        '
+        'btn_qf
+        '
+        Me.btn_qf.Enabled = False
+        Me.btn_qf.Location = New System.Drawing.Point(93, 479)
+        Me.btn_qf.Name = "btn_qf"
+        Me.btn_qf.Size = New System.Drawing.Size(75, 23)
+        Me.btn_qf.TabIndex = 33
+        Me.btn_qf.Text = "Quitar Fila"
+        Me.btn_qf.UseVisualStyleBackColor = True
+        '
+        'cmb_persona
+        '
+        Me.cmb_persona.Enabled = False
+        Me.cmb_persona.FormattingEnabled = True
+        Me.cmb_persona.Location = New System.Drawing.Point(173, 570)
+        Me.cmb_persona.Name = "cmb_persona"
+        Me.cmb_persona.Size = New System.Drawing.Size(121, 21)
+        Me.cmb_persona.TabIndex = 34
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(173, 545)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(46, 13)
+        Me.Label4.TabIndex = 35
+        Me.Label4.Text = "Persona"
+        '
         'Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1016, 629)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.cmb_persona)
+        Me.Controls.Add(Me.btn_qf)
         Me.Controls.Add(Me.btn_mostrarTodosCom)
         Me.Controls.Add(Me.btn_mostrarTodosArt)
         Me.Controls.Add(Me.dgv_combo)
@@ -375,9 +419,13 @@ Partial Class Venta
     Friend WithEvents dgv_detalle As DataGridView
     Friend WithEvents dgv_articulo As DataGridView
     Friend WithEvents dgv_combo As DataGridView
+    Friend WithEvents btn_mostrarTodosArt As Button
+    Friend WithEvents btn_mostrarTodosCom As Button
     Friend WithEvents id As DataGridViewTextBoxColumn
     Friend WithEvents nombre_2 As DataGridViewTextBoxColumn
     Friend WithEvents monto As DataGridViewTextBoxColumn
-    Friend WithEvents btn_mostrarTodosArt As Button
-    Friend WithEvents btn_mostrarTodosCom As Button
+    Friend WithEvents cantidad As DataGridViewTextBoxColumn
+    Friend WithEvents btn_qf As Button
+    Friend WithEvents cmb_persona As ComboBox
+    Friend WithEvents Label4 As Label
 End Class
