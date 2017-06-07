@@ -43,14 +43,14 @@ Partial Class Venta
         Me.chk_mozo = New System.Windows.Forms.CheckBox()
         Me.chk_abonado = New System.Windows.Forms.CheckBox()
         Me.dgv_detalle = New System.Windows.Forms.DataGridView()
-        Me.dgv_articulo = New System.Windows.Forms.DataGridView()
-        Me.dgv_combo = New System.Windows.Forms.DataGridView()
-        Me.btn_mostrarTodosArt = New System.Windows.Forms.Button()
-        Me.btn_mostrarTodosCom = New System.Windows.Forms.Button()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.nombre_2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgv_articulo = New System.Windows.Forms.DataGridView()
+        Me.dgv_combo = New System.Windows.Forms.DataGridView()
+        Me.btn_mostrarTodosArt = New System.Windows.Forms.Button()
+        Me.btn_mostrarTodosCom = New System.Windows.Forms.Button()
         Me.btn_qf = New System.Windows.Forms.Button()
         Me.cmb_persona = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -255,6 +255,34 @@ Partial Class Venta
         Me.dgv_detalle.Size = New System.Drawing.Size(994, 150)
         Me.dgv_detalle.TabIndex = 28
         '
+        'id
+        '
+        Me.id.HeaderText = "Nro"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
+        Me.id.Width = 238
+        '
+        'nombre_2
+        '
+        Me.nombre_2.HeaderText = "Nombre"
+        Me.nombre_2.Name = "nombre_2"
+        Me.nombre_2.ReadOnly = True
+        Me.nombre_2.Width = 238
+        '
+        'monto
+        '
+        Me.monto.HeaderText = "Precio"
+        Me.monto.Name = "monto"
+        Me.monto.ReadOnly = True
+        Me.monto.Width = 237
+        '
+        'cantidad
+        '
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ReadOnly = True
+        Me.cantidad.Width = 238
+        '
         'dgv_articulo
         '
         Me.dgv_articulo.AllowUserToAddRows = False
@@ -296,34 +324,6 @@ Partial Class Venta
         Me.btn_mostrarTodosCom.TabIndex = 32
         Me.btn_mostrarTodosCom.Text = "Mostrar Todos"
         Me.btn_mostrarTodosCom.UseVisualStyleBackColor = True
-        '
-        'id
-        '
-        Me.id.HeaderText = "Nro"
-        Me.id.Name = "id"
-        Me.id.ReadOnly = True
-        Me.id.Width = 238
-        '
-        'nombre_2
-        '
-        Me.nombre_2.HeaderText = "Nombre"
-        Me.nombre_2.Name = "nombre_2"
-        Me.nombre_2.ReadOnly = True
-        Me.nombre_2.Width = 238
-        '
-        'monto
-        '
-        Me.monto.HeaderText = "Precio"
-        Me.monto.Name = "monto"
-        Me.monto.ReadOnly = True
-        Me.monto.Width = 237
-        '
-        'cantidad
-        '
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.ReadOnly = True
-        Me.cantidad.Width = 238
         '
         'btn_qf
         '
