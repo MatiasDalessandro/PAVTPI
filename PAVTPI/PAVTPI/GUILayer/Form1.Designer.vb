@@ -34,6 +34,7 @@ Partial Class Form1
         Me.CargarPersonaAutorizadaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CancelarSaldoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CargarAsistenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -91,7 +92,7 @@ Partial Class Form1
         '
         'ProcesosToolStripMenuItem
         '
-        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargarPersonaAutorizadaToolStripMenuItem, Me.RegistrarVentaToolStripMenuItem, Me.CancelarSaldoToolStripMenuItem})
+        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargarPersonaAutorizadaToolStripMenuItem, Me.RegistrarVentaToolStripMenuItem, Me.CancelarSaldoToolStripMenuItem, Me.CargarAsistenciaToolStripMenuItem})
         Me.ProcesosToolStripMenuItem.Name = "ProcesosToolStripMenuItem"
         Me.ProcesosToolStripMenuItem.Size = New System.Drawing.Size(66, 20)
         Me.ProcesosToolStripMenuItem.Text = "Procesos"
@@ -113,6 +114,12 @@ Partial Class Form1
         Me.CancelarSaldoToolStripMenuItem.Name = "CancelarSaldoToolStripMenuItem"
         Me.CancelarSaldoToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
         Me.CancelarSaldoToolStripMenuItem.Text = "Cancelar Saldo"
+        '
+        'CargarAsistenciaToolStripMenuItem
+        '
+        Me.CargarAsistenciaToolStripMenuItem.Name = "CargarAsistenciaToolStripMenuItem"
+        Me.CargarAsistenciaToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.CargarAsistenciaToolStripMenuItem.Text = "Cargar Asistencia"
         '
         'Form1
         '
@@ -142,4 +149,5 @@ Partial Class Form1
     Friend WithEvents CargarPersonaAutorizadaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RegistrarVentaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CancelarSaldoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CargarAsistenciaToolStripMenuItem As ToolStripMenuItem
 End Class
