@@ -208,7 +208,7 @@ Partial Class Venta
         '
         Me.cmb_empleado.Enabled = False
         Me.cmb_empleado.FormattingEnabled = True
-        Me.cmb_empleado.Location = New System.Drawing.Point(471, 570)
+        Me.cmb_empleado.Location = New System.Drawing.Point(340, 570)
         Me.cmb_empleado.Name = "cmb_empleado"
         Me.cmb_empleado.Size = New System.Drawing.Size(121, 21)
         Me.cmb_empleado.TabIndex = 23
@@ -226,7 +226,7 @@ Partial Class Venta
         'chk_mozo
         '
         Me.chk_mozo.AutoSize = True
-        Me.chk_mozo.Location = New System.Drawing.Point(471, 545)
+        Me.chk_mozo.Location = New System.Drawing.Point(340, 545)
         Me.chk_mozo.Name = "chk_mozo"
         Me.chk_mozo.Size = New System.Drawing.Size(52, 17)
         Me.chk_mozo.TabIndex = 26

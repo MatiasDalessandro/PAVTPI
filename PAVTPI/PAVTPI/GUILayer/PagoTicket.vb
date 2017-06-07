@@ -138,7 +138,7 @@
             sql &= " inner join dependenciaXPersona dp on dp.nroDocumento = p.nroDocumento"
             sql &= " where nroCuentaCorriente = " & cmb_dependencia.SelectedIndex
 
-            cargar_combo(cmb_persona, (dbHelper.ConsultaSQL(sql)), "nroDocumento", "")
+            'cargar_combo(cmb_persona, (dbHelper.ConsultaSQL(sql)), "nroDocumento", "")
         End If
         If Not chk_dependencia.Checked Then
             cmb_dependencia.Enabled = False
