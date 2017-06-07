@@ -23,7 +23,7 @@
             tabla2.Rows.Add(row)
         Next
         cargar_combo(cmb_empleado, tabla2, "nroDocumento", "nombre")
-
+        cmb_empleado.SelectedIndex = -1
         Me.txt_total.Enabled = False
 
     End Sub
@@ -133,12 +133,7 @@
             cmb_dependencia.Enabled = True
             btn_agregarDependencia.Enabled = True
             cmb_persona.Enabled = True
-            Dim id As Integer = cmb_dependencia.SelectedIndex
-            Dim sql As String = "SELECT p.apellido, p.nombre FROM persona p"
-            sql &= " inner join dependenciaXPersona dp on dp.nroDocumento = p.nroDocumento"
-            sql &= " where nroCuentaCorriente = " & cmb_dependencia.SelectedIndex
 
-            'cargar_combo(cmb_persona, (dbHelper.ConsultaSQL(sql)), "nroDocumento", "")
         End If
         If Not chk_dependencia.Checked Then
             cmb_dependencia.Enabled = False
@@ -150,12 +145,8 @@
     Private Sub chk_mozo_CheckedChanged(sender As Object, e As EventArgs) Handles chk_mozo.CheckedChanged
         If chk_mozo.Checked Then
             cmb_empleado.Enabled = True
-        Else
-            cmb_empleado.Enabled = False
         End If
     End Sub
-
-
     Private Sub btn_quitar_Click(sender As Object, e As EventArgs) Handles btn_quitar.Click
         If dgv_detalle.CurrentRow.Cells(3).Value = 1 Then
             dgv_detalle.Rows.Remove(dgv_detalle.CurrentRow)
@@ -178,26 +169,76 @@
         End If
     End Sub
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
-        Dim compraComun As String = "INSERT INTO ticket (fechaHora,monto) VALUES ('" & System.DateTime.Now.ToString() & "', " & CType(txt_total.Text, System.Double) & ")"
-        Dim ccc As String = "SELECT p.nroDocumento FROM persona p inner join dependenciaXPersona dp on dp.nroDocumento = p.nroDocumento where dp.nroCuentaCorriente = " & cmb_dependencia.SelectedIndex
-        Dim tabla As DataTable = dbHelper.ConsultaSQL(ccc)
-        Dim compraCtaCte As String = "INSERT INTO ticket (fechaHora, monto, nroDocumento, nroCuentaCorriente) VALUES ('" & System.DateTime.Now.ToString() & "'," & CType(txt_total.Text, System.Double) & "," & tabla.Rows(0)(0) & "," & cmb_dependencia.SelectedIndex & ")"
-        Dim ctaCteMozo As String = ""
-
+        Dim estado As Boolean = False
         If dgv_detalle.Rows.Count = 0 Then
             MsgBox("No se puede guardar venta sin articulos o combos.")
             Exit Sub
         Else
-            Dim sql As String = ""
-            If chk_mozo.Checked & cmb_empleado.SelectedIndex <> -1 Then
 
-
+            If chk_dependencia.Checked And cmb_dependencia.SelectedIndex <> -1 And chk_mozo.Checked <> True Then
+                Dim table As DataTable = cmb_persona.DataSource
+                Dim nroDoc As Integer = table(cmb_persona.SelectedIndex)(0)
+                Dim compraCtaCte As String = "INSERT INTO ticket (fechaHora, monto, nroDocumento, nroCuentaCorriente) VALUES ('" & System.DateTime.Now.ToString() & "'," & CType(txt_total.Text, System.Double) & "," & nroDoc & "," & cmb_dependencia.SelectedIndex + 1 & ")"
+                dbHelper.EjecutarSQL(compraCtaCte)
+                estado = True
             End If
-            If chk_dependencia.Checked & cmb_dependencia.SelectedIndex <> -1 Then
-
-
+            If chk_mozo.Checked And cmb_empleado.SelectedIndex <> -1 And chk_dependencia.Checked And cmb_dependencia.SelectedIndex <> 0 Then
+                Dim table As DataTable = cmb_persona.DataSource
+                Dim nroDoc As Integer = table(cmb_persona.SelectedIndex)(0)
+                Dim table2 As DataTable = cmb_empleado.DataSource
+                Dim nroDocMozo As Integer = table2(cmb_empleado.SelectedIndex)(0)
+                Dim ctaCteMozo As String = "INSERT INTO ticket (fechaHora, monto, nroDocumento, nroCuentaCorriente,nroDocMozo) VALUES ('" & System.DateTime.Now.ToString() & "'," & CType(txt_total.Text, System.Double) & "," & nroDoc & "," & cmb_dependencia.SelectedIndex + 1 & ", " & nroDocMozo & ")"
+                dbHelper.EjecutarSQL(ctaCteMozo)
+                estado = True
             End If
+            If chk_mozo.Checked = False And chk_dependencia.Checked = False Then
+                Dim compraComun As String = "INSERT INTO ticket (fechaHora,monto) VALUES ('" & System.DateTime.Now.ToString() & "', " & CType(txt_total.Text, System.Double) & ")"
+                dbHelper.EjecutarSQL(compraComun)
+            End If
+            Dim tabla As DataTable = dbHelper.ConsultaSQL("SELECT MAX(t.nroTicket) from ticket t")
+            Dim idTicket As Integer = tabla(0)(0)
+            Dim detalle As String = ""
+            For Each row As DataGridViewRow In dgv_detalle.Rows
+                If detalle = "" Then
+                    detalle &= "insert into detalleTicketArticulo (nroTicket,idArticulo,cantidad) VALUES(" & idTicket & "," & row.Cells(0).Value.ToString
+                    detalle &= ", " & row.Cells(3).Value.ToString & ")"
+                Else
+                    detalle &= vbLf
+                    detalle &= "insert into detalleTicketArticulo (nroTicket,idArticulo,cantidad) VALUES(" & idTicket & "," & row.Cells(0).Value.ToString
+                    detalle &= ", " & row.Cells(3).Value.ToString & ")"
+                End If
+            Next
+            dbHelper.EjecutarSQL(detalle)
+            If estado = True Then
+                dbHelper.EjecutarSQL("insert into ticketXDependencia (nroCuentaCorriente,nroTicket) 
+                VALUES (" & cmb_dependencia.SelectedIndex + 1 & ", " & idTicket & ")")
+            End If
+            MsgBox("Se guardo correctamente.")
+
+
         End If
-        
+
+    End Sub
+
+    Private Sub cmb_dependencia_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_dependencia.SelectedIndexChanged
+        Dim sql As String = "SELECT p.apellido, p.nombre, p.nroDocumento FROM persona p"
+        sql &= " inner join dependenciaXPersona dp on dp.nroDocumento = p.nroDocumento"
+        sql &= " where nroCuentaCorriente = " & cmb_dependencia.SelectedIndex + 1
+        Dim tabla As DataTable = dbHelper.ConsultaSQL(sql)
+
+        Dim tabla2 As New DataTable
+        Dim column1 As New DataColumn("nroDocumento", GetType(System.Int32))
+        Dim column2 As New DataColumn("nombre", GetType(System.String))
+        tabla2.Columns.Add(column1)
+        tabla2.Columns.Add(column2)
+        tabla2.PrimaryKey = New DataColumn() {column1}
+        Dim row As DataRow
+        For i = 0 To tabla.Rows.Count - 1
+            row = tabla2.NewRow
+            row("nroDocumento") = tabla.Rows(i)("nroDocumento")
+            row("nombre") = tabla.Rows(i)("apellido") & ", " & tabla.Rows(i)("nombre")
+            tabla2.Rows.Add(row)
+        Next
+        cargar_combo(cmb_persona, tabla2, "nroDocumento", "nombre")
     End Sub
 End Class
