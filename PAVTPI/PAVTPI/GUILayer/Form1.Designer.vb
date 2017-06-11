@@ -35,12 +35,14 @@ Partial Class Form1
         Me.RegistrarVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CancelarSaldoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CargarAsistenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VentasPorPeríodoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMToolStripMenuItem, Me.ProcesosToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMToolStripMenuItem, Me.ProcesosToolStripMenuItem, Me.ReportesToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(406, 24)
@@ -121,6 +123,19 @@ Partial Class Form1
         Me.CargarAsistenciaToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
         Me.CargarAsistenciaToolStripMenuItem.Text = "Cargar Asistencia"
         '
+        'ReportesToolStripMenuItem
+        '
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasPorPeríodoToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
+        Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
+        Me.ReportesToolStripMenuItem.Text = "Reportes"
+        '
+        'VentasPorPeríodoToolStripMenuItem
+        '
+        Me.VentasPorPeríodoToolStripMenuItem.Name = "VentasPorPeríodoToolStripMenuItem"
+        Me.VentasPorPeríodoToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
+        Me.VentasPorPeríodoToolStripMenuItem.Text = "Ventas por período"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -150,4 +165,6 @@ Partial Class Form1
     Friend WithEvents RegistrarVentaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CancelarSaldoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CargarAsistenciaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReportesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents VentasPorPeríodoToolStripMenuItem As ToolStripMenuItem
 End Class

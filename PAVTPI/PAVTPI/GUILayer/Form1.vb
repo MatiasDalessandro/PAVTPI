@@ -57,4 +57,8 @@
     Private Sub CancelarSaldoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CancelarSaldoToolStripMenuItem.Click
         PagoXCuentaCorriente.Show()
     End Sub
+
+    Private Sub VentasPorPeríodoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VentasPorPeríodoToolStripMenuItem.Click
+        Ventas_por_período.Show()
+    End Sub
 End Class
