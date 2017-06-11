@@ -115,6 +115,11 @@
   <ItemGroup>
     <Compile Include="DATALayer\DBHelper\DBHelper.vb" />
     <Compile Include="DATALayer\DBHelper\_3k6_2017_acceso_datosvb.vb" />
+    <Compile Include="DATALayer\Reportes\DataSetResumenCtaCte.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetResumenCtaCte.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DATALayer\Reportes\DataSetVentasPorPeriodo.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -217,6 +222,12 @@
     <Compile Include="GUILayer\PersonaXDependencia.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GUILayer\Resumen Cta Cte.Designer.vb">
+      <DependentUpon>Resumen Cta Cte.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\Resumen Cta Cte.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GUILayer\Ventas por período.Designer.vb">
       <DependentUpon>Ventas por período.vb</DependentUpon>
     </Compile>
@@ -246,6 +257,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DATALayer\Reportes\ReporteResumenCtaCte.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ReporteVentasPorPeriodo.rdlc" />
     <EmbeddedResource Include="GUILayer\AbmArticulo.resx">
       <DependentUpon>AbmArticulo.vb</DependentUpon>
@@ -295,6 +307,9 @@
     <EmbeddedResource Include="GUILayer\PersonaXDependencia.resx">
       <DependentUpon>PersonaXDependencia.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\Resumen Cta Cte.resx">
+      <DependentUpon>Resumen Cta Cte.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Ventas por período.resx">
       <DependentUpon>Ventas por período.vb</DependentUpon>
     </EmbeddedResource>
@@ -309,6 +324,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="DATALayer\Reportes\DataSetResumenCtaCte.xsc">
+      <DependentUpon>DataSetResumenCtaCte.xsd</DependentUpon>
+    </None>
+    <None Include="DATALayer\Reportes\DataSetResumenCtaCte.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetResumenCtaCte.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DATALayer\Reportes\DataSetResumenCtaCte.xss">
+      <DependentUpon>DataSetResumenCtaCte.xsd</DependentUpon>
+    </None>
     <None Include="DATALayer\Reportes\DataSetVentasPorPeriodo.xsc">
       <DependentUpon>DataSetVentasPorPeriodo.xsd</DependentUpon>
     </None>

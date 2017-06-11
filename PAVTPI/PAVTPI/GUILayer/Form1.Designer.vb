@@ -37,6 +37,7 @@ Partial Class Form1
         Me.CargarAsistenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasPorPeríodoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResumenPorCuentaCorrienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -125,7 +126,7 @@ Partial Class Form1
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasPorPeríodoToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasPorPeríodoToolStripMenuItem, Me.ResumenPorCuentaCorrienteToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
@@ -133,8 +134,14 @@ Partial Class Form1
         'VentasPorPeríodoToolStripMenuItem
         '
         Me.VentasPorPeríodoToolStripMenuItem.Name = "VentasPorPeríodoToolStripMenuItem"
-        Me.VentasPorPeríodoToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
+        Me.VentasPorPeríodoToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
         Me.VentasPorPeríodoToolStripMenuItem.Text = "Ventas por período"
+        '
+        'ResumenPorCuentaCorrienteToolStripMenuItem
+        '
+        Me.ResumenPorCuentaCorrienteToolStripMenuItem.Name = "ResumenPorCuentaCorrienteToolStripMenuItem"
+        Me.ResumenPorCuentaCorrienteToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
+        Me.ResumenPorCuentaCorrienteToolStripMenuItem.Text = "Resumen por Cuenta Corriente"
         '
         'Form1
         '
@@ -167,4 +174,5 @@ Partial Class Form1
     Friend WithEvents CargarAsistenciaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReportesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VentasPorPeríodoToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ResumenPorCuentaCorrienteToolStripMenuItem As ToolStripMenuItem
 End Class
