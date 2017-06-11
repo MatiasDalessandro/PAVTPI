@@ -22,34 +22,38 @@ Partial Class Ventas_por_período
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
-        Me.MaskedTextBox2 = New System.Windows.Forms.MaskedTextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.txt_fechaInicio = New System.Windows.Forms.MaskedTextBox()
+        Me.txt_fechaFin = New System.Windows.Forms.MaskedTextBox()
+        Me.txt_buscar = New System.Windows.Forms.Button()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.SuspendLayout()
         '
-        'MaskedTextBox1
+        'txt_fechaInicio
         '
-        Me.MaskedTextBox1.Location = New System.Drawing.Point(13, 13)
-        Me.MaskedTextBox1.Name = "MaskedTextBox1"
-        Me.MaskedTextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.MaskedTextBox1.TabIndex = 0
+        Me.txt_fechaInicio.Location = New System.Drawing.Point(13, 13)
+        Me.txt_fechaInicio.Mask = "00/00/0000"
+        Me.txt_fechaInicio.Name = "txt_fechaInicio"
+        Me.txt_fechaInicio.Size = New System.Drawing.Size(100, 20)
+        Me.txt_fechaInicio.TabIndex = 0
+        Me.txt_fechaInicio.ValidatingType = GetType(Date)
         '
-        'MaskedTextBox2
+        'txt_fechaFin
         '
-        Me.MaskedTextBox2.Location = New System.Drawing.Point(120, 13)
-        Me.MaskedTextBox2.Name = "MaskedTextBox2"
-        Me.MaskedTextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.MaskedTextBox2.TabIndex = 1
+        Me.txt_fechaFin.Location = New System.Drawing.Point(120, 13)
+        Me.txt_fechaFin.Mask = "00/00/0000"
+        Me.txt_fechaFin.Name = "txt_fechaFin"
+        Me.txt_fechaFin.Size = New System.Drawing.Size(100, 20)
+        Me.txt_fechaFin.TabIndex = 1
+        Me.txt_fechaFin.ValidatingType = GetType(Date)
         '
-        'Button1
+        'txt_buscar
         '
-        Me.Button1.Location = New System.Drawing.Point(227, 13)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.txt_buscar.Location = New System.Drawing.Point(227, 13)
+        Me.txt_buscar.Name = "txt_buscar"
+        Me.txt_buscar.Size = New System.Drawing.Size(75, 23)
+        Me.txt_buscar.TabIndex = 2
+        Me.txt_buscar.Text = "Buscar"
+        Me.txt_buscar.UseVisualStyleBackColor = True
         '
         'ReportViewer1
         '
@@ -64,9 +68,9 @@ Partial Class Ventas_por_período
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(747, 469)
         Me.Controls.Add(Me.ReportViewer1)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.MaskedTextBox2)
-        Me.Controls.Add(Me.MaskedTextBox1)
+        Me.Controls.Add(Me.txt_buscar)
+        Me.Controls.Add(Me.txt_fechaFin)
+        Me.Controls.Add(Me.txt_fechaInicio)
         Me.Name = "Ventas_por_período"
         Me.Text = "Ventas_por_período"
         Me.ResumeLayout(False)
@@ -74,8 +78,8 @@ Partial Class Ventas_por_período
 
     End Sub
 
-    Friend WithEvents MaskedTextBox1 As MaskedTextBox
-    Friend WithEvents MaskedTextBox2 As MaskedTextBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents txt_fechaInicio As MaskedTextBox
+    Friend WithEvents txt_fechaFin As MaskedTextBox
+    Friend WithEvents txt_buscar As Button
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
 End Class

@@ -115,6 +115,11 @@
   <ItemGroup>
     <Compile Include="DATALayer\DBHelper\DBHelper.vb" />
     <Compile Include="DATALayer\DBHelper\_3k6_2017_acceso_datosvb.vb" />
+    <Compile Include="DATALayer\Reportes\DataSetVentasPorPeriodo.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetVentasPorPeriodo.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GUILayer\AbmArticulo.Designer.vb">
       <DependentUpon>AbmArticulo.vb</DependentUpon>
     </Compile>
@@ -241,6 +246,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DATALayer\Reportes\ReporteVentasPorPeriodo.rdlc" />
     <EmbeddedResource Include="GUILayer\AbmArticulo.resx">
       <DependentUpon>AbmArticulo.vb</DependentUpon>
     </EmbeddedResource>
@@ -303,6 +309,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="DATALayer\Reportes\DataSetVentasPorPeriodo.xsc">
+      <DependentUpon>DataSetVentasPorPeriodo.xsd</DependentUpon>
+    </None>
+    <None Include="DATALayer\Reportes\DataSetVentasPorPeriodo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetVentasPorPeriodo.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DATALayer\Reportes\DataSetVentasPorPeriodo.xss">
+      <DependentUpon>DataSetVentasPorPeriodo.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
