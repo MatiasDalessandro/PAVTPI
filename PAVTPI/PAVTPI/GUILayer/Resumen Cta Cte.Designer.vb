@@ -39,7 +39,7 @@ Partial Class Resumen_Cta_Cte
         ReportDataSource1.Name = "DataSet1"
         ReportDataSource1.Value = Me.ResumenBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "PAVTPI.ReporteResumenCtaCte.rdlc"
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "PAVTPI.ReporteCtaCte.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(12, 34)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(673, 478)

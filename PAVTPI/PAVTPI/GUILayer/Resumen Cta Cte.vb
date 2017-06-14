@@ -9,7 +9,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql &= "SELECT * FROM pagoXCuentaCorriente WHERE pagoXCuentaCorriente.nroCuentaCorriente = " & txtCtaCte.Text
+        sql &= "select * from dependencia where dependencia.nroCuentaCorriente = " & txtCtaCte.Text
 
         tabla = dbhelper.ConsultaSQL(sql)
         ResumenBindingSource.DataSource = tabla
