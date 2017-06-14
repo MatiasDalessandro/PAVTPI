@@ -65,4 +65,8 @@
     Private Sub ResumenPorCuentaCorrienteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResumenPorCuentaCorrienteToolStripMenuItem.Click
         Resumen_Cta_Cte.Show()
     End Sub
+
+    Private Sub ReporteVentasPorHoraPicoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteVentasPorHoraPicoToolStripMenuItem.Click
+        ReporteVentasPorHoraPico.Show()
+    End Sub
 End Class

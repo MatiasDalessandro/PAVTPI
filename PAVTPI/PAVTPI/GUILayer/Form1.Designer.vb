@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ABMToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -38,6 +38,7 @@ Partial Class Form1
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasPorPeríodoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResumenPorCuentaCorrienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteVentasPorHoraPicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -126,7 +127,7 @@ Partial Class Form1
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasPorPeríodoToolStripMenuItem, Me.ResumenPorCuentaCorrienteToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasPorPeríodoToolStripMenuItem, Me.ResumenPorCuentaCorrienteToolStripMenuItem, Me.ReporteVentasPorHoraPicoToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
@@ -142,6 +143,12 @@ Partial Class Form1
         Me.ResumenPorCuentaCorrienteToolStripMenuItem.Name = "ResumenPorCuentaCorrienteToolStripMenuItem"
         Me.ResumenPorCuentaCorrienteToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
         Me.ResumenPorCuentaCorrienteToolStripMenuItem.Text = "Resumen por Cuenta Corriente"
+        '
+        'ReporteVentasPorHoraPicoToolStripMenuItem
+        '
+        Me.ReporteVentasPorHoraPicoToolStripMenuItem.Name = "ReporteVentasPorHoraPicoToolStripMenuItem"
+        Me.ReporteVentasPorHoraPicoToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
+        Me.ReporteVentasPorHoraPicoToolStripMenuItem.Text = "Reporte Ventas por hora pico"
         '
         'Form1
         '
@@ -175,4 +182,5 @@ Partial Class Form1
     Friend WithEvents ReportesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VentasPorPeríodoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ResumenPorCuentaCorrienteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteVentasPorHoraPicoToolStripMenuItem As ToolStripMenuItem
 End Class
