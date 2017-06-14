@@ -22,16 +22,86 @@ Partial Class Resumen_Cta_Cte
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtCtaCte = New System.Windows.Forms.TextBox()
+        Me.DataSetResumenCtaCte = New PAVTPI.DataSetResumenCtaCte()
+        Me.ResumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.btnBuscar = New System.Windows.Forms.Button()
+        CType(Me.DataSetResumenCtaCte, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ResumenBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'ReportViewer1
+        '
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.ResumenBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "PAVTPI.ReporteResumenCtaCte.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(12, 34)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(673, 478)
+        Me.ReportViewer1.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(10, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(177, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Ingrese numero de Cuenta Corriente"
+        '
+        'txtCtaCte
+        '
+        Me.txtCtaCte.Location = New System.Drawing.Point(193, 6)
+        Me.txtCtaCte.Name = "txtCtaCte"
+        Me.txtCtaCte.Size = New System.Drawing.Size(78, 20)
+        Me.txtCtaCte.TabIndex = 2
+        '
+        'DataSetResumenCtaCte
+        '
+        Me.DataSetResumenCtaCte.DataSetName = "DataSetResumenCtaCte"
+        Me.DataSetResumenCtaCte.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ResumenBindingSource
+        '
+        Me.ResumenBindingSource.DataMember = "resumen"
+        Me.ResumenBindingSource.DataSource = Me.DataSetResumenCtaCte
+        '
+        'btnBuscar
+        '
+        Me.btnBuscar.Location = New System.Drawing.Point(277, 5)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(75, 23)
+        Me.btnBuscar.TabIndex = 3
+        Me.btnBuscar.Text = "Buscar"
+        Me.btnBuscar.UseVisualStyleBackColor = True
         '
         'Resumen_Cta_Cte
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 261)
+        Me.ClientSize = New System.Drawing.Size(697, 524)
+        Me.Controls.Add(Me.btnBuscar)
+        Me.Controls.Add(Me.txtCtaCte)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "Resumen_Cta_Cte"
         Me.Text = "Resumen_Cta_Cte"
+        CType(Me.DataSetResumenCtaCte, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ResumenBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
+
+    Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtCtaCte As TextBox
+    Friend WithEvents ResumenBindingSource As BindingSource
+    Friend WithEvents DataSetResumenCtaCte As DataSetResumenCtaCte
+    Friend WithEvents btnBuscar As Button
 End Class

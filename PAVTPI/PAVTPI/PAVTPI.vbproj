@@ -120,6 +120,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetResumenCtaCte.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DATALayer\Reportes\DataSetResumenCtaCte.vb">
+      <DependentUpon>DataSetResumenCtaCte.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DATALayer\Reportes\DataSetVentasPorPeriodo.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
