@@ -1,7 +1,5 @@
 ﻿Public Class Resumen_Cta_Cte
-    Dim cadena As String = "Provider=SQLNCLI11;Data Source=LAPTOP-6VOLNCDP\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=PAV-TPI"
-    Dim conexion As New OleDb.OleDbConnection With {.ConnectionString = cadena}
-    Dim cmd As New OleDb.OleDbCommand
+    Dim dbhelper As DBHelper = DBHelper.getDBHelper
 
     Private Sub Resumen_Cta_Cte_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -13,9 +11,7 @@
 
         sql &= "SELECT * FROM pagoXCuentaCorriente WHERE pagoXCuentaCorriente.nroCuentaCorriente = " & txtCtaCte.Text
 
-
-
-
+        tabla = dbhelper.ConsultaSQL(sql)
         ResumenBindingSource.DataSource = tabla
 
         ReportViewer1.RefreshReport()

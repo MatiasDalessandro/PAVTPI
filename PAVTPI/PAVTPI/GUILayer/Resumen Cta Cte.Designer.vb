@@ -27,11 +27,11 @@ Partial Class Resumen_Cta_Cte
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtCtaCte = New System.Windows.Forms.TextBox()
-        Me.DataSetResumenCtaCte = New PAVTPI.DataSetResumenCtaCte()
-        Me.ResumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.btnBuscar = New System.Windows.Forms.Button()
-        CType(Me.DataSetResumenCtaCte, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ResumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSetResumenCtaCte = New PAVTPI.DataSetResumenCtaCte()
         CType(Me.ResumenBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSetResumenCtaCte, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ReportViewer1
@@ -61,16 +61,6 @@ Partial Class Resumen_Cta_Cte
         Me.txtCtaCte.Size = New System.Drawing.Size(78, 20)
         Me.txtCtaCte.TabIndex = 2
         '
-        'DataSetResumenCtaCte
-        '
-        Me.DataSetResumenCtaCte.DataSetName = "DataSetResumenCtaCte"
-        Me.DataSetResumenCtaCte.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ResumenBindingSource
-        '
-        Me.ResumenBindingSource.DataMember = "resumen"
-        Me.ResumenBindingSource.DataSource = Me.DataSetResumenCtaCte
-        '
         'btnBuscar
         '
         Me.btnBuscar.Location = New System.Drawing.Point(277, 5)
@@ -79,6 +69,16 @@ Partial Class Resumen_Cta_Cte
         Me.btnBuscar.TabIndex = 3
         Me.btnBuscar.Text = "Buscar"
         Me.btnBuscar.UseVisualStyleBackColor = True
+        '
+        'ResumenBindingSource
+        '
+        Me.ResumenBindingSource.DataMember = "resumen"
+        Me.ResumenBindingSource.DataSource = Me.DataSetResumenCtaCte
+        '
+        'DataSetResumenCtaCte
+        '
+        Me.DataSetResumenCtaCte.DataSetName = "DataSetResumenCtaCte"
+        Me.DataSetResumenCtaCte.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Resumen_Cta_Cte
         '
@@ -91,8 +91,8 @@ Partial Class Resumen_Cta_Cte
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "Resumen_Cta_Cte"
         Me.Text = "Resumen_Cta_Cte"
-        CType(Me.DataSetResumenCtaCte, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ResumenBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSetResumenCtaCte, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

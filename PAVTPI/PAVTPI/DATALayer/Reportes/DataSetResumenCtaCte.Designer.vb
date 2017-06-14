@@ -285,9 +285,13 @@ Partial Public Class DataSetResumenCtaCte
         
         Private columnnroCuentaCorriente As Global.System.Data.DataColumn
         
-        Private columnfechaHora As Global.System.Data.DataColumn
+        Private columnnombre As Global.System.Data.DataColumn
         
-        Private columnmonto As Global.System.Data.DataColumn
+        Private columndescripcion As Global.System.Data.DataColumn
+        
+        Private columnsaldo As Global.System.Data.DataColumn
+        
+        Private columnestado As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -334,17 +338,33 @@ Partial Public Class DataSetResumenCtaCte
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property fechaHoraColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property nombreColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnfechaHora
+                Return Me.columnnombre
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property montoColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property descripcionColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnmonto
+                Return Me.columndescripcion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property saldoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsaldo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property estadoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnestado
             End Get
         End Property
         
@@ -385,9 +405,9 @@ Partial Public Class DataSetResumenCtaCte
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddresumenRow(ByVal nroCuentaCorriente As Integer, ByVal fechaHora As Date, ByVal monto As Integer) As resumenRow
+        Public Overloads Function AddresumenRow(ByVal nroCuentaCorriente As Integer, ByVal nombre As Date, ByVal descripcion As Integer, ByVal saldo As String, ByVal estado As String) As resumenRow
             Dim rowresumenRow As resumenRow = CType(Me.NewRow,resumenRow)
-            Dim columnValuesArray() As Object = New Object() {nroCuentaCorriente, fechaHora, monto}
+            Dim columnValuesArray() As Object = New Object() {nroCuentaCorriente, nombre, descripcion, saldo, estado}
             rowresumenRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowresumenRow)
             Return rowresumenRow
@@ -411,8 +431,10 @@ Partial Public Class DataSetResumenCtaCte
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnnroCuentaCorriente = MyBase.Columns("nroCuentaCorriente")
-            Me.columnfechaHora = MyBase.Columns("fechaHora")
-            Me.columnmonto = MyBase.Columns("monto")
+            Me.columnnombre = MyBase.Columns("nombre")
+            Me.columndescripcion = MyBase.Columns("descripcion")
+            Me.columnsaldo = MyBase.Columns("saldo")
+            Me.columnestado = MyBase.Columns("estado")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -420,10 +442,14 @@ Partial Public Class DataSetResumenCtaCte
         Private Sub InitClass()
             Me.columnnroCuentaCorriente = New Global.System.Data.DataColumn("nroCuentaCorriente", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnnroCuentaCorriente)
-            Me.columnfechaHora = New Global.System.Data.DataColumn("fechaHora", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnfechaHora)
-            Me.columnmonto = New Global.System.Data.DataColumn("monto", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnmonto)
+            Me.columnnombre = New Global.System.Data.DataColumn("nombre", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombre)
+            Me.columndescripcion = New Global.System.Data.DataColumn("descripcion", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndescripcion)
+            Me.columnsaldo = New Global.System.Data.DataColumn("saldo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsaldo)
+            Me.columnestado = New Global.System.Data.DataColumn("estado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnestado)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -585,31 +611,61 @@ Partial Public Class DataSetResumenCtaCte
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property fechaHora() As Date
+        Public Property nombre() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tableresumen.fechaHoraColumn),Date)
+                    Return CType(Me(Me.tableresumen.nombreColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'fechaHora' de la tabla 'resumen' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombre' de la tabla 'resumen' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableresumen.fechaHoraColumn) = value
+                Me(Me.tableresumen.nombreColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property monto() As Integer
+        Public Property descripcion() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableresumen.montoColumn),Integer)
+                    Return CType(Me(Me.tableresumen.descripcionColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'monto' de la tabla 'resumen' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'descripcion' de la tabla 'resumen' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableresumen.montoColumn) = value
+                Me(Me.tableresumen.descripcionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property saldo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableresumen.saldoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'saldo' de la tabla 'resumen' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableresumen.saldoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property estado() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableresumen.estadoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'estado' de la tabla 'resumen' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableresumen.estadoColumn) = value
             End Set
         End Property
         
@@ -627,26 +683,50 @@ Partial Public Class DataSetResumenCtaCte
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsfechaHoraNull() As Boolean
-            Return Me.IsNull(Me.tableresumen.fechaHoraColumn)
+        Public Function IsnombreNull() As Boolean
+            Return Me.IsNull(Me.tableresumen.nombreColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetfechaHoraNull()
-            Me(Me.tableresumen.fechaHoraColumn) = Global.System.Convert.DBNull
+        Public Sub SetnombreNull()
+            Me(Me.tableresumen.nombreColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsmontoNull() As Boolean
-            Return Me.IsNull(Me.tableresumen.montoColumn)
+        Public Function IsdescripcionNull() As Boolean
+            Return Me.IsNull(Me.tableresumen.descripcionColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetmontoNull()
-            Me(Me.tableresumen.montoColumn) = Global.System.Convert.DBNull
+        Public Sub SetdescripcionNull()
+            Me(Me.tableresumen.descripcionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IssaldoNull() As Boolean
+            Return Me.IsNull(Me.tableresumen.saldoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetsaldoNull()
+            Me(Me.tableresumen.saldoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsestadoNull() As Boolean
+            Return Me.IsNull(Me.tableresumen.estadoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetestadoNull()
+            Me(Me.tableresumen.estadoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

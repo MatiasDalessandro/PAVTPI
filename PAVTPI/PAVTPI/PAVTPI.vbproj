@@ -260,7 +260,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DATALayer\Reportes\ReporteResumenCtaCte.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ReportVentaPorPeriodo.rdlc" />
     <EmbeddedResource Include="GUILayer\AbmArticulo.resx">
       <DependentUpon>AbmArticulo.vb</DependentUpon>
