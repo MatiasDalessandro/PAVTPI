@@ -22,10 +22,16 @@ Partial Class Ventas_por_período
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.txt_fechaInicio = New System.Windows.Forms.MaskedTextBox()
         Me.txt_fechaFin = New System.Windows.Forms.MaskedTextBox()
         Me.txt_buscar = New System.Windows.Forms.Button()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.DataSet1 = New PAVTPI.DataSet1()
+        Me.DataTable1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataTable1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txt_fechaInicio
@@ -57,10 +63,24 @@ Partial Class Ventas_por_período
         '
         'ReportViewer1
         '
+        ReportDataSource2.Name = "DataSet1"
+        ReportDataSource2.Value = Me.DataTable1BindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "PAVTPI.ReportVentaPorPeriodo.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(13, 56)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(722, 401)
         Me.ReportViewer1.TabIndex = 3
+        '
+        'DataSet1
+        '
+        Me.DataSet1.DataSetName = "DataSet1"
+        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'DataTable1BindingSource
+        '
+        Me.DataTable1BindingSource.DataMember = "DataTable1"
+        Me.DataTable1BindingSource.DataSource = Me.DataSet1
         '
         'Ventas_por_período
         '
@@ -73,6 +93,8 @@ Partial Class Ventas_por_período
         Me.Controls.Add(Me.txt_fechaInicio)
         Me.Name = "Ventas_por_período"
         Me.Text = "Ventas_por_período"
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataTable1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -82,4 +104,6 @@ Partial Class Ventas_por_período
     Friend WithEvents txt_fechaFin As MaskedTextBox
     Friend WithEvents txt_buscar As Button
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
+    Friend WithEvents DataTable1BindingSource As BindingSource
+    Friend WithEvents DataSet1 As DataSet1
 End Class
