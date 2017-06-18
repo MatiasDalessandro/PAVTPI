@@ -20,7 +20,7 @@
         dgv_datos_articulos.DataSource = Nothing
 
         Dim strSQL As String = ""
-        strSQL = "SELECT idCombo FROM comboXArticulo GROUP BY idCombo"
+        strSQL = "select MAX(idCombo)  from combo"
         Dim numID As Integer = (DBHelper.getDBHelper.ConsultaSQL(strSQL).Rows.Count + 1)
 
         txt_id_combo.Enabled = False
@@ -307,9 +307,5 @@
 
     Private Sub btn_salir_Click(sender As Object, e As EventArgs) Handles btn_salir.Click
         Me.Close()
-    End Sub
-
-    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
-
     End Sub
 End Class

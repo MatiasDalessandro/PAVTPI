@@ -148,70 +148,52 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ResumenArticulos.xsd</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\AbmArticulo.Designer.vb">
+    <Compile Include="GUILayer\ABMS\AbmArticulo.Designer.vb">
       <DependentUpon>AbmArticulo.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\AbmArticulo.vb">
+    <Compile Include="GUILayer\ABMS\AbmArticulo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\AbmBarrio.Designer.vb">
-      <DependentUpon>AbmBarrio.vb</DependentUpon>
-    </Compile>
-    <Compile Include="GUILayer\AbmBarrio.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUILayer\AbmCombo.Designer.vb">
+    <Compile Include="GUILayer\ABMS\AbmCombo.Designer.vb">
       <DependentUpon>AbmCombo.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\AbmCombo.vb">
+    <Compile Include="GUILayer\ABMS\AbmCombo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\AbmDependencia.Designer.vb">
+    <Compile Include="GUILayer\ABMS\AbmDependencia.Designer.vb">
       <DependentUpon>AbmDependencia.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\AbmDependencia.vb">
+    <Compile Include="GUILayer\ABMS\AbmDependencia.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\AbmPersona.Designer.vb">
+    <Compile Include="GUILayer\ABMS\AbmPersona.Designer.vb">
       <DependentUpon>AbmPersona.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\AbmPersona.vb">
+    <Compile Include="GUILayer\ABMS\AbmPersona.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\AbmLocalidad.Designer.vb">
-      <DependentUpon>AbmLocalidad.vb</DependentUpon>
-    </Compile>
-    <Compile Include="GUILayer\AbmLocalidad.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUILayer\AbmPersonaAutorizada.Designer.vb">
+    <Compile Include="GUILayer\ABMS\AbmPersonaAutorizada.Designer.vb">
       <DependentUpon>AbmPersonaAutorizada.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\AbmPersonaAutorizada.vb">
+    <Compile Include="GUILayer\ABMS\AbmPersonaAutorizada.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\AbmProvincia.Designer.vb">
-      <DependentUpon>AbmProvincia.vb</DependentUpon>
-    </Compile>
-    <Compile Include="GUILayer\AbmProvincia.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUILayer\AbmRol.Designer.vb">
+    <Compile Include="GUILayer\ABMS\AbmRol.Designer.vb">
       <DependentUpon>AbmRol.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\AbmRol.vb">
+    <Compile Include="GUILayer\ABMS\AbmRol.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\AbmTipoDocumento.Designer.vb">
+    <Compile Include="GUILayer\ABMS\AbmTipoDocumento.Designer.vb">
       <DependentUpon>AbmTipoDocumento.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\AbmTipoDocumento.vb">
+    <Compile Include="GUILayer\ABMS\AbmTipoDocumento.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ArticulosParaCombo.Designer.vb">
+    <Compile Include="GUILayer\ABMS\ArticulosParaCombo.Designer.vb">
       <DependentUpon>ArticulosParaCombo.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ArticulosParaCombo.vb">
+    <Compile Include="GUILayer\ABMS\ArticulosParaCombo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\Asistencia.Designer.vb">
@@ -304,37 +286,28 @@
     <EmbeddedResource Include="DATALayer\Reportes\ReporteVentasPorHoraPico\ReporteVentaPorHoraPico.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\VentarXPeriodo\ReportVentaPorPeriodo.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ResumenArticulos\ResumenArticulos.rdlc" />
-    <EmbeddedResource Include="GUILayer\AbmArticulo.resx">
+    <EmbeddedResource Include="GUILayer\ABMS\AbmArticulo.resx">
       <DependentUpon>AbmArticulo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\AbmBarrio.resx">
-      <DependentUpon>AbmBarrio.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\AbmCombo.resx">
+    <EmbeddedResource Include="GUILayer\ABMS\AbmCombo.resx">
       <DependentUpon>AbmCombo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\AbmDependencia.resx">
+    <EmbeddedResource Include="GUILayer\ABMS\AbmDependencia.resx">
       <DependentUpon>AbmDependencia.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\AbmPersona.resx">
+    <EmbeddedResource Include="GUILayer\ABMS\AbmPersona.resx">
       <DependentUpon>AbmPersona.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\AbmLocalidad.resx">
-      <DependentUpon>AbmLocalidad.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\AbmPersonaAutorizada.resx">
+    <EmbeddedResource Include="GUILayer\ABMS\AbmPersonaAutorizada.resx">
       <DependentUpon>AbmPersonaAutorizada.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\AbmProvincia.resx">
-      <DependentUpon>AbmProvincia.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\AbmRol.resx">
+    <EmbeddedResource Include="GUILayer\ABMS\AbmRol.resx">
       <DependentUpon>AbmRol.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\AbmTipoDocumento.resx">
+    <EmbeddedResource Include="GUILayer\ABMS\AbmTipoDocumento.resx">
       <DependentUpon>AbmTipoDocumento.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ArticulosParaCombo.resx">
+    <EmbeddedResource Include="GUILayer\ABMS\ArticulosParaCombo.resx">
       <DependentUpon>ArticulosParaCombo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Asistencia.resx">
