@@ -43,10 +43,6 @@ Partial Class Venta
         Me.chk_mozo = New System.Windows.Forms.CheckBox()
         Me.chk_abonado = New System.Windows.Forms.CheckBox()
         Me.dgv_detalle = New System.Windows.Forms.DataGridView()
-        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nombre_2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgv_articulo = New System.Windows.Forms.DataGridView()
         Me.dgv_combo = New System.Windows.Forms.DataGridView()
         Me.btn_mostrarTodosArt = New System.Windows.Forms.Button()
@@ -54,6 +50,12 @@ Partial Class Venta
         Me.btn_qf = New System.Windows.Forms.Button()
         Me.cmb_persona = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nombre_2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.monto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idarticulo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idcombo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv_detalle, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv_articulo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv_combo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -248,40 +250,12 @@ Partial Class Venta
         Me.dgv_detalle.AllowUserToAddRows = False
         Me.dgv_detalle.AllowUserToDeleteRows = False
         Me.dgv_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgv_detalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.nombre_2, Me.monto, Me.cantidad})
+        Me.dgv_detalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.nombre_2, Me.monto, Me.cantidad, Me.idarticulo, Me.idcombo})
         Me.dgv_detalle.Location = New System.Drawing.Point(11, 318)
         Me.dgv_detalle.Name = "dgv_detalle"
         Me.dgv_detalle.ReadOnly = True
         Me.dgv_detalle.Size = New System.Drawing.Size(994, 150)
         Me.dgv_detalle.TabIndex = 28
-        '
-        'id
-        '
-        Me.id.HeaderText = "Nro"
-        Me.id.Name = "id"
-        Me.id.ReadOnly = True
-        Me.id.Width = 238
-        '
-        'nombre_2
-        '
-        Me.nombre_2.HeaderText = "Nombre"
-        Me.nombre_2.Name = "nombre_2"
-        Me.nombre_2.ReadOnly = True
-        Me.nombre_2.Width = 238
-        '
-        'monto
-        '
-        Me.monto.HeaderText = "Precio"
-        Me.monto.Name = "monto"
-        Me.monto.ReadOnly = True
-        Me.monto.Width = 237
-        '
-        'cantidad
-        '
-        Me.cantidad.HeaderText = "Cantidad"
-        Me.cantidad.Name = "cantidad"
-        Me.cantidad.ReadOnly = True
-        Me.cantidad.Width = 238
         '
         'dgv_articulo
         '
@@ -353,6 +327,48 @@ Partial Class Venta
         Me.Label4.TabIndex = 35
         Me.Label4.Text = "Persona"
         '
+        'id
+        '
+        Me.id.HeaderText = "Nro Artículo/Combo"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
+        Me.id.Width = 238
+        '
+        'nombre_2
+        '
+        Me.nombre_2.HeaderText = "Nombre"
+        Me.nombre_2.Name = "nombre_2"
+        Me.nombre_2.ReadOnly = True
+        Me.nombre_2.Width = 238
+        '
+        'monto
+        '
+        Me.monto.HeaderText = "Precio"
+        Me.monto.Name = "monto"
+        Me.monto.ReadOnly = True
+        Me.monto.Width = 237
+        '
+        'cantidad
+        '
+        Me.cantidad.HeaderText = "Cantidad"
+        Me.cantidad.Name = "cantidad"
+        Me.cantidad.ReadOnly = True
+        Me.cantidad.Width = 238
+        '
+        'idarticulo
+        '
+        Me.idarticulo.HeaderText = "nroArticulo"
+        Me.idarticulo.Name = "idarticulo"
+        Me.idarticulo.ReadOnly = True
+        Me.idarticulo.Visible = False
+        '
+        'idcombo
+        '
+        Me.idcombo.HeaderText = "nroCombo"
+        Me.idcombo.Name = "idcombo"
+        Me.idcombo.ReadOnly = True
+        Me.idcombo.Visible = False
+        '
         'Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -421,11 +437,13 @@ Partial Class Venta
     Friend WithEvents dgv_combo As DataGridView
     Friend WithEvents btn_mostrarTodosArt As Button
     Friend WithEvents btn_mostrarTodosCom As Button
+    Friend WithEvents btn_qf As Button
+    Friend WithEvents cmb_persona As ComboBox
+    Friend WithEvents Label4 As Label
     Friend WithEvents id As DataGridViewTextBoxColumn
     Friend WithEvents nombre_2 As DataGridViewTextBoxColumn
     Friend WithEvents monto As DataGridViewTextBoxColumn
     Friend WithEvents cantidad As DataGridViewTextBoxColumn
-    Friend WithEvents btn_qf As Button
-    Friend WithEvents cmb_persona As ComboBox
-    Friend WithEvents Label4 As Label
+    Friend WithEvents idarticulo As DataGridViewTextBoxColumn
+    Friend WithEvents idcombo As DataGridViewTextBoxColumn
 End Class
