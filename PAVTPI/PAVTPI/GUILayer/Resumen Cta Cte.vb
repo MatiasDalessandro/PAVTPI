@@ -3,7 +3,6 @@
 
     Private Sub Resumen_Cta_Cte_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Me.ReportViewer1.RefreshReport()
     End Sub
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
         Dim sql As String = ""
