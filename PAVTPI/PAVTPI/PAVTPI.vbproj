@@ -115,15 +115,20 @@
   <ItemGroup>
     <Compile Include="DATALayer\DBHelper\DBHelper.vb" />
     <Compile Include="DATALayer\DBHelper\_3k6_2017_acceso_datosvb.vb" />
-    <Compile Include="DATALayer\Reportes\DataSet1.Designer.vb">
+    <Compile Include="DATALayer\Reportes\Producto+Vendido\DSProductoMasVendido.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSProductoMasVendido.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DATALayer\Reportes\VentarXPeriodo\DataSet1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DATALayer\Reportes\DataSet1.vb">
+    <Compile Include="DATALayer\Reportes\VentarXPeriodo\DataSet1.vb">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DATALayer\Reportes\DataSetResumenCtaCte.Designer.vb">
+    <Compile Include="DATALayer\Reportes\ResumenCtaCte\DataSetResumenCtaCte.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetResumenCtaCte.xsd</DependentUpon>
@@ -138,7 +143,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ConjuntoDatos.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DATALayer\Reportes\ResumenArticulos.Designer.vb">
+    <Compile Include="DATALayer\Reportes\ResumenArticulos\ResumenArticulos.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ResumenArticulos.xsd</DependentUpon>
@@ -294,10 +299,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DATALayer\Reportes\PersonaXDependencia\ReportePersonaXDep.rdlc" />
-    <EmbeddedResource Include="DATALayer\Reportes\ReporteCtaCte.rdlc" />
+    <EmbeddedResource Include="DATALayer\Reportes\Producto+Vendido\RepProdMasVendido.rdlc" />
+    <EmbeddedResource Include="DATALayer\Reportes\ResumenCtaCte\ReporteCtaCte.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ReporteVentasPorHoraPico\ReporteVentaPorHoraPico.rdlc" />
-    <EmbeddedResource Include="DATALayer\Reportes\ReportVentaPorPeriodo.rdlc" />
-    <EmbeddedResource Include="DATALayer\Reportes\ResumenArticulos.rdlc" />
+    <EmbeddedResource Include="DATALayer\Reportes\VentarXPeriodo\ReportVentaPorPeriodo.rdlc" />
+    <EmbeddedResource Include="DATALayer\Reportes\ResumenArticulos\ResumenArticulos.rdlc" />
     <EmbeddedResource Include="GUILayer\AbmArticulo.resx">
       <DependentUpon>AbmArticulo.vb</DependentUpon>
     </EmbeddedResource>
@@ -372,26 +378,37 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="DATALayer\Reportes\DataSet1.xsc">
+    <None Include="DATALayer\Reportes\Producto+Vendido\DSProductoMasVendido.xsc">
+      <DependentUpon>DSProductoMasVendido.xsd</DependentUpon>
+    </None>
+    <None Include="DATALayer\Reportes\Producto+Vendido\DSProductoMasVendido.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSProductoMasVendido.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DATALayer\Reportes\Producto+Vendido\DSProductoMasVendido.xss">
+      <DependentUpon>DSProductoMasVendido.xsd</DependentUpon>
+    </None>
+    <None Include="DATALayer\Reportes\VentarXPeriodo\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
-    <None Include="DATALayer\Reportes\DataSet1.xsd">
+    <None Include="DATALayer\Reportes\VentarXPeriodo\DataSet1.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
     </None>
-    <None Include="DATALayer\Reportes\DataSet1.xss">
+    <None Include="DATALayer\Reportes\VentarXPeriodo\DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
-    <None Include="DATALayer\Reportes\DataSetResumenCtaCte.xsc">
+    <None Include="DATALayer\Reportes\ResumenCtaCte\DataSetResumenCtaCte.xsc">
       <DependentUpon>DataSetResumenCtaCte.xsd</DependentUpon>
     </None>
-    <None Include="DATALayer\Reportes\DataSetResumenCtaCte.xsd">
+    <None Include="DATALayer\Reportes\ResumenCtaCte\DataSetResumenCtaCte.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSetResumenCtaCte.Designer.vb</LastGenOutput>
     </None>
-    <None Include="DATALayer\Reportes\DataSetResumenCtaCte.xss">
+    <None Include="DATALayer\Reportes\ResumenCtaCte\DataSetResumenCtaCte.xss">
       <DependentUpon>DataSetResumenCtaCte.xsd</DependentUpon>
     </None>
     <None Include="DATALayer\Reportes\PersonaXDependencia\ConjDatosPersXDep.xsc">
@@ -416,15 +433,15 @@
     <None Include="DATALayer\Reportes\ReporteVentasPorHoraPico\ConjuntoDatos.xss">
       <DependentUpon>ConjuntoDatos.xsd</DependentUpon>
     </None>
-    <None Include="DATALayer\Reportes\ResumenArticulos.xsc">
+    <None Include="DATALayer\Reportes\ResumenArticulos\ResumenArticulos.xsc">
       <DependentUpon>ResumenArticulos.xsd</DependentUpon>
     </None>
-    <None Include="DATALayer\Reportes\ResumenArticulos.xsd">
+    <None Include="DATALayer\Reportes\ResumenArticulos\ResumenArticulos.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>ResumenArticulos.Designer.vb</LastGenOutput>
     </None>
-    <None Include="DATALayer\Reportes\ResumenArticulos.xss">
+    <None Include="DATALayer\Reportes\ResumenArticulos\ResumenArticulos.xss">
       <DependentUpon>ResumenArticulos.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
@@ -442,6 +459,7 @@
     <Folder Include="Bussines Layer\Entities\" />
     <Folder Include="Bussines Layer\Services\" />
     <Folder Include="DATALayer\DAOs\" />
+    <Folder Include="DATALayer\Reportes\EmpleadosMayorTurnosCumplidos\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PAVTPI_ClaveTemporal.pfx" />
