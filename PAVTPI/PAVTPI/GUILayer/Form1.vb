@@ -69,4 +69,12 @@
     Private Sub ReporteVentasPorHoraPicoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteVentasPorHoraPicoToolStripMenuItem.Click
         ReporteVentasPorHoraPico.Show()
     End Sub
+
+    Private Sub ResumenDeArticulosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResumenDeArticulosToolStripMenuItem.Click
+        resumenArticulo.Show()
+    End Sub
+
+    Private Sub ReportePersonasPorDependenciaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReportePersonasPorDependenciaToolStripMenuItem.Click
+        ReportePersonasXDependencia.Show()
+    End Sub
 End Class

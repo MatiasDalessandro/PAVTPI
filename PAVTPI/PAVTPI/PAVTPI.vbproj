@@ -128,10 +128,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetResumenCtaCte.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DATALayer\Reportes\PersonaXDependencia\ConjDatosPersXDep.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConjDatosPersXDep.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DATALayer\Reportes\ReporteVentasPorHoraPico\ConjuntoDatos.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ConjuntoDatos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DATALayer\Reportes\ResumenArticulos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResumenArticulos.xsd</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\AbmArticulo.Designer.vb">
       <DependentUpon>AbmArticulo.vb</DependentUpon>
@@ -230,6 +240,12 @@
     <Compile Include="GUILayer\PersonaXDependencia.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GUILayer\ReportePersonasXDependencia.Designer.vb">
+      <DependentUpon>ReportePersonasXDependencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\ReportePersonasXDependencia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GUILayer\ReporteVentasPorHoraPico.Designer.vb">
       <DependentUpon>ReporteVentasPorHoraPico.vb</DependentUpon>
     </Compile>
@@ -240,6 +256,12 @@
       <DependentUpon>Resumen Cta Cte.vb</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\Resumen Cta Cte.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\resumenArticulo.Designer.vb">
+      <DependentUpon>resumenArticulo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\resumenArticulo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\Ventas por período.Designer.vb">
@@ -271,9 +293,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DATALayer\Reportes\PersonaXDependencia\ReportePersonaXDep.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ReporteCtaCte.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ReporteVentasPorHoraPico\ReporteVentaPorHoraPico.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ReportVentaPorPeriodo.rdlc" />
+    <EmbeddedResource Include="DATALayer\Reportes\ResumenArticulos.rdlc" />
     <EmbeddedResource Include="GUILayer\AbmArticulo.resx">
       <DependentUpon>AbmArticulo.vb</DependentUpon>
     </EmbeddedResource>
@@ -322,11 +346,17 @@
     <EmbeddedResource Include="GUILayer\PersonaXDependencia.resx">
       <DependentUpon>PersonaXDependencia.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\ReportePersonasXDependencia.resx">
+      <DependentUpon>ReportePersonasXDependencia.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\ReporteVentasPorHoraPico.resx">
       <DependentUpon>ReporteVentasPorHoraPico.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Resumen Cta Cte.resx">
       <DependentUpon>Resumen Cta Cte.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\resumenArticulo.resx">
+      <DependentUpon>resumenArticulo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Ventas por período.resx">
       <DependentUpon>Ventas por período.vb</DependentUpon>
@@ -364,6 +394,17 @@
     <None Include="DATALayer\Reportes\DataSetResumenCtaCte.xss">
       <DependentUpon>DataSetResumenCtaCte.xsd</DependentUpon>
     </None>
+    <None Include="DATALayer\Reportes\PersonaXDependencia\ConjDatosPersXDep.xsc">
+      <DependentUpon>ConjDatosPersXDep.xsd</DependentUpon>
+    </None>
+    <None Include="DATALayer\Reportes\PersonaXDependencia\ConjDatosPersXDep.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ConjDatosPersXDep.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DATALayer\Reportes\PersonaXDependencia\ConjDatosPersXDep.xss">
+      <DependentUpon>ConjDatosPersXDep.xsd</DependentUpon>
+    </None>
     <None Include="DATALayer\Reportes\ReporteVentasPorHoraPico\ConjuntoDatos.xsc">
       <DependentUpon>ConjuntoDatos.xsd</DependentUpon>
     </None>
@@ -374,6 +415,17 @@
     </None>
     <None Include="DATALayer\Reportes\ReporteVentasPorHoraPico\ConjuntoDatos.xss">
       <DependentUpon>ConjuntoDatos.xsd</DependentUpon>
+    </None>
+    <None Include="DATALayer\Reportes\ResumenArticulos.xsc">
+      <DependentUpon>ResumenArticulos.xsd</DependentUpon>
+    </None>
+    <None Include="DATALayer\Reportes\ResumenArticulos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ResumenArticulos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DATALayer\Reportes\ResumenArticulos.xss">
+      <DependentUpon>ResumenArticulos.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

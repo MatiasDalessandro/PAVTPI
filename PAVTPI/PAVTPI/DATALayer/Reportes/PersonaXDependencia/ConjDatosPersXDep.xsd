@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ConjDatosPersXDep" targetNamespace="http://tempuri.org/ConjDatosPersXDep.xsd" xmlns:mstns="http://tempuri.org/ConjDatosPersXDep.xsd" xmlns="http://tempuri.org/ConjDatosPersXDep.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ConjDatosPersXDep" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ConjDatosPersXDep" msprop:Generator_UserDSName="ConjDatosPersXDep">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="personaXdependencia" msprop:Generator_TableClassName="personaXdependenciaDataTable" msprop:Generator_TableVarName="tablepersonaXdependencia" msprop:Generator_TablePropName="personaXdependencia" msprop:Generator_RowDeletingName="personaXdependenciaRowDeleting" msprop:Generator_RowChangingName="personaXdependenciaRowChanging" msprop:Generator_RowEvHandlerName="personaXdependenciaRowChangeEventHandler" msprop:Generator_RowDeletedName="personaXdependenciaRowDeleted" msprop:Generator_UserTableName="personaXdependencia" msprop:Generator_RowChangedName="personaXdependenciaRowChanged" msprop:Generator_RowEvArgName="personaXdependenciaRowChangeEvent" msprop:Generator_RowClassName="personaXdependenciaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nroCuentaCorriente" msprop:Generator_ColumnVarNameInTable="columnnroCuentaCorriente" msprop:Generator_ColumnPropNameInRow="nroCuentaCorriente" msprop:Generator_ColumnPropNameInTable="nroCuentaCorrienteColumn" msprop:Generator_UserColumnName="nroCuentaCorriente" type="xs:int" minOccurs="0" />
+              <xs:element name="nroDocumento" msprop:Generator_ColumnVarNameInTable="columnnroDocumento" msprop:Generator_ColumnPropNameInRow="nroDocumento" msprop:Generator_ColumnPropNameInTable="nroDocumentoColumn" msprop:Generator_UserColumnName="nroDocumento" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

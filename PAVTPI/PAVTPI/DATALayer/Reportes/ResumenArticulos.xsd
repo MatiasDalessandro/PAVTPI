@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ResumenArticulos" targetNamespace="http://tempuri.org/ResumenArticulos.xsd" xmlns:mstns="http://tempuri.org/ResumenArticulos.xsd" xmlns="http://tempuri.org/ResumenArticulos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ResumenArticulos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ResumenArticulos" msprop:Generator_UserDSName="ResumenArticulos">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="resumenArticulos" msprop:Generator_TableClassName="resumenArticulosDataTable" msprop:Generator_TableVarName="tableresumenArticulos" msprop:Generator_TablePropName="_resumenArticulos" msprop:Generator_RowDeletingName="resumenArticulosRowDeleting" msprop:Generator_RowChangingName="resumenArticulosRowChanging" msprop:Generator_RowEvHandlerName="resumenArticulosRowChangeEventHandler" msprop:Generator_RowDeletedName="resumenArticulosRowDeleted" msprop:Generator_UserTableName="resumenArticulos" msprop:Generator_RowChangedName="resumenArticulosRowChanged" msprop:Generator_RowEvArgName="resumenArticulosRowChangeEvent" msprop:Generator_RowClassName="resumenArticulosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idArticuloIntegrante" msprop:Generator_ColumnVarNameInTable="columnidArticuloIntegrante" msprop:Generator_ColumnPropNameInRow="idArticuloIntegrante" msprop:Generator_ColumnPropNameInTable="idArticuloIntegranteColumn" msprop:Generator_UserColumnName="idArticuloIntegrante" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="precio" msprop:Generator_ColumnVarNameInTable="columnprecio" msprop:Generator_ColumnPropNameInRow="precio" msprop:Generator_ColumnPropNameInTable="precioColumn" msprop:Generator_UserColumnName="precio" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

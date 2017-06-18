@@ -481,7 +481,7 @@
         <Top>1.12889cm</Top>
         <Left>0.36724cm</Left>
         <Height>1.2cm</Height>
-        <Width>20.55625cm</Width>
+        <Width>20.55626cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -622,7 +622,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>5.11458in</Height>
+    <Height>1.1875in</Height>
     <Style />
   </Body>
   <Width>8.2376in</Width>
