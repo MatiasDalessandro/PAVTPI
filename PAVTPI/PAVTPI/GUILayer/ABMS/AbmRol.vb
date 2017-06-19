@@ -1,6 +1,4 @@
 ﻿Public Class AbmRol
-
-
     Enum estado_grabacion
         aprobado
         rechazado
@@ -36,8 +34,8 @@
         Next
     End Sub
     Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
-        txt_nombre_rol.Enabled = False
-        txt_nombre_rol.Text = ""
+        Nombre.Enabled = False
+        Nombre.Text = ""
         Me.cargar_grilla()
         btn_eliminar.Enabled = False
         btn_guardar.Enabled = False
@@ -48,8 +46,8 @@
 
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
         Me.msk_idRol.Text = ""
-        Me.txt_nombre_rol.Text = ""
-        Me.txt_nombre_rol.Enabled = True
+        Me.Nombre.Text = ""
+        Me.Nombre.Enabled = True
         Me.btn_eliminar.Enabled = False
         Me.btn_guardar.Enabled = True
         Me.estadoGrabacion = condicionGrabacion.insertar
@@ -65,10 +63,10 @@
         tabla = dbhelper.ConsultaSQL(sql)
 
         Me.msk_idRol.Text = tabla.Rows(0)("idRol")
-        Me.txt_nombre_rol.Text = tabla.Rows(0)("Descripcion")
+        Me.Nombre.Text = tabla.Rows(0)("Descripcion")
 
         Me.msk_idRol.Enabled = True
-        Me.txt_nombre_rol.Enabled = True
+        Me.Nombre.Enabled = True
         btn_eliminar.Enabled = True
         btn_guardar.Enabled = True
         estadoGrabacion = condicionGrabacion.modificar
@@ -107,7 +105,7 @@
     Private Sub insertar()
         Dim sql As String = ""
 
-        sql = " INSERT INTO Rol (Descripcion) VALUES ('" & txt_nombre_rol.Text & "')"
+        sql = " INSERT INTO Rol (Descripcion) VALUES ('" & Nombre.Text & "')"
         dbhelper.EjecutarSQL(sql)
         MsgBox("Se grabo correctamente.")
         Me.cargar_grilla()
@@ -116,7 +114,7 @@
     Public Sub modificar()
         Dim sql As String = ""
 
-        sql &= " UPDATE rol SET Descripcion = '" & txt_nombre_rol.Text & "' WHERE IdRol = " & Me.msk_idRol.Text
+        sql &= " UPDATE rol SET Descripcion = '" & Nombre.Text & "' WHERE IdRol = " & Me.msk_idRol.Text
         dbhelper.EjecutarSQL(sql)
         MsgBox("Se modifico correctamente.")
         Me.cargar_grilla()
@@ -127,21 +125,20 @@
 
         If validarDatos() = estado_grabacion.aprobado Then
             If estadoGrabacion = condicionGrabacion.insertar Then
-                'If validarRol() = estado_grabacion.aprobado Then
-                '    insertar()
-                'Else
-                '    MsgBox("El ID del Rol ya existe.")
-                'End If
+                If validarRol() = estado_grabacion.aprobado Then
+                    insertar()
+                Else
+                    MsgBox("El ID del Rol ya existe.")
+                End If
                 insertar()
             Else
                 modificar()
             End If
         Else
-
         End If
 
         Me.msk_idRol.Text = ""
-        Me.txt_nombre_rol.Text = ""
+        Me.Nombre.Text = ""
 
     End Sub
 
@@ -165,6 +162,10 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
+        If msk_idRol.Enabled = False Then
+            Exit Sub
+        End If
+
         sql = "SELECT * FROM rol WHERE idRol = " & Me.msk_idRol.Text
 
         tabla = dbhelper.ConsultaSQL(sql)
@@ -176,6 +177,5 @@
             Me.dgv_datos_rol.Rows(c).Cells("c_id_rol").Value = tabla.Rows(c)(0)
             Me.dgv_datos_rol.Rows(c).Cells("c_nombre_rol").Value = tabla.Rows(c)(1)
         Next
-
     End Sub
 End Class

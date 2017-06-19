@@ -39,25 +39,23 @@ Public Class AbmTipoDocumento
         Dim sql As String = ""
         If validarDatos() = estadoGrabacion.aprobado Then
             If estado_Grabacion = condicionGrabacion.insertar Then
-
                 insertar()
-
             Else
                 modificar()
             End If
         Else
         End If
         Me.cargar_grilla()
-        txt_Nombre.Text = ""
+        Nombre.Text = ""
         txt_Id_Tipo_Doc.Text = ""
         Me.btn_Nuevo.Enabled = True
         Me.btn_Guardar.Enabled = False
         Me.btn_Eliminar.Enabled = False
-        Me.txt_Nombre.Enabled = False
+        Me.Nombre.Enabled = False
     End Sub
     Private Sub insertar()
         Dim sql As String = ""
-        sql = " INSERT INTO tipoDocumento (descripcion) VALUES ('" & txt_Nombre.Text & "')"
+        sql = " INSERT INTO tipoDocumento (descripcion) VALUES ('" & Nombre.Text & "')"
         'Dim num As Integer
         'num = ejecSql(sql)
         'If num > 0 Then
@@ -73,7 +71,7 @@ Public Class AbmTipoDocumento
         Dim sql As String = ""
 
         sql &= "UPDATE tipoDocumento "
-        sql &= "SET descripcion = '" & Me.txt_Nombre.Text & "'"
+        sql &= "SET descripcion = '" & Me.Nombre.Text & "'"
         sql &= " WHERE idTipoDocumento = " & Me.txt_Id_Tipo_Doc.Text
 
         'Dim num As Integer
@@ -87,20 +85,17 @@ Public Class AbmTipoDocumento
         Me.cargar_grilla()
         MsgBox("Se Modifico correctamente")
     End Sub
-
-
-
     Private Function validarDatos() As estadoGrabacion
-        'For Each obj As Control In Me.Controls
-        'If obj.GetType.Name = "TextBox" Or obj.GetType.Name = "MaskedTextBox" Then
-        'If obj.Text = "" Then
-        'MsgBox("El " & obj.Name & " esta vacio")
-        'obj.Focus()
-        'Return estadoGrabacion.rechazado
-        'End If
-        'End If
-        'Next
-        If txt_Nombre.Text = "" Then
+        For Each obj As Control In Me.Controls
+            If obj.GetType.Name = "TextBox" Or obj.GetType.Name = "MaskedTextBox" Then
+                If obj.Text = "" Then
+                    MsgBox("El " & obj.Name & " esta vacio")
+                    obj.Focus()
+                    Return estadoGrabacion.rechazado
+                End If
+            End If
+        Next
+        If Nombre.Text = "" Then
             Return estadoGrabacion.rechazado
         Else
             Return estadoGrabacion.aprobado
@@ -123,9 +118,9 @@ Public Class AbmTipoDocumento
     End Function
 
     Private Sub btn_Cancelar_Click(sender As Object, e As EventArgs) Handles btn_Cancelar.Click
-        Me.txt_Nombre.Text = ""
+        Me.Nombre.Text = ""
         Me.txt_Id_Tipo_Doc.Text = ""
-        Me.txt_Nombre.Enabled = False
+        Me.Nombre.Enabled = False
         Me.txt_Id_Tipo_Doc.Enabled = False
         Me.btn_Guardar.Enabled = False
         Me.btn_Eliminar.Enabled = False
@@ -144,13 +139,13 @@ Public Class AbmTipoDocumento
         Next
 
 
-        Me.txt_Nombre.Enabled = True
+        Me.Nombre.Enabled = True
         Me.btn_Guardar.Enabled = True
         'Me.btn_Buscar.Enabled = False
         Me.btn_Eliminar.Enabled = False
 
         Me.estado_Grabacion = condicionGrabacion.insertar
-        Me.txt_Nombre.Focus()
+        Me.Nombre.Focus()
         Me.btn_Nuevo.Enabled = False
     End Sub
 
@@ -187,12 +182,12 @@ Public Class AbmTipoDocumento
 
         dbhelper.EjecutarSQL(sql)
         Me.cargar_grilla()
-        txt_Nombre.Text = ""
+        Nombre.Text = ""
         txt_Id_Tipo_Doc.Text = ""
         btn_Nuevo.Enabled = True
         btn_Eliminar.Enabled = False
         btn_Guardar.Enabled = False
-        txt_Nombre.Enabled = False
+        Nombre.Enabled = False
     End Sub
 
 
@@ -205,11 +200,11 @@ Public Class AbmTipoDocumento
         tabla = dbhelper.ConsultaSQL(sql)
 
         Me.txt_Id_Tipo_Doc.Text = tabla.Rows(0)("idTipoDocumento")
-        Me.txt_Nombre.Text = tabla.Rows(0)("descripcion")
+        Me.Nombre.Text = tabla.Rows(0)("descripcion")
 
 
 
-        Me.txt_Nombre.Enabled = True
+        Me.Nombre.Enabled = True
         btn_Eliminar.Enabled = True
         btn_Guardar.Enabled = True
         btn_Nuevo.Enabled = False

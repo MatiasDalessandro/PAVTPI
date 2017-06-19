@@ -23,7 +23,7 @@ Partial Class AbmTipoDocumento
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.lbl_Nombre_Tipo_Doc = New System.Windows.Forms.Label()
-        Me.txt_Nombre = New System.Windows.Forms.TextBox()
+        Me.Nombre = New System.Windows.Forms.TextBox()
         Me.dgv_Tipo_Doc = New System.Windows.Forms.DataGridView()
         Me.Id_Tipo_Doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Nombre_Tipo_Doc = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -45,13 +45,13 @@ Partial Class AbmTipoDocumento
         Me.lbl_Nombre_Tipo_Doc.TabIndex = 1
         Me.lbl_Nombre_Tipo_Doc.Text = "Nombre"
         '
-        'txt_Nombre
+        'Nombre
         '
-        Me.txt_Nombre.Enabled = False
-        Me.txt_Nombre.Location = New System.Drawing.Point(68, 19)
-        Me.txt_Nombre.Name = "txt_Nombre"
-        Me.txt_Nombre.Size = New System.Drawing.Size(100, 20)
-        Me.txt_Nombre.TabIndex = 3
+        Me.Nombre.Enabled = False
+        Me.Nombre.Location = New System.Drawing.Point(68, 19)
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.Size = New System.Drawing.Size(100, 20)
+        Me.Nombre.TabIndex = 3
         '
         'dgv_Tipo_Doc
         '
@@ -138,7 +138,7 @@ Partial Class AbmTipoDocumento
         Me.Controls.Add(Me.btn_Guardar)
         Me.Controls.Add(Me.btn_Nuevo)
         Me.Controls.Add(Me.dgv_Tipo_Doc)
-        Me.Controls.Add(Me.txt_Nombre)
+        Me.Controls.Add(Me.Nombre)
         Me.Controls.Add(Me.txt_Id_Tipo_Doc)
         Me.Controls.Add(Me.lbl_Nombre_Tipo_Doc)
         Me.Controls.Add(Me.lbl_Id_Tipo_Doc)
@@ -150,7 +150,7 @@ Partial Class AbmTipoDocumento
 
     End Sub
     Friend WithEvents lbl_Nombre_Tipo_Doc As Label
-    Friend WithEvents txt_Nombre As TextBox
+    Friend WithEvents Nombre As TextBox
     Friend WithEvents dgv_Tipo_Doc As DataGridView
     Friend WithEvents btn_Nuevo As Button
     Friend WithEvents btn_Guardar As Button
