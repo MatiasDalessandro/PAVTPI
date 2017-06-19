@@ -1,5 +1,6 @@
 ﻿Public Class AbmCombo
     Private bandera As tipoOperacion
+
     Enum tipoOperacion
         nuevo
         editar
@@ -20,8 +21,8 @@
         dgv_datos_articulos.DataSource = Nothing
 
         Dim strSQL As String = ""
-        strSQL = "select MAX(idCombo)  from combo"
-        Dim numID As Integer = (DBHelper.getDBHelper.ConsultaSQL(strSQL).Rows.Count + 1)
+        strSQL = "select MAX(idCombo) as idCombo from combo"
+        Dim numID As Integer = (DBHelper.getDBHelper.ConsultaSQL(strSQL)).Rows(0)("idCombo") + 1
 
         txt_id_combo.Enabled = False
         txt_id_combo.Text = numID.ToString
@@ -50,8 +51,6 @@
 
         btn_editar_combo.Enabled = False
         btn_editar_combo.Visible = False
-
-
 
     End Sub
 
@@ -204,12 +203,21 @@
     End Sub
 
     Private Sub llenarGrilla(ByVal idCombo As String)
-        Dim strSql As String = "SELECT A.idCombo, A.nombreCombo, B.idArticuloIntegrante, B.nombre, A.cantidad, A.precio " _
-            & "FROM comboXArticulo A, articulo B " _
-            & "WHERE A.idArticuloIntegrante = B.idArticuloIntegrante AND idCombo = " & idCombo
+        Dim strSql As String = "SELECT ca.idArticuloIntegrante, a.nombre, ca.cantidad,c.nombreCombo,c.precio from comboXArticulo ca "
+        strSql &= "inner Join articulo a on a.idArticuloIntegrante = ca.idArticuloIntegrante "
+        strSql &= "inner Join combo c on c.idCombo=ca.idCombo "
+        strSql &= "where ca.idCombo = " & idCombo
+
 
         Try
             Dim tabla As DataTable = DBHelper.getDBHelper().ConsultaSQL(strSql)
+            If tabla.Rows.Count = 0 Then
+                MsgBox("El combo buscado no existe.")
+                Exit Sub
+            End If
+            txt_id_combo.Text = idCombo
+            txt_nombre_combo.Text = tabla.Rows(0)("nombreCombo").ToString
+            txt_precio.Text = tabla.Rows(0)("precio")
             If tabla.Rows.Count > 0 Then
                 For Each row1 As DataRow In tabla.Rows
                     With row1
@@ -218,10 +226,6 @@
                                                         .Item("nombre").ToString,
                                                         .Item("cantidad").ToString
                                                         })
-                        txt_id_combo.Text = .Item("idCombo").ToString
-                        txt_nombre_combo.Text = .Item("nombreCombo").ToString
-                        txt_precio.Text = .Item("precio")
-
                     End With
                 Next
             Else
@@ -234,26 +238,29 @@
 
     Private Sub btn_agregar_articulo_Click(sender As Object, e As EventArgs) Handles btn_agregar_articulo.Click
         ArticulosParaCombo.ShowDialog()
+
     End Sub
 
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
         If verificarCampos() = camposLlenos.si Then
             Dim strSQL As String = ""
             If bandera = tipoOperacion.nuevo Then
-
+                Dim insert As String = "insert into combo (nombreCombo,precio) values ('" & txt_nombre_combo.Text & "', " & CType(txt_precio.Text, System.Double) & ")"
+                DBHelper.getDBHelper.EjecutarSQL(insert)
                 For Each rowInsert As DataGridViewRow In dgv_datos_articulos.Rows
                     If strSQL = "" Then
-                        strSQL &= "INSERT INTO comboXArticulo (idCombo, nombreCombo, idArticuloIntegrante, cantidad, precio) VALUES (" _
-                      & txt_id_combo.Text & ",'" & txt_nombre_combo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(2).Value.ToString & "," & txt_precio.Text.ToString & ");"
+                        strSQL &= "INSERT INTO comboXArticulo (idCombo, idArticuloIntegrante, cantidad) VALUES (" _
+                      & txt_id_combo.Text & "," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(2).Value.ToString & ");"
                     Else
                         strSQL &= vbLf
-                        strSQL &= "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante,cantidad,precio) VALUES (" _
-                      & txt_id_combo.Text & ",'" & txt_nombre_combo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(2).Value.ToString & "," & txt_precio.Text.ToString & ");"
+                        strSQL &= "INSERT INTO comboXArticulo (idCombo,idArticuloIntegrante,cantidad) VALUES (" _
+                      & txt_id_combo.Text & "," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(2).Value.ToString & ");"
                     End If
                 Next
 
                 DBHelper.getDBHelper.EjecutarSQL(strSQL)
                 setNuevo()
+
             Else
 
                 For Each idArticuloEliminar As String In listadoEleminar
@@ -268,32 +275,46 @@
                 Next
 
                 If strSQL = "" Then
-                    strSQL &= "UPDATE comboXArticulo set nombreCombo = " & txt_nombre_combo.Text.ToString & ", precio = " & txt_precio.Text.ToString & "WHERE idCombo = 1;"
+                    strSQL &= "UPDATE combo set nombreCombo = '" & txt_nombre_combo.Text.ToString & "', precio = " & txt_precio.Text.ToString & " WHERE idCombo =" & txt_id_combo.Text & ";"
                 Else
                     strSQL &= vbLf
-                    strSQL &= "UPDATE comboXArticulo set nombreCombo = " & txt_nombre_combo.Text.ToString & ", precio = " & txt_precio.Text.ToString & "WHERE idCombo = 1;"
+                    strSQL &= "UPDATE combo set nombreCombo = '" & txt_nombre_combo.Text.ToString & "', precio = " & txt_precio.Text.ToString & " WHERE idCombo =" & txt_id_combo.Text & " ;"
                 End If
 
                 For Each rowInsert As DataGridViewRow In dgv_datos_articulos.Rows
+
                     If strSQL = "" Then
-                        strSQL &= "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante,cantidad,precio) VALUES (" _
-                      & txt_id_combo.Text & ",'" & txt_nombre_combo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(2).Value.ToString & "," & txt_precio.Text.ToString & ");"
+
+                        strSQL &= "MERGE dbo.comboXArticulo WITH (SERIALIZABLE) AS T "
+                        strSQL &= " Using (VALUES(" & txt_id_combo.Text & "," & rowInsert.Cells(0).Value.ToString & ", " & rowInsert.Cells(2).Value.ToString & ")) As U (idCombo,idArticuloIntegrante, cantidad) "
+                        strSQL &= " On U.idCombo = T.idCombo And U.idArticuloIntegrante = T.idArticuloIntegrante "
+                        strSQL &= " WHEN MATCHED THEN "
+                        strSQL &= " Update SET T.cantidad = U.cantidad "
+                        strSQL &= " WHEN Not MATCHED THEN "
+                        strSQL &= " INSERT(idCombo, idArticuloIntegrante, cantidad) "
+                        strSQL &= " VALUES(U.idCombo, U.idArticuloIntegrante, U.cantidad); "
                     Else
                         strSQL &= vbLf
-                        strSQL &= "INSERT INTO comboXArticulo (idCombo,nombreCombo,idArticuloIntegrante,cantidad,precio) VALUES (" _
-                      & txt_id_combo.Text & ",'" & txt_nombre_combo.Text & "'," & rowInsert.Cells(0).Value.ToString & "," & rowInsert.Cells(2).Value.ToString & "," & txt_precio.Text.ToString & ");"
+                        strSQL &= "MERGE dbo.comboXArticulo WITH (SERIALIZABLE) AS T "
+                        strSQL &= " Using (VALUES(" & txt_id_combo.Text & "," & rowInsert.Cells(0).Value.ToString & ", " & rowInsert.Cells(2).Value.ToString & ")) As U (idCombo,idArticuloIntegrante, cantidad) "
+                        strSQL &= " On U.idCombo = T.idCombo And U.idArticuloIntegrante = T.idArticuloIntegrante "
+                        strSQL &= " WHEN MATCHED THEN "
+                        strSQL &= " Update SET T.cantidad = U.cantidad "
+                        strSQL &= " WHEN Not MATCHED THEN "
+                        strSQL &= " INSERT(idCombo, idArticuloIntegrante, cantidad) "
+                        strSQL &= " VALUES(U.idCombo, U.idArticuloIntegrante, U.cantidad); "
                     End If
                 Next
-
                 DBHelper.getDBHelper.EjecutarSQL(strSQL)
                 setBuscar()
-
             End If
+        Else
+            MsgBox("No es posible insertar el combo.")
         End If
     End Sub
 
     Private Sub btn_quitar_articulo_Click(sender As Object, e As EventArgs) Handles btn_quitar_articulo.Click
-        listadoEleminar.Add(dgv_datos_articulos.CurrentRow.Cells("idArticuloIntegrante").Value.ToString)
+        listadoEleminar.Add(dgv_datos_articulos.CurrentRow.Cells("c_id_articulo").Value.ToString)
         dgv_datos_articulos.Rows.Remove(dgv_datos_articulos.CurrentRow)
     End Sub
 
@@ -302,10 +323,14 @@
     End Sub
 
     Private Sub btn_eliminar_Click(sender As Object, e As EventArgs) Handles btn_eliminar.Click
-        setNuevo()
+        Dim sql As String = "delete from comboXArticulo where idcombo= " & txt_id_combo.Text
+        sql &= vbLf
+        sql &= "delete from combo where idCombo = " & txt_id_combo.Text
+        DBHelper.getDBHelper.EjecutarSQL(sql)
     End Sub
 
     Private Sub btn_salir_Click(sender As Object, e As EventArgs) Handles btn_salir.Click
         Me.Close()
     End Sub
+
 End Class
