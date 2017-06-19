@@ -1,9 +1,12 @@
 ﻿Public Class ArticulosParaCombo
+
+
     Private Sub ArticulosParaCombo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         llenarGrilla()
-        If dgv_datos_articulos.Rows.Count > 0 Then
-            Me.dgv_datos_articulos.CurrentRow.Selected = True
-        End If
+
+        'If dgv_datos_articulos.Rows.Count > 0 Then
+        '    Me.dgv_datos_articulos.CurrentRow.Selected = True
+        'End If
     End Sub
 
     Private Sub btn_agregarACombo_Click(sender As Object, e As EventArgs) Handles btn_agregarACombo.Click
@@ -11,20 +14,25 @@
             Dim row1 As DataGridViewRow = Me.dgv_datos_articulos.CurrentRow
             Dim defaultvalue As String = "0"
             Dim cantidada As String = InputBox("cantidad", "", defaultvalue)
+            Dim control As Integer = 0
 
             If cantidada = "" Then
                 cantidada = defaultvalue
             End If
-
+            If cantidada = 0 Then
+                MsgBox("No se puede agregar un articulo con cantidad 0.")
+                Exit Sub
+            End If
             With row1
                 AbmCombo.dgv_datos_articulos.Rows.Add(New String() {
-                                                        .Cells("id_articulo").Value.ToString,
-                                                        .Cells("nombre_articulo").Value.ToString,
-                                                        cantidada.ToString
-                                                        })
+                                                    .Cells("id_articulo").Value.ToString,
+                                                    .Cells("nombre_articulo").Value.ToString,
+                                                    cantidada.ToString
+                                                    })
             End With
         End If
     End Sub
+
 
     Private Sub llenarGrilla()
         dgv_datos_articulos.DataSource = Nothing
@@ -57,4 +65,5 @@
     Private Sub dgv_datos_articulos_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_datos_articulos.CellClick
         Me.dgv_datos_articulos.CurrentRow.Selected = True
     End Sub
+
 End Class

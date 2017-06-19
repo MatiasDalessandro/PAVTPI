@@ -9,7 +9,6 @@
     Private Sub ABMTipoDocumentoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMTipoDocumentoToolStripMenuItem.Click
         AbmTipoDocumento.Show()
     End Sub
-
     Private Sub ABMArticuloToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMArticuloToolStripMenuItem.Click
         AbmArticulo.Show()
     End Sub
@@ -21,7 +20,6 @@
     Private Sub ABMDependenciaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMDependenciaToolStripMenuItem.Click
         AbmDependencia.Show()
     End Sub
-
     Private Sub ABMComboToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMComboToolStripMenuItem.Click
         AbmCombo.Show()
     End Sub
