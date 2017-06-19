@@ -41,7 +41,6 @@
     End Sub
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
         Dim sql As String = ""
-        'SI FALTA NRO DOC ESTALLA
         If validarDatos() = estadoGrabacion.aprobado Then
             If estado_Grabacion = condicionGrabacion.insertar Then
                 If validarPersona() = estadoGrabacion.aprobado Then
@@ -173,7 +172,7 @@
         End If
     End Function
 
-    Private Sub dgvEmpleado_DoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmpleado.DoubleClick
+    Private Sub dgvEmpleado_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmpleado.CellContentClick
         Dim sql As String = ""
         Dim tabla As New DataTable
 
