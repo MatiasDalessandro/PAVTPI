@@ -15,6 +15,8 @@
         cargar_grilla()
         cargar_combo(TipoDocumento, (dbhelper.ConsultaSQL("select * from tipoDocumento")), "idTipoDocumento", "descripcion")
         dtpFechaEgreso.Enabled = False
+        setNew()
+        setCancel()
     End Sub
 
     Private Sub cargar_grilla()
@@ -56,7 +58,18 @@
     End Sub
     Private Sub insertar()
         Dim sql As String = ""
-        sql = " INSERT INTO persona (nombre,apellido,nroDocumento,idTipoDocumento,fechaIngreso,fechaEgreso, celular,Mail,Domicilio) values ( '" & Nombre.Text & "', '" & Apellido.Text & "' , " & NumeroDocumento.Text & " , " & TipoDocumento.SelectedValue & " , '" & dtpFechaIngreso.Value & "' ,   null   , " & Celular.Text & " , '" & Email.Text & "' , '" & Domicilio.Text & "')"
+        sql = " INSERT INTO persona (nombre,apellido,nroDocumento,idTipoDocumento,fechaIngreso,fechaEgreso"
+        If chkPersAut.Checked Then
+            sql &= ")"
+            sql &= "values ( '" & Nombre.Text & "', '" & Apellido.Text & "' , " & NumeroDocumento.Text & " , " & TipoDocumento.SelectedValue & " , '"
+            sql &= dtpFechaIngreso.Value & "' ,   null   ) "
+        Else
+            sql &= ", celular,Mail,Domicilio) "
+            sql &= "values ( '" & Nombre.Text & "', '" & Apellido.Text & "' , " & NumeroDocumento.Text & " , " & TipoDocumento.SelectedValue & " , '"
+            sql &= dtpFechaIngreso.Value & "' ,   null   , "
+            sql &= Celular.Text & " , '" & Email.Text & "' , '" & Domicilio.Text & "')"
+        End If
+
         dbhelper.EjecutarSQL(sql)
         MsgBox("Se grabo correctamente")
         Me.cargar_grilla()
@@ -68,24 +81,47 @@
         sql &= " , apellido = '" & Apellido.Text & "'"
         sql &= " , nombre = '" & Nombre.Text & "'"
         sql &= " , idTipoDocumento = '" & TipoDocumento.SelectedValue & "'"
-        sql &= " , fechaIngreso = '" & dtpFechaEgreso.Value & "'"
-        sql &= " , fechaEgreso = '" & dtpFechaEgreso.Value & "'"
-        sql &= " , celular = " & Celular.Text
-        sql &= " , Mail = '" & Email.Text & "'"
-        sql &= " , Domicilio = '" & Domicilio.Text & "'"
-        sql &= " WHERE nroDocumento = " & NumeroDocumento.Text
+        If chkPersAut.Checked Then
+            sql &= " , fechaIngreso = null"
+            sql &= " , fechaEgreso = null"
+        Else
+            sql &= " , fechaIngreso = '" & dtpFechaEgreso.Value & "'"
+            sql &= " , fechaEgreso = '" & dtpFechaEgreso.Value & "'"
+        End If
 
+
+        If chkPersAut.Checked Then
+            If Celular.Text = "" Then
+                sql &= " , celular = null"
+            Else
+                sql &= " , celular = " & Celular.Text
+            End If
+            If Email.Text = "" Then
+                sql &= " , Mail = null"
+            Else
+                sql &= " , Mail = '" & Email.Text & "'"
+            End If
+            If Domicilio.Text = "" Then
+                sql &= " , Domicilio = null "
+            Else
+                sql &= " , Domicilio = '" & Domicilio.Text & "'"
+            End If
+
+            sql &= " WHERE nroDocumento = " & NumeroDocumento.Text
+        End If
         dbhelper.EjecutarSQL(sql)
         Me.cargar_grilla()
         MsgBox("Se Modifico correctamente")
     End Sub
     Private Function validarDatos() As estadoGrabacion
         For Each obj As Control In Me.Controls
-            If obj.GetType.Name = "TextBox" Or obj.GetType.Name = "MaskedTextBox" Or obj.GetType.Name = "ComboBox" Then
-                If obj.Text = "" Then
-                    MsgBox("El " & obj.Name & " no está ingresado")
-                    obj.Focus()
-                    Return estadoGrabacion.rechazado
+            If (obj.GetType.Name = "TextBox" Or obj.GetType.Name = "MaskedTextBox" Or obj.GetType.Name = "ComboBox") Then
+                If Not (chkPersAut.Checked And (obj.Name = Celular.Name Or obj.Name = Email.Name Or obj.Name = Domicilio.Name)) Then
+                    If obj.Text = "" Then
+                        MsgBox("El " & obj.Name & " no está ingresado")
+                        obj.Focus()
+                        Return estadoGrabacion.rechazado
+                    End If
                 End If
             End If
         Next
@@ -105,18 +141,9 @@
         End If
     End Function
     Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
-        chkPersAut.Enabled = False
-        Apellido.Enabled = False
-        Nombre.Enabled = False
+        setNew()
+        setCancel()
         NumeroDocumento.Enabled = True
-        TipoDocumento.Enabled = False
-        dtpFechaIngreso.Enabled = False
-        dtpFechaEgreso.Enabled = False
-        Domicilio.Enabled = False
-        Email.Enabled = False
-        Celular.Enabled = False
-        btn_eliminar.Enabled = False
-        btn_guardar.Enabled = False
     End Sub
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
 
@@ -148,6 +175,7 @@
         Celular.Text = ""
         Celular.Enabled = True
         btn_guardar.Enabled = True
+        setNew()
         estado_Grabacion = condicionGrabacion.insertar
     End Sub
     Private Function btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
@@ -190,18 +218,26 @@
         Nombre.Enabled = True
         NumeroDocumento.Enabled = True
         TipoDocumento.Enabled = True
-        dtpFechaIngreso.Enabled = True
-        dtpFechaEgreso.Enabled = False
-        Domicilio.Enabled = True
-        Email.Enabled = True
-        Celular.Enabled = True
         btn_guardar.Enabled = True
+        If chkPersAut.Checked Then
+            Domicilio.Enabled = False
+            Email.Enabled = False
+            Celular.Enabled = False
+            dtpFechaIngreso.Enabled = False
+            dtpFechaEgreso.Enabled = False
+        Else
+            Domicilio.Enabled = True
+            Email.Enabled = True
+            Celular.Enabled = True
+            dtpFechaIngreso.Enabled = True
+            dtpFechaEgreso.Enabled = False
+        End If
 
         If IsDBNull(tabla.Rows(0)("fechaIngreso")) = True Then
             Me.dtpFechaIngreso.Text = ""
             Me.dtpFechaIngreso.Enabled = False
-            Me.chkPersAut.Enabled = False
             Me.chkPersAut.Checked = True
+            Me.chkPersAut.Enabled = False
         Else
             Me.dtpFechaIngreso.Value = tabla.Rows(0)("fechaIngreso")
             Me.chkPersAut.Enabled = True
@@ -284,5 +320,32 @@
             Email.Enabled = True
             Celular.Enabled = True
         End If
+    End Sub
+    Private Sub setNew()
+        Nombre.Text = ""
+        Apellido.Text = ""
+        Celular.Text = ""
+        Domicilio.Text = ""
+        Email.Text = ""
+        TipoDocumento.SelectedIndex = -1
+        NumeroDocumento.Text = ""
+        dtpFechaEgreso.Text = ""
+        dtpFechaIngreso.Text = ""
+        chkPersAut.Checked = False
+    End Sub
+    Private Sub setCancel()
+
+        Apellido.Enabled = False
+        Nombre.Enabled = False
+        TipoDocumento.Enabled = False
+        dtpFechaIngreso.Enabled = False
+        dtpFechaEgreso.Enabled = False
+        Domicilio.Enabled = False
+        Email.Enabled = False
+        Celular.Enabled = False
+        btn_eliminar.Enabled = False
+        btn_guardar.Enabled = False
+        chkPersAut.Enabled = False
+        cargar_grilla()
     End Sub
 End Class

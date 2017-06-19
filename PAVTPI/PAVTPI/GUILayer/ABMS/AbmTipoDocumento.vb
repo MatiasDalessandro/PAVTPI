@@ -141,33 +141,11 @@ Public Class AbmTipoDocumento
         txt_Id_Tipo_Doc.Text = id
         Me.Nombre.Enabled = True
         Me.btn_Guardar.Enabled = True
-        'Me.btn_Buscar.Enabled = False
         Me.btn_Eliminar.Enabled = False
-
         Me.estado_Grabacion = condicionGrabacion.insertar
         Me.Nombre.Focus()
         Me.btn_Nuevo.Enabled = False
     End Sub
-
-    'Private Sub btn_Buscar_Click(sender As Object, e As EventArgs) Handles btn_Buscar.Click
-    '    Dim sql As String = ""
-    '    Dim tabla As New DataTable
-
-    '    sql = "SELECT * FROM tipoDocumento WHERE descripcion = " & txt_Nombre.Text
-    '    tabla = ejecutosql(sql)
-    '    Me.dgv_Tipo_Doc.Rows.Clear()
-
-    '    Dim c As Integer = 0
-
-    '    For c = 0 To tabla.Rows.Count - 1
-    '        Me.dgv_Tipo_Doc.Rows.Add()
-    '        Me.dgv_Tipo_Doc.Rows(c).Cells("Id_Tipo_Doc").Value = tabla.Rows(c)(0)
-    '        Me.dgv_Tipo_Doc.Rows(c).Cells("Nombre_Tipo_Doc").Value = tabla.Rows(c)(1)
-
-    '    Next
-    '    Me.btn_Eliminar.Enabled = True
-    'End Sub
-
     Private Sub btn_Eliminar_Click(sender As Object, e As EventArgs) Handles btn_Eliminar.Click
         Dim sql As String = ""
 
