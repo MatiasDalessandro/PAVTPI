@@ -30,7 +30,7 @@ Partial Class AbmRol
         Me.btn_guardar = New System.Windows.Forms.Button()
         Me.btn_eliminar = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
-        Me.txt_nombre_rol = New System.Windows.Forms.TextBox()
+        Me.Nombre = New System.Windows.Forms.TextBox()
         Me.lbl_nombre_articulo = New System.Windows.Forms.Label()
         Me.lbl_id_articulo = New System.Windows.Forms.Label()
         Me.msk_idRol = New System.Windows.Forms.MaskedTextBox()
@@ -109,13 +109,13 @@ Partial Class AbmRol
         Me.btn_nuevo.Text = "Nuevo"
         Me.btn_nuevo.UseVisualStyleBackColor = True
         '
-        'txt_nombre_rol
+        'Nombre
         '
-        Me.txt_nombre_rol.Enabled = False
-        Me.txt_nombre_rol.Location = New System.Drawing.Point(98, 62)
-        Me.txt_nombre_rol.Name = "txt_nombre_rol"
-        Me.txt_nombre_rol.Size = New System.Drawing.Size(156, 20)
-        Me.txt_nombre_rol.TabIndex = 20
+        Me.Nombre.Enabled = False
+        Me.Nombre.Location = New System.Drawing.Point(98, 62)
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.Size = New System.Drawing.Size(156, 20)
+        Me.Nombre.TabIndex = 20
         '
         'lbl_nombre_articulo
         '
@@ -155,7 +155,7 @@ Partial Class AbmRol
         Me.Controls.Add(Me.btn_guardar)
         Me.Controls.Add(Me.btn_eliminar)
         Me.Controls.Add(Me.btn_nuevo)
-        Me.Controls.Add(Me.txt_nombre_rol)
+        Me.Controls.Add(Me.Nombre)
         Me.Controls.Add(Me.lbl_nombre_articulo)
         Me.Controls.Add(Me.lbl_id_articulo)
         Me.Name = "AbmRol"
@@ -174,7 +174,7 @@ Partial Class AbmRol
     Friend WithEvents btn_guardar As Button
     Friend WithEvents btn_eliminar As Button
     Friend WithEvents btn_nuevo As Button
-    Friend WithEvents txt_nombre_rol As TextBox
+    Friend WithEvents Nombre As TextBox
     Friend WithEvents lbl_nombre_articulo As Label
     Friend WithEvents lbl_id_articulo As Label
     Friend WithEvents msk_idRol As MaskedTextBox

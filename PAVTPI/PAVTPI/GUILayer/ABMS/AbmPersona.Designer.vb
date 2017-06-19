@@ -31,21 +31,21 @@ Partial Class AbmPersona
         Me.btn_guardar = New System.Windows.Forms.Button()
         Me.btn_eliminar = New System.Windows.Forms.Button()
         Me.btn_nuevo = New System.Windows.Forms.Button()
-        Me.txtNombre = New System.Windows.Forms.TextBox()
-        Me.txtApellido = New System.Windows.Forms.TextBox()
+        Me.Nombre = New System.Windows.Forms.TextBox()
+        Me.Apellido = New System.Windows.Forms.TextBox()
         Me.lblNroDoc = New System.Windows.Forms.Label()
         Me.lblNombre = New System.Windows.Forms.Label()
         Me.lblApellido = New System.Windows.Forms.Label()
-        Me.mskNroDoc = New System.Windows.Forms.MaskedTextBox()
+        Me.NumeroDocumento = New System.Windows.Forms.MaskedTextBox()
         Me.lblTipoDoc = New System.Windows.Forms.Label()
-        Me.cmbTipoDoc = New System.Windows.Forms.ComboBox()
+        Me.TipoDocumento = New System.Windows.Forms.ComboBox()
         Me.lblFechaIngreso = New System.Windows.Forms.Label()
         Me.lblDomicilio = New System.Windows.Forms.Label()
         Me.lblEmail = New System.Windows.Forms.Label()
         Me.lblCelular = New System.Windows.Forms.Label()
-        Me.txtEmail = New System.Windows.Forms.TextBox()
-        Me.txtCelular = New System.Windows.Forms.TextBox()
-        Me.txtDomicilio = New System.Windows.Forms.TextBox()
+        Me.Email = New System.Windows.Forms.TextBox()
+        Me.Celular = New System.Windows.Forms.TextBox()
+        Me.Domicilio = New System.Windows.Forms.TextBox()
         Me.lblFechaEgreso = New System.Windows.Forms.Label()
         Me.dtpFechaIngreso = New System.Windows.Forms.DateTimePicker()
         Me.dtpFechaEgreso = New System.Windows.Forms.DateTimePicker()
@@ -130,20 +130,20 @@ Partial Class AbmPersona
         Me.btn_nuevo.Text = "Nuevo"
         Me.btn_nuevo.UseVisualStyleBackColor = True
         '
-        'txtNombre
+        'Nombre
         '
-        Me.txtNombre.Enabled = False
-        Me.txtNombre.Location = New System.Drawing.Point(135, 62)
-        Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(156, 20)
-        Me.txtNombre.TabIndex = 1
+        Me.Nombre.Enabled = False
+        Me.Nombre.Location = New System.Drawing.Point(135, 62)
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.Size = New System.Drawing.Size(156, 20)
+        Me.Nombre.TabIndex = 1
         '
-        'txtApellido
+        'Apellido
         '
-        Me.txtApellido.Location = New System.Drawing.Point(135, 32)
-        Me.txtApellido.Name = "txtApellido"
-        Me.txtApellido.Size = New System.Drawing.Size(156, 20)
-        Me.txtApellido.TabIndex = 0
+        Me.Apellido.Location = New System.Drawing.Point(135, 32)
+        Me.Apellido.Name = "Apellido"
+        Me.Apellido.Size = New System.Drawing.Size(156, 20)
+        Me.Apellido.TabIndex = 0
         '
         'lblNroDoc
         '
@@ -172,13 +172,13 @@ Partial Class AbmPersona
         Me.lblApellido.TabIndex = 19
         Me.lblApellido.Text = "Apellido"
         '
-        'mskNroDoc
+        'NumeroDocumento
         '
-        Me.mskNroDoc.Location = New System.Drawing.Point(135, 92)
-        Me.mskNroDoc.Mask = "99999999"
-        Me.mskNroDoc.Name = "mskNroDoc"
-        Me.mskNroDoc.Size = New System.Drawing.Size(100, 20)
-        Me.mskNroDoc.TabIndex = 2
+        Me.NumeroDocumento.Location = New System.Drawing.Point(135, 92)
+        Me.NumeroDocumento.Mask = "99999999"
+        Me.NumeroDocumento.Name = "NumeroDocumento"
+        Me.NumeroDocumento.Size = New System.Drawing.Size(100, 20)
+        Me.NumeroDocumento.TabIndex = 2
         '
         'lblTipoDoc
         '
@@ -189,13 +189,13 @@ Partial Class AbmPersona
         Me.lblTipoDoc.TabIndex = 21
         Me.lblTipoDoc.Text = "Tipo de Documento"
         '
-        'cmbTipoDoc
+        'TipoDocumento
         '
-        Me.cmbTipoDoc.FormattingEnabled = True
-        Me.cmbTipoDoc.Location = New System.Drawing.Point(135, 122)
-        Me.cmbTipoDoc.Name = "cmbTipoDoc"
-        Me.cmbTipoDoc.Size = New System.Drawing.Size(121, 21)
-        Me.cmbTipoDoc.TabIndex = 3
+        Me.TipoDocumento.FormattingEnabled = True
+        Me.TipoDocumento.Location = New System.Drawing.Point(135, 122)
+        Me.TipoDocumento.Name = "TipoDocumento"
+        Me.TipoDocumento.Size = New System.Drawing.Size(121, 21)
+        Me.TipoDocumento.TabIndex = 3
         '
         'lblFechaIngreso
         '
@@ -233,29 +233,29 @@ Partial Class AbmPersona
         Me.lblCelular.TabIndex = 21
         Me.lblCelular.Text = "Celular"
         '
-        'txtEmail
+        'Email
         '
-        Me.txtEmail.Enabled = False
-        Me.txtEmail.Location = New System.Drawing.Point(135, 239)
-        Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(156, 20)
-        Me.txtEmail.TabIndex = 6
+        Me.Email.Enabled = False
+        Me.Email.Location = New System.Drawing.Point(135, 239)
+        Me.Email.Name = "Email"
+        Me.Email.Size = New System.Drawing.Size(156, 20)
+        Me.Email.TabIndex = 6
         '
-        'txtCelular
+        'Celular
         '
-        Me.txtCelular.Enabled = False
-        Me.txtCelular.Location = New System.Drawing.Point(135, 267)
-        Me.txtCelular.Name = "txtCelular"
-        Me.txtCelular.Size = New System.Drawing.Size(156, 20)
-        Me.txtCelular.TabIndex = 7
+        Me.Celular.Enabled = False
+        Me.Celular.Location = New System.Drawing.Point(135, 267)
+        Me.Celular.Name = "Celular"
+        Me.Celular.Size = New System.Drawing.Size(156, 20)
+        Me.Celular.TabIndex = 7
         '
-        'txtDomicilio
+        'Domicilio
         '
-        Me.txtDomicilio.Enabled = False
-        Me.txtDomicilio.Location = New System.Drawing.Point(135, 209)
-        Me.txtDomicilio.Name = "txtDomicilio"
-        Me.txtDomicilio.Size = New System.Drawing.Size(156, 20)
-        Me.txtDomicilio.TabIndex = 5
+        Me.Domicilio.Enabled = False
+        Me.Domicilio.Location = New System.Drawing.Point(135, 209)
+        Me.Domicilio.Name = "Domicilio"
+        Me.Domicilio.Size = New System.Drawing.Size(156, 20)
+        Me.Domicilio.TabIndex = 5
         '
         'lblFechaEgreso
         '
@@ -300,19 +300,19 @@ Partial Class AbmPersona
         Me.Controls.Add(Me.chkPersAut)
         Me.Controls.Add(Me.dtpFechaEgreso)
         Me.Controls.Add(Me.dtpFechaIngreso)
-        Me.Controls.Add(Me.cmbTipoDoc)
-        Me.Controls.Add(Me.mskNroDoc)
+        Me.Controls.Add(Me.TipoDocumento)
+        Me.Controls.Add(Me.NumeroDocumento)
         Me.Controls.Add(Me.dgvEmpleado)
         Me.Controls.Add(Me.btn_buscar)
         Me.Controls.Add(Me.btn_cancelar)
         Me.Controls.Add(Me.btn_guardar)
         Me.Controls.Add(Me.btn_eliminar)
         Me.Controls.Add(Me.btn_nuevo)
-        Me.Controls.Add(Me.txtCelular)
-        Me.Controls.Add(Me.txtEmail)
-        Me.Controls.Add(Me.txtDomicilio)
-        Me.Controls.Add(Me.txtNombre)
-        Me.Controls.Add(Me.txtApellido)
+        Me.Controls.Add(Me.Celular)
+        Me.Controls.Add(Me.Email)
+        Me.Controls.Add(Me.Domicilio)
+        Me.Controls.Add(Me.Nombre)
+        Me.Controls.Add(Me.Apellido)
         Me.Controls.Add(Me.lblCelular)
         Me.Controls.Add(Me.lblEmail)
         Me.Controls.Add(Me.lblDomicilio)
@@ -336,24 +336,24 @@ Partial Class AbmPersona
     Friend WithEvents btn_guardar As Button
     Friend WithEvents btn_eliminar As Button
     Friend WithEvents btn_nuevo As Button
-    Friend WithEvents txtNombre As TextBox
-    Friend WithEvents txtApellido As TextBox
+    Friend WithEvents Nombre As TextBox
+    Friend WithEvents Apellido As TextBox
     Friend WithEvents lblNroDoc As Label
     Friend WithEvents lblNombre As Label
     Friend WithEvents lblApellido As Label
-    Friend WithEvents mskNroDoc As MaskedTextBox
+    Friend WithEvents NumeroDocumento As MaskedTextBox
     Friend WithEvents lblTipoDoc As Label
-    Friend WithEvents cmbTipoDoc As ComboBox
+    Friend WithEvents TipoDocumento As ComboBox
     Friend WithEvents lblFechaIngreso As Label
     Friend WithEvents lblDomicilio As Label
     Friend WithEvents lblEmail As Label
     Friend WithEvents lblCelular As Label
-    Friend WithEvents txtEmail As TextBox
-    Friend WithEvents txtCelular As TextBox
+    Friend WithEvents Email As TextBox
+    Friend WithEvents Celular As TextBox
     Friend WithEvents cApellido As DataGridViewTextBoxColumn
     Friend WithEvents cNombre As DataGridViewTextBoxColumn
     Friend WithEvents cNroDoc As DataGridViewTextBoxColumn
-    Friend WithEvents txtDomicilio As TextBox
+    Friend WithEvents Domicilio As TextBox
     Friend WithEvents lblFechaEgreso As Label
     Friend WithEvents dtpFechaIngreso As DateTimePicker
     Friend WithEvents dtpFechaEgreso As DateTimePicker

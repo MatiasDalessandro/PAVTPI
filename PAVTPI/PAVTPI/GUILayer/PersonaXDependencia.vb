@@ -15,7 +15,7 @@
     End Sub
 
     Private Sub btn_persona_empleado_Click(sender As Object, e As EventArgs) Handles btn_persona_empleado.Click
-        AbmPersonaAutorizada.Show()
+        'AbmPersonaAutorizada.Show()
     End Sub
 
     Private Sub btn_dependencia_Click(sender As Object, e As EventArgs) Handles btn_dependencia.Click

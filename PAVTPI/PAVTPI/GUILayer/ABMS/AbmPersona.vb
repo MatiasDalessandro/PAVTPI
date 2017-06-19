@@ -13,7 +13,8 @@
 
     Private Sub AbmEmpleado_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla()
-        cargar_combo(cmbTipoDoc, (dbhelper.ConsultaSQL("select * from tipoDocumento")), "idTipoDocumento", "descripcion")
+        cargar_combo(TipoDocumento, (dbhelper.ConsultaSQL("select * from tipoDocumento")), "idTipoDocumento", "descripcion")
+        dtpFechaEgreso.Enabled = False
     End Sub
 
     Private Sub cargar_grilla()
@@ -40,6 +41,7 @@
     End Sub
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
         Dim sql As String = ""
+        'SI FALTA NRO DOC ESTALLA
         If validarDatos() = estadoGrabacion.aprobado Then
             If estado_Grabacion = condicionGrabacion.insertar Then
                 If validarPersona() = estadoGrabacion.aprobado Then
@@ -55,7 +57,7 @@
     End Sub
     Private Sub insertar()
         Dim sql As String = ""
-        sql = " INSERT INTO persona (nombre,apellido,nroDocumento,idTipoDocumento,fechaIngreso,fechaEgreso, celular,Mail,Domicilio) values ( '" & txtNombre.Text & "', '" & txtApellido.Text & "' , " & mskNroDoc.Text & " , " & cmbTipoDoc.SelectedValue & " , '" & dtpFechaIngreso.Value & "' ,   null   , " & txtCelular.Text & " , '" & txtEmail.Text & "' , '" & txtDomicilio.Text & "')"
+        sql = " INSERT INTO persona (nombre,apellido,nroDocumento,idTipoDocumento,fechaIngreso,fechaEgreso, celular,Mail,Domicilio) values ( '" & Nombre.Text & "', '" & Apellido.Text & "' , " & NumeroDocumento.Text & " , " & TipoDocumento.SelectedValue & " , '" & dtpFechaIngreso.Value & "' ,   null   , " & Celular.Text & " , '" & Email.Text & "' , '" & Domicilio.Text & "')"
         dbhelper.EjecutarSQL(sql)
         MsgBox("Se grabo correctamente")
         Me.cargar_grilla()
@@ -63,16 +65,16 @@
     Private Sub modificar()
         Dim sql As String = ""
 
-        sql &= " UPDATE persona SET nroDocumento = " & mskNroDoc.Text
-        sql &= " , apellido = '" & txtApellido.Text & "'"
-        sql &= " , nombre = '" & txtNombre.Text & "'"
-        sql &= " , idTipoDocumento = '" & cmbTipoDoc.SelectedValue & "'"
+        sql &= " UPDATE persona SET nroDocumento = " & NumeroDocumento.Text
+        sql &= " , apellido = '" & Apellido.Text & "'"
+        sql &= " , nombre = '" & Nombre.Text & "'"
+        sql &= " , idTipoDocumento = '" & TipoDocumento.SelectedValue & "'"
         sql &= " , fechaIngreso = '" & dtpFechaEgreso.Value & "'"
         sql &= " , fechaEgreso = '" & dtpFechaEgreso.Value & "'"
-        sql &= " , celular = " & txtCelular.Text
-        sql &= " , Mail = '" & txtEmail.Text & "'"
-        sql &= " , Domicilio = '" & txtDomicilio.Text & "'"
-        sql &= " WHERE nroDocumento = " & mskNroDoc.Text
+        sql &= " , celular = " & Celular.Text
+        sql &= " , Mail = '" & Email.Text & "'"
+        sql &= " , Domicilio = '" & Domicilio.Text & "'"
+        sql &= " WHERE nroDocumento = " & NumeroDocumento.Text
 
         dbhelper.EjecutarSQL(sql)
         Me.cargar_grilla()
@@ -80,7 +82,7 @@
     End Sub
     Private Function validarDatos() As estadoGrabacion
         For Each obj As Control In Me.Controls
-            If obj.GetType.Name = "TextBox" Then
+            If obj.GetType.Name = "TextBox" Or obj.GetType.Name = "MaskedTextBox" Or obj.GetType.Name = "ComboBox" Then
                 If obj.Text = "" Then
                     MsgBox("El " & obj.Name & " no está ingresado")
                     obj.Focus()
@@ -93,7 +95,7 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        sql &= " SELECT * FROM persona WHERE nroDocumento = " & Me.mskNroDoc.Text
+        sql &= " SELECT * FROM persona WHERE nroDocumento = " & Me.NumeroDocumento.Text
 
         tabla = dbhelper.ConsultaSQL(sql)
 
@@ -105,15 +107,15 @@
     End Function
     Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
         chkPersAut.Enabled = False
-        txtApellido.Enabled = False
-        txtNombre.Enabled = False
-        mskNroDoc.Enabled = True
-        cmbTipoDoc.Enabled = False
+        Apellido.Enabled = False
+        Nombre.Enabled = False
+        NumeroDocumento.Enabled = True
+        TipoDocumento.Enabled = False
         dtpFechaIngreso.Enabled = False
         dtpFechaEgreso.Enabled = False
-        txtDomicilio.Enabled = False
-        txtEmail.Enabled = False
-        txtCelular.Enabled = False
+        Domicilio.Enabled = False
+        Email.Enabled = False
+        Celular.Enabled = False
         btn_eliminar.Enabled = False
         btn_guardar.Enabled = False
     End Sub
@@ -122,30 +124,30 @@
         If chkPersAut.Checked Then
             dtpFechaEgreso.Enabled = False
             dtpFechaIngreso.Enabled = False
-            txtDomicilio.Enabled = False
-            txtCelular.Enabled = False
-            txtEmail.Enabled = False
+            Domicilio.Enabled = False
+            Celular.Enabled = False
+            Email.Enabled = False
         End If
 
         chkPersAut.Enabled = True
-        txtApellido.Text = ""
-        txtApellido.Enabled = True
-        txtNombre.Text = ""
-        txtNombre.Enabled = True
-        mskNroDoc.Text = ""
-        mskNroDoc.Enabled = True
-        cmbTipoDoc.SelectedIndex = -1
-        cmbTipoDoc.Enabled = True
+        Apellido.Text = ""
+        Apellido.Enabled = True
+        Nombre.Text = ""
+        Nombre.Enabled = True
+        NumeroDocumento.Text = ""
+        NumeroDocumento.Enabled = True
+        TipoDocumento.SelectedIndex = -1
+        TipoDocumento.Enabled = True
         dtpFechaIngreso.Text = ""
         dtpFechaIngreso.Enabled = True
         dtpFechaEgreso.Text = ""
         dtpFechaEgreso.Enabled = False
-        txtDomicilio.Text = ""
-        txtDomicilio.Enabled = True
-        txtEmail.Text = ""
-        txtEmail.Enabled = True
-        txtCelular.Text = ""
-        txtCelular.Enabled = True
+        Domicilio.Text = ""
+        Domicilio.Enabled = True
+        Email.Text = ""
+        Email.Enabled = True
+        Celular.Text = ""
+        Celular.Enabled = True
         btn_guardar.Enabled = True
         estado_Grabacion = condicionGrabacion.insertar
     End Sub
@@ -153,10 +155,10 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
-        If mskNroDoc.Text = "" Then
+        If NumeroDocumento.Text = "" Then
             MsgBox("Debe ingresar un numero de documento")
         Else
-            sql = "SELECT * FROM persona WHERE nroDocumento = " & mskNroDoc.Text
+            sql = "SELECT * FROM persona WHERE nroDocumento = " & NumeroDocumento.Text
             tabla = dbhelper.ConsultaSQL(sql)
             Me.dgvEmpleado.Rows.Clear()
 
@@ -171,7 +173,7 @@
         End If
     End Function
 
-    Private Sub dgvEmpleado_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmpleado.CellDoubleClick
+    Private Sub dgvEmpleado_DoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvEmpleado.DoubleClick
         Dim sql As String = ""
         Dim tabla As New DataTable
 
@@ -179,21 +181,21 @@
 
         tabla = dbhelper.ConsultaSQL(sql)
 
-        Me.txtApellido.Text = tabla.Rows(0)("apellido")
-        Me.txtNombre.Text = tabla.Rows(0)("nombre")
-        Me.mskNroDoc.Text = tabla.Rows(0)("nroDocumento")
-        Me.cmbTipoDoc.SelectedValue = tabla.Rows(0)("idTipoDocumento")
+        Me.Apellido.Text = tabla.Rows(0)("apellido")
+        Me.Nombre.Text = tabla.Rows(0)("nombre")
+        Me.NumeroDocumento.Text = tabla.Rows(0)("nroDocumento")
+        Me.TipoDocumento.SelectedValue = tabla.Rows(0)("idTipoDocumento")
 
         chkPersAut.Enabled = True
-        txtApellido.Enabled = True
-        txtNombre.Enabled = True
-        mskNroDoc.Enabled = True
-        cmbTipoDoc.Enabled = True
+        Apellido.Enabled = True
+        Nombre.Enabled = True
+        NumeroDocumento.Enabled = True
+        TipoDocumento.Enabled = True
         dtpFechaIngreso.Enabled = True
         dtpFechaEgreso.Enabled = False
-        txtDomicilio.Enabled = True
-        txtEmail.Enabled = True
-        txtCelular.Enabled = True
+        Domicilio.Enabled = True
+        Email.Enabled = True
+        Celular.Enabled = True
         btn_guardar.Enabled = True
 
         If IsDBNull(tabla.Rows(0)("fechaIngreso")) = True Then
@@ -215,31 +217,31 @@
         End If
 
         If IsDBNull(tabla.Rows(0)("celular")) = True Then
-            Me.txtCelular.Text = ""
-            Me.txtCelular.Enabled = False
+            Me.Celular.Text = ""
+            Me.Celular.Enabled = False
         Else
-            Me.txtCelular.Text = tabla.Rows(0)("celular")
+            Me.Celular.Text = tabla.Rows(0)("celular")
         End If
 
         If IsDBNull(tabla.Rows(0)("Mail")) = True Then
-            Me.txtEmail.Text = ""
-            Me.txtEmail.Enabled = False
+            Me.Email.Text = ""
+            Me.Email.Enabled = False
         Else
-            Me.txtEmail.Text = tabla.Rows(0)("Mail")
+            Me.Email.Text = tabla.Rows(0)("Mail")
         End If
 
         If IsDBNull(tabla.Rows(0)("Domicilio")) = True Then
-            Me.txtDomicilio.Text = ""
-            Me.txtDomicilio.Enabled = False
+            Me.Domicilio.Text = ""
+            Me.Domicilio.Enabled = False
         Else
-            Me.txtDomicilio.Text = tabla.Rows(0)("Domicilio")
+            Me.Domicilio.Text = tabla.Rows(0)("Domicilio")
         End If
 
-        Me.txtApellido.Enabled = True
-        Me.txtNombre.Enabled = True
+        Me.Apellido.Enabled = True
+        Me.Nombre.Enabled = True
         btn_eliminar.Enabled = True
         btn_guardar.Enabled = True
-        Me.mskNroDoc.Enabled = False
+        Me.NumeroDocumento.Enabled = False
         estado_Grabacion = condicionGrabacion.modificar
     End Sub
 
@@ -248,7 +250,7 @@
 
         If validarDatos() = estadoGrabacion.aprobado Then
             If validarPersona() = estadoGrabacion.rechazado Then
-                sql = " DELETE FROM persona WHERE nroDocumento = " & mskNroDoc.Text
+                sql = " DELETE FROM persona WHERE nroDocumento = " & NumeroDocumento.Text
                 MsgBox("Se elimino correctamente la persona")
             Else
                 MsgBox("Cargue correctamente la persona a eliminar")
@@ -273,15 +275,15 @@
         If chkPersAut.Checked Then
             dtpFechaIngreso.Enabled = False
             dtpFechaEgreso.Enabled = False
-            txtDomicilio.Enabled = False
-            txtEmail.Enabled = False
-            txtCelular.Enabled = False
+            Domicilio.Enabled = False
+            Email.Enabled = False
+            Celular.Enabled = False
         Else
             dtpFechaIngreso.Enabled = True
-            dtpFechaEgreso.Enabled = True
-            txtDomicilio.Enabled = True
-            txtEmail.Enabled = True
-            txtCelular.Enabled = True
+            dtpFechaEgreso.Enabled = False
+            Domicilio.Enabled = True
+            Email.Enabled = True
+            Celular.Enabled = True
         End If
     End Sub
 End Class
