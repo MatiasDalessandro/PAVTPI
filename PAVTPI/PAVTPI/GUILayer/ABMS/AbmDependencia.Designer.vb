@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class AbmDependencia
+Partial Class cmd_cancelar
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -41,15 +41,19 @@ Partial Class AbmDependencia
         Me.btn_buscar = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txt_buscar = New System.Windows.Forms.MaskedTextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.dgv_datos_dependencia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgv_datos_dependencia
         '
+        Me.dgv_datos_dependencia.AllowUserToAddRows = False
+        Me.dgv_datos_dependencia.AllowUserToDeleteRows = False
         Me.dgv_datos_dependencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_datos_dependencia.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.nombre, Me.descripcion, Me.nro_cuenta, Me.saldo, Me.estado})
         Me.dgv_datos_dependencia.Location = New System.Drawing.Point(391, 12)
         Me.dgv_datos_dependencia.Name = "dgv_datos_dependencia"
+        Me.dgv_datos_dependencia.ReadOnly = True
         Me.dgv_datos_dependencia.Size = New System.Drawing.Size(545, 211)
         Me.dgv_datos_dependencia.TabIndex = 0
         '
@@ -57,26 +61,31 @@ Partial Class AbmDependencia
         '
         Me.nombre.HeaderText = "Nombre"
         Me.nombre.Name = "nombre"
+        Me.nombre.ReadOnly = True
         '
         'descripcion
         '
         Me.descripcion.HeaderText = "Descripción"
         Me.descripcion.Name = "descripcion"
+        Me.descripcion.ReadOnly = True
         '
         'nro_cuenta
         '
         Me.nro_cuenta.HeaderText = "Número de cuenta"
         Me.nro_cuenta.Name = "nro_cuenta"
+        Me.nro_cuenta.ReadOnly = True
         '
         'saldo
         '
         Me.saldo.HeaderText = "Saldo"
         Me.saldo.Name = "saldo"
+        Me.saldo.ReadOnly = True
         '
         'estado
         '
         Me.estado.HeaderText = "Estado"
         Me.estado.Name = "estado"
+        Me.estado.ReadOnly = True
         '
         'lbl_nombre
         '
@@ -190,11 +199,21 @@ Partial Class AbmDependencia
         Me.txt_buscar.Size = New System.Drawing.Size(111, 20)
         Me.txt_buscar.TabIndex = 18
         '
-        'AbmDependencia
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(252, 240)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 19
+        Me.Button1.Text = "Cancelar"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'cmd_cancelar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(950, 271)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txt_buscar)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btn_buscar)
@@ -209,7 +228,7 @@ Partial Class AbmDependencia
         Me.Controls.Add(Me.lbl_descripcion)
         Me.Controls.Add(Me.lbl_nombre)
         Me.Controls.Add(Me.dgv_datos_dependencia)
-        Me.Name = "AbmDependencia"
+        Me.Name = "cmd_cancelar"
         Me.Text = "AbmDependencia"
         CType(Me.dgv_datos_dependencia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -236,4 +255,5 @@ Partial Class AbmDependencia
     Friend WithEvents btn_buscar As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents txt_buscar As MaskedTextBox
+    Friend WithEvents Button1 As Button
 End Class

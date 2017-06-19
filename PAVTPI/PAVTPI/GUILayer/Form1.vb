@@ -18,7 +18,7 @@
     End Sub
 
     Private Sub ABMDependenciaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMDependenciaToolStripMenuItem.Click
-        AbmDependencia.Show()
+        cmd_cancelar.Show()
     End Sub
     Private Sub ABMComboToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMComboToolStripMenuItem.Click
         AbmCombo.Show()

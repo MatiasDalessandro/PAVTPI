@@ -88,7 +88,7 @@
     End Sub
 
     Private Sub btn_agregarDependencia_Click(sender As Object, e As EventArgs) Handles btn_agregarDependencia.Click
-        AbmDependencia.Show()
+        cmd_cancelar.Show()
     End Sub
     Private Sub btn_agregarCombo_Click(sender As Object, e As EventArgs) Handles btn_agregarCombo.Click
         Dim estado As Boolean = True

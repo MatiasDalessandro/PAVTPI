@@ -1,4 +1,4 @@
-﻿Public Class AbmDependencia
+﻿Public Class cmd_cancelar
     Enum estado_grabacion
         insertar
         modificar
@@ -6,12 +6,8 @@
     Dim dbHelper As DBHelper = DBHelper.getDBHelper
     Dim condicion_grabacion As estado_grabacion = estado_grabacion.insertar
     Private Sub AbmDependencia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cargar_grilla2()
         cargar_combo()
-        txt_descripcion.Enabled = False
-        txt_nombre.Enabled = False
-        cmb_estado.Enabled = False
-        cmb_estado.DropDownStyle = ComboBoxStyle.DropDownList
+        setLoad()
     End Sub
     Public Function validar_estado(ByVal estado As Integer)
         If estado = True Then
@@ -43,27 +39,10 @@
                 o.SelectedValue = -1
             End If
         Next
-        Me.txt_nombre.Enabled = True
-        Me.txt_descripcion.Enabled = True
-        Me.cmb_estado.Enabled = True
-        Me.condicion_grabacion = estado_grabacion.insertar
-
-        btn_guardar.Enabled = True
-        Me.txt_nombre.Focus()
-        cargar_grilla2()
-        cmb_estado.SelectedIndex = -1
+        setNew()
     End Sub
     Private Sub grabar_borrar(sql As String)
         dbHelper.EjecutarSQL(sql)
-        'Dim conexion As New OleDb.OleDbConnection
-        'Dim cmd As New OleDb.OleDbCommand
-        'conexion.ConnectionString = cadena_conexion
-        'conexion.Open()
-        'cmd.Connection = conexion
-        'cmd.CommandType = CommandType.Text
-        'cmd.CommandText = sql
-        'cmd.ExecuteNonQuery()
-        'conexion.Close()
     End Sub
     Private Sub insertar()
         Dim estado As Integer = validar_estado_r(Me.cmb_estado.SelectedIndex)
@@ -71,7 +50,6 @@
         sql &= "insert into [PAV-TPI].dbo.dependencia (nombre,descripcion,estado) VALUES ('"
         sql &= Me.txt_nombre.Text & "', '" & Me.txt_descripcion.Text & "'," & estado & ")"
         grabar_borrar(sql)
-
     End Sub
     Private Sub modificar()
         Dim nro As Integer = dgv_datos_dependencia.CurrentRow.Cells(2).Value
@@ -80,33 +58,27 @@
         sql &= estado & " where nroCuentaCorriente = "
         sql &= nro
         grabar_borrar(sql)
-        txt_nombre.Enabled = False
-        txt_descripcion.Enabled = False
-        txt_buscar.Enabled = True
-
+        setUpdate()
     End Sub
     Private Sub btn_guardar_Click(sender As Object, e As EventArgs) Handles btn_guardar.Click
-        If condicion_grabacion = estado_grabacion.insertar Then
-            If validar_repetitivo() = True Then
-                insertar()
-                MsgBox("Se cargo correctamente.")
+        If verificar_campos() Then
+            If condicion_grabacion = estado_grabacion.insertar Then
+                If validar_repetitivo() = True Then
+                    insertar()
+                    MsgBox("Se cargo correctamente.")
+                Else
+                    MsgBox("No se puede grabar registro repetido" + Chr(13) +
+                           "La dependencia " & txt_nombre.Text & " ya existe.")
+                End If
             Else
-                MsgBox("No se puede grabar registro repetido" + Chr(13) +
-                       "La dependencia " & txt_nombre.Text & " ya existe.")
+                modificar()
+                MsgBox("Se cargo correctamente.")
             End If
+            setLoad()
         Else
-            modificar()
-            MsgBox("Se cargo correctamente.")
+            MsgBox("Asegurese de llenar todos los campos antes de guardar.")
+            Exit Sub
         End If
-        cargar_grilla2()
-        txt_nombre.Text = ""
-        txt_descripcion.Text = ""
-        txt_buscar.Text = ""
-        btn_guardar.Enabled = False
-        btn_buscar.Enabled = True
-        txt_buscar.Enabled = True
-        cmb_estado.SelectedIndex = -1
-
     End Sub
     Private Sub dgv_datos_dependencia_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_datos_dependencia.CellContentClick
         Dim sql As String = ""
@@ -119,12 +91,7 @@
         Me.txt_descripcion.Text = tabla.Rows(0)("descripcion")
         Me.cmb_estado.SelectedIndex = validar_estado_r(tabla.Rows(0)("estado"))
         condicion_grabacion = estado_grabacion.modificar
-        btn_guardar.Enabled = True
-        txt_nombre.Enabled = True
-        txt_descripcion.Enabled = True
-        cmb_estado.Enabled = True
-
-
+        setUpdate()
     End Sub
     Private Sub btn_borrar_Click(sender As Object, e As EventArgs) Handles btn_borrar.Click
         If MessageBox.Show("Esta seguro de borrar: " + Chr(13) +
@@ -138,13 +105,7 @@
         Dim sql As String = "DELETE FROM [PAV-TPI].dbo.dependencia where nroCuentaCorriente = "
         sql &= dgv_datos_dependencia.CurrentRow.Cells(2).Value
         grabar_borrar(sql)
-        cargar_grilla2()
-        txt_descripcion.Text = ""
-        txt_nombre.Text = ""
-        txt_buscar.Enabled = True
-        btn_buscar.Enabled = True
-        txt_descripcion.Enabled = False
-        txt_nombre.Enabled = False
+        setLoad()
     End Sub
     Private Sub btn_salir_Click(sender As Object, e As EventArgs) Handles btn_salir.Click
         Me.Close()
@@ -179,11 +140,9 @@
         dgv_datos_dependencia.Rows(0).Cells(3).Value = tabla.Rows(0)("saldo")
         dgv_datos_dependencia.Rows(0).Cells(4).Value = validar_estado(tabla.Rows(0)("estado"))
         cmb_estado.SelectedIndex = validar_estado_r(tabla.Rows(0)("estado"))
-        txt_nombre.Enabled = True
-        txt_descripcion.Enabled = True
         txt_nombre.Text = tabla.Rows(0)("nombre")
         txt_descripcion.Text = tabla.Rows(0)("descripcion")
-        btn_guardar.Enabled = True
+        setSearch()
     End Sub
     Private Sub cargar_grilla2()
         Dim sql As String = "SELECT * FROM dependencia"
@@ -200,5 +159,60 @@
             Me.dgv_datos_dependencia.Rows(c).Cells(4).Value = validar_estado(tabla.Rows(c)("Estado"))
 
         Next
+    End Sub
+    Private Function verificar_campos()
+        If txt_nombre.Text = "" And txt_descripcion.Text = "" Then
+            Return True
+        End If
+        Return False
+    End Function
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        setLoad()
+    End Sub
+    Private Sub setNew()
+        Me.txt_nombre.Enabled = True
+        Me.txt_descripcion.Enabled = True
+        Me.cmb_estado.Enabled = True
+        Me.condicion_grabacion = estado_grabacion.insertar
+
+        btn_guardar.Enabled = True
+        Me.txt_nombre.Focus()
+        cargar_grilla2()
+        cmb_estado.SelectedIndex = -1
+        txt_buscar.Enabled = False
+        btn_buscar.Enabled = False
+        btn_borrar.Enabled = False
+    End Sub
+    Private Sub setSearch()
+        txt_nombre.Enabled = True
+        txt_descripcion.Enabled = True
+        btn_guardar.Enabled = True
+        btn_nuevo.Enabled = False
+        cmb_estado.Enabled = True
+    End Sub
+    Private Sub setLoad()
+        cargar_grilla2()
+        txt_descripcion.Enabled = False
+        txt_nombre.Enabled = False
+        cmb_estado.Enabled = False
+        cmb_estado.DropDownStyle = ComboBoxStyle.DropDownList
+        txt_buscar.Text = ""
+        txt_descripcion.Text = ""
+        txt_nombre.Text = ""
+        cmb_estado.SelectedIndex = -1
+        btn_guardar.Enabled = False
+        btn_nuevo.Enabled = True
+        btn_borrar.Enabled = True
+        btn_buscar.Enabled = True
+        txt_buscar.Enabled = True
+    End Sub
+    Private Sub setUpdate()
+        btn_guardar.Enabled = True
+        txt_nombre.Enabled = True
+        txt_descripcion.Enabled = True
+        cmb_estado.Enabled = True
+        btn_nuevo.Enabled = False
+        txt_buscar.Enabled = False
+        btn_buscar.Enabled = False
     End Sub
 End Class

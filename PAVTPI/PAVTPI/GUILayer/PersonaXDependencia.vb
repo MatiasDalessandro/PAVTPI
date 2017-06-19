@@ -19,7 +19,7 @@
     End Sub
 
     Private Sub btn_dependencia_Click(sender As Object, e As EventArgs) Handles btn_dependencia.Click
-        AbmDependencia.Show()
+        cmd_cancelar.Show()
     End Sub
     Private Sub btn_buscarDependencia_Click(sender As Object, e As EventArgs) Handles btn_buscarDependencia.Click
         Dim sql As String = "SELECT nombre,descripcion,nroCuentaCorriente FROM dependencia WHERE nroCuentaCorriente = " & txt_nroDependencia.Text
