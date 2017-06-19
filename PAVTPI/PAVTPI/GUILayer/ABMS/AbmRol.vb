@@ -45,7 +45,9 @@
     End Sub
 
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
-        Me.msk_idRol.Text = ""
+        Dim id As Integer = (dbhelper.ConsultaSQL("SELECT MAX(idRol) as id from rol")).Rows(0)("id") + 1
+        msk_idRol.Text = id
+        Me.msk_idRol.Text = id
         Me.Nombre.Text = ""
         Me.Nombre.Enabled = True
         Me.btn_eliminar.Enabled = False

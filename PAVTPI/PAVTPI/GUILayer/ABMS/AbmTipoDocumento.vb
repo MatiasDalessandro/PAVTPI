@@ -137,8 +137,8 @@ Public Class AbmTipoDocumento
                 O.SelectedIndex = -1
             End If
         Next
-
-
+        Dim id As Integer = (dbhelper.ConsultaSQL("SELECT MAX (idTipoDocumento) as id from tipodocumento")).Rows(0)("id") + 1
+        txt_Id_Tipo_Doc.Text = id
         Me.Nombre.Enabled = True
         Me.btn_Guardar.Enabled = True
         'Me.btn_Buscar.Enabled = False

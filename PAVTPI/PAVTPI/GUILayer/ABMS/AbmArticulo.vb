@@ -112,6 +112,9 @@
         btn_eliminar.Enabled = False
         btn_guardar.Enabled = False
         Me.msk_IdArticulo.Enabled = True
+        btn_buscar.Enabled = True
+        btn_eliminar.Enabled = True
+        btn_nuevo.Enabled = True
     End Sub
 
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
@@ -124,26 +127,37 @@
         btn_guardar.Enabled = True
         estadoGrabacion = condicionGrabacion.insertar
         Me.msk_IdArticulo.Enabled = False
+        Dim id As Integer = (dbhelper.ConsultaSQL("SELECT MAX(idArticuloIntegrante) as id from articulo").Rows(0)("id")) + 1
+        msk_IdArticulo.Text = id
+        btn_buscar.Enabled = False
     End Sub
 
-    Private Function btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
-        Dim sql As String = ""
-        Dim tabla As New DataTable
+    Private Sub btn_buscar_Click(sender As Object, e As EventArgs) Handles btn_buscar.Click
 
-        sql = "SELECT * FROM articulo WHERE idArticuloIntegrante = " & Me.msk_IdArticulo.Text
-        tabla = dbhelper.ConsultaSQL(sql)
-        Me.dgv_datos_articulos.Rows.Clear()
+        Try
+            If CType(msk_IdArticulo.Text, System.Int32) Then
+                Dim sql As String = ""
+                Dim tabla As New DataTable
 
-        Dim c As Integer = 0
+                sql = "SELECT * FROM articulo WHERE idArticuloIntegrante = " & Me.msk_IdArticulo.Text
+                tabla = dbhelper.ConsultaSQL(sql)
+                Me.dgv_datos_articulos.Rows.Clear()
 
-        For c = 0 To tabla.Rows.Count - 1
-            Me.dgv_datos_articulos.Rows.Add()
-            Me.dgv_datos_articulos.Rows(c).Cells("c_id_articulo").Value = tabla.Rows(c)(0)
-            Me.dgv_datos_articulos.Rows(c).Cells("c_nombre_articulo").Value = tabla.Rows(c)(1)
-            Me.dgv_datos_articulos.Rows(c).Cells("c_precio_articulo").Value = tabla.Rows(c)(2)
-        Next
+                Dim c As Integer = 0
 
-    End Function
+                For c = 0 To tabla.Rows.Count - 1
+                    Me.dgv_datos_articulos.Rows.Add()
+                    Me.dgv_datos_articulos.Rows(c).Cells("c_id_articulo").Value = tabla.Rows(c)(0)
+                    Me.dgv_datos_articulos.Rows(c).Cells("c_nombre_articulo").Value = tabla.Rows(c)(1)
+                    Me.dgv_datos_articulos.Rows(c).Cells("c_precio_articulo").Value = tabla.Rows(c)(2)
+                Next
+                btn_nuevo.Enabled = False
+            End If
+        Catch ex As Exception
+            MsgBox("Debe ingresar un código de artículo.")
+            Exit Sub
+        End Try
+    End Sub
 
     Private Sub dgv_datos_articulos_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv_datos_articulos.CellDoubleClick
         Dim sql As String = ""

@@ -30,6 +30,7 @@
 
     End Sub
     Private Sub btn_nuevo_Click(sender As Object, e As EventArgs) Handles btn_nuevo.Click
+        setNew()
         For Each obj As Control In Me.Controls
             If obj.GetType.Name = "TextBox" Or obj.GetType.Name = "MaskedTextBox" Then
                 obj.Text = ""
@@ -39,7 +40,8 @@
                 o.SelectedValue = -1
             End If
         Next
-        setNew()
+        Dim id As Integer = (dbHelper.ConsultaSQL("SELECT MAX (nroCuentaCorriente) as id from dependencia")).Rows(0)("id") + 1
+        txt_buscar.Text = id
     End Sub
     Private Sub grabar_borrar(sql As String)
         dbHelper.EjecutarSQL(sql)
