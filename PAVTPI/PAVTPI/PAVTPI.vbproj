@@ -190,10 +190,10 @@
     <Compile Include="GUILayer\ABMS\ArticulosParaCombo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\Asistencia.Designer.vb">
+    <Compile Include="GUILayer\Procesos\Asistencia.Designer.vb">
       <DependentUpon>Asistencia.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\Asistencia.vb">
+    <Compile Include="GUILayer\Procesos\Asistencia.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\Form1.vb">
@@ -203,52 +203,52 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\PagoTicket.Designer.vb">
+    <Compile Include="GUILayer\Procesos\PagoTicket.Designer.vb">
       <DependentUpon>PagoTicket.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\PagoTicket.vb">
+    <Compile Include="GUILayer\Procesos\PagoTicket.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\PagoXCuentaCorriente.Designer.vb">
+    <Compile Include="GUILayer\Procesos\PagoXCuentaCorriente.Designer.vb">
       <DependentUpon>PagoXCuentaCorriente.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\PagoXCuentaCorriente.vb">
+    <Compile Include="GUILayer\Procesos\PagoXCuentaCorriente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\PersonaXDependencia.Designer.vb">
+    <Compile Include="GUILayer\Procesos\PersonaXDependencia.Designer.vb">
       <DependentUpon>PersonaXDependencia.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\PersonaXDependencia.vb">
+    <Compile Include="GUILayer\Procesos\PersonaXDependencia.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ReportePersonasXDependencia.Designer.vb">
+    <Compile Include="GUILayer\Reportes\ReportePersonasXDependencia.Designer.vb">
       <DependentUpon>ReportePersonasXDependencia.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ReportePersonasXDependencia.vb">
+    <Compile Include="GUILayer\Reportes\ReportePersonasXDependencia.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\ReporteVentasPorHoraPico.Designer.vb">
+    <Compile Include="GUILayer\Reportes\ReporteVentasPorHoraPico.Designer.vb">
       <DependentUpon>ReporteVentasPorHoraPico.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\ReporteVentasPorHoraPico.vb">
+    <Compile Include="GUILayer\Reportes\ReporteVentasPorHoraPico.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\Resumen Cta Cte.Designer.vb">
+    <Compile Include="GUILayer\Reportes\Resumen Cta Cte.Designer.vb">
       <DependentUpon>Resumen Cta Cte.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\Resumen Cta Cte.vb">
+    <Compile Include="GUILayer\Reportes\Resumen Cta Cte.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\resumenArticulo.Designer.vb">
+    <Compile Include="GUILayer\Reportes\resumenArticulo.Designer.vb">
       <DependentUpon>resumenArticulo.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\resumenArticulo.vb">
+    <Compile Include="GUILayer\Reportes\resumenArticulo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\Ventas por período.Designer.vb">
+    <Compile Include="GUILayer\Reportes\Ventas por período.Designer.vb">
       <DependentUpon>Ventas por período.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\Ventas por período.vb">
+    <Compile Include="GUILayer\Reportes\Ventas por período.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\ver nombre maquina.Designer.vb">
@@ -301,34 +301,34 @@
     <EmbeddedResource Include="GUILayer\ABMS\ArticulosParaCombo.resx">
       <DependentUpon>ArticulosParaCombo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\Asistencia.resx">
+    <EmbeddedResource Include="GUILayer\Procesos\Asistencia.resx">
       <DependentUpon>Asistencia.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\PagoTicket.resx">
+    <EmbeddedResource Include="GUILayer\Procesos\PagoTicket.resx">
       <DependentUpon>PagoTicket.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\PagoXCuentaCorriente.resx">
+    <EmbeddedResource Include="GUILayer\Procesos\PagoXCuentaCorriente.resx">
       <DependentUpon>PagoXCuentaCorriente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\PersonaXDependencia.resx">
+    <EmbeddedResource Include="GUILayer\Procesos\PersonaXDependencia.resx">
       <DependentUpon>PersonaXDependencia.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ReportePersonasXDependencia.resx">
+    <EmbeddedResource Include="GUILayer\Reportes\ReportePersonasXDependencia.resx">
       <DependentUpon>ReportePersonasXDependencia.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\ReporteVentasPorHoraPico.resx">
+    <EmbeddedResource Include="GUILayer\Reportes\ReporteVentasPorHoraPico.resx">
       <DependentUpon>ReporteVentasPorHoraPico.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\Resumen Cta Cte.resx">
+    <EmbeddedResource Include="GUILayer\Reportes\Resumen Cta Cte.resx">
       <DependentUpon>Resumen Cta Cte.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\resumenArticulo.resx">
+    <EmbeddedResource Include="GUILayer\Reportes\resumenArticulo.resx">
       <DependentUpon>resumenArticulo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\Ventas por período.resx">
+    <EmbeddedResource Include="GUILayer\Reportes\Ventas por período.resx">
       <DependentUpon>Ventas por período.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\ver nombre maquina.resx">
@@ -424,6 +424,7 @@
     <Folder Include="Bussines Layer\Services\" />
     <Folder Include="DATALayer\DAOs\" />
     <Folder Include="DATALayer\Reportes\EmpleadosMayorTurnosCumplidos\" />
+    <Folder Include="GUILayer\Estadística\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PAVTPI_ClaveTemporal.pfx" />
