@@ -112,7 +112,7 @@
         Dim sql As String = ""
         Dim tablaPagos As New DataTable
 
-        sql = "SELECT * FROM pagoXCuentaCorriente WHERE pagoXCuentaCorriente.nroCuentaCorriente = " & Me.txt_cuentaCorriente.Text & "ORDER BY fechaHora DESC"
+        sql = "SELECT * FROM pagoXCuentaCorriente WHERE pagoXCuentaCorriente.nroCuentaCorriente = " & Me.txt_cuentaCorriente.Text & " ORDER BY fechaHora DESC"
         tablaPagos = dbhelper.ConsultaSQL(sql)
         Me.dgv_registroDePagos.Rows.Clear()
 
@@ -148,6 +148,7 @@
         Dim restaSaldo As Double = 0
         Dim saldo1 As Double = Me.txt_saldo.Text
         Dim saldo2 As Double = Me.txt_montoAcobrar.Text
+        Dim fechaHora As DateTime = DateTime.Now.ToString
 
         If saldo2 < 1 Then
             MsgBox("El monto a cobrar no puede ser menor a 1")
