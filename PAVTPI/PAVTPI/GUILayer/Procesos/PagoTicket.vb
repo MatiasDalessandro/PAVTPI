@@ -27,14 +27,12 @@
         Me.txt_total.Enabled = False
 
     End Sub
-
     Private Sub cargar_combo(ByRef combo As ComboBox, ByRef tabla As DataTable, ByVal pk As String, ByVal descriptor As String)
         combo.DataSource = tabla
         combo.DisplayMember = descriptor
         combo.ValueMember = pk
         combo.SelectedIndex = -1
     End Sub
-
     Private Sub btn_buscarArticulo_Click(sender As Object, e As EventArgs) Handles btn_buscarArticulo.Click
         Dim tabla As New DataTable
         Dim sql As String = "SELECT * FROM articulo WHERE idArticuloIntegrante= " & txt_articulo.Text
@@ -50,7 +48,6 @@
         dgv.Columns(1).HeaderCell.Value = "Nombre"
         dgv.Columns(2).HeaderCell.Value = "Precio"
     End Sub
-
     Private Sub bnt_agregarArticulo_Click(sender As Object, e As EventArgs) Handles bnt_agregarArticulo.Click
         Dim estado As Boolean = True
         If Not dgv_detalle.Rows.Count = 0 Then
@@ -82,11 +79,9 @@
         Next
         txt_total.Text = total
     End Sub
-
     Private Sub btn_mostrarTodosArt_Click(sender As Object, e As EventArgs) Handles btn_mostrarTodosArt.Click
         cargar_grillas_simples(Me.dgv_articulo, dbHelper.ConsultaSQL("SELECT * FROM articulo"))
     End Sub
-
     Private Sub btn_agregarDependencia_Click(sender As Object, e As EventArgs) Handles btn_agregarDependencia.Click
         cmd_cancelar.Show()
     End Sub
@@ -114,22 +109,18 @@
         btn_quitar.Enabled = True
         btn_qf.Enabled = True
     End Sub
-
     Private Sub btn_mostrarTodosCom_Click(sender As Object, e As EventArgs) Handles btn_mostrarTodosCom.Click
         cargar_grillas_simples(Me.dgv_combo, dbHelper.ConsultaSQL("SELECT * from combo"))
     End Sub
-
     Private Sub btn_buscarCombo_Click(sender As Object, e As EventArgs) Handles btn_buscarCombo.Click
         Dim tabla As New DataTable
         Dim sql As String = "SELECT * from combo WHERE idCombo = " & txt_combo.Text
         tabla = dbHelper.ConsultaSQL(sql)
         cargar_grillas_simples(dgv_combo, tabla)
     End Sub
-
     Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
         Me.Close()
     End Sub
-
     Private Sub chk_dependencia_CheckedChanged(sender As Object, e As EventArgs) Handles chk_dependencia.CheckedChanged
         If chk_dependencia.Checked Then
             cmb_dependencia.Enabled = True
@@ -146,7 +137,6 @@
             chk_abonado.Enabled = False
         End If
     End Sub
-
     Private Sub chk_mozo_CheckedChanged(sender As Object, e As EventArgs) Handles chk_mozo.CheckedChanged
         If chk_mozo.Checked Then
             cmb_empleado.Enabled = True
