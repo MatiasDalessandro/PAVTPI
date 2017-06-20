@@ -251,7 +251,7 @@ Partial Class Venta
         Me.dgv_detalle.AllowUserToDeleteRows = False
         Me.dgv_detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgv_detalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.nombre_2, Me.monto, Me.cantidad, Me.idarticulo, Me.idcombo})
-        Me.dgv_detalle.Location = New System.Drawing.Point(11, 318)
+        Me.dgv_detalle.Location = New System.Drawing.Point(16, 317)
         Me.dgv_detalle.Name = "dgv_detalle"
         Me.dgv_detalle.ReadOnly = True
         Me.dgv_detalle.Size = New System.Drawing.Size(994, 150)
@@ -360,14 +360,12 @@ Partial Class Venta
         Me.idarticulo.HeaderText = "nroArticulo"
         Me.idarticulo.Name = "idarticulo"
         Me.idarticulo.ReadOnly = True
-        Me.idarticulo.Visible = False
         '
         'idcombo
         '
         Me.idcombo.HeaderText = "nroCombo"
         Me.idcombo.Name = "idcombo"
         Me.idcombo.ReadOnly = True
-        Me.idcombo.Visible = False
         '
         'Venta
         '
