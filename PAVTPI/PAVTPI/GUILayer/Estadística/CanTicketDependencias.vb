@@ -20,7 +20,5 @@
         generar_canTicketsDependencias()
     End Sub
 
-    Private Sub CanTicketDependencias_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    End Sub
 End Class

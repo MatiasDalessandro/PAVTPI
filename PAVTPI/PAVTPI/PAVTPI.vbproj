@@ -115,12 +115,12 @@
   <ItemGroup>
     <Compile Include="DATALayer\DBHelper\DBHelper.vb" />
     <Compile Include="DATALayer\DBHelper\_3k6_2017_acceso_datosvb.vb" />
-    <Compile Include="DATALayer\Estadistica\DeudasDependencias\EstadisticasDependencias.Designer.vb">
+    <Compile Include="DATALayer\Estadistica\EstadisticasDependencias.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EstadisticasDependencias.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DATALayer\Estadistica\DeudasDependencias\EstadisticasDependencias.vb">
+    <Compile Include="DATALayer\Estadistica\EstadisticasDependencias.vb">
       <DependentUpon>EstadisticasDependencias.xsd</DependentUpon>
     </Compile>
     <Compile Include="DATALayer\Reportes\Producto+Vendido\DSProductoMasVendido.Designer.vb">
@@ -210,6 +210,12 @@
     <Compile Include="GUILayer\Estadística\DeudasDependencias.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GUILayer\Estadística\PrecioArticulo.Designer.vb">
+      <DependentUpon>PrecioArticulo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\Estadística\PrecioArticulo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GUILayer\Procesos\Asistencia.Designer.vb">
       <DependentUpon>Asistencia.vb</DependentUpon>
     </Compile>
@@ -295,6 +301,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DATALayer\Estadistica\CantidadTicketsDependencias\CanTicketDependencias.rdlc" />
+    <EmbeddedResource Include="DATALayer\Estadistica\PrecioArticulos\PrecioArticulos.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\PersonaXDependencia\ReportePersonaXDep.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\Producto+Vendido\RepProdMasVendido.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ResumenCtaCte\ReporteCtaCte.rdlc" />
@@ -328,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Estadística\DeudasDependencias.resx">
       <DependentUpon>DeudasDependencias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\Estadística\PrecioArticulo.resx">
+      <DependentUpon>PrecioArticulo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Procesos\Asistencia.resx">
       <DependentUpon>Asistencia.vb</DependentUpon>
@@ -370,15 +380,15 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="DATALayer\Estadistica\DeudasDependencias\EstadisticasDependencias.xsc">
+    <None Include="DATALayer\Estadistica\EstadisticasDependencias.xsc">
       <DependentUpon>EstadisticasDependencias.xsd</DependentUpon>
     </None>
-    <None Include="DATALayer\Estadistica\DeudasDependencias\EstadisticasDependencias.xsd">
+    <None Include="DATALayer\Estadistica\EstadisticasDependencias.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>EstadisticasDependencias.Designer.vb</LastGenOutput>
     </None>
-    <None Include="DATALayer\Estadistica\DeudasDependencias\EstadisticasDependencias.xss">
+    <None Include="DATALayer\Estadistica\EstadisticasDependencias.xss">
       <DependentUpon>EstadisticasDependencias.xsd</DependentUpon>
     </None>
     <None Include="DATALayer\Reportes\Producto+Vendido\DSProductoMasVendido.xsc">
