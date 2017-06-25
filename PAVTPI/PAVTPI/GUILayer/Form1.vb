@@ -63,4 +63,12 @@
     Private Sub ReportePersonasPorDependenciaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReportePersonasPorDependenciaToolStripMenuItem.Click
         ReportePersonasXDependencia.Show()
     End Sub
+
+    Private Sub DeudasDependenciasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeudasDependenciasToolStripMenuItem.Click
+        DeudasDependencias.Show()
+    End Sub
+
+    Private Sub CantTicketsPorDependenciasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CantTicketsPorDependenciasToolStripMenuItem.Click
+        CanTicketDependencias.Show()
+    End Sub
 End Class

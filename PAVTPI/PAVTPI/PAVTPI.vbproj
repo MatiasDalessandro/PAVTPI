@@ -115,6 +115,14 @@
   <ItemGroup>
     <Compile Include="DATALayer\DBHelper\DBHelper.vb" />
     <Compile Include="DATALayer\DBHelper\_3k6_2017_acceso_datosvb.vb" />
+    <Compile Include="DATALayer\Estadistica\DeudasDependencias\EstadisticasDependencias.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EstadisticasDependencias.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DATALayer\Estadistica\DeudasDependencias\EstadisticasDependencias.vb">
+      <DependentUpon>EstadisticasDependencias.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DATALayer\Reportes\Producto+Vendido\DSProductoMasVendido.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -188,6 +196,18 @@
       <DependentUpon>ArticulosParaCombo.vb</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\ABMS\ArticulosParaCombo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\Estadística\CanTicketDependencias.Designer.vb">
+      <DependentUpon>CanTicketDependencias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\Estadística\CanTicketDependencias.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\Estadística\DeudasDependencias.Designer.vb">
+      <DependentUpon>DeudasDependencias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\Estadística\DeudasDependencias.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\Procesos\Asistencia.Designer.vb">
@@ -274,6 +294,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DATALayer\Estadistica\CantidadTicketsDependencias\CanTicketDependencias.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\PersonaXDependencia\ReportePersonaXDep.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\Producto+Vendido\RepProdMasVendido.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ResumenCtaCte\ReporteCtaCte.rdlc" />
@@ -300,6 +321,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\ABMS\ArticulosParaCombo.resx">
       <DependentUpon>ArticulosParaCombo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DATALayer\Estadistica\DeudasDependencias\DeudasDependencias.rdlc" />
+    <EmbeddedResource Include="GUILayer\Estadística\CanTicketDependencias.resx">
+      <DependentUpon>CanTicketDependencias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\Estadística\DeudasDependencias.resx">
+      <DependentUpon>DeudasDependencias.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Procesos\Asistencia.resx">
       <DependentUpon>Asistencia.vb</DependentUpon>
@@ -342,6 +370,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="DATALayer\Estadistica\DeudasDependencias\EstadisticasDependencias.xsc">
+      <DependentUpon>EstadisticasDependencias.xsd</DependentUpon>
+    </None>
+    <None Include="DATALayer\Estadistica\DeudasDependencias\EstadisticasDependencias.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EstadisticasDependencias.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DATALayer\Estadistica\DeudasDependencias\EstadisticasDependencias.xss">
+      <DependentUpon>EstadisticasDependencias.xsd</DependentUpon>
+    </None>
     <None Include="DATALayer\Reportes\Producto+Vendido\DSProductoMasVendido.xsc">
       <DependentUpon>DSProductoMasVendido.xsd</DependentUpon>
     </None>
@@ -424,7 +463,6 @@
     <Folder Include="Bussines Layer\Services\" />
     <Folder Include="DATALayer\DAOs\" />
     <Folder Include="DATALayer\Reportes\EmpleadosMayorTurnosCumplidos\" />
-    <Folder Include="GUILayer\Estadística\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PAVTPI_ClaveTemporal.pfx" />
