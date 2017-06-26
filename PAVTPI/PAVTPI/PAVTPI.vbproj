@@ -198,6 +198,12 @@
     <Compile Include="GUILayer\ABMS\ArticulosParaCombo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GUILayer\Estadística\ArticuloMasVendido.Designer.vb">
+      <DependentUpon>ArticuloMasVendido.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\Estadística\ArticuloMasVendido.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GUILayer\Estadística\CanTicketDependencias.Designer.vb">
       <DependentUpon>CanTicketDependencias.vb</DependentUpon>
     </Compile>
@@ -300,6 +306,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DATALayer\Estadistica\ArticuloMasVendido\ArticuloMasVendido.rdlc" />
     <EmbeddedResource Include="DATALayer\Estadistica\CantidadTicketsDependencias\CanTicketDependencias.rdlc" />
     <EmbeddedResource Include="DATALayer\Estadistica\PrecioArticulos\PrecioArticulos.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\PersonaXDependencia\ReportePersonaXDep.rdlc" />
@@ -330,6 +337,9 @@
       <DependentUpon>ArticulosParaCombo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DATALayer\Estadistica\DeudasDependencias\DeudasDependencias.rdlc" />
+    <EmbeddedResource Include="GUILayer\Estadística\ArticuloMasVendido.resx">
+      <DependentUpon>ArticuloMasVendido.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Estadística\CanTicketDependencias.resx">
       <DependentUpon>CanTicketDependencias.vb</DependentUpon>
     </EmbeddedResource>
