@@ -472,7 +472,7 @@
     <Folder Include="Bussines Layer\Entities\" />
     <Folder Include="Bussines Layer\Services\" />
     <Folder Include="DATALayer\DAOs\" />
-    <Folder Include="DATALayer\Reportes\EmpleadosMayorTurnosCumplidos\" />
+    <Folder Include="DATALayer\Estadistica\EmpleadosMayorTurnosCumplidos\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PAVTPI_ClaveTemporal.pfx" />
