@@ -27,7 +27,7 @@ Partial Class PrecioArticulo
         Me.PrecioArticulosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EstadisticasDependencias = New PAVTPI.EstadisticasDependencias()
         Me.cmd_generarPrecioArticulos = New System.Windows.Forms.Button()
-        Me.rv_ctd = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.rv_pa = New Microsoft.Reporting.WinForms.ReportViewer()
         CType(Me.PrecioArticulosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EstadisticasDependencias, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -51,16 +51,16 @@ Partial Class PrecioArticulo
         Me.cmd_generarPrecioArticulos.Text = "Generar"
         Me.cmd_generarPrecioArticulos.UseVisualStyleBackColor = True
         '
-        'rv_ctd
+        'rv_pa
         '
         ReportDataSource1.Name = "DataSet1"
         ReportDataSource1.Value = Me.PrecioArticulosBindingSource
-        Me.rv_ctd.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.rv_ctd.LocalReport.ReportEmbeddedResource = "PAVTPI.CanTicketDependencias.rdlc"
-        Me.rv_ctd.Location = New System.Drawing.Point(12, 50)
-        Me.rv_ctd.Name = "rv_ctd"
-        Me.rv_ctd.Size = New System.Drawing.Size(923, 602)
-        Me.rv_ctd.TabIndex = 2
+        Me.rv_pa.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.rv_pa.LocalReport.ReportEmbeddedResource = "PAVTPI.PrecioArticulos.rdlc"
+        Me.rv_pa.Location = New System.Drawing.Point(12, 50)
+        Me.rv_pa.Name = "rv_pa"
+        Me.rv_pa.Size = New System.Drawing.Size(923, 602)
+        Me.rv_pa.TabIndex = 2
         '
         'PrecioArticulo
         '
@@ -68,7 +68,7 @@ Partial Class PrecioArticulo
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(944, 659)
         Me.Controls.Add(Me.cmd_generarPrecioArticulos)
-        Me.Controls.Add(Me.rv_ctd)
+        Me.Controls.Add(Me.rv_pa)
         Me.Name = "PrecioArticulo"
         Me.Text = "PrecioArticulo"
         CType(Me.PrecioArticulosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -78,7 +78,7 @@ Partial Class PrecioArticulo
     End Sub
 
     Friend WithEvents cmd_generarPrecioArticulos As Button
-    Friend WithEvents rv_ctd As Microsoft.Reporting.WinForms.ReportViewer
+    Friend WithEvents rv_pa As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents PrecioArticulosBindingSource As BindingSource
     Friend WithEvents EstadisticasDependencias As EstadisticasDependencias
 End Class

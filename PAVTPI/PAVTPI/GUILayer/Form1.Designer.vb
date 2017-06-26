@@ -44,6 +44,8 @@ Partial Class Form1
         Me.EstadisticasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeudasDependenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CantTicketsPorDependenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PrecioArtículosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ArtículosMasVendidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -169,7 +171,7 @@ Partial Class Form1
         '
         'EstadisticasToolStripMenuItem
         '
-        Me.EstadisticasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeudasDependenciasToolStripMenuItem, Me.CantTicketsPorDependenciasToolStripMenuItem})
+        Me.EstadisticasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeudasDependenciasToolStripMenuItem, Me.CantTicketsPorDependenciasToolStripMenuItem, Me.PrecioArtículosToolStripMenuItem, Me.ArtículosMasVendidosToolStripMenuItem})
         Me.EstadisticasToolStripMenuItem.Name = "EstadisticasToolStripMenuItem"
         Me.EstadisticasToolStripMenuItem.Size = New System.Drawing.Size(79, 20)
         Me.EstadisticasToolStripMenuItem.Text = "Estadisticas"
@@ -177,7 +179,7 @@ Partial Class Form1
         'DeudasDependenciasToolStripMenuItem
         '
         Me.DeudasDependenciasToolStripMenuItem.Name = "DeudasDependenciasToolStripMenuItem"
-        Me.DeudasDependenciasToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
+        Me.DeudasDependenciasToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
         Me.DeudasDependenciasToolStripMenuItem.Text = "Deudas Dependencias"
         '
         'CantTicketsPorDependenciasToolStripMenuItem
@@ -185,6 +187,18 @@ Partial Class Form1
         Me.CantTicketsPorDependenciasToolStripMenuItem.Name = "CantTicketsPorDependenciasToolStripMenuItem"
         Me.CantTicketsPorDependenciasToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
         Me.CantTicketsPorDependenciasToolStripMenuItem.Text = "Cant Tickets por Dependencias"
+        '
+        'PrecioArtículosToolStripMenuItem
+        '
+        Me.PrecioArtículosToolStripMenuItem.Name = "PrecioArtículosToolStripMenuItem"
+        Me.PrecioArtículosToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
+        Me.PrecioArtículosToolStripMenuItem.Text = "Precio Artículos"
+        '
+        'ArtículosMasVendidosToolStripMenuItem
+        '
+        Me.ArtículosMasVendidosToolStripMenuItem.Name = "ArtículosMasVendidosToolStripMenuItem"
+        Me.ArtículosMasVendidosToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
+        Me.ArtículosMasVendidosToolStripMenuItem.Text = "Artículos Mas Vendidos"
         '
         'Form1
         '
@@ -224,4 +238,6 @@ Partial Class Form1
     Friend WithEvents EstadisticasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DeudasDependenciasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CantTicketsPorDependenciasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PrecioArtículosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ArtículosMasVendidosToolStripMenuItem As ToolStripMenuItem
 End Class

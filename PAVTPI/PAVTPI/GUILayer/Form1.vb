@@ -1,7 +1,5 @@
 ﻿Public Class Form1
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    End Sub
 
     Private Sub ABMEmpleadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMEmpleadoToolStripMenuItem.Click
         AbmPersona.Show()
@@ -70,5 +68,13 @@
 
     Private Sub CantTicketsPorDependenciasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CantTicketsPorDependenciasToolStripMenuItem.Click
         CanTicketDependencias.Show()
+    End Sub
+
+    Private Sub PrecioArtículosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrecioArtículosToolStripMenuItem.Click
+        PrecioArticulo.Show()
+    End Sub
+
+    Private Sub ArtículosMasVendidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArtículosMasVendidosToolStripMenuItem.Click
+        ArticuloMasVendido.Show()
     End Sub
 End Class
