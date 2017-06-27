@@ -46,6 +46,8 @@ Partial Class Form1
         Me.CantTicketsPorDependenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrecioArtículosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ArtículosMasVendidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReporteEmpleadosPorTurnosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PorcentajeDeAsistenciaMensualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -134,7 +136,7 @@ Partial Class Form1
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasPorPeríodoToolStripMenuItem, Me.ResumenPorCuentaCorrienteToolStripMenuItem, Me.ReporteVentasPorHoraPicoToolStripMenuItem, Me.ResumenDeArticulosToolStripMenuItem, Me.ReportePersonasPorDependenciaToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasPorPeríodoToolStripMenuItem, Me.ResumenPorCuentaCorrienteToolStripMenuItem, Me.ReporteVentasPorHoraPicoToolStripMenuItem, Me.ResumenDeArticulosToolStripMenuItem, Me.ReportePersonasPorDependenciaToolStripMenuItem, Me.ReporteEmpleadosPorTurnosToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
@@ -171,7 +173,7 @@ Partial Class Form1
         '
         'EstadisticasToolStripMenuItem
         '
-        Me.EstadisticasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeudasDependenciasToolStripMenuItem, Me.CantTicketsPorDependenciasToolStripMenuItem, Me.PrecioArtículosToolStripMenuItem, Me.ArtículosMasVendidosToolStripMenuItem})
+        Me.EstadisticasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeudasDependenciasToolStripMenuItem, Me.CantTicketsPorDependenciasToolStripMenuItem, Me.PrecioArtículosToolStripMenuItem, Me.ArtículosMasVendidosToolStripMenuItem, Me.PorcentajeDeAsistenciaMensualToolStripMenuItem})
         Me.EstadisticasToolStripMenuItem.Name = "EstadisticasToolStripMenuItem"
         Me.EstadisticasToolStripMenuItem.Size = New System.Drawing.Size(79, 20)
         Me.EstadisticasToolStripMenuItem.Text = "Estadisticas"
@@ -199,6 +201,18 @@ Partial Class Form1
         Me.ArtículosMasVendidosToolStripMenuItem.Name = "ArtículosMasVendidosToolStripMenuItem"
         Me.ArtículosMasVendidosToolStripMenuItem.Size = New System.Drawing.Size(237, 22)
         Me.ArtículosMasVendidosToolStripMenuItem.Text = "Artículos Mas Vendidos"
+        '
+        'ReporteEmpleadosPorTurnosToolStripMenuItem
+        '
+        Me.ReporteEmpleadosPorTurnosToolStripMenuItem.Name = "ReporteEmpleadosPorTurnosToolStripMenuItem"
+        Me.ReporteEmpleadosPorTurnosToolStripMenuItem.Size = New System.Drawing.Size(258, 22)
+        Me.ReporteEmpleadosPorTurnosToolStripMenuItem.Text = "Reporte empleados por turnos"
+        '
+        'PorcentajeDeAsistenciaMensualToolStripMenuItem
+        '
+        Me.PorcentajeDeAsistenciaMensualToolStripMenuItem.Name = "PorcentajeDeAsistenciaMensualToolStripMenuItem"
+        Me.PorcentajeDeAsistenciaMensualToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
+        Me.PorcentajeDeAsistenciaMensualToolStripMenuItem.Text = "Porcentaje de asistencia mensual"
         '
         'Form1
         '
@@ -240,4 +254,6 @@ Partial Class Form1
     Friend WithEvents CantTicketsPorDependenciasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PrecioArtículosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ArtículosMasVendidosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReporteEmpleadosPorTurnosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PorcentajeDeAsistenciaMensualToolStripMenuItem As ToolStripMenuItem
 End Class

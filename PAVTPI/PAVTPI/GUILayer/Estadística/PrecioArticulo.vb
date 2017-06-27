@@ -14,8 +14,6 @@
 
     End Sub
 
-
-
     Private Sub cmd_generarPrecioArticulos_Click(sender As Object, e As EventArgs) Handles cmd_generarPrecioArticulos.Click
         generar_precioArticulos()
     End Sub

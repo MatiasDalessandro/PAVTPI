@@ -36,11 +36,31 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ArticuloMasVendido" msprop:Generator_TableClassName="ArticuloMasVendidoDataTable" msprop:Generator_TableVarName="tableArticuloMasVendido" msprop:Generator_TablePropName="ArticuloMasVendido" msprop:Generator_RowDeletingName="ArticuloMasVendidoRowDeleting" msprop:Generator_RowChangingName="ArticuloMasVendidoRowChanging" msprop:Generator_RowEvHandlerName="ArticuloMasVendidoRowChangeEventHandler" msprop:Generator_RowDeletedName="ArticuloMasVendidoRowDeleted" msprop:Generator_UserTableName="ArticuloMasVendido" msprop:Generator_RowChangedName="ArticuloMasVendidoRowChanged" msprop:Generator_RowEvArgName="ArticuloMasVendidoRowChangeEvent" msprop:Generator_RowClassName="ArticuloMasVendidoRow">
+        <xs:element name="ArticuloMVendido" msprop:Generator_TableClassName="ArticuloMVendidoDataTable" msprop:Generator_TableVarName="tableArticuloMVendido" msprop:Generator_RowChangedName="ArticuloMVendidoRowChanged" msprop:Generator_TablePropName="ArticuloMVendido" msprop:Generator_RowDeletingName="ArticuloMVendidoRowDeleting" msprop:Generator_RowChangingName="ArticuloMVendidoRowChanging" msprop:Generator_RowEvHandlerName="ArticuloMVendidoRowChangeEventHandler" msprop:Generator_RowDeletedName="ArticuloMVendidoRowDeleted" msprop:Generator_RowClassName="ArticuloMVendidoRow" msprop:Generator_UserTableName="ArticuloMVendido" msprop:Generator_RowEvArgName="ArticuloMVendidoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
-              <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:long" minOccurs="0" />
+              <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EmpMayTurno" msprop:Generator_TableClassName="EmpMayTurnoDataTable" msprop:Generator_TableVarName="tableEmpMayTurno" msprop:Generator_RowChangedName="EmpMayTurnoRowChanged" msprop:Generator_TablePropName="EmpMayTurno" msprop:Generator_RowDeletingName="EmpMayTurnoRowDeleting" msprop:Generator_RowChangingName="EmpMayTurnoRowChanging" msprop:Generator_RowEvHandlerName="EmpMayTurnoRowChangeEventHandler" msprop:Generator_RowDeletedName="EmpMayTurnoRowDeleted" msprop:Generator_RowClassName="EmpMayTurnoRow" msprop:Generator_UserTableName="EmpMayTurno" msprop:Generator_RowEvArgName="EmpMayTurnoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="veces" msprop:Generator_ColumnVarNameInTable="columnveces" msprop:Generator_ColumnPropNameInRow="veces" msprop:Generator_ColumnPropNameInTable="vecesColumn" msprop:Generator_UserColumnName="veces" type="xs:int" minOccurs="0" />
+              <xs:element name="apellido" msprop:Generator_ColumnVarNameInTable="columnapellido" msprop:Generator_ColumnPropNameInRow="apellido" msprop:Generator_ColumnPropNameInTable="apellidoColumn" msprop:Generator_UserColumnName="apellido" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="nroDocumento" msprop:Generator_ColumnVarNameInTable="columnnroDocumento" msprop:Generator_ColumnPropNameInRow="nroDocumento" msprop:Generator_ColumnPropNameInTable="nroDocumentoColumn" msprop:Generator_UserColumnName="nroDocumento" type="xs:string" minOccurs="0" />
+              <xs:element name="ausencia" msprop:Generator_ColumnVarNameInTable="columnausencia" msprop:Generator_ColumnPropNameInRow="ausencia" msprop:Generator_ColumnPropNameInTable="ausenciaColumn" msprop:Generator_UserColumnName="ausencia" type="xs:string" minOccurs="0" />
+              <xs:element name="motivo" msprop:Generator_ColumnVarNameInTable="columnmotivo" msprop:Generator_ColumnPropNameInRow="motivo" msprop:Generator_ColumnPropNameInTable="motivoColumn" msprop:Generator_UserColumnName="motivo" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AsistMensual" msprop:Generator_TableClassName="AsistMensualDataTable" msprop:Generator_TableVarName="tableAsistMensual" msprop:Generator_TablePropName="AsistMensual" msprop:Generator_RowDeletingName="AsistMensualRowDeleting" msprop:Generator_RowChangingName="AsistMensualRowChanging" msprop:Generator_RowEvHandlerName="AsistMensualRowChangeEventHandler" msprop:Generator_RowDeletedName="AsistMensualRowDeleted" msprop:Generator_UserTableName="AsistMensual" msprop:Generator_RowChangedName="AsistMensualRowChanged" msprop:Generator_RowEvArgName="AsistMensualRowChangeEvent" msprop:Generator_RowClassName="AsistMensualRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="veces" msprop:Generator_ColumnVarNameInTable="columnveces" msprop:Generator_ColumnPropNameInRow="veces" msprop:Generator_ColumnPropNameInTable="vecesColumn" msprop:Generator_UserColumnName="veces" type="xs:string" minOccurs="0" />
+              <xs:element name="apellido" msprop:Generator_ColumnVarNameInTable="columnapellido" msprop:Generator_ColumnPropNameInRow="apellido" msprop:Generator_ColumnPropNameInTable="apellidoColumn" msprop:Generator_UserColumnName="apellido" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
