@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class PorsentajesRol
+Partial Class PorcentajesRol
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -23,14 +23,24 @@ Partial Class PorsentajesRol
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.RolBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EstadisticasDependencias = New PAVTPI.EstadisticasDependencias()
         Me.btn_pr = New System.Windows.Forms.Button()
         Me.rv_pr = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.EstadisticasDependencias = New PAVTPI.EstadisticasDependencias()
-        Me.RolBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        CType(Me.EstadisticasDependencias, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RolBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EstadisticasDependencias, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'RolBindingSource
+        '
+        Me.RolBindingSource.DataMember = "Rol"
+        Me.RolBindingSource.DataSource = Me.EstadisticasDependencias
+        '
+        'EstadisticasDependencias
+        '
+        Me.EstadisticasDependencias.DataSetName = "EstadisticasDependencias"
+        Me.EstadisticasDependencias.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'btn_pr
         '
@@ -43,36 +53,26 @@ Partial Class PorsentajesRol
         '
         'rv_pr
         '
-        ReportDataSource3.Name = "DataSet1"
-        ReportDataSource3.Value = Me.RolBindingSource
-        Me.rv_pr.LocalReport.DataSources.Add(ReportDataSource3)
+        ReportDataSource2.Name = "DataSet1"
+        ReportDataSource2.Value = Me.RolBindingSource
+        Me.rv_pr.LocalReport.DataSources.Add(ReportDataSource2)
         Me.rv_pr.LocalReport.ReportEmbeddedResource = "PAVTPI.PorcentajeRol.rdlc"
         Me.rv_pr.Location = New System.Drawing.Point(12, 57)
         Me.rv_pr.Name = "rv_pr"
         Me.rv_pr.Size = New System.Drawing.Size(961, 437)
         Me.rv_pr.TabIndex = 1
         '
-        'EstadisticasDependencias
-        '
-        Me.EstadisticasDependencias.DataSetName = "EstadisticasDependencias"
-        Me.EstadisticasDependencias.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'RolBindingSource
-        '
-        Me.RolBindingSource.DataMember = "Rol"
-        Me.RolBindingSource.DataSource = Me.EstadisticasDependencias
-        '
-        'PorsentajesRol
+        'PorcentajesRol
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(985, 506)
         Me.Controls.Add(Me.rv_pr)
         Me.Controls.Add(Me.btn_pr)
-        Me.Name = "PorsentajesRol"
-        Me.Text = "PorsentajesRol"
-        CType(Me.EstadisticasDependencias, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Name = "PorcentajesRol"
+        Me.Text = "PorcentajesRol"
         CType(Me.RolBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EstadisticasDependencias, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -111,6 +111,6 @@
     End Sub
 
     Private Sub PorcentajeDeRolesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PorcentajeDeRolesToolStripMenuItem.Click
-        PorsentajesRol.Show()
+        PorcentajesRol.Show()
     End Sub
 End Class

@@ -1,4 +1,4 @@
-﻿Public Class PorsentajesRol
+﻿Public Class PorcentajesRol
     Dim dbhelper As DBHelper = DBHelper.getDBHelper
 
     Private Sub generar_porcentajesRol()
