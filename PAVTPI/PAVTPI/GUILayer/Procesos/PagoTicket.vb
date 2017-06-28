@@ -6,8 +6,9 @@
         cargar_combo(cmb_dependencia, (dbHelper.ConsultaSQL("select * from dependencia")), "nroCuentaCorriente", "descripcion")
         Dim sql As String = ""
         sql &= "select P.apellido, P.nombre,P.nroDocumento from persona P "
-        sql &= "inner Join rolXPersona RP on RP.nroDocumento=P.nroDocumento "
-        sql &= "where RP.idRol = 1"
+        sql &= " inner Join rolXPersona RP On RP.nroDocumento=P.nroDocumento "
+        sql &= " inner join rol r On r.idRol = rp.idRol"
+        sql &= " where r.descripcion Like  'mozo' or r.descripcion like 'Mozo' or r.descripcion like 'MOZO' "
         Dim tabla As DataTable = dbHelper.ConsultaSQL(sql)
         Dim tabla2 As New DataTable
         Dim column1 As New DataColumn("nroDocumento", GetType(System.Int32))
@@ -35,7 +36,7 @@
     End Sub
     Private Sub btn_buscarArticulo_Click(sender As Object, e As EventArgs) Handles btn_buscarArticulo.Click
         Dim tabla As New DataTable
-        Dim sql As String = "SELECT * FROM articulo WHERE idArticuloIntegrante= " & txt_articulo.Text
+        Dim sql As String = "Select * FROM articulo WHERE idArticuloIntegrante= " & txt_articulo.Text
         tabla = dbHelper.ConsultaSQL(sql)
         cargar_grillas_simples(dgv_articulo, tabla)
 
@@ -80,7 +81,7 @@
         txt_total.Text = total
     End Sub
     Private Sub btn_mostrarTodosArt_Click(sender As Object, e As EventArgs) Handles btn_mostrarTodosArt.Click
-        cargar_grillas_simples(Me.dgv_articulo, dbHelper.ConsultaSQL("SELECT * FROM articulo"))
+        cargar_grillas_simples(Me.dgv_articulo, dbHelper.ConsultaSQL("Select * FROM articulo"))
     End Sub
     Private Sub btn_agregarDependencia_Click(sender As Object, e As EventArgs) Handles btn_agregarDependencia.Click
         cmd_cancelar.Show()
@@ -110,11 +111,11 @@
         btn_qf.Enabled = True
     End Sub
     Private Sub btn_mostrarTodosCom_Click(sender As Object, e As EventArgs) Handles btn_mostrarTodosCom.Click
-        cargar_grillas_simples(Me.dgv_combo, dbHelper.ConsultaSQL("SELECT * from combo"))
+        cargar_grillas_simples(Me.dgv_combo, dbHelper.ConsultaSQL("Select * from combo"))
     End Sub
     Private Sub btn_buscarCombo_Click(sender As Object, e As EventArgs) Handles btn_buscarCombo.Click
         Dim tabla As New DataTable
-        Dim sql As String = "SELECT * from combo WHERE idCombo = " & txt_combo.Text
+        Dim sql As String = "Select * from combo WHERE idCombo = " & txt_combo.Text
         tabla = dbHelper.ConsultaSQL(sql)
         cargar_grillas_simples(dgv_combo, tabla)
     End Sub
