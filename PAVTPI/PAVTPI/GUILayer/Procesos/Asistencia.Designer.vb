@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Asistencia
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Asistencia
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.dgvAsist = New System.Windows.Forms.DataGridView()
         Me.cApellido = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -35,8 +35,6 @@ Partial Class Asistencia
         Me.chkAusente = New System.Windows.Forms.CheckBox()
         Me.txtMotivo = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.mskLlegada = New System.Windows.Forms.MaskedTextBox()
-        Me.mskSalida = New System.Windows.Forms.MaskedTextBox()
         CType(Me.dgvAsist, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -75,6 +73,7 @@ Partial Class Asistencia
         '
         'dtpDiaLlegada
         '
+        Me.dtpDiaLlegada.CustomFormat = ""
         Me.dtpDiaLlegada.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpDiaLlegada.Location = New System.Drawing.Point(18, 35)
         Me.dtpDiaLlegada.Name = "dtpDiaLlegada"
@@ -85,7 +84,7 @@ Partial Class Asistencia
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(15, 87)
+        Me.Label1.Location = New System.Drawing.Point(15, 70)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(36, 13)
         Me.Label1.TabIndex = 1
@@ -94,7 +93,7 @@ Partial Class Asistencia
         'dtpDiaSalida
         '
         Me.dtpDiaSalida.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpDiaSalida.Location = New System.Drawing.Point(18, 103)
+        Me.dtpDiaSalida.Location = New System.Drawing.Point(18, 86)
         Me.dtpDiaSalida.Name = "dtpDiaSalida"
         Me.dtpDiaSalida.Size = New System.Drawing.Size(98, 20)
         Me.dtpDiaSalida.TabIndex = 2
@@ -142,31 +141,11 @@ Partial Class Asistencia
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "Motivo"
         '
-        'mskLlegada
-        '
-        Me.mskLlegada.Location = New System.Drawing.Point(18, 62)
-        Me.mskLlegada.Mask = "00:00"
-        Me.mskLlegada.Name = "mskLlegada"
-        Me.mskLlegada.Size = New System.Drawing.Size(42, 20)
-        Me.mskLlegada.TabIndex = 8
-        Me.mskLlegada.ValidatingType = GetType(Date)
-        '
-        'mskSalida
-        '
-        Me.mskSalida.Location = New System.Drawing.Point(18, 129)
-        Me.mskSalida.Mask = "00:00"
-        Me.mskSalida.Name = "mskSalida"
-        Me.mskSalida.Size = New System.Drawing.Size(42, 20)
-        Me.mskSalida.TabIndex = 8
-        Me.mskSalida.ValidatingType = GetType(Date)
-        '
         'Asistencia
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(715, 309)
-        Me.Controls.Add(Me.mskSalida)
-        Me.Controls.Add(Me.mskLlegada)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtMotivo)
         Me.Controls.Add(Me.chkAusente)
@@ -198,6 +177,4 @@ Partial Class Asistencia
     Friend WithEvents chkAusente As CheckBox
     Friend WithEvents txtMotivo As TextBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents mskLlegada As MaskedTextBox
-    Friend WithEvents mskSalida As MaskedTextBox
 End Class
