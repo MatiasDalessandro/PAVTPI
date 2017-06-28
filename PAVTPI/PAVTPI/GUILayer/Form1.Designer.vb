@@ -50,6 +50,7 @@ Partial Class Form1
         Me.PorcentajeDeAsistenciaMensualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GananciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TicketsAbiertosPorPersonaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AsignarRolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -107,7 +108,7 @@ Partial Class Form1
         '
         'ProcesosToolStripMenuItem
         '
-        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargarPersonaAutorizadaToolStripMenuItem, Me.RegistrarVentaToolStripMenuItem, Me.CancelarSaldoToolStripMenuItem, Me.CargarAsistenciaToolStripMenuItem})
+        Me.ProcesosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CargarPersonaAutorizadaToolStripMenuItem, Me.RegistrarVentaToolStripMenuItem, Me.CancelarSaldoToolStripMenuItem, Me.CargarAsistenciaToolStripMenuItem, Me.AsignarRolToolStripMenuItem})
         Me.ProcesosToolStripMenuItem.Name = "ProcesosToolStripMenuItem"
         Me.ProcesosToolStripMenuItem.Size = New System.Drawing.Size(66, 20)
         Me.ProcesosToolStripMenuItem.Text = "Procesos"
@@ -228,6 +229,12 @@ Partial Class Form1
         Me.TicketsAbiertosPorPersonaToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
         Me.TicketsAbiertosPorPersonaToolStripMenuItem.Text = "Tickets abiertos por persona"
         '
+        'AsignarRolToolStripMenuItem
+        '
+        Me.AsignarRolToolStripMenuItem.Name = "AsignarRolToolStripMenuItem"
+        Me.AsignarRolToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.AsignarRolToolStripMenuItem.Text = "Asignar rol"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -272,4 +279,5 @@ Partial Class Form1
     Friend WithEvents PorcentajeDeAsistenciaMensualToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GananciasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TicketsAbiertosPorPersonaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AsignarRolToolStripMenuItem As ToolStripMenuItem
 End Class

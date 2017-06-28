@@ -229,6 +229,12 @@
     <Compile Include="GUILayer\Estadística\formGanancias.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GUILayer\Procesos\Asignar rol.Designer.vb">
+      <DependentUpon>Asignar rol.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\Procesos\Asignar rol.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GUILayer\Reportes\EmpleadoMayorTurno.Designer.vb">
       <DependentUpon>EmpleadoMayorTurno.vb</DependentUpon>
     </Compile>
@@ -377,6 +383,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Estadística\formGanancias.resx">
       <DependentUpon>formGanancias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\Procesos\Asignar rol.resx">
+      <DependentUpon>Asignar rol.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Reportes\EmpleadoMayorTurno.resx">
       <DependentUpon>EmpleadoMayorTurno.vb</DependentUpon>
