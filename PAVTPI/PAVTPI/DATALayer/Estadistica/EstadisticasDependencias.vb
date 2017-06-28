@@ -1,6 +1,20 @@
 ﻿Partial Class EstadisticasDependencias
-    Partial Public Class ArticuloMasVendidoDataTable
+    Partial Public Class AsistMensualDataTable
 
+
+    End Class
+
+    Partial Public Class EmpMayTurnoDataTable
+        Private Sub EmpMayTurnoDataTable_EmpMayTurnoRowChanging(sender As Object, e As EmpMayTurnoRowChangeEvent) Handles Me.EmpMayTurnoRowChanging
+
+        End Sub
+
+    End Class
+
+    Partial Public Class ArticuloMVendidoDataTable
+        Private Sub ArticuloMVendidoDataTable_ArticuloMVendidoRowChanging(sender As Object, e As ArticuloMVendidoRowChangeEvent) Handles Me.ArticuloMVendidoRowChanging
+
+        End Sub
 
     End Class
 

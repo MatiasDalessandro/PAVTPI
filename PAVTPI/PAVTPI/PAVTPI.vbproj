@@ -198,10 +198,16 @@
     <Compile Include="GUILayer\ABMS\ArticulosParaCombo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\Estadística\ArticuloMasVendido.Designer.vb">
-      <DependentUpon>ArticuloMasVendido.vb</DependentUpon>
+    <Compile Include="GUILayer\Estadística\ArticuloMvendido.Designer.vb">
+      <DependentUpon>ArticuloMvendido.vb</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\Estadística\ArticuloMasVendido.vb">
+    <Compile Include="GUILayer\Estadística\ArticuloMvendido.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\Estadística\AsistMensual.Designer.vb">
+      <DependentUpon>AsistMensual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\Estadística\AsistMensual.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\Estadística\CanTicketDependencias.Designer.vb">
@@ -210,10 +216,28 @@
     <Compile Include="GUILayer\Estadística\CanTicketDependencias.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GUILayer\Estadística\cantidadTicketPersonas.Designer.vb">
+      <DependentUpon>cantidadTicketPersonas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\Estadística\cantidadTicketPersonas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GUILayer\Estadística\DeudasDependencias.Designer.vb">
       <DependentUpon>DeudasDependencias.vb</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\Estadística\DeudasDependencias.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\Estadística\formGanancias.Designer.vb">
+      <DependentUpon>formGanancias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\Estadística\formGanancias.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\Reportes\EmpleadoMayorTurno.Designer.vb">
+      <DependentUpon>EmpleadoMayorTurno.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\Reportes\EmpleadoMayorTurno.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\Estadística\PrecioArticulo.Designer.vb">
@@ -308,13 +332,18 @@
   <ItemGroup>
     <EmbeddedResource Include="DATALayer\Estadistica\ArticuloMasVendido\ArticuloMasVendido.rdlc" />
     <EmbeddedResource Include="DATALayer\Estadistica\CantidadTicketsDependencias\CanTicketDependencias.rdlc" />
+    <EmbeddedResource Include="DATALayer\Estadistica\EmpleadosMayorTurnosCumplidos\EmpMayTurCump.rdlc" />
+    <EmbeddedResource Include="DATALayer\Estadistica\Ganancias\gananciasPorAño.rdlc" />
+    <EmbeddedResource Include="DATALayer\Estadistica\Ganancias\gHistoricas.rdlc" />
+    <EmbeddedResource Include="DATALayer\Estadistica\PorcentajeAsistenciaMensual\AsistenciaMensual.rdlc" />
     <EmbeddedResource Include="DATALayer\Estadistica\PrecioArticulos\PrecioArticulos.rdlc" />
+    <EmbeddedResource Include="DATALayer\Estadistica\TicketsPorPersona\ticketPorPersona.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\PersonaXDependencia\ReportePersonaXDep.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\Producto+Vendido\RepProdMasVendido.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ResumenCtaCte\ReporteCtaCte.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ReporteVentasPorHoraPico\ReporteVentaPorHoraPico.rdlc" />
-    <EmbeddedResource Include="DATALayer\Reportes\VentarXPeriodo\ReportVentaPorPeriodo.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ResumenArticulos\ResumenArticulos.rdlc" />
+    <EmbeddedResource Include="DATALayer\Reportes\VentarXPeriodo\ReportVentasPeriodo.rdlc" />
     <EmbeddedResource Include="GUILayer\ABMS\AbmArticulo.resx">
       <DependentUpon>AbmArticulo.vb</DependentUpon>
     </EmbeddedResource>
@@ -337,14 +366,26 @@
       <DependentUpon>ArticulosParaCombo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DATALayer\Estadistica\DeudasDependencias\DeudasDependencias.rdlc" />
-    <EmbeddedResource Include="GUILayer\Estadística\ArticuloMasVendido.resx">
-      <DependentUpon>ArticuloMasVendido.vb</DependentUpon>
+    <EmbeddedResource Include="GUILayer\Estadística\ArticuloMvendido.resx">
+      <DependentUpon>ArticuloMvendido.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\Estadística\AsistMensual.resx">
+      <DependentUpon>AsistMensual.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Estadística\CanTicketDependencias.resx">
       <DependentUpon>CanTicketDependencias.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\Estadística\cantidadTicketPersonas.resx">
+      <DependentUpon>cantidadTicketPersonas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Estadística\DeudasDependencias.resx">
       <DependentUpon>DeudasDependencias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\Estadística\formGanancias.resx">
+      <DependentUpon>formGanancias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\Reportes\EmpleadoMayorTurno.resx">
+      <DependentUpon>EmpleadoMayorTurno.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Estadística\PrecioArticulo.resx">
       <DependentUpon>PrecioArticulo.vb</DependentUpon>
@@ -482,7 +523,6 @@
     <Folder Include="Bussines Layer\Entities\" />
     <Folder Include="Bussines Layer\Services\" />
     <Folder Include="DATALayer\DAOs\" />
-    <Folder Include="DATALayer\Reportes\EmpleadosMayorTurnosCumplidos\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PAVTPI_ClaveTemporal.pfx" />

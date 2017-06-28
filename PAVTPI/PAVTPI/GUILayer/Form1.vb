@@ -75,6 +75,26 @@
     End Sub
 
     Private Sub ArtículosMasVendidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArtículosMasVendidosToolStripMenuItem.Click
-        ArticuloMasVendido.Show()
+        ArticuloMvendido.Show()
+    End Sub
+
+    Private Sub ReporteEmpleadosPorTurnosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteEmpleadosPorTurnosToolStripMenuItem.Click
+        EmpleadoMayorTurno.Show()
+    End Sub
+
+    Private Sub PorcentajeDeAsistenciaMensualToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PorcentajeDeAsistenciaMensualToolStripMenuItem.Click
+        AsistMensual.Show()
+    End Sub
+
+    Private Sub CargarAsistenciaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CargarAsistenciaToolStripMenuItem.Click
+        Asistencia.Show()
+    End Sub
+
+    Private Sub GananciasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GananciasToolStripMenuItem.Click
+        formGanancias.Show()
+    End Sub
+
+    Private Sub TicketsAbiertosPorPersonaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TicketsAbiertosPorPersonaToolStripMenuItem.Click
+        cantidadTicketPersonas.Show()
     End Sub
 End Class

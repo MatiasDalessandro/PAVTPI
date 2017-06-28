@@ -5,11 +5,14 @@
         Dim fechaMaxima As Date = Date.Now
         Dim datatable As New DataTable
         Dim sql As String = ""
-        sql &= "select distinct "
-        sql &= " t.nroTicket, t.fechaHora, t.monto, t.nroCuentaCorriente, concat(p.apellido,', ' , p.nombre) as nombreapellido,"
-        sql &= " dta.idArticulo, dta.cantidad, a.nombre As nombreA, pa.apellido, pa.nombre"
-        sql &= " From detalleTicketArticulo dta, ticket t, ticketXDependencia td, persona p, persona pa, articulo a"
-        sql &= " Where t.nroTicket = dta.nroTicket And pa.nroDocumento = t.nroDocMozo And p.nroDocumento = t.nroDocumento And dta.idArticulo = a.idArticuloIntegrante"
+
+        sql &= "select distinct  t.nroTicket, t.fechaHora, t.monto, "
+        sql &= " t.nroCuentaCorriente, concat(p.apellido,', ' , p.nombre) as nombreapellido, "
+        sql &= " dta.idArticulo, dta.cantidad, a.nombre As nombreA, dtc.idCombo, dtc.cantidad as cantidadC,c.nombreCombo as nombreC, pa.apellido, pa.nombre "
+        sql &= " From detalleTicketArticulo dta, ticket t, ticketXDependencia td, persona p, persona pa, articulo a, detalleTicketCombo dtc, combo c"
+        sql &= " Where t.nroTicket = dta.nroTicket and t.nroTicket= dtc.nroTicket and pa.nroDocumento = t.nroDocMozo And p.nroDocumento = t.nroDocumento "
+        sql &= " and dta.idArticulo = a.idArticuloIntegrante and dtc.idCombo=c.idCombo "
+
         If txt_fechaInicio.MaskFull And txt_fechaFin.MaskFull Then
             Try
                 If validar_fechas() = False Then
@@ -52,4 +55,8 @@
         End If
         Return True
     End Function
+
+    Private Sub Ventas_por_período_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

@@ -8,9 +8,17 @@
         Dim sql As String = ""
         Dim tabla As New DataTable
 
+        If txtCtaCte.Text = "" Then
+            MsgBox("Debe introducir un numero de Cuenta Corriente")
+            Exit Sub
+        End If
+
         sql &= "select * from dependencia where dependencia.nroCuentaCorriente = " & txtCtaCte.Text
 
         tabla = dbhelper.ConsultaSQL(sql)
+        If tabla.Rows.Count < 1 Then
+            MsgBox("No existe una dependencia con ese numero")
+        End If
         ResumenBindingSource.DataSource = tabla
 
         ReportViewer1.RefreshReport()
