@@ -91,6 +91,6 @@
     End Sub
 
     Private Sub GananciasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GananciasToolStripMenuItem.Click
-
+        formGanancias.Show()
     End Sub
 End Class

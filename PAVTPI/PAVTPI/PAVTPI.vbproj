@@ -222,6 +222,12 @@
     <Compile Include="GUILayer\Estadística\DeudasDependencias.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GUILayer\Estadística\formGanancias.Designer.vb">
+      <DependentUpon>formGanancias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\Estadística\formGanancias.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GUILayer\Reportes\EmpleadoMayorTurno.Designer.vb">
       <DependentUpon>EmpleadoMayorTurno.vb</DependentUpon>
     </Compile>
@@ -321,6 +327,8 @@
     <EmbeddedResource Include="DATALayer\Estadistica\ArticuloMasVendido\ArticuloMasVendido.rdlc" />
     <EmbeddedResource Include="DATALayer\Estadistica\CantidadTicketsDependencias\CanTicketDependencias.rdlc" />
     <EmbeddedResource Include="DATALayer\Estadistica\EmpleadosMayorTurnosCumplidos\EmpMayTurCump.rdlc" />
+    <EmbeddedResource Include="DATALayer\Estadistica\Ganancias\gananciasPorAño.rdlc" />
+    <EmbeddedResource Include="DATALayer\Estadistica\Ganancias\gHistoricas.rdlc" />
     <EmbeddedResource Include="DATALayer\Estadistica\PorcentajeAsistenciaMensual\AsistenciaMensual.rdlc" />
     <EmbeddedResource Include="DATALayer\Estadistica\PrecioArticulos\PrecioArticulos.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\PersonaXDependencia\ReportePersonaXDep.rdlc" />
@@ -362,6 +370,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Estadística\DeudasDependencias.resx">
       <DependentUpon>DeudasDependencias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\Estadística\formGanancias.resx">
+      <DependentUpon>formGanancias.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Reportes\EmpleadoMayorTurno.resx">
       <DependentUpon>EmpleadoMayorTurno.vb</DependentUpon>

@@ -64,6 +64,23 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Ganancias" msprop:Generator_TableClassName="GananciasDataTable" msprop:Generator_TableVarName="tableGanancias" msprop:Generator_RowChangedName="GananciasRowChanged" msprop:Generator_TablePropName="Ganancias" msprop:Generator_RowDeletingName="GananciasRowDeleting" msprop:Generator_RowChangingName="GananciasRowChanging" msprop:Generator_RowEvHandlerName="GananciasRowChangeEventHandler" msprop:Generator_RowDeletedName="GananciasRowDeleted" msprop:Generator_RowClassName="GananciasRow" msprop:Generator_UserTableName="Ganancias" msprop:Generator_RowEvArgName="GananciasRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:double" minOccurs="0" />
+              <xs:element name="mes" msprop:Generator_ColumnVarNameInTable="columnmes" msprop:Generator_ColumnPropNameInRow="mes" msprop:Generator_ColumnPropNameInTable="mesColumn" msprop:Generator_UserColumnName="mes" type="xs:string" minOccurs="0" />
+              <xs:element name="año" msprop:Generator_ColumnVarNameInTable="columnaño" msprop:Generator_ColumnPropNameInRow="año" msprop:Generator_ColumnPropNameInTable="añoColumn" msprop:Generator_UserColumnName="año" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GananciasHistoricas" msprop:Generator_TableClassName="GananciasHistoricasDataTable" msprop:Generator_TableVarName="tableGananciasHistoricas" msprop:Generator_TablePropName="GananciasHistoricas" msprop:Generator_RowDeletingName="GananciasHistoricasRowDeleting" msprop:Generator_RowChangingName="GananciasHistoricasRowChanging" msprop:Generator_RowEvHandlerName="GananciasHistoricasRowChangeEventHandler" msprop:Generator_RowDeletedName="GananciasHistoricasRowDeleted" msprop:Generator_UserTableName="GananciasHistoricas" msprop:Generator_RowChangedName="GananciasHistoricasRowChanged" msprop:Generator_RowEvArgName="GananciasHistoricasRowChangeEvent" msprop:Generator_RowClassName="GananciasHistoricasRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:string" minOccurs="0" />
+              <xs:element name="año" msprop:Generator_ColumnVarNameInTable="columnaño" msprop:Generator_ColumnPropNameInRow="año" msprop:Generator_ColumnPropNameInTable="añoColumn" msprop:Generator_UserColumnName="año" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>
