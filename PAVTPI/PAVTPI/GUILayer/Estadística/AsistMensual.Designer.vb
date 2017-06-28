@@ -24,45 +24,35 @@ Partial Class AsistMensual
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.AsistMensualBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EstadisticasDependencias = New PAVTPI.EstadisticasDependencias()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtMes = New System.Windows.Forms.TextBox()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.AsistMensualBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EstadisticasDependencias = New PAVTPI.EstadisticasDependencias()
         CType(Me.AsistMensualBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EstadisticasDependencias, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'AsistMensualBindingSource
-        '
-        Me.AsistMensualBindingSource.DataMember = "AsistMensual"
-        Me.AsistMensualBindingSource.DataSource = Me.EstadisticasDependencias
-        '
-        'EstadisticasDependencias
-        '
-        Me.EstadisticasDependencias.DataSetName = "EstadisticasDependencias"
-        Me.EstadisticasDependencias.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(27, 13)
+        Me.Label1.Size = New System.Drawing.Size(62, 13)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Mes"
+        Me.Label1.Text = "Nro de Mes"
         '
         'txtMes
         '
-        Me.txtMes.Location = New System.Drawing.Point(57, 6)
+        Me.txtMes.Location = New System.Drawing.Point(79, 6)
         Me.txtMes.Name = "txtMes"
         Me.txtMes.Size = New System.Drawing.Size(100, 20)
         Me.txtMes.TabIndex = 1
         '
         'btnBuscar
         '
-        Me.btnBuscar.Location = New System.Drawing.Point(163, 4)
+        Me.btnBuscar.Location = New System.Drawing.Point(185, 4)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(75, 23)
         Me.btnBuscar.TabIndex = 2
@@ -79,6 +69,16 @@ Partial Class AsistMensual
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(1184, 527)
         Me.ReportViewer1.TabIndex = 3
+        '
+        'AsistMensualBindingSource
+        '
+        Me.AsistMensualBindingSource.DataMember = "AsistMensual"
+        Me.AsistMensualBindingSource.DataSource = Me.EstadisticasDependencias
+        '
+        'EstadisticasDependencias
+        '
+        Me.EstadisticasDependencias.DataSetName = "EstadisticasDependencias"
+        Me.EstadisticasDependencias.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'AsistMensual
         '

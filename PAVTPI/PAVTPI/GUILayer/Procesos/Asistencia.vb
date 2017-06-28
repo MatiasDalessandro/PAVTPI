@@ -63,11 +63,9 @@
                 sql &= " values ( '" & dtpDiaLlegada.Value.ToString & "',null," & 0 & ",null," & txtNroDoc.Text & ")"
                 MsgBox("Se grabo correctamente")
             End If
+        ElseIf chkAusente.Checked Then
+            MsgBox("El empleado que intenta cargar no asistio en el dia")
         Else
-
-        End If
-        If (Not chkAusente.Checked) And tabla1.Rows.Count < 1 Then
-            sql &= " values ( '" & dtpDiaLlegada.Value.ToString & "',null," & 1 & ",'" & txtMotivo.Text & "'," & txtNroDoc.Text & ")"
             sql &= "update empleadoXAsistencia set fechaHoraFin = '" & dtpDiaSalida.Value.ToString & "' where nroDocumento = " & txtNroDoc.Text & " and year(fechaHoraInicio) = year(SYSDATETIME()) "
             sql &= " and month(fechaHoraInicio) = MONTH(SYSDATETIME()) "
             sql &= " and DAY(fechaHoraInicio) = day(sysdatetime()) "

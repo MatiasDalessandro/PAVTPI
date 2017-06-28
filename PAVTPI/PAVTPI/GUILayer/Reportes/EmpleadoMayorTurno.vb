@@ -36,17 +36,6 @@
         ReportViewer1.RefreshReport()
 
     End Sub
-    'Private Function validar_fechas()
-    '    Dim fecha() As String = Split(dtpDesde.Text, "/")
-    '    Dim fecha2() As String = Split(dtpHasta.Text, "/")
-    '    If (CType(fecha(0), System.Int32) > 12) Or (CType(fecha(1), System.Int32) > 31) Then
-    '        Return False
-    '    End If
-    '    If (CType(fecha2(1), System.Int32) > 12) Or (CType(fecha2(0), System.Int32) > 31) Then
-    '        Return False
-    '    End If
-    '    Return True
-    'End Function
 
     Private Sub EmpleadoMayorTurno_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 

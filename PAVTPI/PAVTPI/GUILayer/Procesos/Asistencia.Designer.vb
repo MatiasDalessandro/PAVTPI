@@ -118,7 +118,7 @@ Partial Class Asistencia
         'chkAusente
         '
         Me.chkAusente.AutoSize = True
-        Me.chkAusente.Location = New System.Drawing.Point(18, 177)
+        Me.chkAusente.Location = New System.Drawing.Point(18, 158)
         Me.chkAusente.Name = "chkAusente"
         Me.chkAusente.Size = New System.Drawing.Size(65, 17)
         Me.chkAusente.TabIndex = 5
@@ -127,7 +127,7 @@ Partial Class Asistencia
         '
         'txtMotivo
         '
-        Me.txtMotivo.Location = New System.Drawing.Point(18, 213)
+        Me.txtMotivo.Location = New System.Drawing.Point(18, 194)
         Me.txtMotivo.Name = "txtMotivo"
         Me.txtMotivo.Size = New System.Drawing.Size(207, 20)
         Me.txtMotivo.TabIndex = 6
@@ -135,7 +135,7 @@ Partial Class Asistencia
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(15, 197)
+        Me.Label2.Location = New System.Drawing.Point(15, 178)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(39, 13)
         Me.Label2.TabIndex = 7

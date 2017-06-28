@@ -13,7 +13,7 @@
         Dim sql As String = " select distinct COUNT(*) as veces, p.apellido from empleadoXAsistencia ea, empleadoXAsistencia ea1 "
         sql &= " inner join persona p on p.nroDocumento = ea1.nroDocumento "
         sql &= " where (ea.nroDocumento = ea1.nroDocumento) and (MONTH(ea.fechaHoraInicio)= " & txtMes.Text & ") "
-        sql &= " group by p.apellido"
+        sql &= " group by p.apellido "
 
         datatable = dbhelper.ConsultaSQL(sql)
 
