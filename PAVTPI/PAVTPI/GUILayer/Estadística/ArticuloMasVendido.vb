@@ -19,4 +19,8 @@
     Private Sub cmd_generarArticuloMasVendido_Click(sender As Object, e As EventArgs) Handles cmd_generarArticuloMasVendido.Click
         generar_articuloMasVendido()
     End Sub
+
+    Private Sub ArticuloMasVendido_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

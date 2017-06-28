@@ -24,23 +24,13 @@ Partial Class ArticuloMasVendido
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ArticuloMasVendidoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EstadisticasDependencias = New PAVTPI.EstadisticasDependencias()
         Me.rv_amv = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.cmd_generarArticuloMasVendido = New System.Windows.Forms.Button()
+        Me.ArticuloMasVendidoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EstadisticasDependencias = New PAVTPI.EstadisticasDependencias()
         CType(Me.ArticuloMasVendidoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EstadisticasDependencias, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'ArticuloMasVendidoBindingSource
-        '
-        Me.ArticuloMasVendidoBindingSource.DataMember = "ArticuloMasVendido"
-        Me.ArticuloMasVendidoBindingSource.DataSource = Me.EstadisticasDependencias
-        '
-        'EstadisticasDependencias
-        '
-        Me.EstadisticasDependencias.DataSetName = "EstadisticasDependencias"
-        Me.EstadisticasDependencias.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'rv_amv
         '
@@ -61,6 +51,16 @@ Partial Class ArticuloMasVendido
         Me.cmd_generarArticuloMasVendido.TabIndex = 1
         Me.cmd_generarArticuloMasVendido.Text = "Generar"
         Me.cmd_generarArticuloMasVendido.UseVisualStyleBackColor = True
+        '
+        'ArticuloMasVendidoBindingSource
+        '
+        Me.ArticuloMasVendidoBindingSource.DataMember = "ArticuloMasVendido"
+        Me.ArticuloMasVendidoBindingSource.DataSource = Me.EstadisticasDependencias
+        '
+        'EstadisticasDependencias
+        '
+        Me.EstadisticasDependencias.DataSetName = "EstadisticasDependencias"
+        Me.EstadisticasDependencias.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ArticuloMasVendido
         '
