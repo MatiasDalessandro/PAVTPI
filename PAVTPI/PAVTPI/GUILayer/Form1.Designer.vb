@@ -42,6 +42,7 @@ Partial Class Form1
         Me.ResumenDeArticulosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportePersonasPorDependenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteEmpleadosPorTurnosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResumenDeDependenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstadisticasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeudasDependenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CantTicketsPorDependenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -50,7 +51,7 @@ Partial Class Form1
         Me.PorcentajeDeAsistenciaMensualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GananciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TicketsAbiertosPorPersonaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ResumenDeDependenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResumenDeRolesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -139,7 +140,7 @@ Partial Class Form1
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasPorPeríodoToolStripMenuItem, Me.ResumenPorCuentaCorrienteToolStripMenuItem, Me.ReporteVentasPorHoraPicoToolStripMenuItem, Me.ResumenDeArticulosToolStripMenuItem, Me.ReportePersonasPorDependenciaToolStripMenuItem, Me.ReporteEmpleadosPorTurnosToolStripMenuItem, Me.ResumenDeDependenciasToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasPorPeríodoToolStripMenuItem, Me.ResumenPorCuentaCorrienteToolStripMenuItem, Me.ReporteVentasPorHoraPicoToolStripMenuItem, Me.ResumenDeArticulosToolStripMenuItem, Me.ReportePersonasPorDependenciaToolStripMenuItem, Me.ReporteEmpleadosPorTurnosToolStripMenuItem, Me.ResumenDeDependenciasToolStripMenuItem, Me.ResumenDeRolesToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
@@ -179,6 +180,12 @@ Partial Class Form1
         Me.ReporteEmpleadosPorTurnosToolStripMenuItem.Name = "ReporteEmpleadosPorTurnosToolStripMenuItem"
         Me.ReporteEmpleadosPorTurnosToolStripMenuItem.Size = New System.Drawing.Size(258, 22)
         Me.ReporteEmpleadosPorTurnosToolStripMenuItem.Text = "Reporte empleados por turnos"
+        '
+        'ResumenDeDependenciasToolStripMenuItem
+        '
+        Me.ResumenDeDependenciasToolStripMenuItem.Name = "ResumenDeDependenciasToolStripMenuItem"
+        Me.ResumenDeDependenciasToolStripMenuItem.Size = New System.Drawing.Size(258, 22)
+        Me.ResumenDeDependenciasToolStripMenuItem.Text = "Resumen de Dependencias"
         '
         'EstadisticasToolStripMenuItem
         '
@@ -229,11 +236,11 @@ Partial Class Form1
         Me.TicketsAbiertosPorPersonaToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
         Me.TicketsAbiertosPorPersonaToolStripMenuItem.Text = "Tickets abiertos por persona"
         '
-        'ResumenDeDependenciasToolStripMenuItem
+        'ResumenDeRolesToolStripMenuItem
         '
-        Me.ResumenDeDependenciasToolStripMenuItem.Name = "ResumenDeDependenciasToolStripMenuItem"
-        Me.ResumenDeDependenciasToolStripMenuItem.Size = New System.Drawing.Size(258, 22)
-        Me.ResumenDeDependenciasToolStripMenuItem.Text = "Resumen de Dependencias"
+        Me.ResumenDeRolesToolStripMenuItem.Name = "ResumenDeRolesToolStripMenuItem"
+        Me.ResumenDeRolesToolStripMenuItem.Size = New System.Drawing.Size(258, 22)
+        Me.ResumenDeRolesToolStripMenuItem.Text = "Resumen de Roles"
         '
         'Form1
         '
@@ -280,4 +287,5 @@ Partial Class Form1
     Friend WithEvents GananciasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TicketsAbiertosPorPersonaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ResumenDeDependenciasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ResumenDeRolesToolStripMenuItem As ToolStripMenuItem
 End Class

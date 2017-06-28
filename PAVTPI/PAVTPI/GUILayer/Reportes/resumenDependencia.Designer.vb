@@ -24,13 +24,23 @@ Partial Class resumenDependencia
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.resumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSetResumenCtaCte = New PAVTPI.DataSetResumenCtaCte()
         Me.rv_resumenDep = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.btn_buscardep = New System.Windows.Forms.Button()
-        Me.DataSetResumenCtaCte = New PAVTPI.DataSetResumenCtaCte()
-        Me.resumenBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        CType(Me.DataSetResumenCtaCte, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.resumenBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSetResumenCtaCte, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'resumenBindingSource
+        '
+        Me.resumenBindingSource.DataMember = "resumen"
+        Me.resumenBindingSource.DataSource = Me.DataSetResumenCtaCte
+        '
+        'DataSetResumenCtaCte
+        '
+        Me.DataSetResumenCtaCte.DataSetName = "DataSetResumenCtaCte"
+        Me.DataSetResumenCtaCte.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'rv_resumenDep
         '
@@ -52,16 +62,6 @@ Partial Class resumenDependencia
         Me.btn_buscardep.Text = "Buscar"
         Me.btn_buscardep.UseVisualStyleBackColor = True
         '
-        'DataSetResumenCtaCte
-        '
-        Me.DataSetResumenCtaCte.DataSetName = "DataSetResumenCtaCte"
-        Me.DataSetResumenCtaCte.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'resumenBindingSource
-        '
-        Me.resumenBindingSource.DataMember = "resumen"
-        Me.resumenBindingSource.DataSource = Me.DataSetResumenCtaCte
-        '
         'resumenDependencia
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -71,8 +71,8 @@ Partial Class resumenDependencia
         Me.Controls.Add(Me.rv_resumenDep)
         Me.Name = "resumenDependencia"
         Me.Text = "resumenDependencia"
-        CType(Me.DataSetResumenCtaCte, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.resumenBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSetResumenCtaCte, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

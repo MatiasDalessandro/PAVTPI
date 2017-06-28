@@ -101,4 +101,8 @@
     Private Sub ResumenDeDependenciasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResumenDeDependenciasToolStripMenuItem.Click
         resumenDependencia.Show()
     End Sub
+
+    Private Sub ResumenDeRolesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResumenDeRolesToolStripMenuItem.Click
+        resumenRoll.Show()
+    End Sub
 End Class
