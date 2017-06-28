@@ -101,4 +101,12 @@
     Private Sub AsignarRolToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsignarRolToolStripMenuItem.Click
         Asignar_rol.Show()
     End Sub
+
+    Private Sub ResumenDeDependenciasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResumenDeDependenciasToolStripMenuItem.Click
+        resumenDependencia.Show()
+    End Sub
+
+    Private Sub ResumenDeRolesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResumenDeRolesToolStripMenuItem.Click
+        resumenRoll.Show()
+    End Sub
 End Class

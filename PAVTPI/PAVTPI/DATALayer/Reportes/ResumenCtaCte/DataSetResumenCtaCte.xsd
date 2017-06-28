@@ -16,10 +16,18 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nroCuentaCorriente" msprop:Generator_ColumnVarNameInTable="columnnroCuentaCorriente" msprop:Generator_ColumnPropNameInRow="nroCuentaCorriente" msprop:Generator_ColumnPropNameInTable="nroCuentaCorrienteColumn" msprop:Generator_UserColumnName="nroCuentaCorriente" type="xs:int" minOccurs="0" />
-              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" type="xs:int" minOccurs="0" />
-              <xs:element name="saldo" msprop:Generator_ColumnVarNameInTable="columnsaldo" msprop:Generator_ColumnPropNameInRow="saldo" msprop:Generator_ColumnPropNameInTable="saldoColumn" msprop:Generator_UserColumnName="saldo" type="xs:string" minOccurs="0" />
-              <xs:element name="estado" msprop:Generator_ColumnVarNameInTable="columnestado" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnPropNameInTable="estadoColumn" msprop:Generator_UserColumnName="estado" type="xs:string" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" type="xs:string" minOccurs="0" />
+              <xs:element name="saldo" msprop:Generator_ColumnVarNameInTable="columnsaldo" msprop:Generator_ColumnPropNameInRow="saldo" msprop:Generator_ColumnPropNameInTable="saldoColumn" msprop:Generator_UserColumnName="saldo" type="xs:double" minOccurs="0" />
+              <xs:element name="estado" msprop:Generator_ColumnVarNameInTable="columnestado" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnPropNameInTable="estadoColumn" msprop:Generator_UserColumnName="estado" type="xs:unsignedInt" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="resumenRol" msprop:Generator_TableClassName="resumenRolDataTable" msprop:Generator_TableVarName="tableresumenRol" msprop:Generator_TablePropName="resumenRol" msprop:Generator_RowDeletingName="resumenRolRowDeleting" msprop:Generator_RowChangingName="resumenRolRowChanging" msprop:Generator_RowEvHandlerName="resumenRolRowChangeEventHandler" msprop:Generator_RowDeletedName="resumenRolRowDeleted" msprop:Generator_UserTableName="resumenRol" msprop:Generator_RowChangedName="resumenRolRowChanged" msprop:Generator_RowEvArgName="resumenRolRowChangeEvent" msprop:Generator_RowClassName="resumenRolRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idRol" msprop:Generator_ColumnVarNameInTable="columnidRol" msprop:Generator_ColumnPropNameInRow="idRol" msprop:Generator_ColumnPropNameInTable="idRolColumn" msprop:Generator_UserColumnName="idRol" type="xs:int" minOccurs="0" />
+              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
