@@ -123,11 +123,6 @@
     <Compile Include="DATALayer\Estadistica\EstadisticasDependencias.vb">
       <DependentUpon>EstadisticasDependencias.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DATALayer\Reportes\Producto+Vendido\DSProductoMasVendido.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSProductoMasVendido.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DATALayer\Reportes\VentarXPeriodo\DataSet1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -339,7 +334,6 @@
     <EmbeddedResource Include="DATALayer\Estadistica\PrecioArticulos\PrecioArticulos.rdlc" />
     <EmbeddedResource Include="DATALayer\Estadistica\TicketsPorPersona\ticketPorPersona.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\PersonaXDependencia\ReportePersonaXDep.rdlc" />
-    <EmbeddedResource Include="DATALayer\Reportes\Producto+Vendido\RepProdMasVendido.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ResumenCtaCte\ReporteCtaCte.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ReporteVentasPorHoraPico\ReporteVentaPorHoraPico.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ResumenArticulos\ResumenArticulos.rdlc" />
@@ -441,17 +435,6 @@
     </None>
     <None Include="DATALayer\Estadistica\EstadisticasDependencias.xss">
       <DependentUpon>EstadisticasDependencias.xsd</DependentUpon>
-    </None>
-    <None Include="DATALayer\Reportes\Producto+Vendido\DSProductoMasVendido.xsc">
-      <DependentUpon>DSProductoMasVendido.xsd</DependentUpon>
-    </None>
-    <None Include="DATALayer\Reportes\Producto+Vendido\DSProductoMasVendido.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSProductoMasVendido.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="DATALayer\Reportes\Producto+Vendido\DSProductoMasVendido.xss">
-      <DependentUpon>DSProductoMasVendido.xsd</DependentUpon>
     </None>
     <None Include="DATALayer\Reportes\VentarXPeriodo\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
