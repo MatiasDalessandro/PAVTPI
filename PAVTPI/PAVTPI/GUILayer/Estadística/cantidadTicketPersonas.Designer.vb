@@ -59,14 +59,14 @@ Partial Class cantidadTicketPersonas
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "PAVTPI.ticketPorPersona.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(13, 43)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(355, 376)
+        Me.ReportViewer1.Size = New System.Drawing.Size(482, 435)
         Me.ReportViewer1.TabIndex = 1
         '
         'cantidadTicketPersonas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(380, 429)
+        Me.ClientSize = New System.Drawing.Size(507, 490)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.btn_generar)
         Me.Name = "cantidadTicketPersonas"
