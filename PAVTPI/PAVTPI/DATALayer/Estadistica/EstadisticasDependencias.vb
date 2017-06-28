@@ -1,9 +1,18 @@
 ﻿Partial Class EstadisticasDependencias
-    Partial Public Class ArticuloMasVendidoDataTable
-        Private Sub ArticuloMasVendidoDataTable_ColumnChanging(sender As Object, e As DataColumnChangeEventArgs) Handles Me.ColumnChanging
-            If (e.Column.ColumnName = Me.DataColumn1Column.ColumnName) Then
-                'Agregar código de usuario aquí
-            End If
+    Partial Public Class AsistMensualDataTable
+
+
+    End Class
+
+    Partial Public Class EmpMayTurnoDataTable
+        Private Sub EmpMayTurnoDataTable_EmpMayTurnoRowChanging(sender As Object, e As EmpMayTurnoRowChangeEvent) Handles Me.EmpMayTurnoRowChanging
+
+        End Sub
+
+    End Class
+
+    Partial Public Class ArticuloMVendidoDataTable
+        Private Sub ArticuloMVendidoDataTable_ArticuloMVendidoRowChanging(sender As Object, e As ArticuloMVendidoRowChangeEvent) Handles Me.ArticuloMVendidoRowChanging
 
         End Sub
 

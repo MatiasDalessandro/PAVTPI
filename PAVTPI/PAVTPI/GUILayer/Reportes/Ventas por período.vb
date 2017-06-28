@@ -52,4 +52,8 @@
         End If
         Return True
     End Function
+
+    Private Sub Ventas_por_período_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

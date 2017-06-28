@@ -31,7 +31,11 @@ Partial Public Class EstadisticasDependencias
     
     Private tablePrecioArticulos As PrecioArticulosDataTable
     
-    Private tableArticuloMasVendido As ArticuloMasVendidoDataTable
+    Private tableArticuloMVendido As ArticuloMVendidoDataTable
+    
+    Private tableEmpMayTurno As EmpMayTurnoDataTable
+    
+    Private tableAsistMensual As AsistMensualDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -71,8 +75,14 @@ Partial Public Class EstadisticasDependencias
             If (Not (ds.Tables("PrecioArticulos")) Is Nothing) Then
                 MyBase.Tables.Add(New PrecioArticulosDataTable(ds.Tables("PrecioArticulos")))
             End If
-            If (Not (ds.Tables("ArticuloMasVendido")) Is Nothing) Then
-                MyBase.Tables.Add(New ArticuloMasVendidoDataTable(ds.Tables("ArticuloMasVendido")))
+            If (Not (ds.Tables("ArticuloMVendido")) Is Nothing) Then
+                MyBase.Tables.Add(New ArticuloMVendidoDataTable(ds.Tables("ArticuloMVendido")))
+            End If
+            If (Not (ds.Tables("EmpMayTurno")) Is Nothing) Then
+                MyBase.Tables.Add(New EmpMayTurnoDataTable(ds.Tables("EmpMayTurno")))
+            End If
+            If (Not (ds.Tables("AsistMensual")) Is Nothing) Then
+                MyBase.Tables.Add(New AsistMensualDataTable(ds.Tables("AsistMensual")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -125,9 +135,29 @@ Partial Public Class EstadisticasDependencias
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property ArticuloMasVendido() As ArticuloMasVendidoDataTable
+    Public ReadOnly Property ArticuloMVendido() As ArticuloMVendidoDataTable
         Get
-            Return Me.tableArticuloMasVendido
+            Return Me.tableArticuloMVendido
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property EmpMayTurno() As EmpMayTurnoDataTable
+        Get
+            Return Me.tableEmpMayTurno
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property AsistMensual() As AsistMensualDataTable
+        Get
+            Return Me.tableAsistMensual
         End Get
     End Property
     
@@ -207,8 +237,14 @@ Partial Public Class EstadisticasDependencias
             If (Not (ds.Tables("PrecioArticulos")) Is Nothing) Then
                 MyBase.Tables.Add(New PrecioArticulosDataTable(ds.Tables("PrecioArticulos")))
             End If
-            If (Not (ds.Tables("ArticuloMasVendido")) Is Nothing) Then
-                MyBase.Tables.Add(New ArticuloMasVendidoDataTable(ds.Tables("ArticuloMasVendido")))
+            If (Not (ds.Tables("ArticuloMVendido")) Is Nothing) Then
+                MyBase.Tables.Add(New ArticuloMVendidoDataTable(ds.Tables("ArticuloMVendido")))
+            End If
+            If (Not (ds.Tables("EmpMayTurno")) Is Nothing) Then
+                MyBase.Tables.Add(New EmpMayTurnoDataTable(ds.Tables("EmpMayTurno")))
+            End If
+            If (Not (ds.Tables("AsistMensual")) Is Nothing) Then
+                MyBase.Tables.Add(New AsistMensualDataTable(ds.Tables("AsistMensual")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -260,10 +296,22 @@ Partial Public Class EstadisticasDependencias
                 Me.tablePrecioArticulos.InitVars
             End If
         End If
-        Me.tableArticuloMasVendido = CType(MyBase.Tables("ArticuloMasVendido"),ArticuloMasVendidoDataTable)
+        Me.tableArticuloMVendido = CType(MyBase.Tables("ArticuloMVendido"),ArticuloMVendidoDataTable)
         If (initTable = true) Then
-            If (Not (Me.tableArticuloMasVendido) Is Nothing) Then
-                Me.tableArticuloMasVendido.InitVars
+            If (Not (Me.tableArticuloMVendido) Is Nothing) Then
+                Me.tableArticuloMVendido.InitVars
+            End If
+        End If
+        Me.tableEmpMayTurno = CType(MyBase.Tables("EmpMayTurno"),EmpMayTurnoDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableEmpMayTurno) Is Nothing) Then
+                Me.tableEmpMayTurno.InitVars
+            End If
+        End If
+        Me.tableAsistMensual = CType(MyBase.Tables("AsistMensual"),AsistMensualDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableAsistMensual) Is Nothing) Then
+                Me.tableAsistMensual.InitVars
             End If
         End If
     End Sub
@@ -282,8 +330,12 @@ Partial Public Class EstadisticasDependencias
         MyBase.Tables.Add(Me.tableCanTicketDependencias)
         Me.tablePrecioArticulos = New PrecioArticulosDataTable()
         MyBase.Tables.Add(Me.tablePrecioArticulos)
-        Me.tableArticuloMasVendido = New ArticuloMasVendidoDataTable()
-        MyBase.Tables.Add(Me.tableArticuloMasVendido)
+        Me.tableArticuloMVendido = New ArticuloMVendidoDataTable()
+        MyBase.Tables.Add(Me.tableArticuloMVendido)
+        Me.tableEmpMayTurno = New EmpMayTurnoDataTable()
+        MyBase.Tables.Add(Me.tableEmpMayTurno)
+        Me.tableAsistMensual = New AsistMensualDataTable()
+        MyBase.Tables.Add(Me.tableAsistMensual)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -306,7 +358,19 @@ Partial Public Class EstadisticasDependencias
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializeArticuloMasVendido() As Boolean
+    Private Function ShouldSerializeArticuloMVendido() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Function ShouldSerializeEmpMayTurno() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Function ShouldSerializeAsistMensual() As Boolean
         Return false
     End Function
     
@@ -378,7 +442,13 @@ Partial Public Class EstadisticasDependencias
     Public Delegate Sub PrecioArticulosRowChangeEventHandler(ByVal sender As Object, ByVal e As PrecioArticulosRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub ArticuloMasVendidoRowChangeEventHandler(ByVal sender As Object, ByVal e As ArticuloMasVendidoRowChangeEvent)
+    Public Delegate Sub ArticuloMVendidoRowChangeEventHandler(ByVal sender As Object, ByVal e As ArticuloMVendidoRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Delegate Sub EmpMayTurnoRowChangeEventHandler(ByVal sender As Object, ByVal e As EmpMayTurnoRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Delegate Sub AsistMensualRowChangeEventHandler(ByVal sender As Object, ByVal e As AsistMensualRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -1180,8 +1250,8 @@ Partial Public Class EstadisticasDependencias
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class ArticuloMasVendidoDataTable
-        Inherits Global.System.Data.TypedTableBase(Of ArticuloMasVendidoRow)
+    Partial Public Class ArticuloMVendidoDataTable
+        Inherits Global.System.Data.TypedTableBase(Of ArticuloMVendidoRow)
         
         Private columnnombre As Global.System.Data.DataColumn
         
@@ -1191,7 +1261,7 @@ Partial Public Class EstadisticasDependencias
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "ArticuloMasVendido"
+            Me.TableName = "ArticuloMVendido"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -1249,44 +1319,44 @@ Partial Public Class EstadisticasDependencias
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As ArticuloMasVendidoRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As ArticuloMVendidoRow
             Get
-                Return CType(Me.Rows(index),ArticuloMasVendidoRow)
+                Return CType(Me.Rows(index),ArticuloMVendidoRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event ArticuloMasVendidoRowChanging As ArticuloMasVendidoRowChangeEventHandler
+        Public Event ArticuloMVendidoRowChanging As ArticuloMVendidoRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event ArticuloMasVendidoRowChanged As ArticuloMasVendidoRowChangeEventHandler
+        Public Event ArticuloMVendidoRowChanged As ArticuloMVendidoRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event ArticuloMasVendidoRowDeleting As ArticuloMasVendidoRowChangeEventHandler
+        Public Event ArticuloMVendidoRowDeleting As ArticuloMVendidoRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event ArticuloMasVendidoRowDeleted As ArticuloMasVendidoRowChangeEventHandler
+        Public Event ArticuloMVendidoRowDeleted As ArticuloMVendidoRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddArticuloMasVendidoRow(ByVal row As ArticuloMasVendidoRow)
+        Public Overloads Sub AddArticuloMVendidoRow(ByVal row As ArticuloMVendidoRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddArticuloMasVendidoRow(ByVal nombre As String, ByVal cantidad As Long) As ArticuloMasVendidoRow
-            Dim rowArticuloMasVendidoRow As ArticuloMasVendidoRow = CType(Me.NewRow,ArticuloMasVendidoRow)
+        Public Overloads Function AddArticuloMVendidoRow(ByVal nombre As String, ByVal cantidad As String) As ArticuloMVendidoRow
+            Dim rowArticuloMVendidoRow As ArticuloMVendidoRow = CType(Me.NewRow,ArticuloMVendidoRow)
             Dim columnValuesArray() As Object = New Object() {nombre, cantidad}
-            rowArticuloMasVendidoRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowArticuloMasVendidoRow)
-            Return rowArticuloMasVendidoRow
+            rowArticuloMVendidoRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowArticuloMVendidoRow)
+            Return rowArticuloMVendidoRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As ArticuloMasVendidoDataTable = CType(MyBase.Clone,ArticuloMasVendidoDataTable)
+            Dim cln As ArticuloMVendidoDataTable = CType(MyBase.Clone,ArticuloMVendidoDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -1294,7 +1364,7 @@ Partial Public Class EstadisticasDependencias
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New ArticuloMasVendidoDataTable()
+            Return New ArticuloMVendidoDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1309,34 +1379,34 @@ Partial Public Class EstadisticasDependencias
         Private Sub InitClass()
             Me.columnnombre = New Global.System.Data.DataColumn("nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnnombre)
-            Me.columncantidad = New Global.System.Data.DataColumn("cantidad", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            Me.columncantidad = New Global.System.Data.DataColumn("cantidad", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncantidad)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewArticuloMasVendidoRow() As ArticuloMasVendidoRow
-            Return CType(Me.NewRow,ArticuloMasVendidoRow)
+        Public Function NewArticuloMVendidoRow() As ArticuloMVendidoRow
+            Return CType(Me.NewRow,ArticuloMVendidoRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New ArticuloMasVendidoRow(builder)
+            Return New ArticuloMVendidoRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(ArticuloMasVendidoRow)
+            Return GetType(ArticuloMVendidoRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.ArticuloMasVendidoRowChangedEvent) Is Nothing) Then
-                RaiseEvent ArticuloMasVendidoRowChanged(Me, New ArticuloMasVendidoRowChangeEvent(CType(e.Row,ArticuloMasVendidoRow), e.Action))
+            If (Not (Me.ArticuloMVendidoRowChangedEvent) Is Nothing) Then
+                RaiseEvent ArticuloMVendidoRowChanged(Me, New ArticuloMVendidoRowChangeEvent(CType(e.Row,ArticuloMVendidoRow), e.Action))
             End If
         End Sub
         
@@ -1344,8 +1414,8 @@ Partial Public Class EstadisticasDependencias
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.ArticuloMasVendidoRowChangingEvent) Is Nothing) Then
-                RaiseEvent ArticuloMasVendidoRowChanging(Me, New ArticuloMasVendidoRowChangeEvent(CType(e.Row,ArticuloMasVendidoRow), e.Action))
+            If (Not (Me.ArticuloMVendidoRowChangingEvent) Is Nothing) Then
+                RaiseEvent ArticuloMVendidoRowChanging(Me, New ArticuloMVendidoRowChangeEvent(CType(e.Row,ArticuloMVendidoRow), e.Action))
             End If
         End Sub
         
@@ -1353,8 +1423,8 @@ Partial Public Class EstadisticasDependencias
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.ArticuloMasVendidoRowDeletedEvent) Is Nothing) Then
-                RaiseEvent ArticuloMasVendidoRowDeleted(Me, New ArticuloMasVendidoRowChangeEvent(CType(e.Row,ArticuloMasVendidoRow), e.Action))
+            If (Not (Me.ArticuloMVendidoRowDeletedEvent) Is Nothing) Then
+                RaiseEvent ArticuloMVendidoRowDeleted(Me, New ArticuloMVendidoRowChangeEvent(CType(e.Row,ArticuloMVendidoRow), e.Action))
             End If
         End Sub
         
@@ -1362,14 +1432,14 @@ Partial Public Class EstadisticasDependencias
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.ArticuloMasVendidoRowDeletingEvent) Is Nothing) Then
-                RaiseEvent ArticuloMasVendidoRowDeleting(Me, New ArticuloMasVendidoRowChangeEvent(CType(e.Row,ArticuloMasVendidoRow), e.Action))
+            If (Not (Me.ArticuloMVendidoRowDeletingEvent) Is Nothing) Then
+                RaiseEvent ArticuloMVendidoRowDeleting(Me, New ArticuloMVendidoRowChangeEvent(CType(e.Row,ArticuloMVendidoRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemoveArticuloMasVendidoRow(ByVal row As ArticuloMasVendidoRow)
+        Public Sub RemoveArticuloMVendidoRow(ByVal row As ArticuloMVendidoRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -1396,7 +1466,589 @@ Partial Public Class EstadisticasDependencias
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "ArticuloMasVendidoDataTable"
+            attribute2.FixedValue = "ArticuloMVendidoDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class EmpMayTurnoDataTable
+        Inherits Global.System.Data.TypedTableBase(Of EmpMayTurnoRow)
+        
+        Private columnveces As Global.System.Data.DataColumn
+        
+        Private columnapellido As Global.System.Data.DataColumn
+        
+        Private columnnombre As Global.System.Data.DataColumn
+        
+        Private columnnroDocumento As Global.System.Data.DataColumn
+        
+        Private columnausencia As Global.System.Data.DataColumn
+        
+        Private columnmotivo As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "EmpMayTurno"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property vecesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnveces
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property apellidoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnapellido
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property nombreColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnombre
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property nroDocumentoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnroDocumento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ausenciaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnausencia
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property motivoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmotivo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As EmpMayTurnoRow
+            Get
+                Return CType(Me.Rows(index),EmpMayTurnoRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event EmpMayTurnoRowChanging As EmpMayTurnoRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event EmpMayTurnoRowChanged As EmpMayTurnoRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event EmpMayTurnoRowDeleting As EmpMayTurnoRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event EmpMayTurnoRowDeleted As EmpMayTurnoRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Sub AddEmpMayTurnoRow(ByVal row As EmpMayTurnoRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Function AddEmpMayTurnoRow(ByVal veces As Integer, ByVal apellido As String, ByVal nombre As String, ByVal nroDocumento As String, ByVal ausencia As String, ByVal motivo As String) As EmpMayTurnoRow
+            Dim rowEmpMayTurnoRow As EmpMayTurnoRow = CType(Me.NewRow,EmpMayTurnoRow)
+            Dim columnValuesArray() As Object = New Object() {veces, apellido, nombre, nroDocumento, ausencia, motivo}
+            rowEmpMayTurnoRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowEmpMayTurnoRow)
+            Return rowEmpMayTurnoRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As EmpMayTurnoDataTable = CType(MyBase.Clone,EmpMayTurnoDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New EmpMayTurnoDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnveces = MyBase.Columns("veces")
+            Me.columnapellido = MyBase.Columns("apellido")
+            Me.columnnombre = MyBase.Columns("nombre")
+            Me.columnnroDocumento = MyBase.Columns("nroDocumento")
+            Me.columnausencia = MyBase.Columns("ausencia")
+            Me.columnmotivo = MyBase.Columns("motivo")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnveces = New Global.System.Data.DataColumn("veces", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnveces)
+            Me.columnapellido = New Global.System.Data.DataColumn("apellido", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnapellido)
+            Me.columnnombre = New Global.System.Data.DataColumn("nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombre)
+            Me.columnnroDocumento = New Global.System.Data.DataColumn("nroDocumento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnroDocumento)
+            Me.columnausencia = New Global.System.Data.DataColumn("ausencia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnausencia)
+            Me.columnmotivo = New Global.System.Data.DataColumn("motivo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmotivo)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function NewEmpMayTurnoRow() As EmpMayTurnoRow
+            Return CType(Me.NewRow,EmpMayTurnoRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New EmpMayTurnoRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(EmpMayTurnoRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.EmpMayTurnoRowChangedEvent) Is Nothing) Then
+                RaiseEvent EmpMayTurnoRowChanged(Me, New EmpMayTurnoRowChangeEvent(CType(e.Row,EmpMayTurnoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.EmpMayTurnoRowChangingEvent) Is Nothing) Then
+                RaiseEvent EmpMayTurnoRowChanging(Me, New EmpMayTurnoRowChangeEvent(CType(e.Row,EmpMayTurnoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.EmpMayTurnoRowDeletedEvent) Is Nothing) Then
+                RaiseEvent EmpMayTurnoRowDeleted(Me, New EmpMayTurnoRowChangeEvent(CType(e.Row,EmpMayTurnoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.EmpMayTurnoRowDeletingEvent) Is Nothing) Then
+                RaiseEvent EmpMayTurnoRowDeleting(Me, New EmpMayTurnoRowChangeEvent(CType(e.Row,EmpMayTurnoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub RemoveEmpMayTurnoRow(ByVal row As EmpMayTurnoRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As EstadisticasDependencias = New EstadisticasDependencias()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "EmpMayTurnoDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class AsistMensualDataTable
+        Inherits Global.System.Data.TypedTableBase(Of AsistMensualRow)
+        
+        Private columnveces As Global.System.Data.DataColumn
+        
+        Private columnapellido As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "AsistMensual"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property vecesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnveces
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property apellidoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnapellido
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As AsistMensualRow
+            Get
+                Return CType(Me.Rows(index),AsistMensualRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event AsistMensualRowChanging As AsistMensualRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event AsistMensualRowChanged As AsistMensualRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event AsistMensualRowDeleting As AsistMensualRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event AsistMensualRowDeleted As AsistMensualRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Sub AddAsistMensualRow(ByVal row As AsistMensualRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Function AddAsistMensualRow(ByVal veces As String, ByVal apellido As String) As AsistMensualRow
+            Dim rowAsistMensualRow As AsistMensualRow = CType(Me.NewRow,AsistMensualRow)
+            Dim columnValuesArray() As Object = New Object() {veces, apellido}
+            rowAsistMensualRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowAsistMensualRow)
+            Return rowAsistMensualRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As AsistMensualDataTable = CType(MyBase.Clone,AsistMensualDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New AsistMensualDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnveces = MyBase.Columns("veces")
+            Me.columnapellido = MyBase.Columns("apellido")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnveces = New Global.System.Data.DataColumn("veces", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnveces)
+            Me.columnapellido = New Global.System.Data.DataColumn("apellido", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnapellido)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function NewAsistMensualRow() As AsistMensualRow
+            Return CType(Me.NewRow,AsistMensualRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New AsistMensualRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(AsistMensualRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.AsistMensualRowChangedEvent) Is Nothing) Then
+                RaiseEvent AsistMensualRowChanged(Me, New AsistMensualRowChangeEvent(CType(e.Row,AsistMensualRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.AsistMensualRowChangingEvent) Is Nothing) Then
+                RaiseEvent AsistMensualRowChanging(Me, New AsistMensualRowChangeEvent(CType(e.Row,AsistMensualRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.AsistMensualRowDeletedEvent) Is Nothing) Then
+                RaiseEvent AsistMensualRowDeleted(Me, New AsistMensualRowChangeEvent(CType(e.Row,AsistMensualRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.AsistMensualRowDeletingEvent) Is Nothing) Then
+                RaiseEvent AsistMensualRowDeleting(Me, New AsistMensualRowChangeEvent(CType(e.Row,AsistMensualRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub RemoveAsistMensualRow(ByVal row As AsistMensualRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As EstadisticasDependencias = New EstadisticasDependencias()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "AsistMensualDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -1654,16 +2306,16 @@ Partial Public Class EstadisticasDependencias
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class ArticuloMasVendidoRow
+    Partial Public Class ArticuloMVendidoRow
         Inherits Global.System.Data.DataRow
         
-        Private tableArticuloMasVendido As ArticuloMasVendidoDataTable
+        Private tableArticuloMVendido As ArticuloMVendidoDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableArticuloMasVendido = CType(Me.Table,ArticuloMasVendidoDataTable)
+            Me.tableArticuloMVendido = CType(Me.Table,ArticuloMVendidoDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1671,53 +2323,301 @@ Partial Public Class EstadisticasDependencias
         Public Property nombre() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableArticuloMasVendido.nombreColumn),String)
+                    Return CType(Me(Me.tableArticuloMVendido.nombreColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombre' de la tabla 'ArticuloMasVendido' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombre' de la tabla 'ArticuloMVendido' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableArticuloMasVendido.nombreColumn) = value
+                Me(Me.tableArticuloMVendido.nombreColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property cantidad() As Long
+        Public Property cantidad() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableArticuloMasVendido.cantidadColumn),Long)
+                    Return CType(Me(Me.tableArticuloMVendido.cantidadColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cantidad' de la tabla 'ArticuloMasVendido' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cantidad' de la tabla 'ArticuloMVendido' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableArticuloMasVendido.cantidadColumn) = value
+                Me(Me.tableArticuloMVendido.cantidadColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsnombreNull() As Boolean
-            Return Me.IsNull(Me.tableArticuloMasVendido.nombreColumn)
+            Return Me.IsNull(Me.tableArticuloMVendido.nombreColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetnombreNull()
-            Me(Me.tableArticuloMasVendido.nombreColumn) = Global.System.Convert.DBNull
+            Me(Me.tableArticuloMVendido.nombreColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IscantidadNull() As Boolean
-            Return Me.IsNull(Me.tableArticuloMasVendido.cantidadColumn)
+            Return Me.IsNull(Me.tableArticuloMVendido.cantidadColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetcantidadNull()
-            Me(Me.tableArticuloMasVendido.cantidadColumn) = Global.System.Convert.DBNull
+            Me(Me.tableArticuloMVendido.cantidadColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class EmpMayTurnoRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableEmpMayTurno As EmpMayTurnoDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableEmpMayTurno = CType(Me.Table,EmpMayTurnoDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property veces() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmpMayTurno.vecesColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'veces' de la tabla 'EmpMayTurno' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmpMayTurno.vecesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property apellido() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmpMayTurno.apellidoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'apellido' de la tabla 'EmpMayTurno' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmpMayTurno.apellidoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property nombre() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmpMayTurno.nombreColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombre' de la tabla 'EmpMayTurno' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmpMayTurno.nombreColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property nroDocumento() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmpMayTurno.nroDocumentoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nroDocumento' de la tabla 'EmpMayTurno' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmpMayTurno.nroDocumentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ausencia() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmpMayTurno.ausenciaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ausencia' de la tabla 'EmpMayTurno' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmpMayTurno.ausenciaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property motivo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmpMayTurno.motivoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'motivo' de la tabla 'EmpMayTurno' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmpMayTurno.motivoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsvecesNull() As Boolean
+            Return Me.IsNull(Me.tableEmpMayTurno.vecesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetvecesNull()
+            Me(Me.tableEmpMayTurno.vecesColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsapellidoNull() As Boolean
+            Return Me.IsNull(Me.tableEmpMayTurno.apellidoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetapellidoNull()
+            Me(Me.tableEmpMayTurno.apellidoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsnombreNull() As Boolean
+            Return Me.IsNull(Me.tableEmpMayTurno.nombreColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetnombreNull()
+            Me(Me.tableEmpMayTurno.nombreColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsnroDocumentoNull() As Boolean
+            Return Me.IsNull(Me.tableEmpMayTurno.nroDocumentoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetnroDocumentoNull()
+            Me(Me.tableEmpMayTurno.nroDocumentoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsausenciaNull() As Boolean
+            Return Me.IsNull(Me.tableEmpMayTurno.ausenciaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetausenciaNull()
+            Me(Me.tableEmpMayTurno.ausenciaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsmotivoNull() As Boolean
+            Return Me.IsNull(Me.tableEmpMayTurno.motivoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetmotivoNull()
+            Me(Me.tableEmpMayTurno.motivoColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class AsistMensualRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableAsistMensual As AsistMensualDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableAsistMensual = CType(Me.Table,AsistMensualDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property veces() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableAsistMensual.vecesColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'veces' de la tabla 'AsistMensual' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableAsistMensual.vecesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property apellido() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableAsistMensual.apellidoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'apellido' de la tabla 'AsistMensual' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableAsistMensual.apellidoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsvecesNull() As Boolean
+            Return Me.IsNull(Me.tableAsistMensual.vecesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetvecesNull()
+            Me(Me.tableAsistMensual.vecesColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsapellidoNull() As Boolean
+            Return Me.IsNull(Me.tableAsistMensual.apellidoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetapellidoNull()
+            Me(Me.tableAsistMensual.apellidoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1833,16 +2733,16 @@ Partial Public Class EstadisticasDependencias
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class ArticuloMasVendidoRowChangeEvent
+    Public Class ArticuloMVendidoRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As ArticuloMasVendidoRow
+        Private eventRow As ArticuloMVendidoRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As ArticuloMasVendidoRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As ArticuloMVendidoRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -1850,7 +2750,79 @@ Partial Public Class EstadisticasDependencias
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As ArticuloMasVendidoRow
+        Public ReadOnly Property Row() As ArticuloMVendidoRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class EmpMayTurnoRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As EmpMayTurnoRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As EmpMayTurnoRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As EmpMayTurnoRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class AsistMensualRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As AsistMensualRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As AsistMensualRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As AsistMensualRow
             Get
                 Return Me.eventRow
             End Get
