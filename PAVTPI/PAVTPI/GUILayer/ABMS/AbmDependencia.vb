@@ -164,9 +164,9 @@
     End Sub
     Private Function verificar_campos()
         If txt_nombre.Text = "" And txt_descripcion.Text = "" Then
-            Return True
+            Return False
         End If
-        Return False
+        Return True
     End Function
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         setLoad()
