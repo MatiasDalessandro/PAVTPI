@@ -3723,7 +3723,7 @@ Partial Public Class EstadisticasDependencias
                 Try 
                     Return CType(Me(Me.tableticketXPersona.cantidadColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'cantidad' in table 'ticketXPersona' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cantidad' de la tabla 'ticketXPersona' es DBNull.", e)
                 End Try
             End Get
             Set
@@ -3738,7 +3738,7 @@ Partial Public Class EstadisticasDependencias
                 Try 
                     Return CType(Me(Me.tableticketXPersona.nombreColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'nombre' in table 'ticketXPersona' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombre' de la tabla 'ticketXPersona' es DBNull.", e)
                 End Try
             End Get
             Set

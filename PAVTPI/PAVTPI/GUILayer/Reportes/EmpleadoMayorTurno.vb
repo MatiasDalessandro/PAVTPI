@@ -8,9 +8,11 @@
         Dim fechaMaxima As Date = Date.Now
         Dim datatable As New DataTable
         Dim sql As String = ""
-        sql &= " select distinct COUNT(ea.nroDocumento) as veces, p.apellido, p.nombre, ea.nroDocumento, ea.ausencia, ea.motivo  from empleadoXAsistencia ea, empleadoXAsistencia ea1 "
-        sql &= "        inner join persona p on p.nroDocumento = ea1.nroDocumento "
-        sql &= "        where (ea.nroDocumento = ea1.nroDocumento) "
+        sql &= " select distinct COUNT(*) as veces, p.apellido, p.nombre  from empleadoXAsistencia ea "
+        sql &= "      inner join persona p on p.nroDocumento = ea.nroDocumento "
+        sql &= "     where (p.nroDocumento = ea.nroDocumento) and (MONTH(ea.fechaHoraInicio)=6) and (month(ea.fechaHoraInicio)=6) "
+        sql &= " group by ea.nroDocumento, p.apellido, p.nombre "
+        sql &= " order by veces desc "
 
         Dim fechaInicio As DateTime = CDate(dtpDesde.Text)
         Dim fechaFin As DateTime = CDate(dtpHasta.Text)
@@ -25,10 +27,6 @@
                     MsgBox("La fecha de fin de intervalo es anterior a la de inicio.")
                     Exit Sub
                 End If
-
-        sql &= " and (ea.fechaHoraInicio between '" & fechaMinima.ToString & "' and '" & dtpDesde.Text & "' ) "
-        sql &= "        group by ea.ausencia, ea.fechaHoraFin, ea.fechaHoraInicio, ea.motivo, ea.nroDocumento, p.apellido, p.nombre "
-        sql &= "        order by ea.nroDocumento "
 
         datatable = dbhelper.ConsultaSQL(sql)
 
