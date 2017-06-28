@@ -109,4 +109,8 @@
     Private Sub ResumenDeRolesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResumenDeRolesToolStripMenuItem.Click
         resumenRoll.Show()
     End Sub
+
+    Private Sub PorcentajeDeRolesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PorcentajeDeRolesToolStripMenuItem.Click
+        PorsentajesRol.Show()
+    End Sub
 End Class

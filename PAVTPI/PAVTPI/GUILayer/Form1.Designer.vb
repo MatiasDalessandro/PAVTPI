@@ -35,6 +35,7 @@ Partial Class Form1
         Me.RegistrarVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CancelarSaldoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CargarAsistenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AsignarRolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasPorPeríodoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResumenPorCuentaCorrienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -43,6 +44,7 @@ Partial Class Form1
         Me.ReportePersonasPorDependenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReporteEmpleadosPorTurnosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResumenDeDependenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResumenDeRolesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EstadisticasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeudasDependenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CantTicketsPorDependenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -51,8 +53,7 @@ Partial Class Form1
         Me.PorcentajeDeAsistenciaMensualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GananciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TicketsAbiertosPorPersonaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ResumenDeRolesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AsignarRolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PorcentajeDeRolesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -139,6 +140,12 @@ Partial Class Form1
         Me.CargarAsistenciaToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
         Me.CargarAsistenciaToolStripMenuItem.Text = "Cargar Asistencia"
         '
+        'AsignarRolToolStripMenuItem
+        '
+        Me.AsignarRolToolStripMenuItem.Name = "AsignarRolToolStripMenuItem"
+        Me.AsignarRolToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.AsignarRolToolStripMenuItem.Text = "Asignar rol"
+        '
         'ReportesToolStripMenuItem
         '
         Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasPorPeríodoToolStripMenuItem, Me.ResumenPorCuentaCorrienteToolStripMenuItem, Me.ReporteVentasPorHoraPicoToolStripMenuItem, Me.ResumenDeArticulosToolStripMenuItem, Me.ReportePersonasPorDependenciaToolStripMenuItem, Me.ReporteEmpleadosPorTurnosToolStripMenuItem, Me.ResumenDeDependenciasToolStripMenuItem, Me.ResumenDeRolesToolStripMenuItem})
@@ -188,9 +195,15 @@ Partial Class Form1
         Me.ResumenDeDependenciasToolStripMenuItem.Size = New System.Drawing.Size(258, 22)
         Me.ResumenDeDependenciasToolStripMenuItem.Text = "Resumen de Dependencias"
         '
+        'ResumenDeRolesToolStripMenuItem
+        '
+        Me.ResumenDeRolesToolStripMenuItem.Name = "ResumenDeRolesToolStripMenuItem"
+        Me.ResumenDeRolesToolStripMenuItem.Size = New System.Drawing.Size(258, 22)
+        Me.ResumenDeRolesToolStripMenuItem.Text = "Resumen de Roles"
+        '
         'EstadisticasToolStripMenuItem
         '
-        Me.EstadisticasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeudasDependenciasToolStripMenuItem, Me.CantTicketsPorDependenciasToolStripMenuItem, Me.PrecioArtículosToolStripMenuItem, Me.ArtículosMasVendidosToolStripMenuItem, Me.PorcentajeDeAsistenciaMensualToolStripMenuItem, Me.GananciasToolStripMenuItem, Me.TicketsAbiertosPorPersonaToolStripMenuItem})
+        Me.EstadisticasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeudasDependenciasToolStripMenuItem, Me.CantTicketsPorDependenciasToolStripMenuItem, Me.PrecioArtículosToolStripMenuItem, Me.ArtículosMasVendidosToolStripMenuItem, Me.PorcentajeDeAsistenciaMensualToolStripMenuItem, Me.GananciasToolStripMenuItem, Me.TicketsAbiertosPorPersonaToolStripMenuItem, Me.PorcentajeDeRolesToolStripMenuItem})
         Me.EstadisticasToolStripMenuItem.Name = "EstadisticasToolStripMenuItem"
         Me.EstadisticasToolStripMenuItem.Size = New System.Drawing.Size(79, 20)
         Me.EstadisticasToolStripMenuItem.Text = "Estadisticas"
@@ -237,17 +250,11 @@ Partial Class Form1
         Me.TicketsAbiertosPorPersonaToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
         Me.TicketsAbiertosPorPersonaToolStripMenuItem.Text = "Tickets abiertos por persona"
         '
-        'ResumenDeRolesToolStripMenuItem
+        'PorcentajeDeRolesToolStripMenuItem
         '
-        Me.ResumenDeRolesToolStripMenuItem.Name = "ResumenDeRolesToolStripMenuItem"
-        Me.ResumenDeRolesToolStripMenuItem.Size = New System.Drawing.Size(258, 22)
-        Me.ResumenDeRolesToolStripMenuItem.Text = "Resumen de Roles"
-        '
-        'AsignarRolToolStripMenuItem
-        '
-        Me.AsignarRolToolStripMenuItem.Name = "AsignarRolToolStripMenuItem"
-        Me.AsignarRolToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
-        Me.AsignarRolToolStripMenuItem.Text = "Asignar rol"
+        Me.PorcentajeDeRolesToolStripMenuItem.Name = "PorcentajeDeRolesToolStripMenuItem"
+        Me.PorcentajeDeRolesToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
+        Me.PorcentajeDeRolesToolStripMenuItem.Text = "Porcentaje de Roles"
         '
         'Form1
         '
@@ -296,4 +303,5 @@ Partial Class Form1
     Friend WithEvents ResumenDeDependenciasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ResumenDeRolesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AsignarRolToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PorcentajeDeRolesToolStripMenuItem As ToolStripMenuItem
 End Class

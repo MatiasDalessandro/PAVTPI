@@ -229,6 +229,12 @@
     <Compile Include="GUILayer\Estadística\formGanancias.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GUILayer\Estadística\PorsentajesRol.Designer.vb">
+      <DependentUpon>PorsentajesRol.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\Estadística\PorsentajesRol.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GUILayer\Procesos\Asignar rol.Designer.vb">
       <DependentUpon>Asignar rol.vb</DependentUpon>
     </Compile>
@@ -345,6 +351,7 @@
   <ItemGroup>
     <EmbeddedResource Include="DATALayer\Estadistica\ArticuloMasVendido\ArticuloMasVendido.rdlc" />
     <EmbeddedResource Include="DATALayer\Estadistica\CantidadTicketsDependencias\CanTicketDependencias.rdlc" />
+    <EmbeddedResource Include="DATALayer\Estadistica\PorcentajesRol\PorcentajeRol.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\EmpleadosMayorTurnosCumplidos\EmpMayTurCump.rdlc" />
     <EmbeddedResource Include="DATALayer\Estadistica\Ganancias\gananciasPorAño.rdlc" />
     <EmbeddedResource Include="DATALayer\Estadistica\Ganancias\gHistoricas.rdlc" />
@@ -397,6 +404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Estadística\formGanancias.resx">
       <DependentUpon>formGanancias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\Estadística\PorsentajesRol.resx">
+      <DependentUpon>PorsentajesRol.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Procesos\Asignar rol.resx">
       <DependentUpon>Asignar rol.vb</DependentUpon>
