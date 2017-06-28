@@ -2,9 +2,10 @@
     Private Sub Ganancias_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If chk_mes.Checked Then
             cmb_mes.Enabled = False
+
         End If
 
-        Me.ReportViewer1.RefreshReport()
+
     End Sub
     Private Sub cargar_combo()
         cmb_mes.Items.Add("Enero")

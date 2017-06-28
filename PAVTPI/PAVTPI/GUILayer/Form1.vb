@@ -89,4 +89,8 @@
     Private Sub CargarAsistenciaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CargarAsistenciaToolStripMenuItem.Click
         Asistencia.Show()
     End Sub
+
+    Private Sub GananciasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GananciasToolStripMenuItem.Click
+
+    End Sub
 End Class
