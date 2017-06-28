@@ -13,14 +13,14 @@
         sql &= " Where t.nroTicket = dta.nroTicket and t.nroTicket= dtc.nroTicket and pa.nroDocumento = t.nroDocMozo And p.nroDocumento = t.nroDocumento "
         sql &= " and dta.idArticulo = a.idArticuloIntegrante and dtc.idCombo=c.idCombo "
 
-        If txt_fechaInicio.MaskFull And txt_fechaFin.MaskFull Then
+        If (dtpFinicio.Text <> "") And (dtpFfin.Text <> "") Then
             Try
                 If validar_fechas() = False Then
                     MsgBox("Las fechas ingresadas no son válidas-")
                     Exit Sub
                 End If
-                Dim fechaInicio As DateTime = CDate(txt_fechaInicio.Text)
-                Dim fechaFin As DateTime = CDate(txt_fechaFin.Text)
+                Dim fechaInicio As DateTime = CDate(dtpFinicio.Text)
+                Dim fechaFin As DateTime = CDate(dtpFfin.Text)
 
                 If (fechaInicio < fechaMinima Or fechaFin > fechaMaxima) Then
                     MsgBox("Las fechas ingresadas no corresponden a un intervalo válido" + vbLf +
@@ -34,7 +34,7 @@
                 End If
             Catch ex As Exception
             End Try
-            sql &= " And t.fechaHora between '" & txt_fechaInicio.Text & "' and  '" & txt_fechaFin.Text & "'"
+            sql &= " And t.fechaHora between '" & dtpFinicio.Text & "' and  '" & dtpFfin.Text & "'"
         Else
             MsgBox("Se buscará sin rangos de fechas, ya que no se especificó una fecha de inicio o fin de intervalo, o ambas")
         End If
@@ -45,12 +45,12 @@
 
     End Sub
     Private Function validar_fechas()
-        Dim fecha() As String = Split(txt_fechaInicio.Text, "/")
-        Dim fecha2() As String = Split(txt_fechaFin.Text, "/")
-        If (CType(fecha(1), System.Int32) > 12) Or (CType(fecha(0), System.Int32) > 31) Then
+        Dim fecha() As String = Split(dtpFinicio.Text, "/")
+        Dim fecha2() As String = Split(dtpFfin.Text, "/")
+        If (CType(fecha(0), System.Int32) > 12) Or (CType(fecha(1), System.Int32) > 31) Then
             Return False
         End If
-        If (CType(fecha2(1), System.Int32) > 12) Or (CType(fecha2(0), System.Int32) > 31) Then
+        If (CType(fecha2(0), System.Int32) > 12) Or (CType(fecha2(1), System.Int32) > 31) Then
             Return False
         End If
         Return True
