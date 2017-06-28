@@ -49,6 +49,7 @@ Partial Class Form1
         Me.ArtículosMasVendidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PorcentajeDeAsistenciaMensualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GananciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TicketsAbiertosPorPersonaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -180,7 +181,7 @@ Partial Class Form1
         '
         'EstadisticasToolStripMenuItem
         '
-        Me.EstadisticasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeudasDependenciasToolStripMenuItem, Me.CantTicketsPorDependenciasToolStripMenuItem, Me.PrecioArtículosToolStripMenuItem, Me.ArtículosMasVendidosToolStripMenuItem, Me.PorcentajeDeAsistenciaMensualToolStripMenuItem, Me.GananciasToolStripMenuItem})
+        Me.EstadisticasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeudasDependenciasToolStripMenuItem, Me.CantTicketsPorDependenciasToolStripMenuItem, Me.PrecioArtículosToolStripMenuItem, Me.ArtículosMasVendidosToolStripMenuItem, Me.PorcentajeDeAsistenciaMensualToolStripMenuItem, Me.GananciasToolStripMenuItem, Me.TicketsAbiertosPorPersonaToolStripMenuItem})
         Me.EstadisticasToolStripMenuItem.Name = "EstadisticasToolStripMenuItem"
         Me.EstadisticasToolStripMenuItem.Size = New System.Drawing.Size(79, 20)
         Me.EstadisticasToolStripMenuItem.Text = "Estadisticas"
@@ -220,6 +221,12 @@ Partial Class Form1
         Me.GananciasToolStripMenuItem.Name = "GananciasToolStripMenuItem"
         Me.GananciasToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
         Me.GananciasToolStripMenuItem.Text = "Ganancias"
+        '
+        'TicketsAbiertosPorPersonaToolStripMenuItem
+        '
+        Me.TicketsAbiertosPorPersonaToolStripMenuItem.Name = "TicketsAbiertosPorPersonaToolStripMenuItem"
+        Me.TicketsAbiertosPorPersonaToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
+        Me.TicketsAbiertosPorPersonaToolStripMenuItem.Text = "Tickets abiertos por persona"
         '
         'Form1
         '
@@ -264,4 +271,5 @@ Partial Class Form1
     Friend WithEvents ReporteEmpleadosPorTurnosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PorcentajeDeAsistenciaMensualToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GananciasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TicketsAbiertosPorPersonaToolStripMenuItem As ToolStripMenuItem
 End Class

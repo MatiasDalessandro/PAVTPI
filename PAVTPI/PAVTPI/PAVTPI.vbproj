@@ -216,6 +216,12 @@
     <Compile Include="GUILayer\Estadística\CanTicketDependencias.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GUILayer\Estadística\cantidadTicketPersonas.Designer.vb">
+      <DependentUpon>cantidadTicketPersonas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\Estadística\cantidadTicketPersonas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GUILayer\Estadística\DeudasDependencias.Designer.vb">
       <DependentUpon>DeudasDependencias.vb</DependentUpon>
     </Compile>
@@ -331,12 +337,13 @@
     <EmbeddedResource Include="DATALayer\Estadistica\Ganancias\gHistoricas.rdlc" />
     <EmbeddedResource Include="DATALayer\Estadistica\PorcentajeAsistenciaMensual\AsistenciaMensual.rdlc" />
     <EmbeddedResource Include="DATALayer\Estadistica\PrecioArticulos\PrecioArticulos.rdlc" />
+    <EmbeddedResource Include="DATALayer\Estadistica\TicketsPorPersona\ticketPorPersona.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\PersonaXDependencia\ReportePersonaXDep.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\Producto+Vendido\RepProdMasVendido.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ResumenCtaCte\ReporteCtaCte.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ReporteVentasPorHoraPico\ReporteVentaPorHoraPico.rdlc" />
-    <EmbeddedResource Include="DATALayer\Reportes\VentarXPeriodo\ReportVentaPorPeriodo.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ResumenArticulos\ResumenArticulos.rdlc" />
+    <EmbeddedResource Include="DATALayer\Reportes\VentarXPeriodo\ReportVentasPeriodo.rdlc" />
     <EmbeddedResource Include="GUILayer\ABMS\AbmArticulo.resx">
       <DependentUpon>AbmArticulo.vb</DependentUpon>
     </EmbeddedResource>
@@ -367,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Estadística\CanTicketDependencias.resx">
       <DependentUpon>CanTicketDependencias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\Estadística\cantidadTicketPersonas.resx">
+      <DependentUpon>cantidadTicketPersonas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Estadística\DeudasDependencias.resx">
       <DependentUpon>DeudasDependencias.vb</DependentUpon>

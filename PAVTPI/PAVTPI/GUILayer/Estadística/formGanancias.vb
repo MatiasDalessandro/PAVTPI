@@ -1,8 +1,5 @@
 ﻿Public Class formGanancias
     Dim dbheleper As DBHelper = DBHelper.getDBHelper
-    Private Sub ganancias_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.ReportViewer2.RefreshReport()
-    End Sub
     Private Sub historico_CheckedChanged(sender As Object, e As EventArgs) Handles historico.CheckedChanged, anual.CheckedChanged
         If anual.Checked Then
             lbl2.Visible = True
@@ -17,26 +14,30 @@
     Private Sub btn_calcular_Click(sender As Object, e As EventArgs) Handles btn_calcular.Click
 
         If anual.Checked Then
-            Dim sql As String = "select * from ticket where year(fechaHora)= " & txt_año.Text
-            Dim tabla As DataTable = dbheleper.ConsultaSQL(sql)
-            If Not tabla.Rows.Count = 0 Then
-                Size = New System.Drawing.Size(400, 565)
-                ReportViewer1.Visible = True
-                Dim sql2 As String = ""
-                sql2 &= "select sum(t.monto) as total,DATENAME(MM,t.fechaHora) as mes,year(t.fechaHora) as año from ticket t"
-                If anual.Checked Then
-                    sql2 &= " where Year(t.fechaHora) = " & txt_año.Text
-                End If
-                sql2 &= " group by DATENAME(MM,t.fechaHora),year(t.fechaHora)"
-                sql2 &= " order by DATENAME(MM,t.fechaHora)"
+            If Not txt_año.Text = "" Then
+                Dim sql As String = "select * from ticket where year(fechaHora)= " & txt_año.Text
+                Dim tabla As DataTable = dbheleper.ConsultaSQL(sql)
+                If Not tabla.Rows.Count = 0 Then
+                    Size = New System.Drawing.Size(400, 565)
+                    ReportViewer1.Visible = True
+                    Dim sql2 As String = ""
+                    sql2 &= "select sum(t.monto) as total,DATENAME(MM,t.fechaHora) as mes,year(t.fechaHora) as año from ticket t"
+                    If anual.Checked Then
+                        sql2 &= " where Year(t.fechaHora) = " & txt_año.Text
+                    End If
+                    sql2 &= " group by DATENAME(MM,t.fechaHora),year(t.fechaHora)"
+                    sql2 &= " order by DATENAME(MM,t.fechaHora)"
 
-                GananciasBindingSource.DataSource = dbheleper.ConsultaSQL(sql2)
-                ReportViewer1.RefreshReport()
+                    GananciasBindingSource.DataSource = dbheleper.ConsultaSQL(sql2)
+                    ReportViewer1.RefreshReport()
+                Else
+                    anual.Checked = False
+                    txt_año.Text = ""
+                    MsgBox("No existen ventas registradas para ese año.")
+                    Exit Sub
+                End If
             Else
-                anual.Checked = False
-                txt_año.Text = ""
-                MsgBox("No existen ventas registradas para ese año.")
-                Exit Sub
+                MsgBox("Debe Ingresar un año.")
             End If
         End If
         If historico.Checked Then
