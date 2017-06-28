@@ -332,7 +332,7 @@
   <ItemGroup>
     <EmbeddedResource Include="DATALayer\Estadistica\ArticuloMasVendido\ArticuloMasVendido.rdlc" />
     <EmbeddedResource Include="DATALayer\Estadistica\CantidadTicketsDependencias\CanTicketDependencias.rdlc" />
-    <EmbeddedResource Include="DATALayer\Estadistica\EmpleadosMayorTurnosCumplidos\EmpMayTurCump.rdlc" />
+    <EmbeddedResource Include="DATALayer\Reportes\EmpleadosMayorTurnosCumplidos\EmpMayTurCump.rdlc" />
     <EmbeddedResource Include="DATALayer\Estadistica\Ganancias\gananciasPorAño.rdlc" />
     <EmbeddedResource Include="DATALayer\Estadistica\Ganancias\gHistoricas.rdlc" />
     <EmbeddedResource Include="DATALayer\Estadistica\PorcentajeAsistenciaMensual\AsistenciaMensual.rdlc" />
