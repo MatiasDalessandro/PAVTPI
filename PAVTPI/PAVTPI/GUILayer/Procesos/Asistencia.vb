@@ -5,7 +5,6 @@
     Private Sub Asistencia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cargar_grilla()
         txtMotivo.Enabled = False
-        MsgBox(System.DateTime.Now.ToString)
     End Sub
 
     Private Sub cargar_grilla()
@@ -42,23 +41,49 @@
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Dim sql As String = ""
-        sql &= " INSERT INTO empleadoXAsistencia (fechaHoraInicio, fechaHoraFin, ausencia, motivo, nroDocumento) "
-        If chkAusente.Checked Then
-            sql &= " values ( " & dtpDiaLlegada.Text & System.DateTime.Now.ToString & "," & dtpDiaSalida.Text & "," & 1 & ",'" & txtMotivo.Text & "'," & txtNroDoc.Text & ")"
+        Dim sql1 As String
+        Dim tabla1 As DataTable
+
+        sql1 = "select ea.* from empleadoXAsistencia ea "
+        sql1 &= " where ea.nroDocumento = 85412369 "
+        sql1 &= " And year(ea.fechaHoraInicio) = year(SYSDATETIME()) "
+        sql1 &= " And month(ea.fechaHoraInicio) = MONTH(SYSDATETIME()) "
+        sql1 &= " And DAY(ea.fechaHoraInicio) = day(sysdatetime())"
+
+        tabla1 = dbhelper.ConsultaSQL(sql1)
+
+        If tabla1.Rows.Count < 1 Then
+            If chkAusente.Checked Then
+                sql &= " INSERT INTO empleadoXAsistencia (fechaHoraInicio, fechaHoraFin, ausencia, motivo, nroDocumento) "
+                sql &= " values ( '" & dtpDiaLlegada.Value.ToString & "',null," & 1 & ",'" & txtMotivo.Text & "'," & txtNroDoc.Text & ")"
+                MsgBox("Se grabo correctamente")
+                Exit Sub
+            Else
+                sql &= " INSERT INTO empleadoXAsistencia (fechaHoraInicio, fechaHoraFin, ausencia, motivo, nroDocumento) "
+                sql &= " values ( '" & dtpDiaLlegada.Value.ToString & "',null," & 0 & ",null," & txtNroDoc.Text & ")"
+                MsgBox("Se grabo correctamente")
+            End If
         Else
-            sql &= " values ( " & dtpDiaLlegada.Text & "," & dtpDiaSalida.Text & "," & 0 & ",  null  ," & txtNroDoc.Text & ")"
+
+        End If
+        If (Not chkAusente.Checked) And tabla1.Rows.Count < 1 Then
+            sql &= " values ( '" & dtpDiaLlegada.Value.ToString & "',null," & 1 & ",'" & txtMotivo.Text & "'," & txtNroDoc.Text & ")"
+            sql &= "update empleadoXAsistencia set fechaHoraFin = '" & dtpDiaSalida.Value.ToString & "' where nroDocumento = " & txtNroDoc.Text & " and year(fechaHoraInicio) = year(SYSDATETIME()) "
+            sql &= " and month(fechaHoraInicio) = MONTH(SYSDATETIME()) "
+            sql &= " and DAY(fechaHoraInicio) = day(sysdatetime()) "
         End If
 
         dbhelper.EjecutarSQL(sql)
-        MsgBox("Se grabo correctamente")
         Me.cargar_grilla()
     End Sub
 
     Private Sub chkAusente_CheckedChanged(sender As Object, e As EventArgs) Handles chkAusente.CheckedChanged
         If chkAusente.Checked Then
             txtMotivo.Enabled = True
+            dtpDiaSalida.Enabled = False
         Else
             txtMotivo.Enabled = False
+            dtpDiaSalida.Enabled = True
         End If
     End Sub
 End Class
