@@ -93,4 +93,8 @@
     Private Sub GananciasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GananciasToolStripMenuItem.Click
         formGanancias.Show()
     End Sub
+
+    Private Sub TicketsAbiertosPorPersonaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TicketsAbiertosPorPersonaToolStripMenuItem.Click
+        cantidadTicketPersonas.Show()
+    End Sub
 End Class

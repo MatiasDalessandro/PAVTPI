@@ -76,7 +76,7 @@ Partial Class Ventas_por_período
         ReportDataSource1.Name = "DataSet1"
         ReportDataSource1.Value = Me.DataTable1BindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "PAVTPI.ReportVentaPorPeriodo.rdlc"
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "PAVTPI.ReportVentasPeriodo.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(13, 56)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.Size = New System.Drawing.Size(722, 401)
