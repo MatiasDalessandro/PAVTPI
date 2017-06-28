@@ -216,6 +216,12 @@
     <Compile Include="GUILayer\Estadística\DeudasDependencias.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GUILayer\Estadística\Ganancias.Designer.vb">
+      <DependentUpon>Ganancias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\Estadística\Ganancias.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GUILayer\Estadística\PrecioArticulo.Designer.vb">
       <DependentUpon>PrecioArticulo.vb</DependentUpon>
     </Compile>
@@ -345,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Estadística\DeudasDependencias.resx">
       <DependentUpon>DeudasDependencias.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\Estadística\Ganancias.resx">
+      <DependentUpon>Ganancias.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Estadística\PrecioArticulo.resx">
       <DependentUpon>PrecioArticulo.vb</DependentUpon>
