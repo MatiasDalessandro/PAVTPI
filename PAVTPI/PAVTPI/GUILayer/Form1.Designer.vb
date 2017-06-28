@@ -50,6 +50,7 @@ Partial Class Form1
         Me.PorcentajeDeAsistenciaMensualToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GananciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TicketsAbiertosPorPersonaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResumenDeDependenciasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -138,7 +139,7 @@ Partial Class Form1
         '
         'ReportesToolStripMenuItem
         '
-        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasPorPeríodoToolStripMenuItem, Me.ResumenPorCuentaCorrienteToolStripMenuItem, Me.ReporteVentasPorHoraPicoToolStripMenuItem, Me.ResumenDeArticulosToolStripMenuItem, Me.ReportePersonasPorDependenciaToolStripMenuItem, Me.ReporteEmpleadosPorTurnosToolStripMenuItem})
+        Me.ReportesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasPorPeríodoToolStripMenuItem, Me.ResumenPorCuentaCorrienteToolStripMenuItem, Me.ReporteVentasPorHoraPicoToolStripMenuItem, Me.ResumenDeArticulosToolStripMenuItem, Me.ReportePersonasPorDependenciaToolStripMenuItem, Me.ReporteEmpleadosPorTurnosToolStripMenuItem, Me.ResumenDeDependenciasToolStripMenuItem})
         Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
         Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
         Me.ReportesToolStripMenuItem.Text = "Reportes"
@@ -228,6 +229,12 @@ Partial Class Form1
         Me.TicketsAbiertosPorPersonaToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
         Me.TicketsAbiertosPorPersonaToolStripMenuItem.Text = "Tickets abiertos por persona"
         '
+        'ResumenDeDependenciasToolStripMenuItem
+        '
+        Me.ResumenDeDependenciasToolStripMenuItem.Name = "ResumenDeDependenciasToolStripMenuItem"
+        Me.ResumenDeDependenciasToolStripMenuItem.Size = New System.Drawing.Size(258, 22)
+        Me.ResumenDeDependenciasToolStripMenuItem.Text = "Resumen de Dependencias"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -272,4 +279,5 @@ Partial Class Form1
     Friend WithEvents PorcentajeDeAsistenciaMensualToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GananciasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TicketsAbiertosPorPersonaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ResumenDeDependenciasToolStripMenuItem As ToolStripMenuItem
 End Class

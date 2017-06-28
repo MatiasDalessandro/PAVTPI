@@ -97,4 +97,8 @@
     Private Sub TicketsAbiertosPorPersonaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TicketsAbiertosPorPersonaToolStripMenuItem.Click
         cantidadTicketPersonas.Show()
     End Sub
+
+    Private Sub ResumenDeDependenciasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ResumenDeDependenciasToolStripMenuItem.Click
+        resumenDependencia.Show()
+    End Sub
 End Class

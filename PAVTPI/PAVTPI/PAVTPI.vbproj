@@ -296,6 +296,12 @@
     <Compile Include="GUILayer\Reportes\resumenArticulo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GUILayer\Reportes\resumenDependencia.Designer.vb">
+      <DependentUpon>resumenDependencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\Reportes\resumenDependencia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GUILayer\Reportes\Ventas por período.Designer.vb">
       <DependentUpon>Ventas por período.vb</DependentUpon>
     </Compile>
@@ -337,6 +343,7 @@
     <EmbeddedResource Include="DATALayer\Reportes\ResumenCtaCte\ReporteCtaCte.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ReporteVentasPorHoraPico\ReporteVentaPorHoraPico.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\ResumenArticulos\ResumenArticulos.rdlc" />
+    <EmbeddedResource Include="DATALayer\Reportes\ResumenDependencia\ResumenDependencia.rdlc" />
     <EmbeddedResource Include="DATALayer\Reportes\VentarXPeriodo\ReportVentasPeriodo.rdlc" />
     <EmbeddedResource Include="GUILayer\ABMS\AbmArticulo.resx">
       <DependentUpon>AbmArticulo.vb</DependentUpon>
@@ -410,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Reportes\resumenArticulo.resx">
       <DependentUpon>resumenArticulo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\Reportes\resumenDependencia.resx">
+      <DependentUpon>resumenDependencia.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\Reportes\Ventas por período.resx">
       <DependentUpon>Ventas por período.vb</DependentUpon>

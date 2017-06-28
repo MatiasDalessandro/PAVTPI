@@ -405,7 +405,7 @@ Partial Public Class DataSetResumenCtaCte
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddresumenRow(ByVal nroCuentaCorriente As Integer, ByVal nombre As Date, ByVal descripcion As Integer, ByVal saldo As String, ByVal estado As String) As resumenRow
+        Public Overloads Function AddresumenRow(ByVal nroCuentaCorriente As Integer, ByVal nombre As String, ByVal descripcion As String, ByVal saldo As Double, ByVal estado As UInteger) As resumenRow
             Dim rowresumenRow As resumenRow = CType(Me.NewRow,resumenRow)
             Dim columnValuesArray() As Object = New Object() {nroCuentaCorriente, nombre, descripcion, saldo, estado}
             rowresumenRow.ItemArray = columnValuesArray
@@ -442,13 +442,13 @@ Partial Public Class DataSetResumenCtaCte
         Private Sub InitClass()
             Me.columnnroCuentaCorriente = New Global.System.Data.DataColumn("nroCuentaCorriente", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnnroCuentaCorriente)
-            Me.columnnombre = New Global.System.Data.DataColumn("nombre", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnnombre = New Global.System.Data.DataColumn("nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnnombre)
-            Me.columndescripcion = New Global.System.Data.DataColumn("descripcion", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columndescripcion = New Global.System.Data.DataColumn("descripcion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columndescripcion)
-            Me.columnsaldo = New Global.System.Data.DataColumn("saldo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnsaldo = New Global.System.Data.DataColumn("saldo", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnsaldo)
-            Me.columnestado = New Global.System.Data.DataColumn("estado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnestado = New Global.System.Data.DataColumn("estado", GetType(UInteger), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnestado)
         End Sub
         
@@ -611,10 +611,10 @@ Partial Public Class DataSetResumenCtaCte
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property nombre() As Date
+        Public Property nombre() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableresumen.nombreColumn),Date)
+                    Return CType(Me(Me.tableresumen.nombreColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nombre' de la tabla 'resumen' es DBNull.", e)
                 End Try
@@ -626,10 +626,10 @@ Partial Public Class DataSetResumenCtaCte
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property descripcion() As Integer
+        Public Property descripcion() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableresumen.descripcionColumn),Integer)
+                    Return CType(Me(Me.tableresumen.descripcionColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'descripcion' de la tabla 'resumen' es DBNull.", e)
                 End Try
@@ -641,10 +641,10 @@ Partial Public Class DataSetResumenCtaCte
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property saldo() As String
+        Public Property saldo() As Double
             Get
                 Try 
-                    Return CType(Me(Me.tableresumen.saldoColumn),String)
+                    Return CType(Me(Me.tableresumen.saldoColumn),Double)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'saldo' de la tabla 'resumen' es DBNull.", e)
                 End Try
@@ -656,10 +656,10 @@ Partial Public Class DataSetResumenCtaCte
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property estado() As String
+        Public Property estado() As UInteger
             Get
                 Try 
-                    Return CType(Me(Me.tableresumen.estadoColumn),String)
+                    Return CType(Me(Me.tableresumen.estadoColumn),UInteger)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'estado' de la tabla 'resumen' es DBNull.", e)
                 End Try
